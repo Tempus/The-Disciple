@@ -1,7 +1,8 @@
 .psd
 .DS_STORE
 .__MACOSX
-target
+target/
+PSDs/
 
 # Compiled class file
 *.class
