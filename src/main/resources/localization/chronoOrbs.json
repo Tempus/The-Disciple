@@ -1,0 +1,135 @@
+{
+  "Blood": {
+    "NAME": "Blood",
+    "DESCRIPTION": [
+      "Heal #b2 HP at the start of your turn.",
+      "Heal #b3 HP at the start of your turn."
+    ]
+  },
+  "Calendar": {
+    "NAME": "Calendar",
+    "DESCRIPTION": [
+      "Deals #b40 damage to all enemies on shattering.",
+      "Deals #b40 damage to all enemies on shattering."
+    ]
+  },
+  "Calipers": {
+    "NAME": "Calipers",
+    "DESCRIPTION": [
+      "At the start of your turn, lose #b",
+      " #yBlock rather than all of your #yBlock."
+    ]
+  },
+  "Carbon": {
+    "NAME": "Carbon",
+    "DESCRIPTION": [
+      "Adds #b3 additional slow to slowed enemies at the start of your turn.",
+      "Applies #b3 slow to ALL enemies at the start of your turn."
+    ]
+  },
+  "Flame": {
+    "NAME": "Flame",
+    "DESCRIPTION": [
+      "At the start of your turn, draw a random #yAttack.",
+      "At the start of your turn, choose an #yAttack from your #yDeck."
+    ]
+  },
+  "Thunder": {
+    "NAME": "Thunder",
+    "DESCRIPTION": [
+      "At the start of your turn, draw a random #ySkill.",
+      "At the start of your turn, choose an #ySkill from your #yDeck."
+    ]
+  },
+  "Tornado": {
+    "NAME": "Tornado",
+    "DESCRIPTION": [
+      "At the start of your turn, draw a random #yPower.",
+      "At the start of your turn, choose an #yPower from your #yDeck."
+    ]
+  },
+  "Hand": {
+    "NAME": "Hand",
+    "DESCRIPTION": [
+      "Whenever you play a #yPower, a random card in your hand costs #b1 energy less for the turn.",
+      "Whenever you play a #yPower, a random card in your hand costs #b2 energy less for the turn."
+    ]
+  },
+  "IceCream": {
+    "NAME": "Ice Cream",
+    "DESCRIPTION": [
+      "Conserve energy between turns.",
+      "Gain 1 energy at the start of your turn, and conserve energy between turns."
+    ]
+  },
+  "Medicine": {
+    "NAME": "Medicine",
+    "DESCRIPTION": [
+      "Whenever you draw a #yStatus card, #yExhaust it.",
+      "Whenever you draw a #yStatus card, #yExhaust it and draw a card."
+    ]
+  },
+  "Mercury": {
+    "NAME": "Mercury",
+    "DESCRIPTION": [
+      "Deal #b3 damage to ALL enemies at the start of your turn.",
+      "Deal #b5 damage to ALL enemies at the start of your turn."
+    ]
+  },
+  "Nitrogen": {
+    "NAME": "Nitrogen",
+    "DESCRIPTION": [
+      "Gain #b2 #yFocus.",
+      "Gain #b3 #yFocus."
+    ]
+  },
+  "Orichalcum": {
+    "NAME": "Orichalcum",
+    "DESCRIPTION": [
+      "If you end your turn without #yBlock, gain #b6 #yBlock.",
+      "If you end your turn without #yBlock, gain #b8 #yBlock."
+    ]
+  },
+  "Plans": {
+    "NAME": "Plans",
+    "DESCRIPTION": [
+      "Retain #b1 card.",
+      "Retain #b2 cards."
+    ]
+  },
+  "Thread": {
+    "NAME": "Thread",
+    "DESCRIPTION": [
+      "At the start of your turn, gain #b1 #yPlated #yArmor.",
+      "At the start of your turn, gain #b2 #yPlated #yArmor."
+    ]
+  },
+  "Rock": {
+    "NAME": "Rock",
+    "DESCRIPTION": [
+      "Deals #b1 damage to you on shattering.",
+      "Deals #b1 damage to you on shattering."
+    ]
+  },
+  "Whetstone": {
+    "NAME": "Whetstone",
+    "DESCRIPTION": [
+      "At the start of your turn, upgrade an Attack in your hand for the rest of combat.",
+      "At the start of your turn, upgrade ALL Attacks in your hand for the rest of combat."
+    ]
+  },
+  "WarPaint": {
+    "NAME": "War Paint",
+    "DESCRIPTION": [
+      "At the start of your turn, upgrade a Skill in your hand for the rest of combat.",
+      "At the start of your turn, upgrade ALL Skills in your hand for the rest of combat."
+    ]
+  },
+  "Urn": {
+    "NAME": "Urn",
+    "DESCRIPTION": [
+      "Whenever you play a #yPower, heal #b2 HP.",
+      "Whenever you play a #yPower, heal #b3 HP."
+    ]
+  }
+}

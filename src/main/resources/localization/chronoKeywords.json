@@ -1,0 +1,96 @@
+{
+  "DEGRADE": {
+    "NAMES": [
+      "degrades",
+      "degrade"
+    ],
+    "DESCRIPTION": "This card will #ytransform permanently into a worse card after a single use, and cannot be regained."
+  },
+  "SWITCH": { // Mutate? Transmogrify? Translate? Reconstruct? Remodel? Overhauled? Recast? Reworked? Swapped? Altered? Exchanged? Switch?
+    "NAMES": [
+      "switch",
+      "switches",
+      "switched"      
+    ],
+    "DESCRIPTION": "Switched cards will be permanently #ytransformed into another specified card when used, but can be switched back upon further uses."
+  },
+  "LOCK": {
+    "NAMES": [
+      "lock"
+    ],
+    "DESCRIPTION": "Locks your rightmost stored item back into its original card."
+  },
+  "REPLICA": {
+    "NAMES": [
+      "replica",
+      "replicas",
+      "replicate",
+      "replicated"
+    ],
+    "DESCRIPTION": "A #yReplica will float above your character, activating its effect every turn. When the countdown reaches 0, it will #yshatter and be removed."
+  },
+  "SHATTER": {
+    "NAMES": [
+      "shatter",
+      "shatters",
+      "shattered"
+    ],
+    "DESCRIPTION": "Shattering a #yreplica will cause it to be removed."
+  },  
+  "SELFRETAINING": {
+    "NAMES": [
+      "self-retaining"
+    ],
+    "DESCRIPTION": "This card will remain in your hand until played."
+  },
+  "HASTE": {
+    "NAMES": [
+      "haste"
+    ],
+    "DESCRIPTION": "For each card played in a turn, gain #b10% more block from #yBlocks."
+  },
+  "SLOW": {
+    "NAMES": [
+      "slow"
+    ],
+    "DESCRIPTION": "For each card played in a turn, gain #b10% more attack from #yAttacks."
+  },
+  "ARMOR": {
+    "NAMES": [
+      "armor"
+    ],
+    "DESCRIPTION": "At the end of your turn, gain #yBlock. Armor will decrease with every unblocked hit you take."
+  },
+  "FIBONACCI": {
+    "NAMES": [
+      "fibonacci"
+    ],
+    "DESCRIPTION": "Fibonacci effects will increase depending on the size of your hand along the fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34..."
+  },
+  "TEMPO": {
+    "NAMES": [
+      "tempo"
+    ],
+    "DESCRIPTION": "Tempo cards exist for each intent. An attack intent will give an Attack card, a block intent will give a Block card."
+  },
+  "WARDS": {
+    "NAMES": [
+      "ward",
+      "wards"
+    ],
+    "DESCRIPTION": "Wards are #b0 cost Block cards which Exhaust."
+  },
+  "DEBUFF": {
+    "NAMES": [
+      "debuff",
+      "debuffs"
+    ],
+    "DESCRIPTION": "Debuffs are negative effects that are applied, including Weak, Vulnerable, Frail, negative Strength, and more."
+  },
+  "DRAWDOWN": {
+    "NAMES": [
+      "drawdown"
+    ],
+    "DESCRIPTION": "Decreases your card draw temporarily."
+  }
+}

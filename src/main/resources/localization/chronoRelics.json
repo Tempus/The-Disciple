@@ -1,0 +1,59 @@
+{
+  "Carbonhydrate": {
+    "NAME": "Carbonhydrate",
+    "FLAVOR": "Lack of a proper diet can yield to adverse health effects and poor physical condition.",
+    "DESCRIPTIONS": [
+      "#ySlowed enemies begin with an additional three #ySlow."
+    ]
+  },
+  "Chronometer": {
+    "NAME": "Chronometer",
+    "FLAVOR": "Proper measurement yields greater efficiency, or so you have been taught.",
+    "DESCRIPTIONS": [
+      "Retained cards cost 1 energy less until played, and you're immune to Confusion."
+    ]
+  },
+  "Chronograph": {
+    "NAME": "Chronograph",
+    "FLAVOR": "Ermm, description pending.",
+    "DESCRIPTIONS": [
+      "Retained cards cost 1 energy less until played, are upgraded for the battle, and you're immune to Confusion."
+    ]
+  },
+  "Cryopreserver": {
+    "NAME": "Cryopreserver",
+    "FLAVOR": "Freshness is key to retaining great flavour.",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 #yFocus, making Replicas last a turn longer."
+    ]
+  },
+  "HangingClock": {
+    "NAME": "Hanging Clock",
+    "FLAVOR": "Strangely, the hands on this clock only move when you do. And they only count down.",
+    "DESCRIPTIONS": [
+      "Whenever you play #b12 cards, your turn is ended.",
+      "Gain [R] at the start of each turn."
+    ]
+  },
+  "Lockbox": {
+    "NAME": "Lockbox",
+    "FLAVOR": "Keep your valuables safe and sound, and gain access when you need them!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional #yStorage."
+    ]
+  },
+  "SlipperyGoo": {
+    "NAME": "Slippery Goo",
+    "FLAVOR": "Never gonna catch me!",
+    "DESCRIPTIONS": [
+      "Start each combat with Haste."
+    ]
+  },
+  "Metronome": {
+    "NAME": "Metronome",
+    "FLAVOR": "Tick... tick... tick...",
+    "DESCRIPTIONS": [
+      "Draw #b1 additional card at the beginning of battle. #yRetain #b1 additional card each turn."
+    ]
+  }
+}

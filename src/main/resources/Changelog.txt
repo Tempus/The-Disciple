@@ -1,0 +1,417 @@
+Changelog:
+
+0.9.0
+
+	Balance: Locked Calendar Cost increased from 1(0) to 2(1).
+	Balance: Crunch Time damage decreased from 5(7) to 4(7).
+	Balance: Facsimile now generates a Plans Replica from Chronometer and Chronograph.
+	Balance: Watch Command now costs 1 energy.
+	Balance: Locked Thread now costs 1.
+	Balance: Thread+ replica now lasts for 3 turns instead of 4.
+	Balance: Thread replica now gives 2 per turn, and lasts 2 turns.
+	Balance: Alternate Timeline now costs 1.
+	Balance: Chrono-elasticity now applies slow and haste, even if you don't have it previously.
+	Balance: Carbon+ now applies 3 slow instead of five, and does so even if they are not slowed previously.
+	Balance: Flay is now a multi-attack that hits all enemies.
+	Balance: Locked Calendar now costs 1(1) instead of 2(1) and upgrades to be innate.
+	Balance: Vested Legacy now adds 4 Wards to your hand instead of 3.
+	Balance: Locked Hand cost reduced to 1 from 2.
+	Card: Added new card, Locked Whetstone. Upgrades attacks every turn for 5 turns.
+	Card: Added new card, Locked War Paint. Upgrades skill every turn for 5 turns.
+	Card: Removed Locked Hand and Locked Nitrogen.
+	Text: Watch Command description updated.
+	Text: All cards specifying deck now specify draw pile.
+	Text: Locked Urn had "Blood" in the tooltip.
+	Art: Added card art for Exo-Coating.
+	Art: Added card art for Coated Vibrissa.
+	Art: Added card art for Echonomics.
+	Art: Added card art for Crunch Time.
+	Art: Added card art for Break.
+	Art: Added card art for Short Sighted.
+	Art: Added card art for Locked Calendar.
+	Art: Added card art for Facsimile.
+	Art: Added card art for Beats per Minute.
+	Art: Added card art for Oracle Form.
+	Art: Added card art for Keepsakes.
+	Art: Added card art for Viscous Goo.
+	Art: Added card art for Acidic Goo.
+	Art: Added card art for Thick Goo.
+	Art: Added card art for Formal Wear.
+	Art: Added card art for Watch Command.
+	Art: Added card art for Chronograph Relic.
+	Art: Added card art for Escort Command.
+	Art: Added card art for Recurrance.
+	Art: Added card art for Ticked Off.
+	Art: Added card art for Tiring Slam.
+	Art: Added card art for Fallback.
+	Art: Added card art for Backlash.
+	Art: Added card art for Chrono-elasticity.
+	Art: Added card art for Fast Forward.
+	Art: Added card art for Flay.
+	Bug: Preview Card Art improved for non-1080p resolutions.
+
+0.1.7
+
+	Feature: Metrics reporting for all runs is now automated over the internet.
+	Balance: Unlocked Thread duration lowered from 5 to 4 to be congruent with main game.
+	Balance: Tiring Slam damage increased from 9 to 10.
+	Balance: Backlash reverted to two times the damage of enemy block (three when upgraaded).
+	Balance: Fragmentalize is now Rare.
+	Balance: Stagnate now gives temporary Draw Down instead of permanent.
+	Balance: Stagnate Sleep extended to 3 turns, upgrades to one less energy.
+	Balance: Over Time now does 4(7) damage per exhaust card, instead of 3(4).
+	Balance: Wake Up Call now costs 1, instead of 2.
+	Balance: Moderato and Largo Weak/Vuln increased from 1 to 2.
+	Balance: Tempo attacking cards increase damage by 1.
+	Balance: Wake Up Call now self-retains. Damage changed from 60 to 50 (72).
+	Balance: Tiring Slam+ now removes any card from play, which includes hand, deck and discard.
+	Balance: Accruing is now Uncommon.
+	Balance: Locked Tornado is now Uncommon.
+	Balance: Coated Vibrissa / Exo-coating are now Common.
+	Balance: Break is now Uncommon.
+	Balance: Locked Ice Cream is now Uncommon.
+	Balance: Back Four Seconds is now Rare.
+	Balance: Old Timer is now Rare.
+	Balance: Stagnate is now Rare.
+	Balance: Crunch Time no does 7 damage when upgraded instead of 8.
+	Text: Drawdown added as a keyword for Stagnate. Stagnate description updated.
+	Text: Energy icons now show in card descriptions.
+	Text: Temporal Elasticity renamed to Chrono-elasticity.
+	Text: Tempo text is decreased in size, a keyword added for clarity.
+	Text: Beats per minute text was decreased in size, a keyword added for clarity.
+	Text: Master Key text cleaned up a tad.
+	Text: Alternate Timeline typo fixed.
+	Text: Chip off the old Block renamed to Crunch Time.
+	Potion: Added a Haste Tonic. Gives Haste.
+	Potion: Added a Warding Philter. Adds three wards to your hand.
+	Card: Added new card, Oracle Form. A power that lets you choose cards at the start of the turn instead of drawing.
+	Card: Added new card, Spring Forward. Draws 2 cards, retains 1 other card on upgrade. Switches into Fallback.
+	Card: Added new card, Fallback. Gives 2 (3) energy. Exhausts and switches into Spring Forward.
+	Card: Added new card, Clock and Load. It adds 1(2) Focus.
+	Card: Added new card, Fast Forward. It eats time from your replicas and plays the amount of cards from your topdeck.
+	Card: Added new card, Break. It grants you and the enemies block.
+	Card: Added new card, Locked Stone Calendar. It deals 40 damage on shattering in 7 (5) turns.
+	Card: Added new card, Pendulum. Enemies lose all buffs for 3 (5) turns.
+	Card: Added new card, Resonant Call. It uses 3 (5) cards from your deck with block less than your current block.
+	Card: Added new card, Formal Wear. It makes rocks.
+	Card: Removed Old Crunch Time, Feedback Cycle, Flashback, Foolish, Pre-emptive Strike, Sense Knock, Rewind, Timely Solution, and Spare Time.
+	Art: Tempo now has the correct portait shape.
+	Art: Parity portrait frame now correctly switches between skill and attack.
+	Art: Switch Action has improved visuals, feedback, and look and feel.
+	Art: Added card art for Pendulum.
+	Art: Added card art for Clock and Load.
+	Art: Added card art for Fragmentalize.
+	Art: Added card art for Rage Command.
+	Art: Added card art for Presto.
+	Art: Added card art for Vivace.
+	Art: Added card art for Allegro.
+	Art: Added card art for Allegretto.
+	Art: Added card art for Moderato.
+	Art: Added card art for Adagio.
+	Art: Added card art for Largo.
+	Art: Added card art for Lento.
+	Art: Added card art for Grave.
+	Art: Added card art for Accelerando.
+	Art: Added card art for Rallentando.
+	Art: Added card art for Misterioso.
+	Art: Added card art for Ritenuto.
+	Art: Added card art for Sospirando.
+	Bug: Fixed two bugs introduced in Weekly Patch 37.
+	Bug: Switch cards are now playable by Echonomics and Echonomics+.
+	Bug: Switch cards no longer have the possibility of staying in your deck when used with Nilry's Codex or other temporary cards.
+	Bug: Fixed a bug where Coated Vibrissa was not properly applying Block.
+	Bug: Parity should now switch between and Attack and a Skill correctly.
+	Bug: Switch cards now update in your deck correctly.
+	Bug: Now capable of selecting Ascension 20.
+	Bug: Hands Up and Flay now function normally with Recurrance.
+	Bug: Pattern Shift now works correctly with Mugger and Looter.
+	Bug: Sleep and Stun now work correctly with Mugger and Looter.
+
+
+0.1.6
+
+	Custom Mode: All Custom Modes now functional with the character.
+	Custom Mode: Insanity correctly gives 50 cards instead of crashing.
+	Custom Mode: Shiny correctly gives all 13 rares.
+	Custom Mode: Diversity functions on all characters.
+	Balance: Adagio no longer gives a second dexterity on upgrade.
+	Balance: Vivace no longer gives a second strength on upgrade.
+	Balance: Adagio, Allegretto, Moderato, Vivace damage decreased from 12 (18) to 11 (16).
+	Balance: Allegro damage decreased from 18 (25) to 16 (22).
+	Balance: Moderato now deals 1 (2) stacks of Weak instead of 2 (3).
+	Balance: Largo now deals 1 (2) stacks of Vulnerable instead of 2 (3).
+	Balance: Pattern Shift now no longer Common, but is a Basic Card.
+	Balance: Second Hand now no longer Common, but is a Basic Card.
+	Balance: Second Hand is now the Gremlin Match Card, not Pattern Shift.
+	Balance: Backlash now does three times the damage of enemy block (four when upgraaded).
+	Balance: Wards no longer purge,only exhaust,to bring them in line with Shivs.
+	Balance: Short Sighted now hits back in four turns instead of five.
+	Balance: Fragmentalize now does 17 (25) damage instead of 20 (25).
+	Balance: Wind Up damage reduced from 12 (18) to 11 (16).
+	Balance: Wind Up damage reduced from 12 (18) to 11 (16).
+	Balance: Ticked Off Block reduced from 7 to 5.
+	Balance: Unlocked Plans duration increased from 3 to 4.
+	Balance: Unlocked Medicine now only draws replacement cards when upgraded.
+	Balance: Unlocked Hand duration increased from 5 to 8.
+	Balance: Sow damage increased from 11 (15) to 12 (17).
+	Balance: Reap damage increased from 8 (11) to 9 (12).
+	Balance: Beats Per Minute+ damage decrease from 11 to 10.
+	Balance: Unlocked Orichalcum+ block increased from 8 to 9.
+	Balance: Unlocked Orichalcum duration increased from 4 to 5 turns.
+	Balance: Locked Ice Cream cost reduced to 1.
+	Balance: Keepsakes damage reduced from 5 to 4.
+	Card: Removed Nibble from the deck.
+	Card: Removed Bite of Time from the deck.
+	Card: Removed Time Consuming from the deck.
+	Card: Removed Time Devouring from the deck.
+	Card: Removed Forged Guard from the deck.
+	Card: Removed Crafted Guard from the deck.
+	Card: Removed Natural Guard from the deck.
+	Art: Added card art for Locked Hand.
+	Art: Added card art for Locked Mercury.
+	Art: Added card art for Locked Carbon.
+	Art: Added card art for Tempo.
+	Art: Added card art by Lyman for Over Time.
+	Art: Added card art by Lyman for Old Timer.
+	Art: Added card art by Lyman for Bite Command.
+	Art: Run history now has the correct colour card backgrounds.
+	Art: Hips on player corpse decreased in size.
+	Text: Hanging Clock now specifies that it gives 1 energy a turn.
+	Text: Short Sighted text now more clearly implies that you lose HP, not take damage.
+	Text: Facsimile now very clearly tells you that it replicates your relics into replicas, and shows how many.
+	Text: Beats Per Minute+ now specifies an upgraded Tempo card.
+	Text: Keyword issues fixed for all 14 Locked Cards, they should now correctly display the upgrade.
+	Bug: Temporal Elasticity now upgrades by 3 instead of 10, oops.
+	Bug: Short Sighted now correctly ignores block.
+	Bug: Short Sighted now no longer applies damage bonuses to itself.
+	Bug: Escort Command should now correctly calculate block for both turns accounting for powers.
+	Bug: Cards that gain self-retain on upgrade now correctly retain if upgraded during battle.
+	Bug: Echo Form+ will no longer play the last non-played card if no cards were played this turn, but were played last turn.
+	Bug: Runic Pyramid no longer decrements energy cost of cards that are retained while they are in your deck.
+	Bug: Chronometer now clears confusion pretty much always.
+	Bug: Exploders now destroy themselves and damage allies when pattern shifted.
+	Bug: Snake Daggers now destroy themselves when pattern shifted.
+	Bug: Defect Lightning no longer overrides Unlocked Lightning description.
+	Bug: Unlocked Medicine should no longer draw traingular numbers of cards for status effects in hand.
+	Bug: Unlocked hand no longer spews its keyword on cards containing 'hand'.
+
+0.1.5
+
+	Balance: Disciple starting HP increased from 60 to 65.
+	Balance: Fragmentalize now exhausts.
+	Balance: Fragmentalize now upgrades by 5 damage instead of 10.
+	Balance: Temporal Elasticity changed from 10 (12) stacks of slow to 7 (10) stacks.
+	Balance: Engulf now costs 1 instead of 0.
+	Balance: Chip of the Old Block unupgraded damage reduced by 1.
+	Balance: Rallentando+ Slow decreased from 20 to 15.
+	Balance: Accelerando+ Haste decreased from 20 to 15.
+	Relic: SlipperyGoo Uncommon relic that starts each battle with Haste.
+	Relic: Hanging Clock Boss relic that gives one energy, but every time you play 12 cards your turn ends.
+	Relic: Lockbox removed, as it is no longer relevant.
+	Art: Card previews on switches are 20% larger.
+	Art: No more blue smear on top of corpse.
+	Art: Added card art for Alternate Timeline.
+	Art: Added card art for Echoward.
+	Art: Added card art for Primte Time.
+	Art: Added card art for Wind Up.
+	Art: Added card art for Locked Blood.
+	Art: Added card art for Locked Flame.
+	Art: Added card art for Locked Ice Cream.
+	Art: Added card art for Locked Lightning.
+	Art: Added card art for Locked Medicine.
+	Art: Added card art for Locked Nitrogen.
+	Art: Added card art for Locked Orichalcum.
+	Art: Added card art for Locked Plans.
+	Art: Added card art for Locked Thread.
+	Art: Added card art for Locked Tornado.
+	Art: Added card art for Locked Urn.
+	Bug: Fragmentalize no longer upgrades to 50 damage, but to 30 as intended.
+	Bug: Locked Plans now correctly activates at the end of the turn.
+	Bug: No more memory leak. I hope.
+	Bug: Chip Off The Old Block no longer crashes if you have no orbs.
+	Bug: Defect no longer crashes.
+	Bug: Focus no longer breaks countdowns on Replicas.
+	Bug: Rage Command should now correctly respect multi damage, slow, and vuln across all enemies.
+	Bug: Parity should now correctly display the text at all times.
+	Bug: Parity should now correctly set its action when pulled from the deck instead of drawn.
+	Bug: Prime Time should no longer carry retain across card instances, fixing several bugs.
+	Bug: Prime Time should now work with Runic Pyramid.
+	Bug: Time Eater will no longer occasionally discard retained cards.
+	Bug: Switch and Tempo cards will now show the upgraded versions when they are upgraded.
+
+0.1.4
+
+	Mechanic: Locked Cards now create 'Replicas', which only exist for a limited time before shattering.
+	Rework: All Unlocked orbs reimplemented to fit the new replica system.
+	Rework: Master Key now plays all powers in your hand, or hand and discard if upgraded, for the cost of 1.
+	Card: Added new card, Prime Time. A common attack that doubles its damage if it has been retained.
+	Card: Added new card, Beats Per Minute. Killing an enemy generates a tempo card, enabling a powerful new strategy.
+	Card: Added new card, Alternate Timeline. Discard a card to seek for 1 (2) new ones. Allows hand manipulation.
+	Card: Added new card, Temporal Elasticity. X cost card that applies oodles of slow and haste.
+	Card: Added new card, Spare Time. X cost card that plays X cards off your deck for free.
+	Card: Added new card, Crunch Time. Shatters all replicas to gain energy for each one.
+	Card: Added new card, Chip Off the Old Block. Shatters a single replica for massive damage based on the countdown timer.
+	Card: Added new card, Fragmentalize. Shatters all replicas for massive damage to all enemies.
+	Card: Added new card, Facsimile. Copies your relics into replicas.
+	Balance: Sospirando now upgrades from a single multi-turn stun into a multi-target stun.
+	Balance: Keepsakes is now Uncommon instead of Rare.
+	Balance: Keepsakes now costs 1 instead of 2.
+	Balance: Sense Knock Cost lowered to 1 from 2.
+	Balance: Second Hand is now Common instead of Basic.
+	Balance: Pattern Shift now always self-retains, and upgrades to innate.
+	Balance: Fragmentalize damage increased from 7(10) all to 20(30) all. 10 powers + vuln or slow 5 will now kill any boss.
+	Art: Courtesy of RocketPad, added campfire art and character corpse.
+	Art: Energy Orb now has custom artwork for all states, and one cards.
+	Text: Replica tooltips and Keywords reworked to be more descriptive.
+	Text: Pattern Shift and Sense Knock have more descriptive text.
+	Bug: Slime Boss now restarts his cycle from DEBUFF if he gets pattern shifted while sleeping.
+	Bug: Stun should now work correctly on Slime King.
+	Bug: Sleep should now work correctly on Slime King.
+	Bug: Pattern Shift now works as you'd expect for Hexaghost.
+	Bug: Playing a card retained with Second Hand no longer makes it retain the turn it's redrawn.
+	Bug: Fixed Sospirando crashing.
+
+0.1.3
+
+	Balance: Sospirando+ now lasts an extra turn.
+	Balance: Engulf no longer requires a specific enemy intent to function.
+	Balance: Unlocked Carbon+ now gains 2 slow stacks per focus.
+	Balance: Pre-emptive Strike damage increased from 11 damage to 18.
+	Balance: Pre-emptive Strike+ ddamage increased from 11 damage to 25.
+	Balance: Backlash is now Self-Retaining.
+	Balance: Short sighted now damages you for double the healing, five turns from use.
+	Balance: Foolish! Now costs 1 energy.
+	Balance: Parity upgraded to 11 (6) damage from 9 (4).
+	Balance: Parity upgraded to 8 (5) damage from 7 (4).
+	Balance: Bit Command Damage increased from 12 (5) to 14 (5).
+	Balance: Guard Command block increased from 12 to 16.
+	Balance: Locked Lightning cost reduced to 2 from 3.
+	Balance: Locked Flame cost reduced to 2 from 3.
+	Balance: Locked Tornado is now Innate.
+	Art: Placeholder image added for Parity.
+	Art: Placeholder image added for Stagnate.
+	Art: Placeholder image added for Engulf.
+	Art: Placeholder image added for Spare Time courtesy of Skylawinters.
+	Art: Placeholder image added for Master Key.
+	Art: Placeholder image added for Vested Legacy.
+	Art: Placeholder image added for Blue Shift.
+	Art: Placeholder image added for Clock and Load.
+	Art: Placeholder image added for Sow.
+	Art: Compendium frame colour now matches the card colour.
+	Art: Character Select now has screen shake and plays a sound when selecting.
+	Art: Added a character select button art.
+	Text: Compendium Title now mantches the colour correctly.
+	Text: Tempo text switched to 'Self-Retaining' keyword.
+	Text: Hans Up changed to be congruent with vanilla card descriptions.
+	Text: Analog text no longer has a stray newline.
+	Text: Reap+ now specifies ALL enemies.
+	Bug: Grave now correctly upgrades duration of sleep.
+	Bug: Tempo transformed cards no longer exhaust.
+	Bug: Unlocked Thread now correctly respects its maximum, I think.
+	Bug: Unlocked Thread no longer plays an activation animation if it doesn't activate.
+	Bug: Locked Medicine now exhausts status cards properly.
+	Bug: Locked Medicine can no longer draw you another status card, which won't exhaust.
+	Bug: Ward+ now correctly upgrades block by 1 instead of 4.
+	Bug: Echonomics+ no longer crashes if you play no cards after it that turn.
+	Bug: Echonomics+ no longer crashes if you play no cards in a turn.
+	Bug: Echonomics+ now correctly echos the last played card(s) in a turn, not the first.
+	Bug: Parity should now have the correct actions on correct turns.
+	Bug: Temporary cards that switch or degrade no longer stay in your deck unless you have a type copy.
+	Bug: You can now correctly select the ascension level for the Disciple.
+	Bug: Reiterate and Follow Through should now be able to be used correctly.
+	Bug: Presto now correctly identifies bosses.
+
+
+0.1.2
+
+	Feature: Switch cards now preview the card as a tooltip.
+	Feature: Tempo now previews the transformed card on mouse-over of an enemy.
+	Balance: Ward block increased from 3 to 4.
+	Balance: Pattern Shift no longer exhausts.
+	Balance: Pattern Shift upgrades to Self-Retaining.
+	Balance: Echonomics is no longer Ethereal.
+	Balance: Forged Guard is now Rare.
+	Balance: Bite Command now applies Slow/Vuln/Powers based on turn/position when played.
+	Balance: Tempo now Switches the card into your hand.
+	Balance: Analog is now self-retaining.
+	Balance: Analog Escape, Magic, Sleep and Stun intents now give Retain Once instead of permanent Retain power.
+	Balance: Flay damage reduced from 5 damage to 4 damage.
+	Balance: Flay no longer upgrades damage.
+	Balance: Back Four Seconds now exhausts.
+	Balance: Back Four Seconds now costs 2 energy up from 1.
+	Balance: Medicine now always draws cards to replace status effects, and upgrades to draw more.
+	Balance: Orichalcum now gives 4 unupgrade block or 6 upgraded block.
+	Balance: Acidic Goo, Thick Goo, and Viscous Goo are now uncommon from common.
+	Balance: Watch Command, Natural Guard are now uncommon from common.
+	Balance: Follow Through and Reiterate are now uncommon from common.
+	Balance: Short Sighted and Stagnate are now uncommon from common.
+	Balance: Vested Legacy and Spare Time are now uncommon from common.
+	Balance: Locked Nitrogen and Locked Urn are now uncommon from rare.
+	Audio: Metronome now has a unique sound.
+	Art: Card ui colouring desaturated by 15%.
+	Art: Fixed sticking out corners on Card UI for Powers and Attacks.
+	Art: Added placeholder art for Slime Spray.
+	Art: Added placeholder art for Accruing.
+	Text: Flay description updated to be more clear.
+	Text: Hands Up description was clarified.
+	Text: Echoward clarified to indicate subsequent cards.
+	Text: Spare Time clarified to indicate subsequent cards.
+	Text: Over Time+'s tooltip now correctly mirrors the increase.
+	Text: Misterioso's text now correctly upgrades.
+	Text: Bite Command updated to imply "You are doing now's damage, later".
+	Text: Rage Command updated to imply "You are doing now's damage, later".
+	Text: Exo-coating now clearly states plated armor.
+	Text: All switch and degrade cards now specify "+" when upgraded.
+	Bug: Engulf applies slow against the correct intents.
+	Bug: Chronometer correctly prevents Confusion.
+	Bug: Escort Command now takes dexterity into account.
+	Bug: Echoward no longer ignores Wards in your hand when played.
+	Bug: Echoward no longer ignores other Echowards when playing wards.
+	Bug: Tempo now gives the correct card for DEFEND_BUFF and DEFEND_DEBUFF.
+	Bug: Bite Command now upgrades damage correctly.
+	Bug: Bite Command now upgrades turn count correctly.
+	Bug: Retained cards now still decrement energy when Runic Pyramid is present.
+	Bug: Recurrance now correctly counts partial hits as unblocked hits.
+	Bug: Keepsakes now correctly counts partial hits as unblocked hits.
+	Bug: Cuckoo now upgrades to have a decreased cost correctly.
+	Bug: Engulf damage upgrade decreased by 3.
+	Bug: Slime Spray no longer slows dead enemies.
+	Bug: Carbonhydrate no longer shows the relic above their head when they are dead.
+	Bug: Unlocked Carbon no longer shows the relic above their head when they are dead.
+	Bug: Misterioso now actually executes its effect.
+	Bug: Unlocked Mercury now deals damage at start of turn instead of end of turn.
+	Bug: Unlocked Thread now doesn't bypass its limits when focus is applied.
+	Bug: Cards now properly decrement when retained multiple times by Retain Once. But now you have to choose early :3.
+	Bug: Reiterate now counts Parity as a block card.
+	Bug: Parity now updates its description more consistently.
+	Bug: Parity now updates correctly.
+	Bug: Rage Command no longer applies 3 times.
+	Bug: Back to Basics now correctly upgrades Strikes and Defends.
+	Bug: Pandoras Box now correctly removes Strikes and Defends.
+	Bug: Gremlin Match game now offers a Pattern Shift as the class card.
+	Bug: Vampires now correctly remove your strikes.
+	Bug: Orichalcum now stacks with the relic.
+	Bug: Recurrance now correctly lowers the strength gained from Shackles.
+	Bug: Master Key changed to correctly be a skill.
+
+
+
+0.1.1
+
+	Balance: Stagnate -> Decrease Card Draw changed from 2 to 1.
+	Balance: Tiring Slam -> Damage no longer decreases with upgrade.
+	Balance: Tiring Slam -> Damage decreased to 9 from 15.
+	Balance: Locked Ice Cream+ no longer gives energy when you unlock it.
+	Bug: Switching and Degrading cards now transform even when striking the battle finishing blow.
+	Bug: Spare Time+ now upgrades the Wards instead of the original cards.
+	Bug: Echoward+ now upgrades the Wards instead of the original cards.
+	Bug: Tornado+ no longer crashes the game in certain cases.
+	Bug: Pre-emptive Strike now works properly on negative effects.
+	Bug: Locked Hand and Locked Urn no longer often retain effect between battles.
+	Bug: Timely Solution now properly retains more than once per battle.
+	Bug: Timely Solution now does direct damage to avoid HP bar issues.
+	Bug: Locked Plans now correctly lets you retain cards.
+	Text: 'Stacks' removed from seven cards, replaced with simpler wording.
+	Text: Added a 'Debuff' keyword.
+	Text: Locked Hand now correctly specifies a Power instead of a Skill.
+	Text: Locked Urn now correctly specifies a Power instead of a Skill.

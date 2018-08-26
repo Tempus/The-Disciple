@@ -1,0 +1,14 @@
+{
+  "HastePotion": {
+    "NAME": "Haste Tonic",
+    "DESCRIPTIONS": [
+      "Gain #yHaste."
+    ]
+  },
+  "WardPotion": {
+    "NAME": "Warding Philter",
+    "DESCRIPTIONS": [
+      "Add #bthree #yWards to your hand."
+    ]
+  }
+}

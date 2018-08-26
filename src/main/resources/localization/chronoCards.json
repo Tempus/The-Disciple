@@ -1,0 +1,531 @@
+{
+  "Strike_Br": {
+      "NAME": "Strike",
+      "DESCRIPTION": "Deal !D! damage."
+  },
+  "Defend_Br": {
+      "NAME": "Defend",
+      "DESCRIPTION": "Gain !B! Block."
+  },
+  "WindUp": {
+      "NAME": "Wind Up",
+      "DESCRIPTION": "Deal !D! damage. NL Self-Retaining."
+  },
+  "SlimeSpray": {
+      "NAME": "Slime Spray",
+      "DESCRIPTION": "Deal !D! damage and apply Slow to ALL enemies. NL Self-Retaining."
+  },
+  "FollowThrough": {
+      "NAME": "Follow Through",
+      "DESCRIPTION": "Can only be played after an Attack. NL Deal !D! damage. NL Self-Retaining."
+  },
+  "BiteCommand": {
+      "NAME": "Bite Command",
+      "DESCRIPTION": "Deal !D! damage, two turns from now.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage, next turn."
+  },
+  "Accruing": {
+      "NAME": "Accruing",
+      "DESCRIPTION": "Deal !D! fibonacci damage.",
+      "UPGRADE_DESCRIPTION": "Deal !D! fibonacci damage. NL Self-Retaining."
+  },
+  "Backlash": {
+      "NAME": "Backlash",
+      "DESCRIPTION": "If the enemy has Block, deal double the block in damage. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "If the enemy has Block, deal triple times the block in damage. NL Self-Retaining."
+  },
+  "Engulf": {
+      "NAME": "Engulf",
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! Slow."
+  },
+  "WakeUpCall": {
+      "NAME": "Wake Up Call",
+      "DESCRIPTION": "If the enemy is sleeping or stunned, NL deal !D! damage. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "If the enemy is sleeping or stunned, NL deal !D! damage. NL Self-Retaining."
+  },
+  "PreemptiveStrike": {
+      "NAME": "Pre-emptive Strike",
+      "DESCRIPTION": "If the enemy intends to Buff or Debuff, NL deal !D! damage.",
+      "UPGRADE_DESCRIPTION": "If the enemy intends to Buff or Debuff, NL deal !D! damage. NL Self-Retaining."
+  },
+  "TimeDevouring": {
+      "NAME": "Time Devouring",
+      "DESCRIPTION": "Deal !D! damage. NL Degrades into Eat Time.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Degrades into Eat Time+."
+  },
+  "TimeConsuming": {
+      "NAME": "Time Consuming",
+      "DESCRIPTION": "Deal !D! damage. NL Degrades into Bite of Time.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Degrades Bite of Time+."
+  },
+  "BiteofTime": {
+      "NAME": "Bite of Time",
+      "DESCRIPTION": "Deal !D! damage. NL Degrades into Nibble.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Degrades into Nibble+."
+  },
+  "Nibble": {
+      "NAME": "Nibble",
+      "DESCRIPTION": "Deal !D! damage.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Switches into Bite of Time+."
+  },
+  "WastingAway": {
+      "NAME": "Wasting Away",
+      "DESCRIPTION": "Deal !D! damage. NL When played, permanently decrease this card's Attack by !M!. NL Exhaust."
+  },
+  "OverTime": {
+      "NAME": "Over Time",
+      "DESCRIPTION": "Deal !D! damage. NL For each card that you've Exhausted this battle, increase damage by !M!."
+  },
+  "TiringSlam": {
+      "NAME": "Tiring Slam",
+      "DESCRIPTION": "Deal !D! damage. NL Exhaust a card in your hand.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust a card from play."
+  },
+  "Rewind": {
+      "NAME": "Rewind",
+      "DESCRIPTION": "Deal !D! damage. NL If unblocked damage is dealt, place a card from your exhaust pile into your hand.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If unblocked damage is dealt, place two cards from your exhaust pile into your hand."
+  },
+  "Flay": {
+      "NAME": "Flay",
+      "DESCRIPTION": "Deal !D! damage tp ALL enemies. NL Enemies lose strength for unblocked damage dealt for one turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage tp ALL enemies. NL Enemies lose strength for unblocked damage dealt for two turns."
+  },
+  "Recurrance": {
+      "NAME": "Recurrance",
+      "DESCRIPTION": "Deal !D! damage !M! times. NL For each unblocked hit, apply an additional debuff to each existing debuff."
+  },
+  "OldTimer": {
+      "NAME": "Old Timer",
+      "DESCRIPTION": "Deal !D! damage. NL For each card that has been played this battle, increase damage by 1."
+  },
+  "Keepsakes": {
+      "NAME": "Keepsakes",
+      "DESCRIPTION": "Deal !D! damage !M! times. NL For each unblocked hit, retain one card this turn."
+  },
+  "Sow": {
+      "NAME": "Sow",
+      "DESCRIPTION": "Deal !D! damage. NL Switches into Reap.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Switches into Reap+."
+  },
+  "Reap": {
+      "NAME": "Reap",
+      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Switches into Sow.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Switches into Sow+."
+ },
+  "Allegro": {
+      "NAME": "Allegro",
+      "DESCRIPTION": "Deal !D! damage."
+  },
+  "Vivace": {
+      "NAME": "Vivace",
+      "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength."
+  },
+  "Moderato": {
+      "NAME": "Moderato",
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak."
+  },
+  "Allegretto": {
+      "NAME": "Allegretto",
+      "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
+  },
+  "SenseKnock": {
+      "NAME": "Sense Knock",
+      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shift ALL enemies to their next turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Shift ALL enemies to their next turn."
+  },
+  "ASecondTooLate": {
+      "NAME": "A Second Too Late",
+      "DESCRIPTION": "Deal !D! damage. NL If unblocked, heal HP equal to the amount of Slow."
+  },
+  "ThickGoo": {
+      "NAME": "Thick Goo",
+      "DESCRIPTION": "Deal !D! damage. NL Apply slow. NL Switches into Acidic Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply slow. NL Switches into Acidic Goo+."
+  },
+  "AcidicGoo": {
+      "NAME": "Acidic Goo",
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! vulnerable. NL Switches into Viscous Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! vulnerable. NL Switches into Viscous Goo+."
+  },
+  "ViscousGoo": {
+      "NAME": "Viscous Goo",
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Switches into Thick Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Switches into Thick Goo+."
+  },
+  "RageCommand": {
+      "NAME": "Rage Command",
+      "DESCRIPTION": "Deal !D! damage to ALL enemies, 3 turns from now."
+  },
+  "HandsUp": {
+      "NAME": "Hands Up",
+      "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! strength at the end of the turn."
+  },
+  "Stagnate": {
+      "NAME": "Stagnate",
+      "DESCRIPTION": "Put an enemy to sleep for !M! turns. NL Suffer !M! Drawdown. NL Exhaust."
+  },
+  "Lento": {
+      "NAME": "Lento",
+      "DESCRIPTION": "Gain !B! Block."
+  },
+  "Largo": {
+      "NAME": "Largo",
+      "DESCRIPTION": "Gain !B! Block. NL Apply !M! Vulnerable."
+  },
+  "Adagio": {
+      "NAME": "Adagio",
+      "DESCRIPTION": "Gain !B! Block. NL Gain !M! Dexterity."
+  },
+  "Presto": {
+      "NAME": "Presto",
+      "DESCRIPTION": "Escape from a non-boss combat. Receive no rewards.",
+      "UPGRADE_DESCRIPTION": "Escape from a non-boss combat. Receive only gold rewards."
+  },
+  "Grave": {
+      "NAME": "Grave",
+      "DESCRIPTION": "Put target enemy to sleep for !M! turns."
+  },
+  "Sospirando": {
+      "NAME": "Sospirando",
+      "DESCRIPTION": "Apply Stun.",
+      "UPGRADE_DESCRIPTION": "Stun ALL Enemies."
+  },
+  "Misterioso": {
+      "NAME": "Misterioso",
+      "DESCRIPTION": "Play !M! cards randomly from your Exhaust pile."
+  },
+  "SecondHand": {
+      "NAME": "Second Hand",
+      "DESCRIPTION": "Retain !M! card.",
+      "UPGRADE_DESCRIPTION": "Retain !M! cards."
+  },
+  "PatternShift": {
+      "NAME": "Pattern Shift",
+      "DESCRIPTION": "Shift the enemy to their next turn. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "Innate. NL Shift the enemy to their next turn. NL Self-Retaining."
+  },
+  "BlueShift": {
+      "NAME": "Blue Shift",
+      "DESCRIPTION": "Gain !B! Block. NL Self-Retaining."
+  },
+  "TickedOff": {
+      "NAME": "Ticked Off",
+      "DESCRIPTION": "Gain !B! Block. NL Gain Haste. NL Self-Retaining."
+  },
+  "Reiterate": {
+      "NAME": "Reiterate",
+      "DESCRIPTION": "Can only be played after a Block. NL Gain !B! Block. NL Self-Retaining."
+  },
+  "GuardCommand": {
+      "NAME": "Guard Command",
+      "DESCRIPTION": "In two turns, gain !B! Block.",
+      "UPGRADE_DESCRIPTION": "Next turn, gain !B! Block."
+  },
+  "CoatedVibrissa": {
+      "NAME": "Coated Vibrissa",
+      "DESCRIPTION": "Gain !B! Block. NL Switches into Exo-coating.",
+      "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Switches into Exo-coating+."
+  },
+  "Exocoating": {
+      "NAME": "Exo-coating",
+      "DESCRIPTION": "Gain !M! plated armor. NL Switches into Coated Vibrissa.",
+      "UPGRADE_DESCRIPTION": "Gain !M! plated armor. NL Switches into Coated Vibrissa+."
+  },
+  "ForgedGuard": {
+      "NAME": "Forged Guard",
+      "DESCRIPTION": "At the end of each turn, gain !M! Block. NL Degrades into Crafted Guard.",
+      "UPGRADE_DESCRIPTION": "At the end of each turn, gain !M! Block. NL Degrades into Crafted Guard+."
+  },
+  "CraftedGuard": {
+      "NAME": "Crafted Guard",
+      "DESCRIPTION": "Gain !M! plated armor. NL Degrades into Natural Guard.",
+      "UPGRADE_DESCRIPTION": "Gain !M! plated armor. NL Degrades into Natural Guard+."
+  },
+  "NaturalGuard": {
+      "NAME": "Natural Guard",
+      "DESCRIPTION": "After you take damage, gain !M! Block. NL Degrades into Watch Command.",
+      "UPGRADE_DESCRIPTION": "After you take damage, gain !M! Block. NL Degrades into Watch Command+."
+  },
+  "WatchCommand": {
+      "NAME": "Watch Command",
+      "DESCRIPTION": "Block is not removed at the start of your next !M! turns."
+  },
+  "Flashback": {
+      "NAME": "Flashback",
+      "DESCRIPTION": "Put !M! exhausted cards into your hand.",
+      "UPGRADE_DESCRIPTION": "Put !M! exhausted cards into your hand and upgrade them."
+  },
+  "Cuckoo": {
+      "NAME": "Cuckoo",
+      "DESCRIPTION": "Exhaust !M! cards from your draw pile. NL Self-Retaining."
+  },
+  "EscortCommand": {
+      "NAME": "Escort Command",
+      "DESCRIPTION": "Gain !B! Block. NL Next turn gain !M! Block."
+  },
+  "Pendulum": {
+      "NAME": "Pendulum",
+      "DESCRIPTION": "Remove enemy buffs for !M! turns. NL Exhaust."
+      // "UPGRADE_DESCRIPTION": "Reverse enemy buffs for !M! turns. NL Exhaust."
+  },
+  "TimelySolution": {
+      "NAME": "Timely Solution",
+      "DESCRIPTION": "Desummons Minions. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Desummons Minions. NL Self-Retaining."
+  },
+  "Analog": {
+      "NAME": "Analog",
+      "DESCRIPTION": "Gain Strength, Dexterity, Artifacts, or Retain for each enemy based on its intent. NL Self-Retaining."
+  },
+  "ShortSighted": {
+      "NAME": "Short Sighted",
+      "DESCRIPTION": "Heal !M! HP. NL Lose twice that in HP, four turns from now."
+  },
+  "BackFourSeconds": {
+      "NAME": "Back Four Seconds",
+      "DESCRIPTION": "Restore your HP to your last turn's HP. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Restore your HP to your last turn's HP. NL Self-Retaining. NL Exhaust."
+  },
+  "Foolish": {
+      "NAME": "Foolish!",
+      "DESCRIPTION": "Set your HP to half your Max HP. NL Degrades into Short Sighted.",
+      "UPGRADE_DESCRIPTION": "Set your HP to two thirds your Max HP. NL Degrades into Short Sighted."
+  },
+  "Maestoso": {
+      "NAME": "Maestoso",
+      "DESCRIPTION": "Gain !M! Focus."
+  },
+  "Accelerando": {
+      "NAME": "Accelerando",
+      "DESCRIPTION": "Gain !M! Haste."
+  },
+  "Rallentando": {
+      "NAME": "Rallentando",
+      "DESCRIPTION": "Apply !M! Slow."
+  },
+  "Ritenuto": {
+      "NAME": "Ritenuto",
+      "DESCRIPTION": "Apply !M! Weak. NL Apply !M! Vulnerable."
+  },
+  "LockedMercury": {
+      "NAME": "Locked Mercury",
+      "DESCRIPTION": "Unlocks a Mercury Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Mercury+ Replica."
+  },
+  "LockedIceCream": {
+      "NAME": "Locked Ice Cream",
+      "DESCRIPTION": "Unlocks a frozen Dessert Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a frozen Dessert+ Replica."
+  },
+  "LockedOrichalcum": {
+      "NAME": "Locked Orichalcum",
+      "DESCRIPTION": "Unlocks an Orichalcum Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks an Orichalcum+ Replica."
+  },
+  "LockedHand": {
+      "NAME": "Locked Hand",
+      "DESCRIPTION": "Unlocks an old Fossil Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks an old Fossil+ Replica."
+  },
+  "LockedUrn": {
+      "NAME": "Locked Urn",
+      "DESCRIPTION": "Unlocks an Urn Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks an Urn+ Replica."
+  },
+  "LockedCalipers": {
+      "NAME": "Locked Calipers",
+      "DESCRIPTION": "Unlocks a Calipers Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Calipers+ Replica."
+  },
+  "LockedCarbon": {
+      "NAME": "Locked Carbon",
+      "DESCRIPTION": "Unlocks a Carbon Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Carbon+ Replica."
+  },
+  "LockedNitrogen": {
+      "NAME": "Locked Nitrogen",
+      "DESCRIPTION": "Unlocks a liquid Nitrogen Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a liquid Nitrogen+ Replica."
+  },
+  "LockedBlood": {
+      "NAME": "Locked Blood",
+      "DESCRIPTION": "Unlocks a drop of Blood Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a drop of Blood+ Replica."
+  },
+  "LockedFlame": {
+      "NAME": "Locked Flame",
+      "DESCRIPTION": "Unlocks a Flame Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Flame+ Replica."
+  },
+  "LockedLightning": {
+      "NAME": "Locked Lightning",
+      "DESCRIPTION": "Unlocks a bolt of Thunder Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a bolt of Thunder+ Replica."
+  },
+  "LockedTornado": {
+      "NAME": "Locked Tornado",
+      "DESCRIPTION": "Innate. NL Unlocks a Tornado Replica.",
+      "UPGRADE_DESCRIPTION": "Innate. NL Unlocks a Tornado+ Replica."
+  },
+  "LockedThread": {
+      "NAME": "Locked Thread",
+      "DESCRIPTION": "Unlocks a spool of Thread Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a spool of Thread+ Replica."
+  },
+  "LockedMedicine": {
+      "NAME": "Locked Medicine",
+      "DESCRIPTION": "Unlocks a Medicine Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Medicine+ Replica."
+  },
+  "LockedPlans": {
+      "NAME": "Locked Plans",
+      "DESCRIPTION": "Unlocks a key Plans Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a key Plans+ Replica."
+  },
+  "Tempo": {
+      "NAME": "Tempo",
+      "DESCRIPTION": "Based on enemy intent, switches a Tempo card into your hand.",
+      "UPGRADE_DESCRIPTION": "Based on enemy intent, switches an upgraded Tempo card into your hand. NL Self-Retaining."
+  },
+  "Echonomics": {
+      "NAME": "Echonomics",
+      "DESCRIPTION": "The first card you play each turn is played twice. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "The last card you play each turn is played twice. NL Exhaust."
+  },
+  "Parity": {
+      "NAME": "Parity",
+      "DESCRIPTION": "Deal !D! damage on even turns or gain !B! Block on odd turns.",
+      "EXTENDED_DESCRIPTION": ["Deal !D! damage on even turns.",
+        "Gain !B! Block on odd turns."]
+  },
+  "MasterKey": {
+      "NAME": "Master Key",
+      "DESCRIPTION": "Plays all Powers in your hand. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Plays all Powers in your hand and discard Pile. NL Exhaust."
+  },
+  "FeedbackCycle": {
+      "NAME": "Feedback Cycle",
+      "DESCRIPTION": "Add a Ward to your hand for each count of Haste you have.",
+      "UPGRADE_DESCRIPTION": "Add !M! Wards to your hand, and an additional one for each count of Haste you have."
+  },
+  "VestedLegacy": {
+      "NAME": "Vested Legacy",
+      "DESCRIPTION": "Add !M! Wards to your hand and shuffle 2 into your draw pile.",
+      "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 2 into your draw pile."
+  },
+  "ResonantCall": {
+      "NAME": "Resonant Call",
+      "DESCRIPTION": "Play up to the first !M! cards in your draw pile that give less Block than you currently have. NL Exhaust."
+  },
+  "OldClockandLoad": {
+      "NAME": "Clock and Load",
+      "DESCRIPTION": "Deal !D! damage. NL Damage increases for each [E] gained this combat. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Damage increases for each [E] gained this combat."
+  },
+  "OldSpareTime": {
+      "NAME": "Spare Time",
+      "DESCRIPTION": "For each subsequent [E] used this turn, add a Ward to your hand.",
+      "UPGRADE_DESCRIPTION": "For each subsequent [E] used this turn, add an upgraded Ward to your hand."
+  },
+  "Echoward": {
+      "NAME": "Echoward",
+      "DESCRIPTION": "All subsequent cards played this turn also play a Ward.",
+      "UPGRADE_DESCRIPTION": "All subsequent cards played this turn also play an upgraded Ward."
+  },
+
+  "PrimeTime": {
+      "NAME": "Prime Time",
+      "DESCRIPTION": "Deal !D! damage. NL If this card was retained, does twice the damage."
+  },
+  "BeatsPerMinute": { 
+      "NAME": "Beats Per Minute",
+      "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, gain a Tempo card. Exhaust.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, gain an upgraded Tempo card. Exhaust."
+  },
+  "AlternateTimeline": {
+      "NAME": "Alternate Timeline",
+      "DESCRIPTION": "Discard a card. NL Choose !M! card from your draw pile and place it into your hand.",
+      "UPGRADE_DESCRIPTION": "Discard a card. NL Choose !M! cards from your draw pile and place them into your hand."
+  },
+  "Chronoelasticity": { 
+      "NAME": "Chrono-elasticity",
+      "DESCRIPTION": "Apply !M! times X Slow to ALL enemies. NL Gain !M! times X Haste."
+  },
+  "SpareTime": { 
+      "NAME": "Spare Time",
+      "DESCRIPTION": "Play X cards from the top of your deck. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Play X+1 cards from the top of your deck. NL Exhaust."
+  },
+  "OldCrunchTime": {
+      "NAME": "Crunch Time",
+      "DESCRIPTION": "Gain !M! [E] for each replica. NL Shatter all Replicas."
+  },
+  "CrunchTime": { 
+      "NAME": "Crunch Time",
+      "DESCRIPTION": "Shatter the newest Replica. NL Deal !D! damage for each turn on the countdown timer."
+  },
+  "Fragmentalize": {
+      "NAME": "Fragmentalize",
+      "DESCRIPTION": "Deal !D! damage to ALL enemies for each replica. NL Shatter all Replicas. NL Exhaust."
+  },
+  "Facsimile": {
+      "NAME": "Facsimile",
+      "DESCRIPTION": "Turn up to !M! of your relics into Replicas."
+  },
+
+  "OracleForm": {
+      "NAME": "Oracle Form",
+      "DESCRIPTION": "Instead of drawing your hand, discard 2 cards from your draw pile and choose !M!.",
+      "UPGRADE_DESCRIPTION": "Instead of drawing your hand, choose !M! cards from your draw pile."   
+  },
+  "SpringForward": {
+      "NAME": "Spring Forward",
+      "DESCRIPTION": "Innate. NL Draw !M! cards. NL Switches into Fallback.",
+      "UPGRADE_DESCRIPTION": "Innate. NL Draw !M! cards. NL Retain 1 cards. NL Switches into Fallback+."   
+  },
+  "Fallback": {
+      "NAME": "Fallback",
+      "DESCRIPTION": "Gain [E] [E] NL Switches into Spring Forward. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] NL Switches into Spring Forward+. NL Exhaust."   
+  },
+  "ClockandLoad": {
+      "NAME": "Clock and Load",
+      "DESCRIPTION": "Increase each replica's countdown timer by !M!. NL Switches into Fast Forward.",
+      "UPGRADE_DESCRIPTION": "Increase each replica's countdown timer by !M!. NL Switches into Fast Forward+."   
+  },
+  "FastForward": {
+      "NAME": "Fast Forward",
+      "DESCRIPTION": "Each replica counts down and plays 1 card from your draw pile. NL Switches into Clock and Load.",
+      "UPGRADE_DESCRIPTION": "Each replica counts down and plays 2 cards from your draw pile. NL Switches into Clock and Load."
+  },
+  "Break": {
+      "NAME": "Break",
+      "DESCRIPTION": "Gain !B! Block. NL All enemies gain !M! Block."
+  },
+  "LockedCalendar": {
+      "NAME": "Locked Calendar",
+      "DESCRIPTION": "Unlocks a Calendar Replica.",
+      "UPGRADE_DESCRIPTION": "Innate. Unlocks a Calendar+ Replica."
+  },
+  "FormalWear": {
+      "NAME": "Formal Wear",
+      "DESCRIPTION": "Deal !D! damage. Unlocks a Rock Replica.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. Unlocks !M! Rock+ Replicas."
+  },
+  "LockedWarPaint": {
+      "NAME": "Locked War Paint",
+      "DESCRIPTION": "Unlocks a War Paint Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a War Paint+ Replica."
+  },
+  "LockedWhetstone": {
+      "NAME": "Locked Whetstone",
+      "DESCRIPTION": "Unlocks a Whetstone Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a Whetstone+ Replica."
+  },
+
+  "Ward": {
+      "NAME": "Ward",
+      "DESCRIPTION": "Gain !B! Block. NL Exhaust."
+  }
+}
