@@ -45,8 +45,6 @@ public class Flay extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		int block = m.currentBlock;
-
 	    AbstractDungeon.actionManager.addToBottom(
 	    		new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 

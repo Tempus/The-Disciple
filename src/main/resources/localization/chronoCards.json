@@ -88,8 +88,8 @@
   },
   "Flay": {
       "NAME": "Flay",
-      "DESCRIPTION": "Deal !D! damage tp ALL enemies. NL Enemies lose strength for unblocked damage dealt for one turn.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage tp ALL enemies. NL Enemies lose strength for unblocked damage dealt for two turns."
+      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose strength for unblocked damage dealt for one turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose strength for unblocked damage dealt for two turns."
   },
   "Recurrance": {
       "NAME": "Recurrance",

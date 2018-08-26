@@ -17,6 +17,9 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.RetainOncePower;
 
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
+
 public class SecondHand extends MetricsCard {
 	public static final String ID = "SecondHand";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,6 +37,8 @@ public class SecondHand extends MetricsCard {
 
 		this.baseMagicNumber = RETAIN;
 		this.magicNumber = this.baseMagicNumber;
+
+		CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
 	}
 
 	@Override

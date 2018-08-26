@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import chronomuncher.actions.*;
 
 import chronomuncher.cards.MetricsCard;
 import basemod.helpers.TooltipInfo;
@@ -38,7 +38,7 @@ public class LockedCarbon extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
-    	AbstractDungeon.actionManager.addToBottom(new ChannelAction(new UnlockedCarbon(this.upgraded)));
+    	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedCarbon(this.upgraded)));
    	}
 
 	@Override

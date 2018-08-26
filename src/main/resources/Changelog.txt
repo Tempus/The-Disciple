@@ -1,5 +1,14 @@
 Changelog:
 
+0.9.1
+
+	Text: Fixed typo on Flay.
+	Bug: Flay no longer crashes.
+	Bug: Parity description no longer defaults to the last combat turn in the compendium.
+	Bug: Locked Orbs no longer softlock when Fast Mode isn't checked.
+	Compliance: Updated to be more compliant with Basemod 3.0.0 
+
+
 0.9.0
 
 	Balance: Locked Calendar Cost increased from 1(0) to 2(1).
@@ -393,7 +402,6 @@ Changelog:
 	Bug: Orichalcum now stacks with the relic.
 	Bug: Recurrance now correctly lowers the strength gained from Shackles.
 	Bug: Master Key changed to correctly be a skill.
-
 
 
 0.1.1

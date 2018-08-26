@@ -71,7 +71,10 @@ public class Parity extends MetricsCard {
 	// }
 
 	public void updateParity() {
-		if (AbstractDungeon.currMapNode == null) { return; }
+		if (AbstractDungeon.currMapNode == null) { 
+			this.rawDescription = DESCRIPTION;
+			return; 
+		}
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			if (AbstractDungeon.actionManager.turn % 2 == 0) {
 				this.target = AbstractCard.CardTarget.ENEMY;

@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.RetainCardPower;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import chronomuncher.actions.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -174,7 +174,7 @@ public class Facsimile extends MetricsCard {
 
 			if (orb != null) {
 	 			AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
-			    AbstractDungeon.actionManager.addToBottom(new ChannelAction(orb));
+			    AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
 			}
 	    }
 	}

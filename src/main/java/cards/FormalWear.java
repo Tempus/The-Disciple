@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import chronomuncher.actions.*;
 
 import basemod.helpers.TooltipInfo;
 import java.util.List;
@@ -53,7 +53,7 @@ public class FormalWear extends MetricsCard {
 
 		for (int i = 0; i < this.magicNumber; i++) {
 			AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
-	    	AbstractDungeon.actionManager.addToBottom(new ChannelAction(new UnlockedRock(false)));
+	    	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedRock(false)));
 	    }
 	}
 

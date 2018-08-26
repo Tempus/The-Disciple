@@ -13,6 +13,8 @@ import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
+import basemod.helpers.BaseModTags;
+import basemod.helpers.CardTags;
 
 public class Defend_Bronze extends MetricsCard {
 	public static final String ID = "Defend_Br";
@@ -29,6 +31,7 @@ public class Defend_Bronze extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
+		CardTags.addTags(this, BaseModTags.BASIC_DEFEND);
 	}
 
 	@Override
