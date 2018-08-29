@@ -385,8 +385,13 @@
   },
   "Tempo": {
       "NAME": "Tempo",
-      "DESCRIPTION": "Based on enemy intent, switches a Tempo card into your hand.",
-      "UPGRADE_DESCRIPTION": "Based on enemy intent, switches an upgraded Tempo card into your hand. NL Self-Retaining."
+      "DESCRIPTION": "Permanently transforms into a card based on enemy intent.",
+      "UPGRADE_DESCRIPTION": "Permanently transforms into an upgraded card based on enemy intent."
+  },
+  "BeatsPerMinute": { 
+      "NAME": "Beats Per Minute",
+      "DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain an card based on enemy intent. Exhaust."
   },
   "Echonomics": {
       "NAME": "Echonomics",
@@ -411,12 +416,12 @@
   },
   "VestedLegacy": {
       "NAME": "Vested Legacy",
-      "DESCRIPTION": "Add !M! Wards to your hand and shuffle 2 into your draw pile.",
-      "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 2 into your draw pile."
+      "DESCRIPTION": "Add !M! Wards to your hand and shuffle 3 into your draw pile.",
+      "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 3 into your draw pile."
   },
   "ResonantCall": {
       "NAME": "Resonant Call",
-      "DESCRIPTION": "Play up to the first !M! cards in your draw pile that give less Block than you currently have. NL Exhaust."
+      "DESCRIPTION": "Play the first !M! Block cards in your draw pile that give less Block than you currently have. NL Exhaust."
   },
   "OldClockandLoad": {
       "NAME": "Clock and Load",
@@ -437,11 +442,6 @@
   "PrimeTime": {
       "NAME": "Prime Time",
       "DESCRIPTION": "Deal !D! damage. NL If this card was retained, does twice the damage."
-  },
-  "BeatsPerMinute": { 
-      "NAME": "Beats Per Minute",
-      "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, gain a Tempo card. Exhaust.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy, gain an upgraded Tempo card. Exhaust."
   },
   "AlternateTimeline": {
       "NAME": "Alternate Timeline",

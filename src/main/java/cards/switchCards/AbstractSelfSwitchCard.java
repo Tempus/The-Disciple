@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.Texture;
@@ -109,6 +111,28 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 	}
 
 	@Override
+	public void renderInLibrary(SpriteBatch sb)
+	{
+	  if (!(this.current_y >= -200.0F * Settings.scale) && (this.current_y <= Settings.HEIGHT + 200.0F * Settings.scale)) {
+	    return;
+	  }
+	  if ((SingleCardViewPopup.isViewingUpgrade) && (this.isSeen) && (!this.isLocked))
+	  {
+	    AbstractCard copy = makeStatEquivalentCopy();
+	    copy.current_x = this.current_x;
+	    copy.current_y = this.current_y;
+	    copy.drawScale = this.drawScale;
+	    copy.upgrade();
+	    copy.displayUpgrades();
+	    copy.render(sb);
+	  }
+	  else
+	  {
+		super.renderInLibrary(sb);
+	  }
+	}
+
+	@Override
 	public AbstractCard makeCopy() {
 		AbstractCard c = null;
 		try {
@@ -182,6 +206,7 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 			this.magicNumberUp = card.magicNumberUp;
 
 			this.loadCardImage(card.portraitImg);
+			this.textureImg = card.portraitImg;
 
 			this.originalName = card.originalName;
 			this.name = card.name;
@@ -244,7 +269,22 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 
 	@Override
 	public void renderCardTip(SpriteBatch sb) {
-		super.renderCardTip(sb);
+	    if ((!Settings.hideCards) && (this.bullshit))
+	    {
+	      if ((SingleCardViewPopup.isViewingUpgrade) && (this.isSeen) && (!this.isLocked))
+	      {
+	        AbstractCard copy = makeStatEquivalentCopy();
+	        copy.current_x = this.current_x;
+	        copy.current_y = this.current_y;
+	        copy.drawScale = this.drawScale;
+	        copy.upgrade();
+	        
+	        TipHelper.renderTipForCard(copy, sb, copy.keywords);
+	      } else {
+		    super.renderCardTip(sb);
+		  }
+	    }
+
 	    if ((this.cardToPreview != null) && (!Settings.hideCards) && (this.bullshit))
 		{
 			float tmpScale = this.drawScale / 1.5F;

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.screens.select.HandCardSelectScreen;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import java.util.ArrayList;
 
 public class UpgradeCardsInHandAction
@@ -18,6 +18,7 @@ public class UpgradeCardsInHandAction
 {
   private AbstractPlayer p;
   private ArrayList<AbstractCard> cannotUpgrade = new ArrayList();
+  private CardGroup canUpgrade = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
   private boolean upgraded = false;
   public AbstractCard.CardType cardType;
 
@@ -34,6 +35,7 @@ public class UpgradeCardsInHandAction
   {
     if (this.duration == Settings.ACTION_DUR_FAST)
     {
+      // Upgraded Logic
       if (this.upgraded)
       {
         for (AbstractCard c : this.p.hand.getCardsOfType(this.cardType).group) {
@@ -46,60 +48,46 @@ public class UpgradeCardsInHandAction
         this.isDone = true;
         return;
       }
-      for (AbstractCard c : this.p.hand.getCardsOfType(this.cardType).group) {
-        if (!c.canUpgrade()) {
-          this.cannotUpgrade.add(c);
-        }
+
+      // Unupgraded Logic
+      // Find all upgradeable cards
+      for (AbstractCard c : this.p.hand.group) {
+        if (c.canUpgrade() && c.type == this.cardType) {
+          this.canUpgrade.addToBottom(c);
+        } 
       }
-      if (this.cannotUpgrade.size() == this.p.hand.getCardsOfType(this.cardType).group.size())
+      // No cards,so just go back
+      if (this.canUpgrade.size() == 0)
       {
         this.isDone = true;
         return;
       }
-      if (this.p.hand.getCardsOfType(this.cardType).group.size() - this.cannotUpgrade.size() == 1) {
-        for (AbstractCard c : this.p.hand.getCardsOfType(this.cardType).group) {
-          if (c.canUpgrade())
-          {
-            c.upgrade();
-            this.isDone = true;
-            return;
-          }
+      // Only one card, so no need to choose.
+      else if (this.canUpgrade.size() == 1) {
+        for (AbstractCard c : this.canUpgrade.group) {
+          c.upgrade();
+          this.isDone = true;
+          return;
         }
       }
-      this.p.hand.getCardsOfType(this.cardType).group.removeAll(this.cannotUpgrade);
-      if (this.p.hand.getCardsOfType(this.cardType).group.size() > 1)
+      // Choose a card from your hand
+      else
       {
-        AbstractDungeon.handCardSelectScreen.open("Upgrade", 1, false, false, false, true);
+        AbstractDungeon.gridSelectScreen.open(this.canUpgrade, 1, "Upgrade", true);
         tickDuration();
         return;
       }
-      if (this.p.hand.getCardsOfType(this.cardType).group.size() == 1)
-      {
-        this.p.hand.getCardsOfType(this.cardType).getTopCard().upgrade();
-        returnCards();
-        this.isDone = true;
-      }
     }
-    if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved)
+    // Return if we've selected some cards
+    if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0)
     {
-      for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
+      for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards)
       {
         c.upgrade();
-        this.p.hand.addToTop(c);
       }
-      returnCards();
-      AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-      AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+      AbstractDungeon.gridSelectScreen.selectedCards.clear();
       this.isDone = true;
     }
     tickDuration();
-  }
-  
-  private void returnCards()
-  {
-    for (AbstractCard c : this.cannotUpgrade) {
-      this.p.hand.addToTop(c);
-    }
-    this.p.hand.refreshHandLayout();
   }
 }

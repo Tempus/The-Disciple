@@ -26,8 +26,8 @@ public class UnlockedWhetstone extends ReplicaOrb
             upgraded,           // boolean upgraded, 
             0,                  // int passive, 
             0,                  // int passiveUp, 
-            5,                  // int timer
-            5,                  // int timerUp
+            4,                  // int timer
+            4,                  // int timerUp
             new LockedWhetstone(), // AbstractCard locked)
             "Whetstone"); 
 
@@ -36,8 +36,10 @@ public class UnlockedWhetstone extends ReplicaOrb
     
   @Override
   public void atTurnStartPostDraw() {
-    AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new Whetstone()));
-    AbstractDungeon.actionManager.addToBottom(new UpgradeCardsInHandAction(AbstractCard.CardType.ATTACK, this.upgraded));
+    if (this.timer > 0) {
+      AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new Whetstone()));
+      AbstractDungeon.actionManager.addToBottom(new UpgradeCardsInHandAction(AbstractCard.CardType.ATTACK, this.upgraded));
+    }
   }
   
   @Override

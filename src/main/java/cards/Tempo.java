@@ -15,6 +15,9 @@ import chronomuncher.patches.Enum;
 import chronomuncher.actions.IntentTransformAction;
 import chronomuncher.cards.*;
 import chronomuncher.cards.AbstractSwitchCard;
+import basemod.helpers.TooltipInfo;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class Tempo extends AbstractSwitchCard {
@@ -23,6 +26,7 @@ public class Tempo extends AbstractSwitchCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	private static final int COST = 0;
 
@@ -34,19 +38,6 @@ public class Tempo extends AbstractSwitchCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToTop(new IntentTransformAction(p, m, this));
-	}
-
-	@Override
-	public void atTurnStart() {
-		if (this.upgraded) {
-			this.retain = true;
-		}
-	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
 	}
 
 	@Override
@@ -63,11 +54,22 @@ public class Tempo extends AbstractSwitchCard {
 		}
 	}
 
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        this.tips.clear();
+        
+        this.tips.add(new TooltipInfo("Usage", "Hover this card over an enemy to see what it will turn into."));
+        this.tips.add(new TooltipInfo("Intent Transforms", "There are fourteen different intents in the game, each with their own unique card that corresponds to the intent."));
+
+        return this.tips;
+    }
+
 	@Override
     public void calculateCardDamage(AbstractMonster m)
     {
         super.calculateCardDamage(m);
 
+        this.newTarget = m;
         this.bullshit = true;
 
         if (m.intent == AbstractMonster.Intent.ATTACK) {
@@ -102,9 +104,13 @@ public class Tempo extends AbstractSwitchCard {
         	this.cardToPreview = new Misterioso(); }
         else {
         	this.cardToPreview = null;
+            this.newTarget = null;
         	this.bullshit = false;
         }
 
-        if (this.upgraded) { this.cardToPreview.upgrade(); }
+        if (this.cardToPreview != null) {
+            if (this.upgraded) { this.cardToPreview.upgrade(); }
+            this.cardToPreview.superFlash();
+        }
     }	
 }

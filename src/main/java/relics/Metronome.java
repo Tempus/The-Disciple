@@ -31,14 +31,16 @@ public class Metronome extends CustomRelic {
     public void onPlayerEndTurn() {
         // Retained 1 additional card each turn
         flash();
-        AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, CARDS_TO_RETAIN));
+        if (AbstractDungeon.player.hand.group.size() > 0) {
+            AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, CARDS_TO_RETAIN));
+        }
     }
     
     public void atPreBattle()
     {
         flash();
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 2));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
         CardCrawlGame.sound.play("CARD_POWER_IMPACT", 0.1F);
     }
   

@@ -1,5 +1,33 @@
 Changelog:
 
+0.9.2
+
+	Balance: Tempo+ no longer self-retains.
+	Balance: Tempo no longer puts the card into your hand.
+	Balance: Beats per Minute now works on Minions.
+	Balance: Locked Whetstone/War Paint timer lowered from 5 turns to 4 turns.
+	Feedback: Tempo and Beats Per Minute now show the resulting card by the cursor.
+	Text: Typos fixed on Locked Lightning and Locked Flame.
+	Text: Text improved for Tempo and Beats per Minute. Additional tooltips added.
+	Art: Largo now is the correct portrait shape.
+	Art: Adagio close view now has the correct portrait size.
+	Art: Switch cards now show their portraits in close up mode.
+	Art: Added card art for Ward.
+	Bug: Locked Whetstone and War Paint no longer allow you to select any card.
+	Bug: Presto now correctly runs away from enemies and not from bosses, instead of the reverse.
+	Bug: Metronome gave two cards at start of battle instead of 1.
+	Bug: Locked Whetstone and War Paint no longer mess up your hand organization.
+	Bug: Locked Whetstone and War Paint now correctly give the proper card subset to use.
+	Bug: Pattern Shift Transient too many times no longer causes issues.
+	Bug: Gremlin Match no longer has additional cards.
+	Bug: Echonomics+ no longer skips every second echo if you play them on the same turn.
+	Bug: Echonomics now works with Reap/Sow correctly for targetting.
+	Bug: Fixed a Sleep/Stun bug on Slime King.
+	Bug: Metronome, Second Hand, Keepsakes, and Locked Plans no longer pop up a retain dialogue if your hand is empty.
+	Bug: Vivace now correctly gives 1 strength instead of 0.
+	Bug: Adagio now correctly gives 1 strength instead of 0.
+	Bug: Upgraded switch cards no longer go crazy in the compendium.
+
 0.9.1
 
 	Text: Fixed typo on Flay.
@@ -7,7 +35,6 @@ Changelog:
 	Bug: Parity description no longer defaults to the last combat turn in the compendium.
 	Bug: Locked Orbs no longer softlock when Fast Mode isn't checked.
 	Compliance: Updated to be more compliant with Basemod 3.0.0 
-
 
 0.9.0
 
@@ -135,7 +162,6 @@ Changelog:
 	Bug: Hands Up and Flay now function normally with Recurrance.
 	Bug: Pattern Shift now works correctly with Mugger and Looter.
 	Bug: Sleep and Stun now work correctly with Mugger and Looter.
-
 
 0.1.6
 
@@ -330,7 +356,6 @@ Changelog:
 	Bug: Reiterate and Follow Through should now be able to be used correctly.
 	Bug: Presto now correctly identifies bosses.
 
-
 0.1.2
 
 	Feature: Switch cards now preview the card as a tooltip.
@@ -402,7 +427,6 @@ Changelog:
 	Bug: Orichalcum now stacks with the relic.
 	Bug: Recurrance now correctly lowers the strength gained from Shackles.
 	Bug: Master Key changed to correctly be a skill.
-
 
 0.1.1
 

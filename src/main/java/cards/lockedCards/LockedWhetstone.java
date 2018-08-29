@@ -51,9 +51,9 @@ public class LockedWhetstone extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Whetstone", "At the start of your turn, upgrade an Attack in your hand for the rest of combat. NL #pShatters #pin #b5 #pturns."));
+			this.tips.add(new TooltipInfo("Whetstone", "Each turn, upgrade an Attack in your hand for the rest of combat. NL #pShatters #pin #b4 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Whetstone+", "At the start of your turn, upgrade ALL Attacks in your hand for the rest of combat. NL #pShatters #pin #b5 #pturns."));
+			this.tips.add(new TooltipInfo("Whetstone+", "Each turn, upgrade ALL Attacks in your hand for the rest of combat. NL #pShatters #pin #b4 #pturns."));
 		}
 
 	    return this.tips;

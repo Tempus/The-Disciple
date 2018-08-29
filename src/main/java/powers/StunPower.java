@@ -87,9 +87,12 @@ public class StunPower extends AbstractPower
       case "Mugger":
         this.monster.setMove((byte)2, AbstractMonster.Intent.DEFEND);
         break;
+
+      default:
+        this.monster.rollMove(); 
+        break;
    }
 
-    this.monster.setMove((byte)0, AbstractMonster.Intent.STUN);
     this.monster.createIntent();
   }
 }

@@ -70,8 +70,6 @@ public class Presto extends MetricsCard {
 
   		AbstractDungeon.actionManager.addToBottom(
 			new SmokeBombAction(this.upgraded));
-
-
 	}
 
 	@Override

@@ -113,6 +113,7 @@ public class PatternShiftAction extends AbstractGameAction {
 			case "Transient":
 				count = (int)ReflectionHacks.getPrivate(m, m.getClass(), "count");
 				ReflectionHacks.setPrivate(m, m.getClass(), "count", count + 1);
+				AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, m, "Fading", 1));
 				break;
 
 			// There's no avoiding Hyper Beam charging... but you can avoid Hyper Beam....?!

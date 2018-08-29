@@ -38,14 +38,14 @@
     "NAME": "Thunder",
     "DESCRIPTION": [
       "At the start of your turn, draw a random #ySkill.",
-      "At the start of your turn, choose an #ySkill from your #yDeck."
+      "At the start of your turn, choose a #ySkill from your #yDeck."
     ]
   },
   "Tornado": {
     "NAME": "Tornado",
     "DESCRIPTION": [
       "At the start of your turn, draw a random #yPower.",
-      "At the start of your turn, choose an #yPower from your #yDeck."
+      "At the start of your turn, choose a #yPower from your #yDeck."
     ]
   },
   "Hand": {
@@ -114,15 +114,15 @@
   "Whetstone": {
     "NAME": "Whetstone",
     "DESCRIPTION": [
-      "At the start of your turn, upgrade an Attack in your hand for the rest of combat.",
-      "At the start of your turn, upgrade ALL Attacks in your hand for the rest of combat."
+      "Each turn, upgrade an Attack in your hand for the rest of combat.",
+      "Each turn, upgrade ALL Attacks in your hand for the rest of combat."
     ]
   },
   "WarPaint": {
     "NAME": "War Paint",
     "DESCRIPTION": [
-      "At the start of your turn, upgrade a Skill in your hand for the rest of combat.",
-      "At the start of your turn, upgrade ALL Skills in your hand for the rest of combat."
+      "Each turn, upgrade a Skill in your hand for the rest of combat.",
+      "Each turn, upgrade ALL Skills in your hand for the rest of combat."
     ]
   },
   "Urn": {

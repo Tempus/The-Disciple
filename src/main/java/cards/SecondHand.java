@@ -43,8 +43,10 @@ public class SecondHand extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
+		if (p.hand.group.size() > 0) {
+			AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
 		// AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(this.magicNumber), this.magicNumber));
+		}
 	}
 
 	@Override

@@ -55,7 +55,7 @@ public class Vivace extends MetricsCard {
 		// this.baseBlock = BLOCK;
 
 		this.baseMagicNumber = MAGIC;
-		this.magicNumber = UPGRADE_PLUS_MAGIC;
+		this.magicNumber = MAGIC;
 	}
 
 	@Override

@@ -51,9 +51,9 @@ public class LockedWarPaint extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("War Paint", "At the start of your turn, upgrade a Skill in your hand for the rest of combat. NL #pShatters #pin #b5 #pturns."));
+			this.tips.add(new TooltipInfo("War Paint", "Each turn, upgrade a Skill in your hand for the rest of combat. NL #pShatters #pin #b4 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("War Paint+", "At the start of your turn, upgrade ALL Skills in your hand for the rest of combat. NL #pShatters #pin #b5 #pturns."));
+			this.tips.add(new TooltipInfo("War Paint+", "Each turn, upgrade ALL Skills in your hand for the rest of combat. NL #pShatters #pin #b4 #pturns."));
 		}
 
 	    return this.tips;

@@ -25,6 +25,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import chronomuncher.ChronoMod;
+import chronomuncher.actions.PlayEchoCardAction;
 
 public class EchoLatePower
   extends AbstractPower
@@ -80,7 +81,7 @@ public class EchoLatePower
       // if (card.cardID == "Echonomics") { return; }
       
       if (!card.purgeOnUse) {
-        this.doubleCard(card, playedCard.getValue());
+        AbstractDungeon.actionManager.addToBottom(new PlayEchoCardAction(card, playedCard.getValue().target));
       }
     }
 
@@ -90,31 +91,5 @@ public class EchoLatePower
   public void onUseCard(AbstractCard card, UseCardAction action) {
     ChronoMod.log("Adding to list: " + card.cardID);
     this.cardsPlayedThisTurn.addFirst(new Pair(card, action));
-  }
-
-  public void doubleCard(AbstractCard card, UseCardAction action) {
-    ChronoMod.log("Doubling: " + card.cardID);
-    flash();
-    AbstractMonster m = null;
-    if (action.target != null) {
-      m = (AbstractMonster)action.target;
-    }
-    AbstractCard tmp = card.makeStatEquivalentCopy();
-    AbstractDungeon.player.limbo.addToBottom(tmp);
-    tmp.current_x = card.current_x;
-    tmp.current_y = card.current_y;
-    tmp.target_x = (Settings.WIDTH / 2.0F - 300.0F * Settings.scale);
-    tmp.target_y = (Settings.HEIGHT / 2.0F);
-    tmp.freeToPlayOnce = true;
-    tmp.purgeOnUse = true;
-    if (m != null) {
-      tmp.calculateCardDamage(m);
-    }
-    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
-    if (tmp.cardID.equals("Rampage")) {
-      AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card, tmp.magicNumber));
-    } else if (tmp.cardID.equals("Genetic Algorithm")) {
-      AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(card.cardID, card.misc + card.magicNumber, card.magicNumber));
-    }
   }
 }

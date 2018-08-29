@@ -74,7 +74,7 @@ public class IntentTransformAction extends AbstractGameAction {
 
 		if (this.transformee != null) {
 			// Make the new card temporarily in the battle, and discard it
-	  		AbstractDungeon.actionManager.addToTop(new TransformCardPermanently(this.p, this.transformee, newCard, true));
+	  		AbstractDungeon.actionManager.addToTop(new TransformCardPermanently(this.p, this.transformee, newCard, false));
 	  	} else {
 		    UnlockTracker.markCardAsSeen(newCard.cardID);
 		    if ((this.upgraded) && (newCard.canUpgrade())) {

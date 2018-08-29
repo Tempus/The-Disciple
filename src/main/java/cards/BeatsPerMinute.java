@@ -16,6 +16,10 @@ import chronomuncher.patches.Enum;
 import chronomuncher.actions.IntentTransformAction;
 import chronomuncher.cards.*;
 import chronomuncher.cards.AbstractSwitchCard;
+import basemod.helpers.TooltipInfo;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class BeatsPerMinute extends AbstractSwitchCard {
 	public static final String ID = "BeatsPerMinute";
@@ -23,6 +27,7 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;   
+    public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	private static final int COST = 1;
 	private static final int ATTACK_DMG = 8;
@@ -39,7 +44,7 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-	    if (((m.isDying) || (m.currentHealth + m.currentBlock <= this.damage)) && (!m.hasPower("Minion"))) {
+	    if (m.isDying || (m.currentHealth + m.currentBlock <= this.damage)) {
 			AbstractDungeon.actionManager.addToBottom(new IntentTransformAction(p, m, this.upgraded));
 		}
 
@@ -51,6 +56,16 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 	public AbstractCard makeCopy() {
 		return new BeatsPerMinute();
 	}
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        this.tips.clear();
+        
+        this.tips.add(new TooltipInfo("Usage", "Hover this card over an enemy to see what card you gain if they are killed."));
+        this.tips.add(new TooltipInfo("Intent Transforms", "There are fourteen different intents in the game, each with their own unique card that corresponds to the intent."));
+
+        return this.tips;
+    }
 
 	@Override
 	public void upgrade() {
@@ -67,43 +82,48 @@ public class BeatsPerMinute extends AbstractSwitchCard {
     {
         super.calculateCardDamage(m);
 
+        this.newTarget = m;
         this.bullshit = true;
 
         if (m.intent == AbstractMonster.Intent.ATTACK) {
-        	this.cardToPreview = new Allegro(); }
+            this.cardToPreview = new Allegro(); }
         else if (m.intent == AbstractMonster.Intent.ATTACK_BUFF) {
-        	this.cardToPreview = new Vivace(); }
+            this.cardToPreview = new Vivace(); }
         else if (m.intent == AbstractMonster.Intent.ATTACK_DEBUFF) {
-        	this.cardToPreview = new Moderato(); }
+            this.cardToPreview = new Moderato(); }
         else if (m.intent == AbstractMonster.Intent.ATTACK_DEFEND) {
-        	this.cardToPreview = new Allegretto(); }
+            this.cardToPreview = new Allegretto(); }
         else if (m.intent == AbstractMonster.Intent.BUFF) {
-        	this.cardToPreview = new Accelerando(); }
+            this.cardToPreview = new Accelerando(); }
         else if (m.intent == AbstractMonster.Intent.DEBUFF) {
-        	this.cardToPreview = new Rallentando(); }
+            this.cardToPreview = new Rallentando(); }
         else if (m.intent == AbstractMonster.Intent.STRONG_DEBUFF) {
-        	this.cardToPreview = new Ritenuto(); }
+            this.cardToPreview = new Ritenuto(); }
         else if (m.intent == AbstractMonster.Intent.DEFEND) {
-        	this.cardToPreview = new Lento(); }
+            this.cardToPreview = new Lento(); }
         else if (m.intent == AbstractMonster.Intent.DEFEND_BUFF) {
-        	this.cardToPreview = new Adagio(); }
+            this.cardToPreview = new Adagio(); }
         else if (m.intent == AbstractMonster.Intent.DEFEND_DEBUFF) {
-        	this.cardToPreview = new Largo(); }
+            this.cardToPreview = new Largo(); }
         else if (m.intent == AbstractMonster.Intent.ESCAPE) {
-        	this.cardToPreview = new Presto(); }
+            this.cardToPreview = new Presto(); }
         else if (m.intent == AbstractMonster.Intent.MAGIC) {
-        	this.cardToPreview = new Maestoso(); }
+            this.cardToPreview = new Maestoso(); }
         else if (m.intent == AbstractMonster.Intent.SLEEP) {
-        	this.cardToPreview = new Grave(); }
+            this.cardToPreview = new Grave(); }
         else if (m.intent == AbstractMonster.Intent.STUN) {
-        	this.cardToPreview = new Sospirando(); }
+            this.cardToPreview = new Sospirando(); }
         else if (m.intent == AbstractMonster.Intent.UNKNOWN) {
-        	this.cardToPreview = new Misterioso(); }
+            this.cardToPreview = new Misterioso(); }
         else {
-        	this.cardToPreview = null;
-        	this.bullshit = false;
+            this.cardToPreview = null;
+            this.newTarget = null;
+            this.bullshit = false;
         }
 
-        if (this.upgraded) { this.cardToPreview.upgrade(); }
+        if (this.cardToPreview != null) {
+            if (this.upgraded) { this.cardToPreview.upgrade(); }
+            this.cardToPreview.superFlash();
+        }
     }	
 }

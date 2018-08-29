@@ -60,7 +60,7 @@ public class ChronoMod implements
     
     private static final String MOD_NAME = "The Disciple";
     private static final String AUTHOR = "Chronometrics";
-    private static final String DESCRIPTION = "The Disciple is a custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.";
+    private static final String DESCRIPTION = "The Disciple is a challenging custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.";
 
     public static Color BRONZE = new Color(215f / 255f, 145f / 255f, 0f, 1f);
     public static Color DARKBRONZE = new Color(155f / 255f, 105f / 255f, 0f, 1f);
@@ -91,6 +91,7 @@ public class ChronoMod implements
     public void receivePreStartGame() {
         card_uses.clear();
         card_discards.clear();
+        // setGameSwitchCards();
     }
 
     public static void initialize() {
@@ -168,16 +169,80 @@ public class ChronoMod implements
         BaseMod.addRelicToCustomPool(new HangingClock(), Enum.BRONZE);
     }
 
-    @Override
-    public void receiveEditCards() {
-        logger.info("Adding cards....");
+    public void setCompendiumSwitchCards() {
+        ArrayList<AbstractCard> cards = new ArrayList();
 
+        AbstractCard c;
+        c = new SwitchReapSow("Reap");
+        c.cardID = "Reap";
+        BaseMod.addCard(c);
+        BaseMod.addCard(new SwitchReapSow("Sow"));
+
+        AbstractCard d;
+        d = new SwitchExoVibe("Exocoating");
+        d.cardID = "Exocoating";
+        BaseMod.addCard(d);
+        BaseMod.addCard(new SwitchExoVibe("CoatedVibrissa"));
+
+        AbstractCard e;
+        e = new SwitchGoo("AcidicGoo");
+        e.cardID = "AcidicGoo";
+        BaseMod.addCard(e);
+        AbstractCard f;
+        f = new SwitchGoo("ThickGoo");
+        f.cardID = "ThickGoo";
+        BaseMod.addCard(f);
+        BaseMod.addCard(new SwitchGoo("ViscousGoo"));
+
+        AbstractCard g;
+        g = new SwitchSavings("SpringForward");
+        g.cardID = "SpringForward";
+        BaseMod.addCard(g);
+        BaseMod.addCard(new SwitchSavings("Fallback"));
+
+        AbstractCard h;
+        h = new SwitchSharpShooter("ClockandLoad");
+        h.cardID = "ClockandLoad";
+        BaseMod.addCard(h);
+        BaseMod.addCard(new SwitchSharpShooter("FastForward"));
+    }
+
+    public void setGameSwitchCards() {
+        BaseMod.removeCard("Reap", Enum.BRONZE);
+        BaseMod.removeCard("ReapSow", Enum.BRONZE);
+
+        BaseMod.removeCard("Exocoating", Enum.BRONZE);
+        BaseMod.removeCard("ExoVibe", Enum.BRONZE);
+
+        BaseMod.removeCard("AcidicGoo", Enum.BRONZE);
+        BaseMod.removeCard("ThickGoo", Enum.BRONZE);
+        BaseMod.removeCard("Goo", Enum.BRONZE);
+
+        BaseMod.removeCard("SpringForward", Enum.BRONZE);
+        BaseMod.removeCard("DaylightSavings", Enum.BRONZE);
+
+        BaseMod.removeCard("ClockandLoad", Enum.BRONZE);
+        BaseMod.removeCard("SharpShooter", Enum.BRONZE);
+
+        ChronoMod.log("REMOVING CARDS FROM LIBRARY NOW");
         BaseMod.addCard(new SwitchReapSow());
         BaseMod.addCard(new SwitchExoVibe());
         BaseMod.addCard(new SwitchGoo());
         BaseMod.addCard(new SwitchSavings());
         BaseMod.addCard(new SwitchSharpShooter());
-        
+    }
+
+    @Override
+    public void receiveEditCards() {
+        logger.info("Adding cards....");
+
+        // setCompendiumSwitchCards();
+        BaseMod.addCard(new SwitchReapSow());
+        BaseMod.addCard(new SwitchExoVibe());
+        BaseMod.addCard(new SwitchGoo());
+        BaseMod.addCard(new SwitchSavings());
+        BaseMod.addCard(new SwitchSharpShooter());
+
         // BaseMod.addCard(new ASecondTooLate());
         BaseMod.addCard(new Accelerando());
         BaseMod.addCard(new Accruing());

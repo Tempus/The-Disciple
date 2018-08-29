@@ -53,7 +53,7 @@ public class LockedFlame extends MetricsCard {
 		if (!this.upgraded) {
 			this.tips.add(new TooltipInfo("Flame", "Draws an random #yAttack card from your deck at the start of your turn. Won't shatter on its own."));
 		} else {
-			this.tips.add(new TooltipInfo("Flame+", "#gChoose an #yAttack card from your deck at the start of your turn. Won't shatter on its own."));
+			this.tips.add(new TooltipInfo("Flame+", "#gChoose a #yAttack card from your deck at the start of your turn. Won't shatter on its own."));
 		}
 
 	    return this.tips;

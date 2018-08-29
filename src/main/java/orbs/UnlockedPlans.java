@@ -40,9 +40,10 @@ public class UnlockedPlans extends ReplicaOrb
   { 
     // super.onEndOfTurn();
     this.activateEffect();
-    
-    AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, this.passiveAmount));
-    // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
+    if (AbstractDungeon.player.hand.group.size() > 0) {
+      AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, this.passiveAmount));
+      // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
+    }
   }
   
   @Override

@@ -12,8 +12,10 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.core.Settings;
 
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.lang.reflect.*;
+import com.badlogic.gdx.Gdx;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -26,12 +28,18 @@ public abstract class AbstractSwitchCard extends MetricsCard {
 	protected static final float CARD_TIP_PAD = 16.0F * Settings.scale;
 	public boolean bullshit = false;
 	protected Class previewClass;
+	public AbstractMonster newTarget = null;
 
 	public AbstractSwitchCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target, Class previewCard) {
 		super(id, name, img, cost, rawDescription, type, color, rarity, target);
 
 		this.previewClass = previewCard;
 	}
+
+    public void update() {
+        super.update();
+        this.newTarget = null;
+    }
 
 	@Override
 	public void hover() {
@@ -62,18 +70,28 @@ public abstract class AbstractSwitchCard extends MetricsCard {
 		{
 			float tmpScale = this.drawScale / 1.5F;
 
-		    if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) {
-		        return;
-		    }
+			if (newTarget == null) { return; }
 
-		    	//						x    = card center	  + half the card width 			 + half the preview width 					  + Padding			* Viewport scale * drawscale
-	   	    if (this.current_x > Settings.WIDTH * 0.75F) {
-		        this.cardToPreview.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
-		    } else {
-		        this.cardToPreview.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
-		    }
+        	Hitbox target = newTarget.hb;
+        	// Gdx.input.setCursorPosition((int)target.cX, Settings.HEIGHT - (int)target.cY);
+			// this.cardToPreview.current_x = target.cX;
+			// this.cardToPreview.current_y = Settings.HEIGHT - target.cY;
 
-	        this.cardToPreview.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F) - (AbstractCard.IMG_HEIGHT / 2.0F / 1.5F)) * this.drawScale;
+			this.cardToPreview.current_x = Gdx.input.getX() + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F);
+			this.cardToPreview.current_y = Settings.HEIGHT - Gdx.input.getY() + ((AbstractCard.IMG_HEIGHT / 2.0F) / 1.5F);
+
+		    // if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) {
+		    //     return;
+		    // }
+
+		    // 	//						x    = card center	  + half the card width 			 + half the preview width 					  + Padding			* Viewport scale * drawscale
+	   	 //    if (this.current_x > Settings.WIDTH * 0.75F) {
+		    //     this.cardToPreview.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
+		    // } else {
+		    //     this.cardToPreview.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
+		    // }
+
+	     //    this.cardToPreview.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F) - (AbstractCard.IMG_HEIGHT / 2.0F / 1.5F)) * this.drawScale;
 
 	        this.cardToPreview.drawScale = tmpScale;
 	        this.cardToPreview.render(sb);

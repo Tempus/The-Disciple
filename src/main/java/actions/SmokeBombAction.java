@@ -34,13 +34,10 @@ public class SmokeBombAction extends AbstractGameAction {
 	    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
 	      if (m.type == AbstractMonster.EnemyType.BOSS)
 	      {
-	        fightingBoss = true;
-	        break;
+	        this.isDone = true;
+	        return;
 	      }
 	    }
-	    if (!fightingBoss) {
-   			this.isDone = true;	
-	        return; }
 
 	    target = AbstractDungeon.player;
 	    if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
