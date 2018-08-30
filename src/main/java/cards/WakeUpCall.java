@@ -24,7 +24,7 @@ public class WakeUpCall extends MetricsCard {
 
 	private static final int COST = 2;
 	private static final int ATTACK_DMG = 50;
-	private static final int ATTACK_DMG_UP = 22;
+	private static final int ATTACK_DMG_UP = 25;
 
 	public WakeUpCall() {
 		super(ID, NAME, "images/cards/WakeUpCall.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

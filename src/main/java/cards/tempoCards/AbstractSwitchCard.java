@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.core.Settings;
+import com.badlogic.gdx.math.MathUtils;
 
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -29,10 +30,13 @@ public abstract class AbstractSwitchCard extends MetricsCard {
 	public boolean bullshit = false;
 	protected Class previewClass;
 	public AbstractMonster newTarget = null;
+  	public int switchCardUniqueID;
+
 
 	public AbstractSwitchCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target, Class previewCard) {
 		super(id, name, img, cost, rawDescription, type, color, rarity, target);
 
+    	this.switchCardUniqueID =  MathUtils.random(0,2147483646);
 		this.previewClass = previewCard;
 	}
 
@@ -61,6 +65,14 @@ public abstract class AbstractSwitchCard extends MetricsCard {
 		super.unhover();
 		this.bullshit = false;
 		this.cardToPreview = null;
+	}
+
+	public AbstractCard makeStatEquivalentCopy()
+	{
+		AbstractSwitchCard card = (AbstractSwitchCard)super.makeStatEquivalentCopy();
+		card.switchCardUniqueID = this.switchCardUniqueID;
+
+		return card;
 	}
 
 	@Override

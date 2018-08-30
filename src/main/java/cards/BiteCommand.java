@@ -25,8 +25,8 @@ public class BiteCommand extends MetricsCard {
 
 	private static final int COST = 1;
     private static final int TURNS = 2;
-  	private static final int ATTACK_DMG = 14;
-  	private static final int UPGRADE_DMG = 5;
+  	private static final int ATTACK_DMG = 16;
+  	private static final int UPGRADE_DMG = 3;
 	private static final int UPGRADE_AMT = -1;
 
 	public BiteCommand() {

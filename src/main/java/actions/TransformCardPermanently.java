@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import chronomuncher.ChronoMod;
+import chronomuncher.cards.AbstractSwitchCard;
 
 public class TransformCardPermanently extends AbstractGameAction {
 
@@ -60,35 +61,38 @@ public class TransformCardPermanently extends AbstractGameAction {
 		AbstractDungeon.player.masterDeck.addToBottom(this.transformToCard);
 
   		// Remove the original card from the deck
-		this.removeFromCardGroup(AbstractDungeon.player.masterDeck, this.transformee.cardID, this.transformee.upgraded);
+		this.removeFromCardGroup(AbstractDungeon.player.masterDeck, (AbstractSwitchCard)this.transformee, this.transformee.upgraded);
 
 		this.isDone = true;
 	}
 
-	public boolean removeFromCardGroup(CardGroup group, String cardID, boolean upgrade) {
+	public boolean removeFromCardGroup(CardGroup group, AbstractSwitchCard card, boolean upgrade) {
 
 	    for (Iterator<AbstractCard> i = group.group.iterator(); i.hasNext();)
 	    {
 	      AbstractCard e = (AbstractCard)i.next();
-	      if (e.cardID.equals(cardID) && e.upgraded == upgrade)
-	      {
-	        i.remove();
-	        return true;
-	      }
+		  if (e instanceof AbstractSwitchCard) {
+	      	AbstractSwitchCard f = (AbstractSwitchCard)e;
+		    if (f.switchCardUniqueID == card.switchCardUniqueID)
+		    {
+		      i.remove();
+		      return true;
+		    }
+		  }
 	    }
 	    return false;
    	}
 
-	public boolean findInCardGroup(CardGroup group, String cardID, boolean upgrade) {
+	// public boolean findInCardGroup(CardGroup group, String cardID, boolean upgrade) {
 
-	    for (Iterator<AbstractCard> i = group.group.iterator(); i.hasNext();)
-	    {
-	      AbstractCard e = (AbstractCard)i.next();
-	      if (e.cardID.equals(cardID) && e.upgraded == upgrade)
-	      {
-	        return true;
-	      }
-	    }
-	    return false;
-   	}
+	//     for (Iterator<AbstractCard> i = group.group.iterator(); i.hasNext();)
+	//     {
+	//       AbstractCard e = (AbstractCard)i.next();
+	//       if (e.cardID.equals(cardID) && e.upgraded == upgrade)
+	//       {
+	//         return true;
+	//       }
+	//     }
+	//     return false;
+ //   	}
 }

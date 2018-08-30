@@ -54,20 +54,22 @@ public class Recurrance extends MetricsCard {
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), effect));
 		}
 
-		int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
+		if (this.damage > 0) {
+			int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
 
-		if (unblockedHits < 1) { return; }
+			if (unblockedHits < 1) { return; }
 
-		// HITS WERE UNBLOCKED, SO ADD SHIT TO STACKS
-	    for (AbstractPower pow : m.powers) {
-			if (pow.type == AbstractPower.PowerType.DEBUFF) {
-				if (pow.canGoNegative == true) {
-					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-				} else {
-					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
+			// HITS WERE UNBLOCKED, SO ADD SHIT TO STACKS
+		    for (AbstractPower pow : m.powers) {
+				if (pow.type == AbstractPower.PowerType.DEBUFF) {
+					if (pow.canGoNegative == true) {
+						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
+					} else {
+						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
+					}
 				}
-			}
-	    }
+		    }
+		}
 	}
 
 	@Override

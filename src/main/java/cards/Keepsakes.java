@@ -61,7 +61,7 @@ public class Keepsakes extends MetricsCard {
 		int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
 
 		if (unblockedHits > 0 && p.hand.group.size() > 0) {
-		    AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
+		    AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, unblockedHits));
 		    // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(unblockedHits), unblockedHits));
   		}	
 	}

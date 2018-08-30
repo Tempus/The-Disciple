@@ -1,5 +1,27 @@
 Changelog:
 
+0.9.3
+
+	Balance: Second Hand now gives 4 block.
+	Balance: Locked Mercury now costs 1 instead of 2.
+	Balance: Locked Mercury now lasts 1 turn longer.
+	Balance: Ticked Off block increased from 5(8) to 8(12).
+	Balance: Analog now costs 2, and gives 2 of each buff when upgraded.
+	Balance: Break now gives 9(13) block.
+	Balance: Crunch Time damage increased from 4(7) to 5(8).
+	Balance: Alternate Timeline now costs 0, but it's upgrade discards 2 cards.
+	Balance: Escort Command now gives 3/7 and 4/10 block.
+	Balance: Vested Legacy now puts two Wards into your deck instead of 3.
+	Balance: Wind Up now does 13 (18) damage instead of 11(16).
+	Balance: Bite Command now does 16(19) instead of 14(19).
+	Balance: Wake Up Call+ now does 75 damage instead of 72.
+	Bug: Keepsakes now gives the correct amount of retain if partially blocked.
+	Bug: Recurrance no longer divides by 0 and destroys the universe.
+	Bug: Loop now works correctly with replicas.
+	Bug: Single Card View Popup now correctly displays custom tooltips.
+	Bug: Tempo will no longer be retained in your deck if you upgrade it mid-battle then use it.
+	Bug: Locked Medicine now draws the correct amount of cards.
+
 0.9.2
 
 	Balance: Tempo+ no longer self-retains.

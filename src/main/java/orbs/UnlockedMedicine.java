@@ -18,10 +18,13 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.relics.*;
 
+import basemod.BaseMod;
+import basemod.interfaces.PostDrawSubscriber;
+
 import chronomuncher.ChronoMod;
 import chronomuncher.cards.LockedMedicine;
 
-public class UnlockedMedicine extends ReplicaOrb
+public class UnlockedMedicine extends ReplicaOrb implements PostDrawSubscriber
 {
   public boolean doOnce = true;
 
@@ -35,6 +38,8 @@ public class UnlockedMedicine extends ReplicaOrb
             7,                  // int timerUp
             new LockedMedicine(),
             "Medical Kit"); // AbstractCard locked)
+
+    BaseMod.subscribe(this);
   }
     
   @Override
@@ -47,31 +52,43 @@ public class UnlockedMedicine extends ReplicaOrb
     }
   }
 
+  public void receivePostDraw(AbstractCard c) {
+    if (c.type == AbstractCard.CardType.STATUS){
+      this.activateEffect();
+      AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
+      AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
+      AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new MedicalKit()));
+      if (this.upgraded) {
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1)); 
+      }
+    }
+  }
+
   @Override
   public void onStartOfTurn() {
     super.onStartOfTurn();
   }
 
-  @Override
-  public void onCardDraw()
-  { 
-    CardGroup status = AbstractDungeon.player.hand.getCardsOfType(AbstractCard.CardType.STATUS);
+  // @Override
+  // public void onCardDraw()
+  // { 
+  //   CardGroup status = AbstractDungeon.player.hand.getCardsOfType(AbstractCard.CardType.STATUS);
 
-    int i = 0;
+  //   int i = 0;
 
-    for (AbstractCard c : status.group) {
-      ChronoMod.log(c.cardID);
-      this.activateEffect();
+  //   for (AbstractCard c : status.group) {
+  //     ChronoMod.log(c.cardID);
+  //     this.activateEffect();
 
-      i++;
-      AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
-      AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
-      AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, new MedicalKit()));
-    }
+  //     i++;
+  //     AbstractDungeon.actionManager.addToTop(new WaitAction(0.4f));
+  //     AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
+  //     AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, new MedicalKit()));
+  //   }
 
-    if (this.upgraded) {
-      AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.passiveAmount * i)); }
-  }
+  //   if (this.upgraded) {
+  //     AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.passiveAmount * i)); }
+  // }
   
   @Override
   public AbstractOrb makeCopy() { return new UnlockedMedicine(this.upgraded); }

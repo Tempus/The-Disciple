@@ -28,8 +28,8 @@ public class UnlockedMercury extends ReplicaOrb
             upgraded,           // boolean upgraded, 
             3,                  // int passive, 
             5,                  // int passiveUp, 
-            4,                  // int timer
-            4,                  // int timerUp
+            5,                  // int timer
+            5,                  // int timerUp
             new LockedMercury(),
             "Mercury Hourglass"); // AbstractCard locked)
   }

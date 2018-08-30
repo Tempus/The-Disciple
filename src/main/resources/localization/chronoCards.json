@@ -197,8 +197,8 @@
   },
   "SecondHand": {
       "NAME": "Second Hand",
-      "DESCRIPTION": "Retain !M! card.",
-      "UPGRADE_DESCRIPTION": "Retain !M! cards."
+      "DESCRIPTION": "Retain !M! card. NL Gain !B! Block.",
+      "UPGRADE_DESCRIPTION": "Retain !M! cards. NL Gain !B! Block."
   },
   "PatternShift": {
       "NAME": "Pattern Shift",
@@ -276,7 +276,7 @@
   },
   "Analog": {
       "NAME": "Analog",
-      "DESCRIPTION": "Gain Strength, Dexterity, Artifacts, or Retain for each enemy based on its intent. NL Self-Retaining."
+      "DESCRIPTION": "Gain !M! Strength, Dexterity, Artifacts, or Retain for each enemy based on its intent. NL Self-Retaining."
   },
   "ShortSighted": {
       "NAME": "Short Sighted",
@@ -416,8 +416,8 @@
   },
   "VestedLegacy": {
       "NAME": "Vested Legacy",
-      "DESCRIPTION": "Add !M! Wards to your hand and shuffle 3 into your draw pile.",
-      "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 3 into your draw pile."
+      "DESCRIPTION": "Add !M! Wards to your hand and shuffle 2 into your draw pile.",
+      "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 2 into your draw pile."
   },
   "ResonantCall": {
       "NAME": "Resonant Call",

@@ -37,11 +37,11 @@ public class UnlockedOrichalcum extends ReplicaOrb
   { 
     this.activateEffect();
 
-    for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-      if (c.block > 0) {
-        return;
-      }
-    }
+    // for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+    //   if (c.block > 0) {
+    //     return;
+    //   }
+    // }
 
     if (AbstractDungeon.player.currentBlock == 0 || ((AbstractDungeon.player.currentBlock == 6) && (AbstractDungeon.player.hasRelic("Orichalcum"))))
     {

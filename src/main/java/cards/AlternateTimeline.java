@@ -25,7 +25,7 @@ public class AlternateTimeline extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
-	private static final int COST = 1;
+	private static final int COST = 0;
 	private static final int TRADE = 1;
 	private static final int TRADE_UPGRADE = 1;
 
@@ -39,7 +39,7 @@ public class AlternateTimeline extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-    	AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, 1, false));
+    	AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
     	AbstractDungeon.actionManager.addToBottom(new SeekAction(this.magicNumber));
    	}
 

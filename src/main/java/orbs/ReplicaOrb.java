@@ -95,7 +95,7 @@ public abstract class ReplicaOrb extends AbstractOrb {
     this.timer--;
     this.timeElapsed++;
     updateDescription();
-    if (this.timer <= 0) {
+    if (this.timer == 0) {
       AbstractDungeon.actionManager.addToBottom(new ShatterAction(this));
     }
   }

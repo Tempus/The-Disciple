@@ -28,7 +28,7 @@ public class Analog extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-	private static final int COST = 3;
+	private static final int COST = 2;
 	private static final int POWER = 1;
 
 	public Analog() {
@@ -106,7 +106,7 @@ public class Analog extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeBaseCost(2);
+			upgradeMagicNumber(1);
 		}
 	}
 }

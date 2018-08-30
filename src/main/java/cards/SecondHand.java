@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.RetainCardPower;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -37,6 +38,8 @@ public class SecondHand extends MetricsCard {
 
 		this.baseMagicNumber = RETAIN;
 		this.magicNumber = this.baseMagicNumber;
+		this.baseBlock = 4;
+		this.block = 4;
 
 		CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
 	}
@@ -47,6 +50,8 @@ public class SecondHand extends MetricsCard {
 			AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
 		// AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(this.magicNumber), this.magicNumber));
 		}
+
+		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));		
 	}
 
 	@Override
