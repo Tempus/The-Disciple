@@ -144,8 +144,10 @@ public class customMetrics implements Runnable {
   public void run()
   {
     if (AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) { 
-      gatherAllData();
-      sendPost();
+      if ((Settings.UPLOAD_DATA) && (Settings.isStandardRun())) {
+        gatherAllData();
+        sendPost();
+      }
     }
   }
 }

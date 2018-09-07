@@ -55,6 +55,7 @@ public abstract class ReplicaOrb extends AbstractOrb {
   public boolean upgraded = false;
   public boolean showPassive = true;
   public String originalRelic = "";
+  public boolean shattering = false;
  
   public String[] descriptions; 
  
@@ -95,14 +96,15 @@ public abstract class ReplicaOrb extends AbstractOrb {
     this.timer--;
     this.timeElapsed++;
     updateDescription();
-    if (this.timer == 0) {
+    if (this.timer <= 0 && this.shattering == false) {
+      this.shattering = true;
       AbstractDungeon.actionManager.addToBottom(new ShatterAction(this));
     }
   }
 
   public void onCardUse(AbstractCard c) {}
 
-  public void onCardDraw() {}
+  public void onCardDraw(AbstractCard c) {}
 
   public void onShatter() {}
 

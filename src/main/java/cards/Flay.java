@@ -48,17 +48,20 @@ public class Flay extends MetricsCard {
 	    AbstractDungeon.actionManager.addToBottom(
 	    		new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			if (mo.currentBlock < this.damage) {
+		int temp = AbstractDungeon.getCurrRoom().monsters.monsters.size();
+		for (int i = 0; i < temp; i++) {
+			AbstractMonster mo = (AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
+			if (!mo.isDeadOrEscaped() && mo.currentBlock < this.multiDamage[i])
+			{
 	 		    AbstractDungeon.actionManager.addToBottom(
-	 		    	new ApplyPowerAction(mo, p, new StrengthPower(mo, -(this.damage-mo.currentBlock)), -(this.damage-mo.currentBlock), true, AbstractGameAction.AttackEffect.NONE));
+	 		    	new ApplyPowerAction(mo, p, new StrengthPower(mo, -(this.multiDamage[i]-mo.currentBlock)), -(this.multiDamage[i]-mo.currentBlock), true, AbstractGameAction.AttackEffect.NONE));
 
 	 		    if (this.upgraded) {
 		 		    AbstractDungeon.actionManager.addToBottom(
-		 		    	new ApplyPowerAction(mo, p, new DelayedGainStrengthPower(mo, this.magicNumber, this.damage-mo.currentBlock), this.damage-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
+		 		    	new ApplyPowerAction(mo, p, new DelayedGainStrengthPower(mo, this.magicNumber, this.multiDamage[i]-mo.currentBlock), this.multiDamage[i]-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
 		 		} else {
 		 			AbstractDungeon.actionManager.addToBottom(
-	          			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.damage-mo.currentBlock), this.damage-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
+	          			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.multiDamage[i]-mo.currentBlock), this.multiDamage[i]-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
 		 		}
 			}
 		}

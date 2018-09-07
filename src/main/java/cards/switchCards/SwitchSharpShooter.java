@@ -49,6 +49,8 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
+
+		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchSharpShooter () { this(null); }

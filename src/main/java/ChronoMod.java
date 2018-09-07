@@ -36,6 +36,8 @@ import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PostDeathSubscriber;
 import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.PreStartGameSubscriber;
+import basemod.interfaces.PostDrawSubscriber;
+import basemod.interfaces.OnPowersModifiedSubscriber;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
@@ -54,7 +56,8 @@ import org.apache.logging.log4j.Logger;
 @SpireInitializer
 public class ChronoMod implements 
         PostInitializeSubscriber, EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, PreStartGameSubscriber,
-        EditStringsSubscriber, SetUnlocksSubscriber, EditRelicsSubscriber, OnCardUseSubscriber, PostDeathSubscriber {
+        EditStringsSubscriber, SetUnlocksSubscriber, EditRelicsSubscriber, OnCardUseSubscriber, PostDeathSubscriber, PostDrawSubscriber,
+        OnPowersModifiedSubscriber {
 
     public static final Logger logger = LogManager.getLogger(ChronoMod.class.getName());
     
@@ -167,6 +170,7 @@ public class ChronoMod implements
         BaseMod.addRelicToCustomPool(new Carbonhydrate(), Enum.BRONZE);
         BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.BRONZE);
         BaseMod.addRelicToCustomPool(new HangingClock(), Enum.BRONZE);
+        BaseMod.addRelicToCustomPool(new BlueBox(), Enum.BRONZE);
     }
 
     public void setCompendiumSwitchCards() {
@@ -391,7 +395,6 @@ public class ChronoMod implements
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
     }
 
-    @Override
     public void receiveCardUsed(AbstractCard c)
     { 
         addCardUsage(c.name);
@@ -402,6 +405,24 @@ public class ChronoMod implements
                 u.onCardUse(c);
             }
         }    
+    }
+
+    public void receivePostDraw(AbstractCard c) {
+        for (AbstractOrb o : AbstractDungeon.player.orbs) {
+            if (o instanceof ReplicaOrb) {
+                ReplicaOrb u = (ReplicaOrb)o;
+                u.onCardDraw(c);
+            }
+        }    
+    }
+
+    public void receivePowersModified() {
+        if (AbstractDungeon.player.hasRelic(Chronometer.ID))  {
+            ((Chronometer)AbstractDungeon.player.getRelic(Chronometer.ID)).removeConfusion();
+        }
+        if (AbstractDungeon.player.hasRelic(Chronograph.ID))  {
+            ((Chronograph)AbstractDungeon.player.getRelic(Chronograph.ID)).removeConfusion();
+        }
     }
 
     @Override

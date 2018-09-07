@@ -51,6 +51,11 @@ public class SwitchGoo extends AbstractSelfSwitchCard {
 		
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
+
+		if (this.purgeOnUse) { 
+			this.switchTo(switchID);
+			this.switchTo(switchID);
+		}
 	}
 
 	public SwitchGoo() { this(null); }

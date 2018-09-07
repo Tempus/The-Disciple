@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -20,45 +21,25 @@ public class Chronometer extends CustomRelic {
     private AbstractPlayer p;
 
     public Chronometer() {
-        super(ID, new Texture("images/relics/Chronometer.png"), RelicTier.STARTER, LandingSound.CLINK);
+        super(ID, new Texture("images/relics/Chronometer.png"), new Texture("images/relics/outline/Chronometer.png"), RelicTier.STARTER, LandingSound.CLINK);
     }
 
     @Override
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }
-
-    // Depreciated, using Patch instead.
-    public void cardCostDecrease() {
-        // Retained Cards cost 1 less energy
-
-        // Grabs all cards
-        // Iterate over each card to see if it was retained
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            ChronoMod.log(c.name + ": " + Boolean.toString(c.retain));
-            if (c.retain) {
-                ChronoMod.log("Was retained.");
-                // Flash and decrease energy
-                flash();
-                c.modifyCostForTurn(-1);
-            }
-        }
-
-        // No Confuse
-        this.removeConfusion();
-    }
     
-    public void atPreBattle()               { this.removeConfusion(); }
-    public void atBattleStart()             { this.removeConfusion(); }
-    public void atBattleStartPreDraw()      { this.removeConfusion(); }
-    public void atTurnStart()               { this.removeConfusion(); }
-    public void atTurnStartPostDraw()       { this.removeConfusion(); }
-    public void onCardDraw(AbstractCard c)  { this.removeConfusion(); }
-    public void onDrawOrDiscard()           { this.removeConfusion(); }
-
+    // Called from onPowersModified Subscriber
     public void removeConfusion() {
-        this.p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.p, this.p, "Confusion"));
+        p = AbstractDungeon.player;
+        if (p.hasPower("Confusion")) {
+            p.powers.remove(p.getPower("Confusion"));
+            AbstractDungeon.effectList.add(new PowerBuffEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - 48.0F, "Immune"));
+        }
+        if (p.hasPower("TPH_Confusion")) {
+            p.powers.remove(p.getPower("TPH_Confusion"));
+            AbstractDungeon.effectList.add(new PowerBuffEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - 48.0F, "Immune"));
+        }
     }
 
     @Override

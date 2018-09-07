@@ -1,5 +1,32 @@
 Changelog:
 
+0.9.4
+
+	Feature: Pattern Shift now has a preview that will show you what it does! No more disappointment.
+	Relic: Added Blue Box, a relic that lets you choose two cards from all the cards you skipped.
+	Feedback: Trying to channel an eleventh replica now pops up an error thought bubble.
+	Feedback: Presto now has feedback on attempting to run from an area Boss.
+	Feedback: Confusion Immunity now has better feedback.
+	Art: Chronometer has improved artwork courtesy of Zandorum.
+	Art: Chronograph has new artwork.
+	Art: Relics now have correct outlines.
+	Text: Death Text on heart kill now is updated.
+	Text: Alternate Timeline now correctly specifies the right amount of cards to be discarded and added to your hand.
+	Bug: Locked Medicine no longer stays active after use.
+	Bug: Crunch Time now attempts to use the newest non-zero timer orb, preventing crashes with lightning orbs and such.
+	Bug: Replica orbs should no longer double shatter (and crash) with negative forcus from Biased Cognition.
+	Bug: Multiple asleep enemies won't transfer their wake up to the newest enemy put asleep any more.
+	Bug: Flay now applies the correct strength down to mutliple enemies, instead of the first enemy's strength down to all.
+	Bug: Bottles now correctly update the card bottled when switched.
+	Bug: Bottled Tempo will now switch to the resulting card (!!!).
+	Bug: Player disableable metrics settings are now respected.
+	Bug: Nilry's Codex Tempos will no longer remove Tempos from your Deck when transforming.
+	Bug: Metrics now respect player settings.
+	Bug: Echo and Late Echo now correctly play Tempo cards.
+	Bug: Echo and Late Echo now duplicate the original switch card played and not the switched one.
+	Bug: Confusion immunity now prevents confusion, rather than occuring at the end of the action queue, clearing out many bugs.
+	Bug: The Guardian now correctly Mode Shifts during Pattern Shift.
+
 0.9.3
 
 	Balance: Second Hand now gives 4 block.

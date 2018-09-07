@@ -21,7 +21,7 @@ public class Carbonhydrate extends CustomRelic {
     public static final String ID = "Carbonhydrate";
 
     public Carbonhydrate() {
-        super(ID, new Texture("images/relics/Carbonhydrate.png"), RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, new Texture("images/relics/Carbonhydrate.png"), new Texture("images/relics/outline/Carbonhydrate.png"), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override

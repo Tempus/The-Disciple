@@ -445,8 +445,8 @@
   },
   "AlternateTimeline": {
       "NAME": "Alternate Timeline",
-      "DESCRIPTION": "Discard a card. NL Choose !M! card from your draw pile and place it into your hand.",
-      "UPGRADE_DESCRIPTION": "Discard a card. NL Choose !M! cards from your draw pile and place them into your hand."
+      "DESCRIPTION": "Discard a card. NL Choose a card from your draw pile and place it into your hand.",
+      "UPGRADE_DESCRIPTION": "Discard !M! cards. NL Choose !M! cards from your draw pile and place them into your hand."
   },
   "Chronoelasticity": { 
       "NAME": "Chrono-elasticity",

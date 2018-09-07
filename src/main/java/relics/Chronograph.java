@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -19,7 +20,7 @@ public class Chronograph extends CustomRelic {
     private AbstractPlayer p;
 
     public Chronograph() {
-        super(ID, new Texture("images/relics/Chronograph.png"), RelicTier.BOSS, LandingSound.CLINK);
+        super(ID, new Texture("images/relics/Chronograph.png"), new Texture("images/relics/outline/Chronograph.png"), RelicTier.BOSS, LandingSound.CLINK);
     }
 
     @Override
@@ -27,17 +28,17 @@ public class Chronograph extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
     
-    public void atPreBattle()               { this.removeConfusion(); }
-    public void atBattleStart()             { this.removeConfusion(); }
-    public void atBattleStartPreDraw()      { this.removeConfusion(); }
-    public void atTurnStart()               { this.removeConfusion(); }
-    public void atTurnStartPostDraw()       { this.removeConfusion(); }
-    public void onCardDraw(AbstractCard c)  { this.removeConfusion(); }
-    public void onDrawOrDiscard()           { this.removeConfusion(); }
-
+    // Called from onPowersModified Subscriber
     public void removeConfusion() {
-        this.p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.p, this.p, "Confusion"));
+        p = AbstractDungeon.player;
+        if (p.hasPower("Confusion")) {
+            p.powers.remove(p.getPower("Confusion"));
+            AbstractDungeon.effectList.add(new PowerBuffEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - 48.0F, "Immune"));
+        }
+        if (p.hasPower("TPH_Confusion")) {
+            p.powers.remove(p.getPower("TPH_Confusion"));
+            AbstractDungeon.effectList.add(new PowerBuffEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - 48.0F, "Immune"));
+        }
     }
 
     @Override

@@ -16,7 +16,7 @@ public class Cryopreserver extends CustomRelic {
     public static final String ID = "Cryopreserver";
 
     public Cryopreserver() {
-        super(ID, new Texture("images/relics/Cryopreserver.png"), RelicTier.RARE, LandingSound.CLINK);
+        super(ID, new Texture("images/relics/Cryopreserver.png"), new Texture("images/relics/outline/Cryopreserver.png"), RelicTier.RARE, LandingSound.CLINK);
     }
 
     @Override

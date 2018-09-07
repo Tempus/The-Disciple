@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import chronomuncher.ChronoMod;
 
@@ -34,6 +35,7 @@ public class SmokeBombAction extends AbstractGameAction {
 	    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
 	      if (m.type == AbstractMonster.EnemyType.BOSS)
 	      {
+     	 	AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "There's no escape!", true));
 	        this.isDone = true;
 	        return;
 	      }

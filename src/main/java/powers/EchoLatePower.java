@@ -90,6 +90,10 @@ public class EchoLatePower
 
   public void onUseCard(AbstractCard card, UseCardAction action) {
     ChronoMod.log("Adding to list: " + card.cardID);
-    this.cardsPlayedThisTurn.addFirst(new Pair(card, action));
+    if (card.cardID == "Tempo") {
+      this.cardsPlayedThisTurn.addFirst(new Pair(card.makeStatEquivalentCopy(), action));
+    } else {
+      this.cardsPlayedThisTurn.addFirst(new Pair(card, action));
+    }
   }
 }

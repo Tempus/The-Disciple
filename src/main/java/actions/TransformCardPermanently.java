@@ -11,6 +11,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.relics.BottledFlame;
+import com.megacrit.cardcrawl.relics.BottledLightning;
+import com.megacrit.cardcrawl.relics.BottledTornado;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -59,6 +62,23 @@ public class TransformCardPermanently extends AbstractGameAction {
 
   		// And add it to the deck
 		AbstractDungeon.player.masterDeck.addToBottom(this.transformToCard);
+
+		// Update Bottles
+		 if (this.transformee.inBottleFlame) { 
+		 	BottledFlame bf = (BottledFlame)AbstractDungeon.player.getRelic("Bottled Flame");
+		 	bf.card = this.transformToCard;
+		 	bf.setDescriptionAfterLoading();
+		 }
+		 if (this.transformee.inBottleLightning) { 
+		 	BottledLightning bl = (BottledLightning)AbstractDungeon.player.getRelic("Bottled Lightning");
+		 	bl.card = this.transformToCard;
+		 	bl.setDescriptionAfterLoading();
+		 }
+		 if (this.transformee.inBottleTornado) { 
+		 	BottledTornado bt = (BottledTornado)AbstractDungeon.player.getRelic("Bottled Tornado");
+		 	bt.card = this.transformToCard;
+		 	bt.setDescriptionAfterLoading();
+		 }
 
   		// Remove the original card from the deck
 		this.removeFromCardGroup(AbstractDungeon.player.masterDeck, (AbstractSwitchCard)this.transformee, this.transformee.upgraded);

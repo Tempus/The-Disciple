@@ -293,19 +293,6 @@ public class Chronomuncher extends CustomPlayer {
     }
 
     @Override
-    public void draw(int numCards) {
-        super.draw(numCards);
-
-        // Orb callback
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (o instanceof ReplicaOrb) {
-                ReplicaOrb u = (ReplicaOrb)o;
-                u.onCardDraw();
-            }
-        }    
-    }
-
-    @Override
     public void applyStartOfTurnPostDrawRelics() {
         super.applyStartOfTurnPostDrawRelics();
 

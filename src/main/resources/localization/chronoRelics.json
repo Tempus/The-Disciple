@@ -55,5 +55,12 @@
     "DESCRIPTIONS": [
       "Draw #b1 additional card at the beginning of battle. #yRetain #b1 additional card each turn."
     ]
+  },
+  "BlueBox": {
+    "NAME": "Blue Box",
+    "FLAVOR": "It doesn't look like all those cards should fit in it...",
+    "DESCRIPTIONS": [
+      "Add #b2 cards to your deck from the cards you skipped over earlier."
+    ]
   }
 }

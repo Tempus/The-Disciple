@@ -45,13 +45,14 @@ public class SwitchExoVibe extends AbstractSelfSwitchCard {
 
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
+
+		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchExoVibe() { this(null); }
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
 		switch (this.currentID) {
 			case "Exocoating":
 				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.SHIELD));

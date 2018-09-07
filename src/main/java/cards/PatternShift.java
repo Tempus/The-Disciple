@@ -8,12 +8,23 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.vfx.*;
+import com.megacrit.cardcrawl.vfx.combat.*;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.RandomXS128;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
+import chronomuncher.vfx.PatternShiftPreviewEffect;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.PatternShiftAction;
+
+import basemod.ReflectionHacks;
+
+import java.lang.reflect.*;
 
 
 public class PatternShift extends MetricsCard {
@@ -24,6 +35,11 @@ public class PatternShift extends MetricsCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	private static final int COST = 0;
+	public static int rollSeed = 0;
+	public EnemyMoveInfo move;
+	public EnemyMoveInfo nextMove;
+	public AbstractMonster newTarget;
+	public boolean intentRevert = false;
 
 	public PatternShift() {
 		super(ID, NAME, "images/cards/PatternShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -32,14 +48,13 @@ public class PatternShift extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToTop(new PatternShiftAction(p, m));
+		AbstractDungeon.actionManager.addToTop(new PatternShiftAction(p, m, this.rollSeed));
 	}
 
 	@Override
 	public void atTurnStart() {
-		// if (this.upgraded) {
-			this.retain = true;
-		// }
+		this.rollSeed = AbstractDungeon.aiRng.random(99);
+		this.retain = true;
 	}
 
 	@Override
@@ -56,4 +71,53 @@ public class PatternShift extends MetricsCard {
    		   	this.isInnate = true;
 		}
 	}
+
+	@Override
+    public void calculateCardDamage(AbstractMonster m)
+    {
+        super.calculateCardDamage(m);
+
+        if (this.newTarget == null) {
+	        this.newTarget = m;
+
+	        this.move = (EnemyMoveInfo)ReflectionHacks.getPrivate(m, AbstractMonster.class, "move");
+			
+			// Save the random state
+			int counter = AbstractDungeon.aiRng.counter;
+			long seed0 = (long)ReflectionHacks.getPrivate(AbstractDungeon.aiRng.random, RandomXS128.class, "seed0");
+			long seed1 = (long)ReflectionHacks.getPrivate(AbstractDungeon.aiRng.random, RandomXS128.class, "seed1");
+
+			PatternShiftAction.previewNextIntent(this.newTarget, this.rollSeed);
+
+			// Restore the random state
+			AbstractDungeon.aiRng.counter = counter;
+			AbstractDungeon.aiRng.random.setState(seed0, seed1);
+		}
+
+		this.intentRevert = false;
+	}
+
+    public void update() {
+        super.update();
+
+        if (this.newTarget != null && !this.intentRevert) {
+			AbstractDungeon.effectsQueue.add(new PatternShiftPreviewEffect(this.newTarget.intentHb.cX, this.newTarget.intentHb.cY, 0.75F, 1.75F));
+		}
+
+        if (this.newTarget != null && this.intentRevert) {
+			// Remove the move we added, and the one we're about to readd
+		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
+		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
+
+		    // Set old move
+	        this.newTarget.setMove(this.move.nextMove, this.move.intent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
+			this.newTarget.createIntent();
+
+			PatternShiftAction.restorePreviewedSpecialCases(this.newTarget, this.rollSeed);
+
+	        this.newTarget = null;
+        }
+
+        this.intentRevert = true;
+    }	
 }

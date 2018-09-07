@@ -17,7 +17,7 @@ public class HangingClock extends CustomRelic {
     public static final String ID = "HangingClock";
 
     public HangingClock() {
-        super(ID, new Texture("images/relics/HangingClock.png"), RelicTier.BOSS, LandingSound.CLINK);
+        super(ID, new Texture("images/relics/HangingClock.png"), new Texture("images/relics/outline/HangingClock.png"), RelicTier.BOSS, LandingSound.CLINK);
     }
 
     @Override

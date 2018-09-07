@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -48,14 +49,28 @@ public class CrunchTime extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
+		// Return if there are no orbs
 		if (p.orbs.size() == 0) { return; }
 
-		ReplicaOrb r = (ReplicaOrb)p.orbs.get(p.orbs.size()-1);
+		// Get the newest Replica orb with a non-zero timer
+		ReplicaOrb r = null;
+		for (AbstractOrb o : p.orbs) {
+            if (o instanceof ReplicaOrb) {
+            	if (((ReplicaOrb)o).timer > 0) {
+                	r = (ReplicaOrb)o;
+            	}
+            }
+		}
+
+		if (r == null) { return; }
+
+		// Read the timer
 		int hits = r.timer;
 
+		// Shatter it
 		AbstractDungeon.actionManager.addToBottom(new ShatterAction(r));
 
-		// SANE MULTI-HITS? OR MAYBE COPY PASTA WAS RIGHT ALL ALONG
+		// Hit a whole bunch
 		for (int hit = 0; hit < hits; hit++) {
 			AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));

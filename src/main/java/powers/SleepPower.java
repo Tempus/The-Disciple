@@ -26,7 +26,7 @@ public class SleepPower extends AbstractPower
   private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Sleep");
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-  public static AbstractMonster monster;
+  public AbstractMonster monster;
 
   public SleepPower(AbstractMonster owner, int amount)
   {

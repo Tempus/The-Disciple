@@ -14,6 +14,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.relics.BottledFlame;
+import com.megacrit.cardcrawl.relics.BottledLightning;
+import com.megacrit.cardcrawl.relics.BottledTornado;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -229,6 +232,15 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
     		initializeTitle();
         	initializeDescription();
     		resetAttributes();
+
+    		if (AbstractDungeon.player != null) {
+	    		if (AbstractDungeon.player.hasRelic("Bottled Flame")) { 
+	    			((BottledFlame)AbstractDungeon.player.getRelic("Bottled Flame")).setDescriptionAfterLoading(); }
+	    		if (AbstractDungeon.player.hasRelic("Bottled Lightning")) { 
+	    			((BottledLightning)AbstractDungeon.player.getRelic("Bottled Lightning")).setDescriptionAfterLoading(); }
+	    		if (AbstractDungeon.player.hasRelic("Bottled Tornado")) { 
+	    			((BottledTornado)AbstractDungeon.player.getRelic("Bottled Tornado")).setDescriptionAfterLoading(); }
+	    	}
 		}
 	}
 
