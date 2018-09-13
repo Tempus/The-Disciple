@@ -43,6 +43,7 @@ import com.megacrit.cardcrawl.vfx.TorchHeadFireEffect;
 import basemod.abstracts.CustomPlayer;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
+import chronomuncher.relics.Metronome;
 import chronomuncher.orbs.ReplicaOrb;
 import chronomuncher.vfx.GoldEnergyFlameEffect;
 
@@ -303,6 +304,13 @@ public class Chronomuncher extends CustomPlayer {
                 u.atTurnStartPostDraw();
             }
         }    
+    }
+
+    public void applyEndOfTurnTriggers() {
+        super.applyEndOfTurnTriggers();
+        if (this.hasRelic("Metronome")) {
+            ((Metronome)this.getRelic("Metronome")).atEndofTurn();
+        }
     }
 
     @Override

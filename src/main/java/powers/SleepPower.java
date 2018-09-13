@@ -72,7 +72,7 @@ public class SleepPower extends AbstractPower
   }
   
   public void applySleep() {
-    this.monster.setMove((byte)0, AbstractMonster.Intent.SLEEP); 
+    this.monster.setMove((byte)-1, AbstractMonster.Intent.SLEEP); 
     this.monster.createIntent();
   }
 

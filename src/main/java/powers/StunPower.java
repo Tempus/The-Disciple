@@ -59,7 +59,7 @@ public class StunPower extends AbstractPower
   public void atEndOfTurn(boolean isPlayer)
   {
     if (!isPlayer) { 
-      this.monster.setMove((byte)0, AbstractMonster.Intent.STUN); 
+      this.monster.setMove((byte)-1, AbstractMonster.Intent.STUN); 
       this.monster.createIntent();
     }
 

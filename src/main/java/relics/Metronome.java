@@ -27,8 +27,7 @@ public class Metronome extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
 
-    @Override
-    public void onPlayerEndTurn() {
+    public void atEndofTurn() {
         // Retained 1 additional card each turn
         flash();
         if (AbstractDungeon.player.hand.group.size() > 0) {

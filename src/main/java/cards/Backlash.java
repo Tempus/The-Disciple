@@ -31,15 +31,18 @@ public class Backlash extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY);
 
+		this.baseDamage = 0;
 		this.baseMagicNumber = MULTI;
 		this.magicNumber = MULTI;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		this.calculateCardDamage(m);
+
 		if (m.currentBlock > 0) {
 			AbstractDungeon.actionManager.addToBottom(
-				new DamageAction(m, new DamageInfo(p, m.currentBlock * this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
 		}
 	}
 
@@ -47,6 +50,17 @@ public class Backlash extends MetricsCard {
 		super.onMoveToDiscard();
 		this.costForTurn = this.cost;
 		this.isCostModifiedForTurn = false;
+	}
+
+	public void calculateCardDamage(AbstractMonster mo) {
+		this.baseDamage = mo.currentBlock * this.magicNumber;
+		super.calculateCardDamage(mo);
+	}
+
+	public void update() {
+		this.baseDamage = 0;
+		this.damage = 0;
+		super.update();
 	}
 
 	@Override

@@ -31,8 +31,8 @@
   },
   "Backlash": {
       "NAME": "Backlash",
-      "DESCRIPTION": "If the enemy has Block, deal double the block in damage. NL Self-Retaining.",
-      "UPGRADE_DESCRIPTION": "If the enemy has Block, deal triple times the block in damage. NL Self-Retaining."
+      "DESCRIPTION": "Deal !D! damage. NL Deals double the enemy's block in damage. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals triple the enemy's block in damage. NL Self-Retaining."
   },
   "Engulf": {
       "NAME": "Engulf",
@@ -79,7 +79,7 @@
   "TiringSlam": {
       "NAME": "Tiring Slam",
       "DESCRIPTION": "Deal !D! damage. NL Exhaust a card in your hand.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust a card from play."
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust a card from your hand, draw pile, or discard pile."
   },
   "Rewind": {
       "NAME": "Rewind",
@@ -159,7 +159,7 @@
   },
   "HandsUp": {
       "NAME": "Hands Up",
-      "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! strength at the end of the turn."
+      "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! strength at the end of their turn."
   },
   "Stagnate": {
       "NAME": "Stagnate",
@@ -391,7 +391,7 @@
   "BeatsPerMinute": { 
       "NAME": "Beats Per Minute",
       "DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain an card based on enemy intent. Exhaust."
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust."
   },
   "Echonomics": {
       "NAME": "Echonomics",
@@ -471,18 +471,18 @@
   },
   "Facsimile": {
       "NAME": "Facsimile",
-      "DESCRIPTION": "Turn up to !M! of your relics into Replicas."
+      "DESCRIPTION": "Create replicas of up to !M! of your relics. NL Exhaust."
   },
 
   "OracleForm": {
       "NAME": "Oracle Form",
-      "DESCRIPTION": "Instead of drawing your hand, discard 2 cards from your draw pile and choose !M!.",
+      "DESCRIPTION": "Instead of drawing your hand, discard 2 cards randomly from your draw pile and choose !M!.",
       "UPGRADE_DESCRIPTION": "Instead of drawing your hand, choose !M! cards from your draw pile."   
   },
   "SpringForward": {
       "NAME": "Spring Forward",
       "DESCRIPTION": "Innate. NL Draw !M! cards. NL Switches into Fallback.",
-      "UPGRADE_DESCRIPTION": "Innate. NL Draw !M! cards. NL Retain 1 cards. NL Switches into Fallback+."   
+      "UPGRADE_DESCRIPTION": "Innate. NL Draw 2 cards. NL Retain 1 cards. NL Switches into Fallback+."   
   },
   "Fallback": {
       "NAME": "Fallback",

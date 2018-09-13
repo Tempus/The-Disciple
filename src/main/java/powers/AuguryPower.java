@@ -46,8 +46,23 @@ public class AuguryPower extends AbstractPower
     AbstractDungeon.player.gameHandSize = 0;
   }
     
+  public void atStartOfTurn() {
+    this.amount = AbstractDungeon.player.masterHandSize-1;
+
+    if (this.owner.hasPower("Draw Down")) {
+      this.amount -= this.owner.getPower("Draw Down").amount; }
+
+    if (this.owner.hasPower("Draw Reduction")) {
+      this.amount -= 1; }
+
+    if (this.owner.hasPower("Draw")) {
+      this.amount += this.owner.getPower("Draw").amount; }
+  }
+
   public void atStartOfTurnPostDraw()
   {
+    this.amount = AbstractDungeon.player.gameHandSize-1;
+
     if (AbstractDungeon.player.drawPile.size() < this.amount) {
         AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());
     }

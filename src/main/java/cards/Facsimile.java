@@ -53,7 +53,7 @@ public class Facsimile extends MetricsCard {
 		this.exhaust = true;
 
 		relicList.add(new Pair("Blood Vial", 		UnlockedBlood.class));
-		relicList.add(new Pair("Stone Calendar", 	UnlockedCalendar.class));
+		relicList.add(new Pair("StoneCalendar", 	UnlockedCalendar.class));
 		relicList.add(new Pair("Carbonhydrate", 	UnlockedCarbon.class));
 		relicList.add(new Pair("Bottled Flame", 	UnlockedFlame.class));
 		relicList.add(new Pair("Bottled Lightning", UnlockedLightning.class));
@@ -104,9 +104,9 @@ public class Facsimile extends MetricsCard {
 			for (Pair<String, Class> replica : relicList) {
 				if (replica.getKey() == relic.relicId) {
 					if (replica.getKey() == "Chronometer" || replica.getKey() == "Chronograph") {
-						this.replicaStrings.add("Plans from " + replica.getKey());
+						this.replicaStrings.add("Plans from " + relic.name);
 					} else {
-						this.replicaStrings.add(replica.getKey());
+						this.replicaStrings.add(relic.name);
 					}
 				}
 			}

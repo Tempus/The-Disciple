@@ -63,10 +63,10 @@ public class Presto extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (this.upgraded) {
-  			AbstractDungeon.actionManager.addToTop(
-  				new GainGoldAction(p, 20));
-		}
+		// if (this.upgraded) {
+  // 			AbstractDungeon.actionManager.addToTop(
+  // 				new GainGoldAction(p, 20));
+		// }
 
   		AbstractDungeon.actionManager.addToBottom(
 			new SmokeBombAction(this.upgraded));

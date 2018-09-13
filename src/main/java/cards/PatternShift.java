@@ -110,10 +110,10 @@ public class PatternShift extends MetricsCard {
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
 
 		    // Set old move
+			PatternShiftAction.restorePreviewedSpecialCases(this.newTarget, this.rollSeed);
+
 	        this.newTarget.setMove(this.move.nextMove, this.move.intent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
 			this.newTarget.createIntent();
-
-			PatternShiftAction.restorePreviewedSpecialCases(this.newTarget, this.rollSeed);
 
 	        this.newTarget = null;
         }

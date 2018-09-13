@@ -147,8 +147,13 @@ public class PatternShiftAction extends AbstractGameAction {
 						m.rollMove();
 						break;
 					case 2:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
-						m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
+						if (m.nextMove == 2) {
+							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
+							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
+						} else {
+							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
+							m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
+						}
 						break;
 					default:
 						if (m.nextMove == 2) {
@@ -413,6 +418,10 @@ public class PatternShiftAction extends AbstractGameAction {
 						break;
 				} 
             	break;
+			case "Chosen":
+				if (m.nextMove == 4) {
+					ReflectionHacks.setPrivate(m, m.getClass(), "usedHex", false); }
+				break;
             }
         return true;
 	}
@@ -501,15 +510,20 @@ public class PatternShiftAction extends AbstractGameAction {
 						m.rollMove();
 						break;
 					case 2:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
-						m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
+						if (m.nextMove == 2) {
+							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
+							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
+						} else {
+							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
+							m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
+						}
 						break;
 					default:
 						if (m.nextMove == 2) {
 							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
 							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
 						} else if (m.nextMove == 3) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
+							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 5);
 							m.setMove((byte)0, AbstractMonster.Intent.NONE);
 							m.tint.changeColor(Color.CLEAR.cpy(), 0.6F);
 						}

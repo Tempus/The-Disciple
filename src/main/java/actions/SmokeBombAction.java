@@ -13,10 +13,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 
 import chronomuncher.ChronoMod;
 
@@ -41,19 +44,26 @@ public class SmokeBombAction extends AbstractGameAction {
 	      }
 	    }
 
-	    target = AbstractDungeon.player;
 	    if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
 	    {
-	      AbstractDungeon.getCurrRoom().smoked = true;
-	      AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
-	      target.hideHealthBar();
-	      target.isEscaping = true;
-	      target.escapeTimer = 2.5F;
-	    }	      
+	    	target = AbstractDungeon.player;
+	        AbstractDungeon.getCurrRoom().rewards.clear();
+			AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
+			target.hideHealthBar();
+			target.isEscaping = true;
+			target.escapeTimer = 2.5F;
 
-	    // if (this.upgraded) { AbstractDungeon.getCurrRoom().addGoldToRewards(20); }
+			if (this.upgraded) {
+				AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+				if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
+		            target.gainGold(AbstractDungeon.treasureRng.random(25, 35));
+		        }
+		        else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
+		            target.gainGold(AbstractDungeon.treasureRng.random(10, 20));
+			    }	      
+			}
+		}
 
    		this.isDone = true;	
-
 	}
 }

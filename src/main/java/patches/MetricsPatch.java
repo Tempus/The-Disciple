@@ -16,7 +16,7 @@ public class MetricsPatch {
 	// @SpirePatch(cls="com.megacrit.cardcrawl.metrics.Metrics", method="sendPost")
 
 	// public static class sendPost {
-	//    	public static ExprEditor Instrument() {
+	// 	public static ExprEditor Instrument() {
 	// 		return new ExprEditor() {
 	// 			public void edit(MethodCall m) throws CannotCompileException {
 	// 				if (m.getMethodName().equals("sendPost")) {
@@ -29,9 +29,9 @@ public class MetricsPatch {
 
 	// @SpirePatch(cls="com.megacrit.cardcrawl.screens.DeathScreen", method="shouldUploadMetricData")
 	// public static class shouldUploadMetricData {
-	//     public static boolean Postfix() {
-	//     	return true;
- //   	    }
- //   	}
+	// 	public static boolean Postfix() {
+	// 		return true;
+	// 	}
+	// }
 
 }

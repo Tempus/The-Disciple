@@ -55,7 +55,7 @@ public class LockedTornado extends MetricsCard {
 		if (!this.upgraded) {
 			this.tips.add(new TooltipInfo("Tornado", "Draws a random #yPower card from your deck at the start of your turn. Won't shatter on its own."));
 		} else {
-			this.tips.add(new TooltipInfo("Tornado+", "#gChoose an #yPower card from your deck at the start of your turn. Won't shatter on its own."));
+			this.tips.add(new TooltipInfo("Tornado+", "#gChoose a #yPower card from your deck at the start of your turn. Won't shatter on its own."));
 		}
 
 	    return this.tips;

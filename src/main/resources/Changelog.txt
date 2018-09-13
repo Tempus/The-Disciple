@@ -1,5 +1,31 @@
 Changelog:
 
+0.9.5
+
+	Text: Hands Up text improved in clarity.
+	Text: Improved description of Oracle form.
+	Text: Improved description of Tiring Slam.
+	Text: Tiring slam upgraded text is coloured correctly.
+	Text: Improved description of Facsimile.
+	Text: Backlash text is improved and the upgraded versions are coloured correctly.
+	Text: Spring Forward upgrade text now coloured correctly.
+	Text: Hands Up description improved in precision.
+	Text: Fixed a typo in Beats Per Minute.
+	Text: Improved description on Backlash.
+	Text: Facsimile description improved, and now correctly specifies that it exhausts.
+	Text: Fixed typos on Locked Bottled cards.
+	Bug: Facsimile now replicates Locked Calendar.
+	Bug: Chosen no longer skips Hex when Pattern Shift previews him.
+	Bug: Removed duplicate tooltip text on Single Card View screen.
+	Bug: Mugger/Looter should now work correctly with Pattern Shift sub A17 on the early run pattern.
+	*Bug: Echoward no longer makes a bunch of exhaust smoke appear at the end of the level.
+	*Bug: Escort Command now gives the correct amount of block.
+	Bug: Backlash now takes into account Slow/Vuln/Strength.
+	*Bug: Sleep/Stun no longer allow Donu and Deca to still attack.
+	*Bug: Augury Power from Oracle form no longer has bad synergy with Draw powers.
+	Bug: Metronome no longer prevents some burns and curses from activating at end of turn.
+	Bug: Presto+ gold now appears in rewards screen, and no longer triggers Bloody Idol a ton.
+
 0.9.4
 
 	Feature: Pattern Shift now has a preview that will show you what it does! No more disappointment.

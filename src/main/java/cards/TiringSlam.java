@@ -56,7 +56,7 @@ public class TiringSlam extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(UPGRADE_PLUS_DMG);
+			// upgradeDamage(UPGRADE_PLUS_DMG);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
 		}

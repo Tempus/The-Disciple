@@ -51,7 +51,7 @@ public class LockedLightning extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Lightning", "Draws an random #ySkill card from your deck at the start of your turn. Won't shatter on its own."));
+			this.tips.add(new TooltipInfo("Lightning", "Draws a random #ySkill card from your deck at the start of your turn. Won't shatter on its own."));
 		} else {
 			this.tips.add(new TooltipInfo("Lightning+", "#gChoose a #ySkill card from your deck at the start of your turn. Won't shatter on its own."));
 		}
