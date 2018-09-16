@@ -38,22 +38,19 @@ public class ChronoChannelAction
       AbstractDungeon.player.increaseMaxOrbSlots(1, false);
       CardCrawlGame.sound.playA("GUARDIAN_ROLL_UP", 1.0F);
     }
-    if (this.duration == Settings.ACTION_DUR_FAST)
-    {
-      if (this.autoEvoke) {
-        AbstractDungeon.player.channelOrb(this.orbType);
-      } else {
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-          if ((o instanceof EmptyOrbSlot))
-          {
-            AbstractDungeon.player.channelOrb(this.orbType);
-            break;
-          }
+    if (this.autoEvoke) {
+      AbstractDungeon.player.channelOrb(this.orbType);
+    } else {
+      for (AbstractOrb o : AbstractDungeon.player.orbs) {
+        if ((o instanceof EmptyOrbSlot))
+        {
+          AbstractDungeon.player.channelOrb(this.orbType);
+          break;
         }
       }
-      this.isDone = true;
-      return;
     }
     tickDuration();
+    this.isDone = true;
+    return;
   }
 }

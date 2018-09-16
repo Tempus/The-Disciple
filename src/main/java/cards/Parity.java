@@ -38,8 +38,8 @@ public class Parity extends MetricsCard {
 	private static final String SKILLIMG = "images/cards/ParityS.png";	
 
 	public Parity() {
-		super(ID, NAME, "images/cards/Parity.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, SKILLIMG, COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseDamage = DMG;
 		this.baseBlock = BLOCK;
@@ -56,17 +56,19 @@ public class Parity extends MetricsCard {
 				new GainBlockAction(p, p, this.block));
 		}
 	}
-
-	// public void update() {
-	// 	super.update();
-	// 	this.updateParity();
-	// }
-
-	// public void triggerWhenDrawn() {
-	// 	this.updateParity();
-	// }
 	
+	public void triggerWhenDrawn() {
+		this.updateParity();
+	}
+
 	public void atTurnStart() {
+		// Parity flip flops before the turn timer gets incremented... stupid.
+		this.updateParity();
+	}
+
+	@Override
+	public void resetAttributes() {
+		super.resetAttributes();
 		this.updateParity();
 	}
 
@@ -74,15 +76,14 @@ public class Parity extends MetricsCard {
 		if (AbstractDungeon.currMapNode == null) { 
 			this.rawDescription = DESCRIPTION;
 			return; 
-		}
-		// Parity flip flops before the turn timer gets incremented... stupid.
+		}		
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-			if (AbstractDungeon.actionManager.turn % 2 == 1) {
+			if (AbstractDungeon.actionManager.turn % 2 == 0) {
 				this.target = AbstractCard.CardTarget.ENEMY;
 				this.type = AbstractCard.CardType.ATTACK;
 				this.loadCardImage(ATTACKIMG);
 				this.rawDescription = EXTENDED_DESCRIPTION[0];
-			} else if (AbstractDungeon.actionManager.turn % 2 == 0) {
+			} else if (AbstractDungeon.actionManager.turn % 2 == 1) {
 				this.target = AbstractCard.CardTarget.SELF;
 				this.type = AbstractCard.CardType.SKILL;
 				this.loadCardImage(SKILLIMG);

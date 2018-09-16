@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.blights.TimeMaze;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -71,6 +72,7 @@ public class EchoLatePower
   {
     ChronoMod.log("Echo Late activating");
     for (int cardsDoubledThisTurn = 0; cardsDoubledThisTurn < this.amount; cardsDoubledThisTurn++) {
+      if (this.shouldStopTimeWarp() || this.shouldStopTimeMazePower() || this.shouldStopTimeMazeBlight()) { return; }
       ChronoMod.log("Echo Late: " + Integer.toString(cardsDoubledThisTurn));
 
       AbstractCard card;
@@ -96,4 +98,38 @@ public class EchoLatePower
       this.cardsPlayedThisTurn.addFirst(new Pair(card, action));
     }
   }
+
+  public boolean shouldStopTimeWarp() {
+        // If we're facing Time Eater, and at 12 cards, stop playing.
+    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+      if (!mo.isDead && !mo.escaped) {
+        if (mo.hasPower("Time Warp")) {
+          if (mo.getPower("Time Warp").amount > 11 || mo.getPower("Time Warp").amount == 0) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  public boolean shouldStopTimeMazePower() {
+    // If we're facing Time Eater, and at 12 cards, stop playing.
+    if (AbstractDungeon.player.hasPower("Time Maze")) {
+      if (AbstractDungeon.player.getPower("Time Maze").amount < 1) {
+        return true;
+      }
+    }
+    return false;
+  }  
+
+  public boolean shouldStopTimeMazeBlight() {
+    // If we're facing Time Eater, and at 12 cards, stop playing.
+    if (AbstractDungeon.player.hasBlight("TimeMaze")) {
+      if (((TimeMaze)AbstractDungeon.player.getBlight("TimeMaze")).counter >= 15) {
+        return true;
+      }
+    }
+    return false;
+  }  
 }
