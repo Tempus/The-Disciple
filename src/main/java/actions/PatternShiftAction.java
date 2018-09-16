@@ -422,7 +422,12 @@ public class PatternShiftAction extends AbstractGameAction {
 				if (m.nextMove == 4) {
 					ReflectionHacks.setPrivate(m, m.getClass(), "usedHex", false); }
 				break;
+			case "SphericGuardian":
+				if (m.nextMove == 4) {
+					ReflectionHacks.setPrivate(m, m.getClass(), "secondMove", true); }
+				break;
             }
+
         return true;
 	}
 

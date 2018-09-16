@@ -37,7 +37,6 @@ public class LockedBlood extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
     	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedBlood(this.upgraded)));
    	}
 

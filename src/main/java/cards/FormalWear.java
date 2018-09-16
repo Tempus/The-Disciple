@@ -52,8 +52,7 @@ public class FormalWear extends MetricsCard {
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
 		for (int i = 0; i < this.magicNumber; i++) {
-			AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
-	    	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedRock(false)));
+		    	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedRock(false)));
 	    }
 	}
 

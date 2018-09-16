@@ -32,6 +32,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import chronomuncher.ChronoMod;
+import chronomuncher.cards.AbstractSelfSwitchCard;
+import chronomuncher.cards.SwitchGoo;
 
 public class PlayEchoCardAction extends AbstractGameAction {
 
@@ -67,6 +69,13 @@ public class PlayEchoCardAction extends AbstractGameAction {
 	    tmp.purgeOnUse = true;
 	    if (m != null) {
 	      tmp.calculateCardDamage(m);
+	    }
+	    if (tmp instanceof AbstractSelfSwitchCard) {
+	    	AbstractSelfSwitchCard s = (AbstractSelfSwitchCard)tmp;
+	    	s.switchTo(s.switchID);
+	    	if (tmp instanceof SwitchGoo) {
+	    		s.switchTo(s.switchID);
+	    	}
 	    }
 	    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
 	    if (tmp.cardID.equals("Rampage")) {

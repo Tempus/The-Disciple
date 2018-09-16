@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.vfx.*;
 import com.megacrit.cardcrawl.vfx.combat.*;
 
@@ -49,6 +50,8 @@ public class PatternShift extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToTop(new PatternShiftAction(p, m, this.rollSeed));
+		if (m.hasPower("Sleep")) { AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, "Sleep")); }
+		if (m.hasPower("Stun"))  { AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, "Stun"));  }
 	}
 
 	@Override

@@ -30,6 +30,7 @@ public class SmokeBombAction extends AbstractGameAction {
 
 	public SmokeBombAction(boolean upgraded) {
 		this.upgraded = upgraded;
+		this.p = AbstractDungeon.player;
 	}
 
 	public void update() {
@@ -54,13 +55,17 @@ public class SmokeBombAction extends AbstractGameAction {
 			target.escapeTimer = 2.5F;
 
 			if (this.upgraded) {
-				AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+				int increaseGold = 0;
+				// AbstractDungeon.effectList.add(new GainPennyEffect(this.p, this.target.hb.cX, this.target.hb.cY, this.p.hb.cX, this.p.hb.cY, true));
 				if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
-		            target.gainGold(AbstractDungeon.treasureRng.random(25, 35));
+		            increaseGold = AbstractDungeon.treasureRng.random(25, 35);
 		        }
 		        else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
-		            target.gainGold(AbstractDungeon.treasureRng.random(10, 20));
-			    }	      
+		            increaseGold = AbstractDungeon.treasureRng.random(10, 20);
+			    }
+			    for (int i = 0; i < increaseGold; i++) {
+					AbstractDungeon.effectList.add(new GainPennyEffect(this.p, this.p.hb.cX, this.p.hb.cY, this.p.hb.cX, this.p.hb.cY, true));
+        		}
 			}
 		}
 

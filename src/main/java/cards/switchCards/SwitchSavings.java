@@ -45,15 +45,12 @@ public class SwitchSavings extends AbstractSelfSwitchCard {
 		
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
-
-		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchSavings() { this(null); }
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
 		switch (this.currentID) {
 			case "SpringForward":
 			    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber, false)); 

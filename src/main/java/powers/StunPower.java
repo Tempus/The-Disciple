@@ -40,14 +40,14 @@ public class StunPower extends AbstractPower
     this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/Stun.png"), 0, 0, 84, 84);
     this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/StunSmall.png"), 0, 0, 32, 32);
 
-    ChronoMod.log(owner.id);
-    ChronoMod.log(this.monster.id);
-
     this.isTurnBased = true;
-    this.monster.setMove((byte)0, AbstractMonster.Intent.STUN); 
-    this.monster.createIntent();
   }
     
+  public void onInitialApplication() {
+    this.monster.setMove((byte)-1, AbstractMonster.Intent.STUN); 
+    this.monster.createIntent();
+  }
+
   @Override
   public void updateDescription()
   {

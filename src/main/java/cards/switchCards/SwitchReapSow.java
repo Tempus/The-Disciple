@@ -45,15 +45,12 @@ public class SwitchReapSow extends AbstractSelfSwitchCard {
 		
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
-
-		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchReapSow() { this(null); }
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
 		switch (this.currentID) {
 			case "Reap":
 			    AbstractDungeon.actionManager.addToBottom(

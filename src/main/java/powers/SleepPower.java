@@ -40,9 +40,12 @@ public class SleepPower extends AbstractPower
     this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/SleepSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.DEBUFF;
     this.isTurnBased = true;
-    this.applySleep();
   }
     
+  public void onInitialApplication() {
+    this.applySleep();
+  }
+
   @Override
   public void updateDescription()
   {
@@ -101,7 +104,10 @@ public class SleepPower extends AbstractPower
   // Wake up!
   public int onAttacked(DamageInfo info, int damageAmount)
   {
-    this.wake();
+    ChronoMod.log(Integer.toString(damageAmount));
+    if (damageAmount > 0) { 
+      this.wake();
+    }
     return damageAmount;
   }
 }

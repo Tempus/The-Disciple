@@ -49,9 +49,13 @@ public class RestoreRetainedCardsEnergyUse {
 		    __instance.magicNumber = __instance.baseMagicNumber;
 		    __instance.isMagicNumberModified = false;
 		    __instance.damageTypeForTurn = (DamageInfo.DamageType)ReflectionHacks.getPrivate(__instance, AbstractCard.class, "damageType");
-			if ( __instance.retain == false ) { 
-			    __instance.costForTurn = __instance.cost;
-			    __instance.isCostModifiedForTurn = false;			
+			if ( __instance.retain == false) { 
+				if (AbstractDungeon.player != null) {
+					if (!AbstractDungeon.player.hasRelic("Runic Pyramid")) {
+					    __instance.costForTurn = __instance.cost;
+					    __instance.isCostModifiedForTurn = false;			
+					}
+				}
 			} else {
 				if (AbstractDungeon.player.hasRelic("Runic Pyramid") 
 					&& __instance.retain 

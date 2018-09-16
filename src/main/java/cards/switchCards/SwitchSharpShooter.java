@@ -32,10 +32,10 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 	// 					          CardType type, CardTarget target, boolean isMultiTarget, boolean isInnate, boolean exhaust, boolean isEthereal));
 
 	public List<switchCard> switchListInherit = Arrays.asList(
-		new AbstractSelfSwitchCard.switchCard("FastForward", "ClockandLoad", 2, 0, 0, 0, 0, 1, 0, 
+		new AbstractSelfSwitchCard.switchCard("FastForward", "ClockandLoad", 2, 0, 0, 0, 0, 1, 1, 
 						          		AbstractCard.CardType.SKILL, AbstractCard.CardTarget.ENEMY, false, false, false, false),
 
-		new AbstractSelfSwitchCard.switchCard("ClockandLoad", "FastForward", 2, 0, 0, 0, 0, 1, 1, 
+		new AbstractSelfSwitchCard.switchCard("ClockandLoad", "FastForward", 1, 0, 0, 0, 0, 1, 1, 
 						          		AbstractCard.CardType.SKILL, AbstractCard.CardTarget.SELF, false, false, false, false) );
 
 
@@ -49,8 +49,6 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
-
-		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchSharpShooter () { this(null); }
@@ -63,12 +61,13 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		if (this.purgeOnUse) { this.switchTo(switchID); }
+
 		AbstractDungeon.actionManager.addToBottom(new SwitchAction(this));
+		ReplicaOrb r;
 
 		switch (this.currentID) {
 			case "FastForward":
-
-				ReplicaOrb r;
 		        for (AbstractOrb o : p.orbs) {
 		            if (o instanceof ReplicaOrb) {
 		            	r = (ReplicaOrb)o;
@@ -85,16 +84,14 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		        }
 				break;
 			case "ClockandLoad":
-				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FocusPower(p, this.magicNumber), this.magicNumber));
+		        for (AbstractOrb o : p.orbs) {
+		            if (o instanceof ReplicaOrb) {
+		            	r = (ReplicaOrb)o;
+						AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_PLASMA_CHANNEL", 0.75F));
+				        r.timer += this.magicNumber;
+		        	}
+		        }
 				break;
 		}
 	}
 }
-
-
-
-// Damage a random enemy.
-// Gain Block
-// Give Slow?
-// Give Wards?
-// Merge it with the Spare Time, and it shoot cards from the deck.

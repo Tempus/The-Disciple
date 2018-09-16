@@ -35,6 +35,7 @@ public class Grave extends MetricsCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
 	private static final int COST = 2;
 
@@ -79,6 +80,8 @@ public class Grave extends MetricsCard {
 			// upgradeDamage(UPGRADE_PLUS_DMG);
 			// upgradeBlock(UPGRADE_PLUS_BLOCK);
 			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+      		this.rawDescription = UPGRADE_DESCRIPTION;
+   		   	initializeDescription();
 		}
 	}
 }

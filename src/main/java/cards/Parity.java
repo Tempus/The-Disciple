@@ -38,7 +38,7 @@ public class Parity extends MetricsCard {
 	private static final String SKILLIMG = "images/cards/ParityS.png";	
 
 	public Parity() {
-		super(ID, NAME, "images/cards/Parity.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+		super(ID, NAME, "images/cards/Parity.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = DMG;
@@ -57,31 +57,32 @@ public class Parity extends MetricsCard {
 		}
 	}
 
-	public void update() {
-		super.update();
-		this.updateParity();
-	}
+	// public void update() {
+	// 	super.update();
+	// 	this.updateParity();
+	// }
 
 	// public void triggerWhenDrawn() {
 	// 	this.updateParity();
 	// }
 	
-	// public void atTurnStart() {
-	// 	this.updateParity();
-	// }
+	public void atTurnStart() {
+		this.updateParity();
+	}
 
 	public void updateParity() {
 		if (AbstractDungeon.currMapNode == null) { 
 			this.rawDescription = DESCRIPTION;
 			return; 
 		}
+		// Parity flip flops before the turn timer gets incremented... stupid.
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-			if (AbstractDungeon.actionManager.turn % 2 == 0) {
+			if (AbstractDungeon.actionManager.turn % 2 == 1) {
 				this.target = AbstractCard.CardTarget.ENEMY;
 				this.type = AbstractCard.CardType.ATTACK;
 				this.loadCardImage(ATTACKIMG);
 				this.rawDescription = EXTENDED_DESCRIPTION[0];
-			} else if (AbstractDungeon.actionManager.turn % 2 == 1) {
+			} else if (AbstractDungeon.actionManager.turn % 2 == 0) {
 				this.target = AbstractCard.CardTarget.SELF;
 				this.type = AbstractCard.CardType.SKILL;
 				this.loadCardImage(SKILLIMG);
@@ -92,13 +93,6 @@ public class Parity extends MetricsCard {
 		}
       	initializeDescription();
 	}
-
-	// @Override
-	// public void triggerOnEndOfPlayerTurn() {
-	// 	super.triggerOnEndOfPlayerTurn();
-	// 	this.rawDescription = DESCRIPTION;
- //      	initializeDescription();
-	// }
 
 	@Override
 	public AbstractCard makeCopy() {

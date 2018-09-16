@@ -74,7 +74,7 @@
   },
   "OverTime": {
       "NAME": "Over Time",
-      "DESCRIPTION": "Deal !D! damage. NL For each card that you've Exhausted this battle, increase damage by !M!."
+      "DESCRIPTION": "Deal !D! damage. NL For each card that you've Exhausted this combat, increase damage by !M!."
   },
   "TiringSlam": {
       "NAME": "Tiring Slam",
@@ -97,7 +97,7 @@
   },
   "OldTimer": {
       "NAME": "Old Timer",
-      "DESCRIPTION": "Deal !D! damage. NL For each card that has been played this battle, increase damage by 1."
+      "DESCRIPTION": "Deal !D! damage. NL For each card that has been played this combat, increase damage by 1."
   },
   "Keepsakes": {
       "NAME": "Keepsakes",
@@ -184,7 +184,8 @@
   },
   "Grave": {
       "NAME": "Grave",
-      "DESCRIPTION": "Put target enemy to sleep for !M! turns."
+      "DESCRIPTION": "Put target enemy to sleep for !M! turn.",
+      "UPGRADE_DESCRIPTION": "Put target enemy to sleep for !M! turns."
   },
   "Sospirando": {
       "NAME": "Sospirando",
@@ -496,8 +497,8 @@
   },
   "FastForward": {
       "NAME": "Fast Forward",
-      "DESCRIPTION": "Each replica counts down and plays 1 card from your draw pile. NL Switches into Clock and Load.",
-      "UPGRADE_DESCRIPTION": "Each replica counts down and plays 2 cards from your draw pile. NL Switches into Clock and Load."
+      "DESCRIPTION": "Each replica counts down and plays !M! card from your draw pile. NL Switches into Clock and Load.",
+      "UPGRADE_DESCRIPTION": "Each replica counts down and plays !M! cards from your draw pile. NL Switches into Clock and Load."
   },
   "Break": {
       "NAME": "Break",

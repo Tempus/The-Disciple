@@ -39,7 +39,6 @@ public class LockedTornado extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
     	AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedTornado(this.upgraded)));
    	}
 

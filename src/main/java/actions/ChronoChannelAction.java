@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 public class ChronoChannelAction
   extends AbstractGameAction
@@ -29,10 +30,13 @@ public class ChronoChannelAction
   public void update()
   {
     if (AbstractDungeon.player.maxOrbs == 10) {
-      AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "#rYou cannot fit any more replicas for now.", true));
+      AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "You cannot fit any more #rreplicas for now.", true));
 
       this.isDone = true;
       return;
+    } else {
+      AbstractDungeon.player.increaseMaxOrbSlots(1, false);
+      CardCrawlGame.sound.playA("GUARDIAN_ROLL_UP", 1.0F);
     }
     if (this.duration == Settings.ACTION_DUR_FAST)
     {

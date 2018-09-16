@@ -45,24 +45,35 @@ public class TimeDilatePower extends AbstractPower
     for (Object e = this.owner.powers.iterator(); ((Iterator)e).hasNext();)
     {
       AbstractPower p = (AbstractPower)((Iterator)e).next();
-      if (p.type == AbstractPower.PowerType.BUFF
-        && !p.ID.equals("Mode Shift")
-        && !p.ID.equals("Minion")
-        && !p.ID.equals("Fading")
-        && !p.ID.equals("Unawakened")
-        && !p.ID.equals("Split")
-        && !p.ID.equals("Life Link")
-        && !p.ID.equals("TimeDilate")) {
+      if (p.type == AbstractPower.PowerType.BUFF) {
+        switch(p.ID) {
+          case "Mode Shift":
+          case "Minion":
+          case "Fading":
+          case "Shifting":
+          case "Unawakened":
+          case "Split":
+          case "Life Link":
+            break;
 
-        ChronoMod.log("Storing Power: " + p.ID);
-        if (!p.ID.equals("Flight")) {
-          this.savedPowers.add(p); }
-        p.onRemove();
-        ((Iterator)e).remove();
-        AbstractDungeon.onModifyPower();
+          // case "Flight":
+
+          default:
+            if (p.ID != "Flight") {
+              this.savedPowers.add(p); }
+            p.onRemove();
+            ((Iterator)e).remove();
+            AbstractDungeon.onModifyPower();
+            break;
+        }
       }
     }
     updateDescription();
+
+    // No point in applying it if it doesn't give extra powers
+    if (this.savedPowers.size() == 0) {
+      AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "TimeDilate"));
+    }
   }
   
   public void atEndOfRound()

@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
+import chronomuncher.ChronoMod;
 
 public class AuguryPower extends AbstractPower
 {
@@ -46,7 +47,7 @@ public class AuguryPower extends AbstractPower
     AbstractDungeon.player.gameHandSize = 0;
   }
     
-  public void atStartOfTurn() {
+  public void setHandAmount() {
     this.amount = AbstractDungeon.player.masterHandSize-1;
 
     if (this.owner.hasPower("Draw Down")) {
@@ -57,11 +58,17 @@ public class AuguryPower extends AbstractPower
 
     if (this.owner.hasPower("Draw")) {
       this.amount += this.owner.getPower("Draw").amount; }
+
+    if (this.amount > 10 - AbstractDungeon.player.hand.size()){
+      this.amount = 10 - AbstractDungeon.player.hand.size();
+    }
+
+    ChronoMod.log("Draw amount for Augury set to: " + Integer.toString(this.amount));
   }
 
   public void atStartOfTurnPostDraw()
   {
-    this.amount = AbstractDungeon.player.gameHandSize-1;
+    this.setHandAmount();
 
     if (AbstractDungeon.player.drawPile.size() < this.amount) {
         AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());

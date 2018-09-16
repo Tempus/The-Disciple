@@ -45,8 +45,6 @@ public class SwitchExoVibe extends AbstractSelfSwitchCard {
 
 		this.switchList = switchListInherit;
 		this.switchTo(switchID);
-
-		if (this.purgeOnUse) { this.switchTo(switchID); }
 	}
 
 	public SwitchExoVibe() { this(null); }

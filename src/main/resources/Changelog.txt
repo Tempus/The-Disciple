@@ -2,6 +2,9 @@ Changelog:
 
 0.9.5
 
+	Balance: Stun, Sleep, and Time Dilate are now affected by artifact.
+	Balance: Clock and Load now increments only the currently existing replica timers, instead of giving focus.
+	Balance: Clock and Load now costs 1 energy.
 	Text: Hands Up text improved in clarity.
 	Text: Improved description of Oracle form.
 	Text: Improved description of Tiring Slam.
@@ -14,17 +17,28 @@ Changelog:
 	Text: Improved description on Backlash.
 	Text: Facsimile description improved, and now correctly specifies that it exhausts.
 	Text: Fixed typos on Locked Bottled cards.
+	Text: Changed 'battle' to 'combat' to be congruent with vanilla descriptions.
+	Text: Fixed plural tense on Grave card.
+	Audio: New replica summoning sfx.
 	Bug: Facsimile now replicates Locked Calendar.
 	Bug: Chosen no longer skips Hex when Pattern Shift previews him.
 	Bug: Removed duplicate tooltip text on Single Card View screen.
 	Bug: Mugger/Looter should now work correctly with Pattern Shift sub A17 on the early run pattern.
-	*Bug: Echoward no longer makes a bunch of exhaust smoke appear at the end of the level.
-	*Bug: Escort Command now gives the correct amount of block.
+	Bug: Echoward no longer makes a bunch of exhaust smoke appear at the end of the level.
+	Bug: Escort Command now gives the correct amount of block.
 	Bug: Backlash now takes into account Slow/Vuln/Strength.
-	*Bug: Sleep/Stun no longer allow Donu and Deca to still attack.
-	*Bug: Augury Power from Oracle form no longer has bad synergy with Draw powers.
+	Bug: Sleep/Stun no longer allow Donu and Deca to still attack.
+	Bug: Augury Power from Oracle form no longer has bad synergy with Draw powers.
 	Bug: Metronome no longer prevents some burns and curses from activating at end of turn.
-	Bug: Presto+ gold now appears in rewards screen, and no longer triggers Bloody Idol a ton.
+	Bug: Parity no longer exacerbates existing Bottle relic memory leaks.
+	Bug: Pendulum now disabled for Life Link, and correctly doesn't grab Transient's Shifting power.
+	Bug: Sleep no longer wakes up enemies at incommode times when block is present.
+	Bug: Pattern Shift now removes Sleep or Stun correctly.
+	Bug: Runic Pyramid no longer resets costs decreased by retain over multiple turns.
+	Bug: Fixed replica issues when attempting to add a tenth or more replica.
+	Bug: Time Dilate no longer adds a power when it didn't dilate anything.
+	Bug: Spheric Guardian no longer skips his second turn with Pattern Shift preview.
+	Bug: Echo and Late Echo are now consistent when used with Switch cards.
 
 0.9.4
 

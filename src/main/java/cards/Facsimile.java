@@ -173,8 +173,7 @@ public class Facsimile extends MetricsCard {
 			replicaClasses.remove(index);
 
 			if (orb != null) {
-	 			AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(1));
-			    AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
+	 				    AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
 			}
 	    }
 	}
