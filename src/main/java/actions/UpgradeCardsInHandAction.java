@@ -73,10 +73,18 @@ public class UpgradeCardsInHandAction
       // Choose a card from your hand
       else
       {
+        for (AbstractCard c : this.p.hand.group) {
+          c.setAngle(0);
+          c.resetAttributes();
+        }
         AbstractDungeon.gridSelectScreen.open(this.canUpgrade, 1, "Upgrade", true);
         tickDuration();
         return;
       }
+    }
+
+    if (AbstractDungeon.gridSelectScreen.upgradePreviewCard != null) {
+      AbstractDungeon.gridSelectScreen.upgradePreviewCard.applyPowers();
     }
     // Return if we've selected some cards
     if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0)
@@ -86,6 +94,7 @@ public class UpgradeCardsInHandAction
         c.upgrade();
       }
       AbstractDungeon.gridSelectScreen.selectedCards.clear();
+      this.p.hand.refreshHandLayout();
       this.isDone = true;
     }
     tickDuration();

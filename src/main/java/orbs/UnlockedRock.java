@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import java.util.ArrayList;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import java.util.Random;
 
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -66,7 +66,7 @@ public class UnlockedRock extends ReplicaOrb
     this.activateEffect();
 
     AbstractDungeon.actionManager.addToBottom(
-        new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.passiveAmount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
   }
   
   @Override

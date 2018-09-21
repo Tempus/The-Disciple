@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -29,53 +30,48 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.IntentTransformAction;
 
-public class Lento extends MetricsCard {
-	public static final String ID = "Lento";
+public class Allargando extends MetricsCard {
+	public static final String ID = "Allargando";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = 2;
 
-	private static final int DMG = 12;
+	private static final int DMG = 17;
 	private static final int UPGRADE_PLUS_DMG = 5;
 
-	private static final int BLOCK = 16;
-	private static final int UPGRADE_PLUS_BLOCK = 7;
+	private static final int BLOCK = 10;
+	private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	private static final int MAGIC = 2;
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
-	public Lento() {
-		super(ID, NAME, "images/cards/Lento.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+	public Allargando() {
+		super(ID, NAME, "images/cards/Allargando.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ALL_ENEMY);
 
-		// this.baseDamage = DMG;
-		
-		this.baseBlock = BLOCK;
+		this.baseDamage = DMG;
 
-		this.baseMagicNumber = MAGIC;
-		this.magicNumber = UPGRADE_PLUS_MAGIC;
+		this.isMultiDamage = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(
-			new GainBlockAction(p, p, this.block));
-
-
+	    AbstractDungeon.actionManager.addToBottom(
+	    	new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 	}
 
 	@Override
 	public AbstractCard makeCopy() {
-		return new Lento();
+		return new Allargando();
 	}
 
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			// upgradeDamage(UPGRADE_PLUS_DMG);
+			upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeBlock(UPGRADE_PLUS_BLOCK);
 			upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
 		}

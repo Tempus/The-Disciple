@@ -37,7 +37,7 @@ public class Allegro extends MetricsCard {
 
 	private static final int COST = 2;
 
-	private static final int DMG = 16;
+	private static final int DMG = 18;
 	private static final int UPGRADE_PLUS_DMG = 7;
 
 	private static final int BLOCK = 10;

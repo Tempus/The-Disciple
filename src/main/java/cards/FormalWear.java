@@ -61,9 +61,9 @@ public class FormalWear extends MetricsCard {
 		this.tips.clear();
 
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Rock", "Deals #g1 damage to you when it shatters. NL #pShatters #pin #b4 #pturns."));
+			this.tips.add(new TooltipInfo("Rock", "Deals #g1 damage to a random enemy when it shatters. NL #pShatters #pin #b4 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Rock+", "Deals #g1 damage to you when it shatters. NL #pShatters #pin #b4 #pturns."));
+			this.tips.add(new TooltipInfo("Rock+", "Deals #g1 damage to a random enemy when it shatters. NL #pShatters #pin #b4 #pturns."));
 		}
 
 	    return this.tips;

@@ -48,7 +48,7 @@ public class SmokeBombAction extends AbstractGameAction {
 	    if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
 	    {
 	    	target = AbstractDungeon.player;
-	        AbstractDungeon.getCurrRoom().rewards.clear();
+	      	AbstractDungeon.getCurrRoom().smoked = true;
 			AbstractDungeon.actionManager.addToBottom(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
 			target.hideHealthBar();
 			target.isEscaping = true;

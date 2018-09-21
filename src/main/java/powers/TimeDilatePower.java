@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -34,8 +35,8 @@ public class TimeDilatePower extends AbstractPower
     this.owner = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/TimeDilate.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/TimeDilateSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/TimeDilate.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/TimeDilateSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.DEBUFF;
     this.isTurnBased = true;
   }
@@ -56,9 +57,8 @@ public class TimeDilatePower extends AbstractPower
           case "Life Link":
             break;
 
-          // case "Flight":
-
           default:
+            if (p.name == "Delayed Attack") { break; }
             if (p.ID != "Flight") {
               this.savedPowers.add(p); }
             p.onRemove();
@@ -66,6 +66,11 @@ public class TimeDilatePower extends AbstractPower
             AbstractDungeon.onModifyPower();
             break;
         }
+      } else if (p.ID == "Shackled" && p.amount > 0) {
+        this.savedPowers.add(p);
+        p.onRemove();
+        ((Iterator)e).remove();
+        AbstractDungeon.onModifyPower();
       }
     }
     updateDescription();
@@ -75,6 +80,12 @@ public class TimeDilatePower extends AbstractPower
       AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "TimeDilate"));
     }
   }
+
+  @Override
+  public void stackPower(int stackAmount){
+    super.stackPower(stackAmount);
+    this.onInitialApplication();
+  }  
   
   public void atEndOfRound()
   {

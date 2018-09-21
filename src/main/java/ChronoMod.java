@@ -252,6 +252,7 @@ public class ChronoMod implements
         BaseMod.addCard(new Accruing());
         // BaseMod.addCard(new AcidicGoo());
         BaseMod.addCard(new Adagio());
+        BaseMod.addCard(new Allargando());
         BaseMod.addCard(new Allegretto());
         BaseMod.addCard(new Allegro());
         BaseMod.addCard(new AlternateTimeline());

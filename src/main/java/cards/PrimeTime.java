@@ -22,8 +22,8 @@ public class PrimeTime extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = 1;
-	private static final int ATTACK_DMG = 8;
-	private static final int UPGRADE_PLUS_DMG = 3;
+	private static final int ATTACK_DMG = 9;
+	private static final int UPGRADE_PLUS_DMG = 4;
 
 	public Boolean wasRetained = false;
 

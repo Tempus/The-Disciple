@@ -25,8 +25,8 @@ public class ShortSighted extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = 1;
-	private static final int HEAL = 5;
-	private static final int HEAL_UPGRADE = 3;
+	private static final int HEAL = 6;
+	private static final int HEAL_UPGRADE = 4;
 
 	public ShortSighted() {
 		super(ID, NAME, "images/cards/ShortSighted.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,

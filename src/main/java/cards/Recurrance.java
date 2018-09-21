@@ -26,7 +26,7 @@ public class Recurrance extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = 1;
-	private static final int ATTACK_DMG = 2;
+	private static final int ATTACK_DMG = 3;
 	private static final int HITS = 2;
 	private static final int HITS_UPGRADE = 1;
 
@@ -54,10 +54,10 @@ public class Recurrance extends MetricsCard {
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), effect));
 		}
 
-		if (this.damage > 0) {
-			int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
+		// if (this.damage > 0) {
+		// 	int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
 
-			if (unblockedHits < 1) { return; }
+		// 	if (unblockedHits < 1) { return; }
 
 			// HITS WERE UNBLOCKED, SO ADD SHIT TO STACKS
 		    for (AbstractPower pow : m.powers) {
@@ -69,7 +69,7 @@ public class Recurrance extends MetricsCard {
 					}
 				}
 		    }
-		}
+		// }
 	}
 
 	@Override
@@ -81,6 +81,7 @@ public class Recurrance extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeDamage(HITS_UPGRADE);
 			upgradeMagicNumber(HITS_UPGRADE);
 		}
 	}

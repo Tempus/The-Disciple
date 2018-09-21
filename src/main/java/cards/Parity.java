@@ -18,6 +18,7 @@ import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
+import com.badlogic.gdx.graphics.Color;
 
 public class Parity extends MetricsCard {
 	public static final String ID = "Parity";
@@ -29,10 +30,10 @@ public class Parity extends MetricsCard {
 	private static final int COST = 1;
 
 	private static final int DMG = 11;
-	private static final int UPGRADE_PLUS_DMG = 6;
+	private static final int UPGRADE_PLUS_DMG = 4;
 
 	private static final int BLOCK = 8;
-	private static final int UPGRADE_PLUS_BLOCK = 5;
+	private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	private static final String ATTACKIMG = "images/cards/Parity.png";
 	private static final String SKILLIMG = "images/cards/ParityS.png";	
@@ -57,33 +58,32 @@ public class Parity extends MetricsCard {
 		}
 	}
 	
-	public void triggerWhenDrawn() {
-		this.updateParity();
-	}
-
-	public void atTurnStart() {
-		// Parity flip flops before the turn timer gets incremented... stupid.
-		this.updateParity();
-	}
-
-	@Override
-	public void resetAttributes() {
-		super.resetAttributes();
-		this.updateParity();
+	public void update() {
+		super.update();
+		if (AbstractDungeon.currMapNode != null) { 
+			if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+				if (AbstractDungeon.player.masterDeck.contains(this)) {
+					this.rawDescription = DESCRIPTION;
+			      	initializeDescription();
+				} else {
+					this.updateParity();
+				}
+			}
+		}
 	}
 
 	public void updateParity() {
-		if (AbstractDungeon.currMapNode == null) { 
-			this.rawDescription = DESCRIPTION;
-			return; 
-		}		
 		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
 			if (AbstractDungeon.actionManager.turn % 2 == 0) {
+				if (this.rawDescription == EXTENDED_DESCRIPTION[0]) {return;}
+				this.superFlash(Color.CORAL.cpy());
 				this.target = AbstractCard.CardTarget.ENEMY;
 				this.type = AbstractCard.CardType.ATTACK;
 				this.loadCardImage(ATTACKIMG);
 				this.rawDescription = EXTENDED_DESCRIPTION[0];
 			} else if (AbstractDungeon.actionManager.turn % 2 == 1) {
+				if (this.rawDescription == EXTENDED_DESCRIPTION[1]) {return;}
+				this.superFlash(Color.LIME.cpy());
 				this.target = AbstractCard.CardTarget.SELF;
 				this.type = AbstractCard.CardType.SKILL;
 				this.loadCardImage(SKILLIMG);

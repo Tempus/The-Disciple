@@ -68,6 +68,8 @@ public class Facsimile extends MetricsCard {
 		relicList.add(new Pair("Bird Faced Urn", 	UnlockedUrn.class));
 		relicList.add(new Pair("Chronometer", 		UnlockedPlans.class));
 		relicList.add(new Pair("Chronograph", 		UnlockedPlans.class));
+		relicList.add(new Pair("War Paint", 		UnlockedWhetstone.class));
+		relicList.add(new Pair("Whetstone", 		UnlockedWarPaint.class));
 
 		this.updateRelicDescription();
 	}
@@ -86,7 +88,8 @@ public class Facsimile extends MetricsCard {
    	public void updateRelicDescription() {
    		this.updateRelicList();
 
-   		String end = " NL Currently " + Integer.toString(this.replicaStrings.size()) + " relics can be replicated.";
+   		String plural = (this.replicaStrings.size() > 1) ? "s" : "";
+   		String end = " NL Currently " + Integer.toString(this.replicaStrings.size()) + " relic" + plural + " can be replicated.";
    		if (this.replicaStrings.size() == 0) {
    			end = " NL Currrently you can't replicate any of your relics.";
    		}

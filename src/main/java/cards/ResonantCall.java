@@ -9,38 +9,148 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.PlayLowerBlockFromDeckAction;
 
+import basemod.ReflectionHacks;
+import basemod.abstracts.CustomCard;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.Color;
 
 public class ResonantCall extends MetricsCard {
 	public static final String ID = "ResonantCall";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public AbstractCard mimic;
+	public boolean displayMimic = false;
+	protected static final float CARD_TIP_PAD = 16.0F;
 
-	private static final int COST = 1;
-	private static final int CARDS_TO_PLAY = 3;
-	private static final int CARDS_TO_PLAY_UP = 2;
+	private static final int COST = -1;
+	// private static final int CARDS_TO_PLAY = 3;
+	// private static final int CARDS_TO_PLAY_UP = 2;
+
+	public static final Texture attackEdge = ImageMaster.loadImage("images/cards/ResonantCallAttack.png");
+	public static final Texture skillEdge = ImageMaster.loadImage("images/cards/ResonantCallSkill.png");
+	public static final Texture powerEdge = ImageMaster.loadImage("images/cards/ResonantCallPower.png");
 
 	public ResonantCall() {
 		super(ID, NAME, "images/cards/ResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+	}
 
-		this.baseMagicNumber = CARDS_TO_PLAY;
-		this.magicNumber = CARDS_TO_PLAY;
+	public void triggerOnOtherCardPlayed(AbstractCard c) {
+		if (c.cardID == this.cardID) { return; }
+		this.mimic = c.makeStatEquivalentCopy();
 
-		this.exhaust = true;
+		if (this.mimic.type == AbstractCard.CardType.ATTACK) {
+			this.superFlash(Color.CORAL.cpy());
+		} else if (this.mimic.type == AbstractCard.CardType.ATTACK) {
+			this.superFlash(Color.SKY.cpy());
+		} else {
+			this.superFlash(Color.LIME.cpy());
+		}
+
+
+		this.target = c.target;
+		this.cost = c.cost;
+		this.costForTurn = c.costForTurn;
+		this.isCostModified = true;
+
+		this.rawDescription = "Mimics " + c.name + ".";
+		if (this.upgraded) { this.rawDescription = this.rawDescription + UPGRADE_DESCRIPTION; }
+		initializeDescription();
+
+		this.type = this.mimic.type;
+
+		if (this.mimic instanceof CustomCard) {
+			this.loadCardImage(((CustomCard)this.mimic).textureImg);
+		} else {
+			Texture img = null;
+			img = (Texture)ReflectionHacks.getPrivate(this.mimic, CustomCard.class, "portraitImg");
+
+			if (img == null) {
+				TextureAtlas.AtlasRegion a = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this.mimic, CustomCard.class, "portrait");
+				img = a.getTexture();
+			}
+
+			TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(img, 0, 0, 250, 190);
+			ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+		}
+	}
+
+	@Override
+	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+		if (this.mimic != null) { return this.mimic.canUse(p,m); }
+		return false;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToTop(new PlayLowerBlockFromDeckAction(m, this.magicNumber, p.currentBlock));
+		this.mimic.use(p,m);
+		this.resetResonance();
 	}
 
+	@Override
+	public void onMoveToDiscard() {
+		this.resetResonance();
+	}
+
+	@Override
+	public void atTurnStart() {
+		ChronoMod.log("Triggering at turn start.");
+		if (this.upgraded) {
+			this.retain = true;
+		}
+
+		if (this.mimic != null) { 
+		ChronoMod.log("CardID is " + this.mimic.cardID);
+			if (this.mimic.cardID == "Parity") {
+				this.parityUpdate(); }}
+	}
+
+	public void parityUpdate() {
+		String ATTACKIMG = "images/cards/Parity.png";
+		String SKILLIMG = "images/cards/ParityS.png";	
+
+		if (AbstractDungeon.actionManager.turn % 2 == 1) {
+			this.superFlash(Color.CORAL.cpy());
+			this.target = AbstractCard.CardTarget.ENEMY;
+			this.type = AbstractCard.CardType.ATTACK;
+			this.loadCardImage(ATTACKIMG);
+		} else if (AbstractDungeon.actionManager.turn % 2 == 0) {
+			this.superFlash(Color.LIME.cpy());
+			this.target = AbstractCard.CardTarget.SELF;
+			this.type = AbstractCard.CardType.SKILL;
+			this.loadCardImage(SKILLIMG);
+		}
+  		initializeDescription();
+	}
+
+	public void resetResonance() {
+		this.superFlash(Color.GOLD.cpy());
+		this.cost = -1;
+		this.costForTurn = this.cost;
+		this.isCostModifiedForTurn = false;
+		this.mimic = null;
+		this.rawDescription = DESCRIPTION;
+		this.type = AbstractCard.CardType.SKILL;
+		if (this.upgraded) {
+			this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+		}
+		this.loadCardImage("images/cards/ResonantCall.png");
+		this.resetAttributes();
+		initializeDescription();
+	}
 
 	@Override
 	public AbstractCard makeCopy() {
@@ -51,7 +161,63 @@ public class ResonantCall extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeMagicNumber(CARDS_TO_PLAY_UP);
+			this.retain = true;
+			this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
+   		   	initializeDescription();
+		}
+	}
+
+	@Override
+	public void hover() {
+		if (this.mimic != null) { this.displayMimic = true; }
+		super.hover();
+	}
+
+	@Override
+	public void unhover() {
+		super.unhover();
+		if (this.mimic != null) { this.displayMimic = false; }
+	}
+
+	@Override
+	public void renderCardTip(SpriteBatch sb) {
+		super.renderCardTip(sb);
+	    if ((this.mimic != null) && (!Settings.hideCards) && (this.displayMimic))
+		{
+			float tmpScale = this.drawScale / 1.5F;
+
+		    if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) { return; }
+
+	   	    if (this.current_x > Settings.WIDTH * 0.75F) {
+		        this.mimic.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
+		    } else {
+		        this.mimic.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
+		    }
+
+	        this.mimic.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F) - (AbstractCard.IMG_HEIGHT / 2.0F / 1.5F)) * this.drawScale;
+
+	        this.mimic.drawScale = tmpScale;
+	        this.mimic.render(sb);
+	    }
+	}
+
+	@Override
+	public void render(SpriteBatch sb, boolean selected) { 
+		super.render(sb, selected);
+		// this.renderMimicPortrait(sb);
+	}
+
+	private void renderMimicPortrait(SpriteBatch sb) {
+		if (this.mimic != null)
+		{
+			sb.setColor(Color.WHITE.cpy());
+
+			if (this.type == AbstractCard.CardType.ATTACK) {
+				sb.draw(attackEdge, this.current_x - 125.0F, this.current_y - 95.0F + 72.0F, 125.0F, 23.0F, 250.0F, 190.0F, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle, 0, 0, 250*2, 190*2, false, false); }
+			else if (this.type == AbstractCard.CardType.SKILL) {
+				sb.draw(skillEdge, this.current_x - 125.0F, this.current_y - 95.0F + 72.0F, 125.0F, 23.0F, 250.0F, 190.0F, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle, 0, 0, 250*2, 190*2, false, false); }
+			else if (this.type == AbstractCard.CardType.POWER) {
+				sb.draw(powerEdge, this.current_x - 125.0F, this.current_y - 95.0F + 72.0F, 125.0F, 23.0F, 250.0F, 190.0F, this.drawScale * Settings.scale, this.drawScale * Settings.scale, this.angle, 0, 0, 250*2, 190*2, false, false); }
 		}
 	}
 }

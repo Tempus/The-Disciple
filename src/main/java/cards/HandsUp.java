@@ -25,6 +25,7 @@ public class HandsUp extends MetricsCard {
 
 	private static final int COST = 1;
 	private static final int ATTACK_DMG = 6;
+	private static final int UPGRADE_ATTACK_DMG = 2;
 	private static final int STRDOWN = 1;
 	private static final int STRDOWN_UPGRADE = 1;
 
@@ -56,6 +57,7 @@ public class HandsUp extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeDamage(UPGRADE_ATTACK_DMG);
 			upgradeMagicNumber(STRDOWN_UPGRADE);
 		}
 	}

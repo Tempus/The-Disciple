@@ -35,8 +35,8 @@ public class AuguryPower extends AbstractPower
     this.owner = AbstractDungeon.player;
     this.amount = AbstractDungeon.player.gameHandSize-1;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/Augury.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/AugurySmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/Augury.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/AugurySmall.png"), 0, 0, 32, 32);
 
     this.upgraded = upgraded;
     this.type = AbstractPower.PowerType.BUFF;
@@ -48,7 +48,10 @@ public class AuguryPower extends AbstractPower
   }
     
   public void setHandAmount() {
-    this.amount = AbstractDungeon.player.masterHandSize-1;
+    this.amount = AbstractDungeon.player.masterHandSize;
+
+    if (!this.upgraded) {
+      this.amount -= 1; }
 
     if (this.owner.hasPower("Draw Down")) {
       this.amount -= this.owner.getPower("Draw Down").amount; }
@@ -74,18 +77,18 @@ public class AuguryPower extends AbstractPower
         AbstractDungeon.actionManager.addToBottom(new EmptyDeckShuffleAction());
     }
 
-    for (int i = 0; i<DISCARDS; i++) {
-      if (!this.upgraded && AbstractDungeon.player.drawPile.size() > 0) {
-        AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(AbstractDungeon.player.drawPile.getRandomCard(true), AbstractDungeon.player.drawPile));
-      }
-    }
+    // for (int i = 0; i<DISCARDS; i++) {
+    //   if (!this.upgraded && AbstractDungeon.player.drawPile.size() > 0) {
+    //     AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(AbstractDungeon.player.drawPile.getRandomCard(true), AbstractDungeon.player.drawPile));
+    //   }
+    // }
 
     AbstractDungeon.actionManager.addToBottom(new SeekAction(this.amount));
   }
   
   public void onRemove()
   {
-    AbstractDungeon.player.gameHandSize = this.amount+1;
+    AbstractDungeon.player.gameHandSize = AbstractDungeon.player.masterHandSize;
   }
   
   public void updateDescription()

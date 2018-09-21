@@ -1,5 +1,66 @@
 Changelog:
 
+0.9.6
+
+	Feature: A20 Balance Pass.
+	Card: Allargando - 2 cost tempo card, obtained from multi-hit intents, hits all enemies for 17 (22) damage.
+	Card: Resonant Call reworked into "Mimics the effect and cost of the last card you played. (Self-Retaining)."
+	Card: Echonomics is now "This turn, your next (2) card(s) is(are) duplicated into your hand and costs 0 this turn."
+	Balance: Beats Per Minute damage increased from 8(10) to 9(12).
+	Balance: Bite Command damage increased from 16(19) to 16(21).
+	Balance: Break block increased from 9(13) to 10(13), and enemy block increased from 8(10) to 8(11).
+	Balance: Escort Command block increased from 3(4)/7(10) to 3(5)/8(11).
+	Balance: Flay no longer requires damage to be unblocked.
+	Balance: Flay no longer acts like Flex when blocked by Artifacts, instead like Piercing Wail.
+	Balance: Unlocked Rocks from Formal Wear now deal 1 damage to a random enemy instead of to yourself.
+	Balance: Fragmentalize+ damage reduced from 25 to 23.
+	Balance: Hands Up+ now does 8 damage instead of 6.
+	Balance: Master Key now self-retains.
+	Balance: Oracle Form no longer discards, and now adds hand size on upgrade instead of hand size -1.
+	Balance: Over Time+ damage decreased from 7 to 6.
+	Balance: Parity+ decreased from 17/13 to 15/12.
+	Balance: Prime Time damage increased from 8(11) to 9(13).
+	Balance: Recurrance now does 3(4) damage instead of 2, and hits can be unblockedand still apply debuffs.
+	Balance: Short Sighted now heals 6(10) instead of 5(8).
+	Balance: Slime Spray now does 7(11) damage to all instead of 6(9).
+	Balance: Ticked Off+ now blocks 13 instead of 12.
+	Balance: Wind Up now deals 14(19) damage instead of 13(18).
+	Balance: Lento+ now gives 23 block instead of 20.
+	Balance: Tempo transformed cards now go to your hand, just because.
+	Balance: Sospirando now Exhausts, and will not target bosses.
+	Balance: Sospirando+ now only hits a single enemy, and will target bosses.
+	Balance: Allegro damage increased back to 18(25) from 16(23).
+	Balance: Chrono-elasticity decreased from 7 (10) stacks to 5 (8) stacks.
+	Balance: Wake Up Call damage decreased from 50 (75) to 44 (60).
+	Balance: Locked Calendar+ duration decreased from 5 to 4.
+	Balance: Locked Medicine now draws a card to replace the status effect.
+	Balance: Locked Medicine+ now effects curses.
+	Balance: Resonant Call is now Uncommon.
+	Balance: Beats Per Minute is now Rare.
+	Balance: Pendulum now steals new powers when being stacked.
+	Balance: Pendulum now considers Shackled a stealable buff, making synergy with Flay and vs Transient.
+	Balance: Second Hand now costs 1 instead of 0, and gives 7(10) block instead of 4.
+
+	Hotfix: Parity no longer is the wrong state when drawn via unusual methods.
+	Art: Orb and Power images now scale better at different resolutions.
+	Art: Locked Medicine+ has a blue candle on it to signify new effect.
+	Art: Locked Lightning no longer has remnants of a bottle around it.
+	Text: Fibonacci tkeyword explanation improved.
+	Text: Unlocked Thread mouseover now shows the correct amount of plated armor gained.
+	Text: Facsimile should now correctly account for plurality of relics.
+	Feedback: Parity now flashes when it changes.
+	Feedback: Resonant Call now flashes when it changes.
+	Bug: Hopefully fixed the Locked Ice Cream softlock.
+	Bug: Echo Late no longer ignores Time Eater's Time Warp restriction.
+	Bug: Facsimile now correctly spawns War Paint and Whetstone.
+	Bug: Fixed a parity bug... again.
+	Bug: Presto no longer gives you all the rewards.
+	Bug: Misterioso will no longer target dead enemies.
+	Bug: Pendulum no longer considers Bite and Rage Command as buffs.
+	Bug: Locked War Paint and Whetstone now take ignore power modifiers on preview.
+	Bug: Locked War Paint and Whetstone should no longer occasionally display cards at slight angles.
+	Bug: Sleep and Stun should no longer crash the game with multiple mouseovers from Pattern Shift preview.
+
 0.9.5
 
 	Balance: Stun, Sleep, and Time Dilate are now affected by artifact.

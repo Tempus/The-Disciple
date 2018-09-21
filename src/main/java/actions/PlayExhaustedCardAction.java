@@ -51,7 +51,7 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
 				tmp.current_x = tmp.target_x;
 				tmp.current_y = tmp.target_y;
 
-				AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster();
+				AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
 
 			    if (m != null) {
 			      tmp.calculateCardDamage(m);

@@ -23,7 +23,7 @@ public class OverTime extends MetricsCard {
 
 	private static final int COST = 2;
 	private static final int ATTACK_PER_CARD = 4;
-	private static final int UPGRADE_PLUS_DMG = 3;
+	private static final int UPGRADE_PLUS_DMG = 6;
 
 	public OverTime() {
 		super(ID, NAME, "images/cards/OverTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

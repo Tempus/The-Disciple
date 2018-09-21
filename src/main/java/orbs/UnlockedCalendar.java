@@ -29,7 +29,7 @@ public class UnlockedCalendar extends ReplicaOrb
             40,                  // int passive, 
             40,                  // int passiveUp, 
             7,                  // int timer
-            5,                  // int timerUp
+            4,                  // int timerUp
             new LockedCalendar(),
             "Stone Calendar"); // AbstractCard locked)
   }

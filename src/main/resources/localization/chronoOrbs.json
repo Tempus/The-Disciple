@@ -100,15 +100,15 @@
   "Thread": {
     "NAME": "Thread",
     "DESCRIPTION": [
-      "At the start of your turn, gain #b1 #yPlated #yArmor.",
+      "At the start of your turn, gain #b2 #yPlated #yArmor.",
       "At the start of your turn, gain #b2 #yPlated #yArmor."
     ]
   },
   "Rock": {
     "NAME": "Rock",
     "DESCRIPTION": [
-      "Deals #b1 damage to you on shattering.",
-      "Deals #b1 damage to you on shattering."
+      "Deals #b1 damage to a random enemy on shattering.",
+      "Deals #b1 damage to a random enemy on shattering."
     ]
   },
   "Whetstone": {

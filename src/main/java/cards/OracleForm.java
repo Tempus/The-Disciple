@@ -31,7 +31,7 @@ public class OracleForm extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		if (AbstractDungeon.player != null) { 
-			this.baseMagicNumber = AbstractDungeon.player.masterHandSize-1;
+			this.baseMagicNumber = AbstractDungeon.player.gameHandSize-1;
 		} else {
 			this.baseMagicNumber = 4;
 		}
@@ -60,9 +60,21 @@ public class OracleForm extends MetricsCard {
 	}
 
 	@Override
+	public void triggerWhenDrawn() {
+		this.magicNumber = AbstractDungeon.player.gameHandSize-1;
+		if (this.upgraded) { this.magicNumber++; }
+	}
+
+	public void atTurnStart() {
+		this.magicNumber = AbstractDungeon.player.gameHandSize-1;
+		if (this.upgraded) { this.magicNumber++; }
+	}
+
+	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeMagicNumber(1);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
 		}

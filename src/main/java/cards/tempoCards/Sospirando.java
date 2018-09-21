@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import chronomuncher.actions.PlayExhaustedCardAction;
 import chronomuncher.actions.SmokeBombAction;
+import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.powers.SlowPower;
@@ -58,21 +59,27 @@ public class Sospirando extends MetricsCard {
 
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = UPGRADE_PLUS_MAGIC;
+
+		this.exhaust = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
-		if (!this.upgraded) {
-			AbstractDungeon.actionManager.addToBottom(
-				new ApplyPowerAction(m, p, new StunPower(m, this.magicNumber), this.magicNumber));
-		} else {
-		    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-				if (!mo.isDead && !mo.escaped && mo != null) {
-					AbstractDungeon.actionManager.addToBottom(
-						new ApplyPowerAction(mo, p, new StunPower(mo, this.magicNumber), this.magicNumber)); } }
+		if (m.type == AbstractMonster.EnemyType.BOSS && !this.upgraded) {
+			AbstractDungeon.effectList.add(new PowerBuffEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - 48.0F, "Immune"));
+			return;
 		}
 
+		// if (!this.upgraded) {
+			AbstractDungeon.actionManager.addToBottom(
+				new ApplyPowerAction(m, p, new StunPower(m, this.magicNumber), this.magicNumber));
+		// } else {
+		//     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+		// 		if (!mo.isDead && !mo.escaped && mo != null) {
+		// 			AbstractDungeon.actionManager.addToBottom(
+		// 				new ApplyPowerAction(mo, p, new StunPower(mo, this.magicNumber), this.magicNumber)); } }
+		// }
 	}
 
 	@Override
@@ -86,10 +93,7 @@ public class Sospirando extends MetricsCard {
 			upgradeName();
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
-   		   	this.target = AbstractCard.CardTarget.ALL_ENEMY;
-			// upgradeDamage(UPGRADE_PLUS_DMG);
-			// upgradeBlock(UPGRADE_PLUS_BLOCK);
-			// upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+   		   	// this.exhaust = false;
 		}
 	}
 }

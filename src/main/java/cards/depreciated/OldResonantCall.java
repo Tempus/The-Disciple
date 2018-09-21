@@ -1,56 +1,57 @@
 package chronomuncher.cards;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EchoPower;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
-import chronomuncher.powers.EchonomicsPower;
+import chronomuncher.actions.PlayLowerBlockFromDeckAction;
 
-public class Echonomics extends MetricsCard {
-	public static final String ID = "Echonomics";
+
+public class OldResonantCall extends MetricsCard {
+	public static final String ID = "OldResonantCall";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
 	private static final int COST = 1;
-	private static final int ECHO_AMT = 1;
+	private static final int CARDS_TO_PLAY = 3;
+	private static final int CARDS_TO_PLAY_UP = 2;
 
-	public Echonomics() {
-		super(ID, NAME, "images/cards/Echonomics.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+	public OldResonantCall() {
+		super(ID, NAME, "images/cards/OldResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
-		this.baseMagicNumber = ECHO_AMT;
-		this.magicNumber = this.baseMagicNumber;
+		this.baseMagicNumber = CARDS_TO_PLAY;
+		this.magicNumber = CARDS_TO_PLAY;
+
+		this.exhaust = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EchonomicsPower(this.magicNumber), this.magicNumber));
+		AbstractDungeon.actionManager.addToTop(new PlayLowerBlockFromDeckAction(m, this.magicNumber, p.currentBlock));
 	}
+
 
 	@Override
 	public AbstractCard makeCopy() {
-		return new Echonomics();
+		return new OldResonantCall();
 	}
 
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeMagicNumber(1);
-      		this.rawDescription = UPGRADE_DESCRIPTION;
-   		   	initializeDescription();
+			upgradeMagicNumber(CARDS_TO_PLAY_UP);
 		}
 	}
 }

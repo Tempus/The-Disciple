@@ -36,8 +36,8 @@ public class SleepPower extends AbstractPower
     this.monster = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/Sleep.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/SleepSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/Sleep.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/SleepSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.DEBUFF;
     this.isTurnBased = true;
   }
@@ -75,7 +75,7 @@ public class SleepPower extends AbstractPower
   }
   
   public void applySleep() {
-    this.monster.setMove((byte)-1, AbstractMonster.Intent.SLEEP); 
+    this.monster.setMove((byte)-2, AbstractMonster.Intent.SLEEP); 
     this.monster.createIntent();
   }
 

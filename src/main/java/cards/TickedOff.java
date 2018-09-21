@@ -24,7 +24,7 @@ public class TickedOff extends MetricsCard {
 
 	private static final int COST = 2;
 	private static final int BLOCK = 8;
-	private static final int BLOCK_UPGRADE = 4;
+	private static final int BLOCK_UPGRADE = 5;
 
 	public TickedOff() {
 		super(ID, NAME, "images/cards/TickedOff.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,

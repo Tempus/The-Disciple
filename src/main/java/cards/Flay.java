@@ -51,18 +51,20 @@ public class Flay extends MetricsCard {
 		int temp = AbstractDungeon.getCurrRoom().monsters.monsters.size();
 		for (int i = 0; i < temp; i++) {
 			AbstractMonster mo = (AbstractMonster)AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
-			if (!mo.isDeadOrEscaped() && mo.currentBlock < this.multiDamage[i])
+			if (!mo.isDeadOrEscaped())
 			{
 	 		    AbstractDungeon.actionManager.addToBottom(
-	 		    	new ApplyPowerAction(mo, p, new StrengthPower(mo, -(this.multiDamage[i]-mo.currentBlock)), -(this.multiDamage[i]-mo.currentBlock), true, AbstractGameAction.AttackEffect.NONE));
+	 		    	new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.multiDamage[i]), -this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
 
-	 		    if (this.upgraded) {
-		 		    AbstractDungeon.actionManager.addToBottom(
-		 		    	new ApplyPowerAction(mo, p, new DelayedGainStrengthPower(mo, this.magicNumber, this.multiDamage[i]-mo.currentBlock), this.multiDamage[i]-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
-		 		} else {
-		 			AbstractDungeon.actionManager.addToBottom(
-	          			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.multiDamage[i]-mo.currentBlock), this.multiDamage[i]-mo.currentBlock, true, AbstractGameAction.AttackEffect.NONE));
-		 		}
+	 		    if (!mo.hasPower("Artifact")) {
+		 		    if (this.upgraded) {
+			 		    AbstractDungeon.actionManager.addToBottom(
+			 		    	new ApplyPowerAction(mo, p, new DelayedGainStrengthPower(mo, this.magicNumber, this.multiDamage[i]), this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
+			 		} else {
+			 			AbstractDungeon.actionManager.addToBottom(
+		          			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.multiDamage[i]), this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
+			 		}
+			 	}
 			}
 		}
 	}

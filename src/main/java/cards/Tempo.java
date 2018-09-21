@@ -16,6 +16,7 @@ import chronomuncher.actions.IntentTransformAction;
 import chronomuncher.cards.*;
 import chronomuncher.cards.AbstractSwitchCard;
 import basemod.helpers.TooltipInfo;
+import basemod.ReflectionHacks;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -73,7 +74,10 @@ public class Tempo extends AbstractSwitchCard {
         this.bullshit = true;
 
         if (m.intent == AbstractMonster.Intent.ATTACK) {
-        	this.cardToPreview = new Allegro(); }
+            boolean isMultiDmg = (boolean)ReflectionHacks.getPrivate(this.newTarget, AbstractMonster.class, "isMultiDmg");
+
+            if (!isMultiDmg) { this.cardToPreview = new Allegro(); } 
+            else             { this.cardToPreview = new Allargando(); } }
         else if (m.intent == AbstractMonster.Intent.ATTACK_BUFF) {
         	this.cardToPreview = new Vivace(); }
         else if (m.intent == AbstractMonster.Intent.ATTACK_DEBUFF) {

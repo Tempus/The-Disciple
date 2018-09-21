@@ -24,7 +24,6 @@ public class Cuckoo extends MetricsCard {
 
 	private static final int COST = 3;
 	private static final int BLOCK_AMT = 4;
-	private static final int UPGRADE_PLUS_BLOCK = 5;
 
 	public Cuckoo() {
 		super(ID, NAME, "images/cards/Cuckoo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -59,7 +58,6 @@ public class Cuckoo extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeBlock(UPGRADE_PLUS_BLOCK);
 			upgradeBaseCost(2);
 		}
 	}

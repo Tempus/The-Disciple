@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.blights.TimeMaze;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -49,8 +50,8 @@ public class EchoLatePower
     this.owner = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/EchoLate.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLate.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
     this.isPostActionPower = true;
   }
   

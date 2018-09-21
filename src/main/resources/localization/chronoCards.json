@@ -88,12 +88,12 @@
   },
   "Flay": {
       "NAME": "Flay",
-      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose strength for unblocked damage dealt for one turn.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose strength for unblocked damage dealt for two turns."
+      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! strength for one turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! strength for two turns."
   },
   "Recurrance": {
       "NAME": "Recurrance",
-      "DESCRIPTION": "Deal !D! damage !M! times. NL For each unblocked hit, apply an additional debuff to each existing debuff."
+      "DESCRIPTION": "Deal !D! damage !M! times. NL Apply !M! additional debuffs to each existing debuff."
   },
   "OldTimer": {
       "NAME": "Old Timer",
@@ -116,6 +116,11 @@
   "Allegro": {
       "NAME": "Allegro",
       "DESCRIPTION": "Deal !D! damage."
+  },
+  "Allargando": {
+      "NAME": "Allargando",
+      "DESCRIPTION": "Deal !D! damage to ALL enemies.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies."
   },
   "Vivace": {
       "NAME": "Vivace",
@@ -189,8 +194,8 @@
   },
   "Sospirando": {
       "NAME": "Sospirando",
-      "DESCRIPTION": "Apply Stun.",
-      "UPGRADE_DESCRIPTION": "Stun ALL Enemies."
+      "DESCRIPTION": "Apply Stun on a non-boss enemy. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Apply Stun. NL Exhaust."
   },
   "Misterioso": {
       "NAME": "Misterioso",
@@ -394,10 +399,15 @@
       "DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust.",
       "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust."
   },
-  "Echonomics": {
+  "OldEchonomics": {
       "NAME": "Echonomics",
       "DESCRIPTION": "The first card you play each turn is played twice. NL Exhaust.",
       "UPGRADE_DESCRIPTION": "The last card you play each turn is played twice. NL Exhaust."
+  },
+  "Echonomics": {
+      "NAME": "Echonomics",
+      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this turn.",
+      "UPGRADE_DESCRIPTION": "This turn, your next !M! cards are duplicated into your hand and costs 0 this turn."
   },
   "Parity": {
       "NAME": "Parity",
@@ -407,8 +417,8 @@
   },
   "MasterKey": {
       "NAME": "Master Key",
-      "DESCRIPTION": "Plays all Powers in your hand. NL Exhaust.",
-      "UPGRADE_DESCRIPTION": "Plays all Powers in your hand and discard Pile. NL Exhaust."
+      "DESCRIPTION": "Plays all Powers in your hand. NL Self-Retaining. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Plays all Powers in your hand and discard Pile. NL Self-Retaining. NL Exhaust."
   },
   "FeedbackCycle": {
       "NAME": "Feedback Cycle",
@@ -420,9 +430,14 @@
       "DESCRIPTION": "Add !M! Wards to your hand and shuffle 2 into your draw pile.",
       "UPGRADE_DESCRIPTION": "Add !M! upgraded Wards to your hand and shuffle 2 into your draw pile."
   },
-  "ResonantCall": {
+  "OldResonantCall": {
       "NAME": "Resonant Call",
       "DESCRIPTION": "Play the first !M! Block cards in your draw pile that give less Block than you currently have. NL Exhaust."
+  },
+  "ResonantCall": {
+      "NAME": "Resonant Call",
+      "DESCRIPTION": "Mimics the effect and cost of the last card you played.",
+      "UPGRADE_DESCRIPTION": " NL Self-Retaining."
   },
   "OldClockandLoad": {
       "NAME": "Clock and Load",
@@ -477,7 +492,7 @@
 
   "OracleForm": {
       "NAME": "Oracle Form",
-      "DESCRIPTION": "Instead of drawing your hand, discard 2 cards randomly from your draw pile and choose !M!.",
+      "DESCRIPTION": "Instead of drawing your hand, choose !M! cards from your draw pile.",
       "UPGRADE_DESCRIPTION": "Instead of drawing your hand, choose !M! cards from your draw pile."   
   },
   "SpringForward": {

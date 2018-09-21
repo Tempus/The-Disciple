@@ -33,8 +33,8 @@ public class HastePower extends AbstractPower
     this.owner = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/Haste.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/HasteSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/Haste.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/HasteSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.BUFF;
   }
   

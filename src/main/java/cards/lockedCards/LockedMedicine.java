@@ -50,9 +50,9 @@ public class LockedMedicine extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Medicine", "Whenever you draw a #yStatus card, #yExhaust it. NL #pShatters #pin #b7 #pturns."));
+			this.tips.add(new TooltipInfo("Medicine", "Whenever you draw a #yStatus card, #yExhaust it and draw a card. NL #pShatters #pin #b7 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Medicine+", "Whenever you draw a #yStatus card, #yExhaust it and draw a card. NL #pShatters #pin #b7 #pturns."));
+			this.tips.add(new TooltipInfo("Medicine+", "Whenever you draw a #yStatus or #yCurse card, #yExhaust it and draw a card. NL #pShatters #pin #b7 #pturns."));
 		}
 
 	    return this.tips;

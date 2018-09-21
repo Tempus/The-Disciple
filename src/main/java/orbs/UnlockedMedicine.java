@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import java.util.ArrayList;
 
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -37,6 +38,8 @@ public class UnlockedMedicine extends ReplicaOrb
             7,                  // int timerUp
             new LockedMedicine(),
             "Medical Kit"); // AbstractCard locked)
+
+    if (upgraded) { this.img = ImageMaster.loadImage("images/orbs/Medicine+.png"); }
   }
     
   @Override
@@ -50,14 +53,12 @@ public class UnlockedMedicine extends ReplicaOrb
   }
 
   public void onCardDraw(AbstractCard c) {
-    if (c.type == AbstractCard.CardType.STATUS){
+    if (c.type == AbstractCard.CardType.STATUS || (this.upgraded && c.type == AbstractCard.CardType.CURSE)){
       this.activateEffect();
       AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
       AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
       AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new MedicalKit()));
-      if (this.upgraded) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1)); 
-      }
+      AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1)); 
     }
   }
 

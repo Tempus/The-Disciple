@@ -44,7 +44,11 @@ public class SwitchReapSow extends AbstractSelfSwitchCard {
 		}
 		
 		this.switchList = switchListInherit;
-		this.switchTo(switchID);
+		if (this.currentID != null) {
+			this.switchTo(this.currentID);
+		} else {
+			this.switchTo(switchID);
+		}
 	}
 
 	public SwitchReapSow() { this(null); }

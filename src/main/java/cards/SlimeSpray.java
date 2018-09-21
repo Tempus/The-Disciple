@@ -24,8 +24,8 @@ public class SlimeSpray extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = 2;
-	private static final int ATTACK_DMG = 6;
-	private static final int UPGRADE_PLUS_DMG = 3;
+	private static final int ATTACK_DMG = 7;
+	private static final int UPGRADE_PLUS_DMG = 4;
 
 	public SlimeSpray() {
 		super(ID, NAME, "images/cards/SlimeSpray.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import chronomuncher.ChronoMod;
 import chronomuncher.actions.TransformCardPermanently;
 import chronomuncher.cards.*;
+import basemod.ReflectionHacks;
 
 
 public class IntentTransformAction extends AbstractGameAction {
@@ -38,8 +39,11 @@ public class IntentTransformAction extends AbstractGameAction {
 	public void update() {
 		AbstractCard newCard;
 
+		boolean isMultiDmg = (boolean)ReflectionHacks.getPrivate(this.m, AbstractMonster.class, "isMultiDmg");
+
 		if (this.m.intent == AbstractMonster.Intent.ATTACK) {
-			newCard = new Allegro(); }
+			if (!isMultiDmg) { newCard = new Allegro(); } 
+			else 			 { newCard = new Allargando(); } }
 		else if (this.m.intent == AbstractMonster.Intent.ATTACK_BUFF) {
 			newCard = new Vivace(); }
 		else if (this.m.intent == AbstractMonster.Intent.ATTACK_DEBUFF) {
@@ -74,7 +78,7 @@ public class IntentTransformAction extends AbstractGameAction {
 
 		if (this.transformee != null) {
 			// Make the new card temporarily in the battle, and discard it
-	  		AbstractDungeon.actionManager.addToTop(new TransformCardPermanently(this.p, this.transformee, newCard, false));
+	  		AbstractDungeon.actionManager.addToTop(new TransformCardPermanently(this.p, this.transformee, newCard, true));
 	  	} else {
 		    UnlockTracker.markCardAsSeen(newCard.cardID);
 		    if ((this.upgraded) && (newCard.canUpgrade())) {

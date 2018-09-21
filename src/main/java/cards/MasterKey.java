@@ -47,60 +47,16 @@ public class MasterKey extends MetricsCard {
 		AbstractDungeon.actionManager.addToBottom(new PlayFreePowersAction(this.upgraded));
    	}
 
-   	public void reactivateAllOrbEffects(AbstractPlayer p) {
-		for (AbstractOrb unlocked : AbstractDungeon.actionManager.orbsChanneledThisCombat) {
+	public void onMoveToDiscard() {
+		super.onMoveToDiscard();
+		this.costForTurn = this.cost;
+		this.isCostModifiedForTurn = false;
+	}
 
-			switch (unlocked.ID) {
-
-				case "Carbon":
-				case "Flame":
-				case "Lightning":
-				case "Tornado":
-				case "IceCream":
-				case "Medicine":
-				case "Plans":
-				case "Thread":
-				    unlocked.onStartOfTurn();
-					break;
-
-				case "Orichalcum":
-				case "Mercury":
-					unlocked.onEndOfTurn();
-					break;
-
-				case "Hand":
-					for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-	    				if (c.type == AbstractCard.CardType.POWER) {
-							UnlockedHand hand = (UnlockedHand)unlocked;
-							hand.reduceCardCost();
-						}
-					}
-					break;
-
-				case "Blood":
-				    AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(p, new BloodVial()));
-				    AbstractDungeon.actionManager.addToTop(new HealAction(p, p, 2));
-					break;
-
-				case "Calipers":
-					// Nothing happens... right? Maybe we should make a custom Calipers power to go here.
-					break;
-
-				case "Nitrogen":
-    				AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusPower(AbstractDungeon.player, unlocked.passiveAmount), unlocked.passiveAmount));    
-					break;
-
-				case "Urn":
-					for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-	    				if (c.type == AbstractCard.CardType.POWER) {
-						    AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, new BirdFacedUrn()));
-						    AbstractDungeon.actionManager.addToTop(new HealAction(AbstractDungeon.player, AbstractDungeon.player, unlocked.passiveAmount));
-						}
-					}
-					break;
-			}
-		}
-   	}
+	@Override
+	public void atTurnStart() {
+		this.retain = true;
+	}
 
 	@Override
 	public AbstractCard makeCopy() {

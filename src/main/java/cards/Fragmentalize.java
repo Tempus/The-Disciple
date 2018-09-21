@@ -31,7 +31,7 @@ public class Fragmentalize extends MetricsCard {
 
 	private static final int COST = 1;
 	private static final int DAMAGE = 17;
-	private static final int DAMAGE_UPGRADE = 8;
+	private static final int DAMAGE_UPGRADE = 6;
 
 	public Fragmentalize() {
 		super(ID, NAME, "images/cards/Fragmentalize.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

@@ -23,8 +23,8 @@ public class WakeUpCall extends MetricsCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
 	private static final int COST = 2;
-	private static final int ATTACK_DMG = 50;
-	private static final int ATTACK_DMG_UP = 25;
+	private static final int ATTACK_DMG = 44;
+	private static final int ATTACK_DMG_UP = 16;
 
 	public WakeUpCall() {
 		super(ID, NAME, "images/cards/WakeUpCall.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

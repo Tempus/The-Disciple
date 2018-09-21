@@ -38,8 +38,8 @@ public class SpareTimePower extends AbstractPower
     this.owner = owner;
     this.amount = 1;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/SpareTime.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/SpareTimeSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/SpareTime.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/SpareTimeSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.BUFF;
     this.isTurnBased = true;
     this.upgraded = upgraded;

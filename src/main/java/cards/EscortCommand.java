@@ -25,8 +25,8 @@ public class EscortCommand extends MetricsCard {
 
 	private static final int COST = 1;
 	private static final int BLOCK_AMT = 3;
-	private static final int UPGRADE_PLUS_BLOCK = 1;
-	private static final int NEXT_BLOCK_AMT = 7;
+	private static final int UPGRADE_PLUS_BLOCK = 2;
+	private static final int NEXT_BLOCK_AMT = 8;
 	private static final int NEXT_UPGRADE_PLUS_BLOCK = 3;
 
 	public EscortCommand() {

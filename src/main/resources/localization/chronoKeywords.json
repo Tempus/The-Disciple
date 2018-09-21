@@ -65,7 +65,7 @@
     "NAMES": [
       "fibonacci"
     ],
-    "DESCRIPTION": "Fibonacci effects will increase depending on the size of your hand along the fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34..."
+    "DESCRIPTION": "Fibonacci effects will increase depending on the size of your hand along the fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55..."
   },
   "TEMPO": {
     "NAMES": [

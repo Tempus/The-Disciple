@@ -27,7 +27,7 @@ public class Chronoelasticity extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
 	private static final int COST = -1;
-	private static final int SLOW = 7;
+	private static final int SLOW = 5;
 	private static final int SLOW_UPGRADE = 3;
 
 	public Chronoelasticity() {

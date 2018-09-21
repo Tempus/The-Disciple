@@ -29,8 +29,8 @@ public class RetainOncePower extends AbstractPower
     this.ID = ("RetainOnce");
     this.owner = AbstractDungeon.player;
     this.amount = amount;
-    this.region128 = new TextureAtlas.AtlasRegion(new Texture("images/powers/RetainOnce.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(new Texture("images/powers/RetainOnceSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/RetainOnce.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/RetainOnceSmall.png"), 0, 0, 32, 32);
     updateDescription();
   }
 

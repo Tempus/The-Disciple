@@ -28,9 +28,11 @@ public class SecondHand extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
-	private static final int COST = 0;
+	private static final int COST = 1;
 	private static final int RETAIN = 1;
 	private static final int RETAIN_UPGRADE = 1;
+	private static final int BLOCK = 7;
+	private static final int BLOCK_UPGRADE = 3;
 
 	public SecondHand() {
 		super(ID, NAME, "images/cards/SecondHand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -38,8 +40,8 @@ public class SecondHand extends MetricsCard {
 
 		this.baseMagicNumber = RETAIN;
 		this.magicNumber = this.baseMagicNumber;
-		this.baseBlock = 4;
-		this.block = 4;
+		this.baseBlock = BLOCK;
+		this.block = BLOCK;
 
 		CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
 	}
@@ -63,6 +65,7 @@ public class SecondHand extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeBlock(BLOCK_UPGRADE);
 			upgradeMagicNumber(RETAIN_UPGRADE);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
