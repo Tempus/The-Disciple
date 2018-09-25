@@ -3,7 +3,7 @@ The Disciple is a difficult and challenging custom Slay the Spire character them
 
 Contains a complete character with fully custom artwork, and a complete pool of cards, relics, and potions to accompany.
 
-[Character Cardlist](http://www.chronometry.ca)
+[Character Cardlist](http://www.chronometry.ca/disciple/)
 
 
 ## Installation Instructions
