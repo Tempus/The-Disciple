@@ -1,9 +1,11 @@
 package chronomuncher.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -15,7 +17,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -63,8 +68,9 @@ public class DelayedAttackPower extends AbstractPower
           AbstractDungeon.actionManager.addToBottom(
             new LoseHPAction(this.owner, this.owner, this.damage));
         } else {
+          AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(this.owner.hb.cX, this.owner.hb.cY - 40.0F * Settings.scale, Color.RED.cpy()), 0.3F));
           AbstractDungeon.actionManager.addToBottom(
-            new DamageAction(this.owner, new DamageInfo(null, this.damage, DamageInfo.DamageType.THORNS), AttackEffect.SLASH_DIAGONAL));
+            new DamageAction(this.owner, new DamageInfo(null, this.damage, DamageInfo.DamageType.THORNS), AttackEffect.NONE));
         }
       }
     }

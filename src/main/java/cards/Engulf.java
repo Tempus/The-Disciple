@@ -2,6 +2,7 @@ package chronomuncher.cards;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,10 +12,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.SlowPower;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
+import chronomuncher.vfx.SlimeSplashEffect;
 
 
 public class Engulf extends MetricsCard {
@@ -42,7 +45,13 @@ public class Engulf extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(
-			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+		AbstractDungeon.actionManager.addToBottom(
+			new SFXAction("SLIME_ATTACK_2", 0.4F));
+
+		AbstractDungeon.actionManager.addToBottom(
+			new VFXAction(new SlimeSplashEffect(m.drawX, m.drawY + m.hb_h/2.0F)));
 
 		AbstractDungeon.actionManager.addToBottom(
 			new ApplyPowerAction(m, p, new SlowPower(m, this.magicNumber-1), this.magicNumber-1, true, AbstractGameAction.AttackEffect.NONE));

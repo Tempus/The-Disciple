@@ -24,6 +24,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.audio.Sfx;
+import com.megacrit.cardcrawl.audio.SoundMaster;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import basemod.BaseMod;
 import basemod.interfaces.EditCardsSubscriber;
@@ -38,6 +41,7 @@ import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.PreStartGameSubscriber;
 import basemod.interfaces.PostDrawSubscriber;
 import basemod.interfaces.OnPowersModifiedSubscriber;
+import basemod.ReflectionHacks;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
@@ -139,6 +143,18 @@ public class ChronoMod implements
 
         Texture badgeTexture = ImageMaster.loadImage("images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
+
+        this.loadAudio();
+    }
+
+    public void loadAudio() {
+        HashMap<String, Sfx> map = (HashMap<String, Sfx>)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
+        map.put("CHRONO-COGS", new Sfx("audio/Cogs.ogg", false));
+        map.put("CHRONO-SHARP1", new Sfx("audio/Slide_Sharp_01.ogg", false));
+        map.put("CHRONO-SHARP2", new Sfx("audio/Slide_Sharp_02.ogg", false));
+        map.put("CHRONO-SLOWDOWN", new Sfx("audio/SlowDown.ogg", false));
+        map.put("CHRONO-SPEEDUP", new Sfx("audio/SpeedUp.ogg", false));
+        map.put("CHRONO-TICK", new Sfx("audio/Tick.ogg", false));
     }
         
     public void receivePostDeath() {

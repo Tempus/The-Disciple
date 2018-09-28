@@ -11,7 +11,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.SlowPower;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 
+import chronomuncher.vfx.SlimeSplashEffect;
+
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
@@ -39,12 +43,18 @@ public class SlimeSpray extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 	    AbstractDungeon.actionManager.addToBottom(
-	    		new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+	    		new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
  
+ 		AbstractDungeon.actionManager.addToBottom(
+			new SFXAction("MONSTER_SLIME_ATTACK", 0.4F));
+
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {
 				AbstractDungeon.actionManager.addToBottom(
 					new ApplyPowerAction(mo, p, new SlowPower(mo, 0), 0, true, AbstractGameAction.AttackEffect.NONE));
+
+				AbstractDungeon.actionManager.addToBottom(
+					new VFXAction(new SlimeSplashEffect(mo.drawX, mo.drawY + mo.hb_h/2.0F)));
 			}
 		}
 	}

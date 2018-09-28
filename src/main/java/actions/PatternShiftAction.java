@@ -38,18 +38,19 @@ public class PatternShiftAction extends AbstractGameAction {
 	private AbstractCard transformToCard;
   	private AbstractCard transformee;
   	public int seed = 0;
+  	public static int StabbyMcStabs = 1;
 
-	public PatternShiftAction(AbstractPlayer p, AbstractMonster m, int seed) {
+	public PatternShiftAction(AbstractPlayer p, AbstractMonster m) {
 		this.p = p;
 		this.m = m;
-		this.seed = seed;
+		// this.seed = seed;
 	}
 
 	public void update() {
-		this.isDone = this.nextIntent(this.m, this.seed);
+		this.isDone = this.nextIntent(this.m);
 	}
 
-	public static boolean nextIntent(AbstractMonster m, int seed) {
+	public static boolean nextIntent(AbstractMonster m) {
 		int count;
 		int turnCount;
 		int slashCount;
@@ -332,20 +333,21 @@ public class PatternShiftAction extends AbstractGameAction {
 				return true;
 		}
 
-		try {
-			Method method = m.getClass().getDeclaredMethod("getMove", int.class);
-			method.setAccessible(true);
-			method.invoke(m, seed); 
-		}
-		catch (Throwable e) {
-  			ChronoMod.log(e.toString());
- 		}
+		// try {
+		// 	Method method = m.getClass().getDeclaredMethod("getMove", int.class);
+		// 	method.setAccessible(true);
+		// 	method.invoke(m, seed); 
+		// }
+		// catch (Throwable e) {
+  // 			ChronoMod.log(e.toString());
+ 	// 	}
+ 		m.rollMove();
 		m.createIntent();
 
 		return true;
 	}
 
-	public static boolean restorePreviewedSpecialCases(AbstractMonster m, int seed) {
+	public static boolean restorePreviewedSpecialCases(AbstractMonster m) {
 		int count;
 		int turnCount;
 		int slashCount;
@@ -396,6 +398,10 @@ public class PatternShiftAction extends AbstractGameAction {
 				m.tint.changeColor(Color.WHITE.cpy(), 0.6F);
 				break;
 
+			case "BookOfStabbing":
+				ReflectionHacks.setPrivate(m, m.getClass(), "stabCount", StabbyMcStabs);
+				break;
+
 			case "TheCollector":
 				int turnsTaken = (int)ReflectionHacks.getPrivate(m, m.getClass(), "turnsTaken");
 				ReflectionHacks.setPrivate(m, m.getClass(), "turnsTaken", turnsTaken - 1);
@@ -431,7 +437,7 @@ public class PatternShiftAction extends AbstractGameAction {
         return true;
 	}
 
-	public static boolean previewNextIntent(AbstractMonster m, int seed) {
+	public static boolean previewNextIntent(AbstractMonster m) {
 		int count;
 		int turnCount;
 		int slashCount;
@@ -537,6 +543,11 @@ public class PatternShiftAction extends AbstractGameAction {
 
 				m.createIntent();
 				return true;
+
+			// Book of Stabbing has some new stuff after A18 that we need to save and restore.
+			case "BookOfStabbing":
+				StabbyMcStabs = (int)ReflectionHacks.getPrivate(m, m.getClass(), "stabCount");
+				break;
 
 			// The Collector has all sorts of stuff, but you can skip his ult
 			case "TheCollector":
@@ -679,14 +690,15 @@ public class PatternShiftAction extends AbstractGameAction {
 				return true;
 		}
 
-		try {
-			Method method = m.getClass().getDeclaredMethod("getMove", int.class);
-			method.setAccessible(true);
-			method.invoke(m, seed); 
-		}
-		catch (Throwable e) {
-  			ChronoMod.log(e.toString());
- 		}
+		// try {
+		// 	Method method = m.getClass().getDeclaredMethod("getMove", int.class);
+		// 	method.setAccessible(true);
+		// 	method.invoke(m, seed); 
+		// }
+		// catch (Throwable e) {
+  // 			ChronoMod.log(e.toString());
+ 	// 	}
+		m.rollMove();
 		m.createIntent();
 
 		return true;

@@ -68,8 +68,8 @@ public class Facsimile extends MetricsCard {
 		relicList.add(new Pair("Bird Faced Urn", 	UnlockedUrn.class));
 		relicList.add(new Pair("Chronometer", 		UnlockedPlans.class));
 		relicList.add(new Pair("Chronograph", 		UnlockedPlans.class));
-		relicList.add(new Pair("War Paint", 		UnlockedWhetstone.class));
-		relicList.add(new Pair("Whetstone", 		UnlockedWarPaint.class));
+		relicList.add(new Pair("War Paint", 		UnlockedWarPaint.class));
+		relicList.add(new Pair("Whetstone", 		UnlockedWhetstone.class));
 
 		this.updateRelicDescription();
 	}

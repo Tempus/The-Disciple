@@ -38,8 +38,8 @@ public class Allargando extends MetricsCard {
 
 	private static final int COST = 2;
 
-	private static final int DMG = 17;
-	private static final int UPGRADE_PLUS_DMG = 5;
+	private static final int DMG = 16;
+	private static final int UPGRADE_PLUS_DMG = 6;
 
 	private static final int BLOCK = 10;
 	private static final int UPGRADE_PLUS_BLOCK = 4;

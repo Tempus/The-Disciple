@@ -21,6 +21,7 @@ import chronomuncher.orbs.ReplicaOrb;
 import chronomuncher.patches.Enum;
 import chronomuncher.cards.AbstractSelfSwitchCard;
 import chronomuncher.actions.SwitchAction;
+import chronomuncher.actions.ModifyTimerAction;
 
 import java.util.List;
 import java.util.Arrays;
@@ -75,13 +76,10 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		        for (AbstractOrb o : p.orbs) {
 		            if (o instanceof ReplicaOrb) {
 		            	r = (ReplicaOrb)o;
-		            	for (int i = 0; i < this.magicNumber; i++ ) {
+		            	for (int i = 0; i < this.magicNumber; i++) {
 		            		if (r.timer > 0) {
-								AbstractDungeon.actionManager.addToBottom(new WaitAction(0.33F));
-								AbstractDungeon.actionManager.addToBottom(new SFXAction("RELIC_DROP_MAGICAL", 0.75F));
+								AbstractDungeon.actionManager.addToBottom(new ModifyTimerAction(r, -1));
 								AbstractDungeon.actionManager.addToBottom(new PlayTopCardAction(m, false));
-						        r.activateEffect();
-						        r.decrementTimer();
 							}		            		
 		            	}
 		        	}
@@ -91,8 +89,7 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		        for (AbstractOrb o : p.orbs) {
 		            if (o instanceof ReplicaOrb) {
 		            	r = (ReplicaOrb)o;
-						AbstractDungeon.actionManager.addToBottom(new SFXAction("ORB_PLASMA_CHANNEL", 0.75F));
-				        r.timer += this.magicNumber;
+						AbstractDungeon.actionManager.addToBottom(new ModifyTimerAction(r, this.magicNumber));
 		        	}
 		        }
 				break;

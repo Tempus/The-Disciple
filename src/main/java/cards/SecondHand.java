@@ -31,8 +31,8 @@ public class SecondHand extends MetricsCard {
 	private static final int COST = 1;
 	private static final int RETAIN = 1;
 	private static final int RETAIN_UPGRADE = 1;
-	private static final int BLOCK = 7;
-	private static final int BLOCK_UPGRADE = 3;
+	private static final int BLOCK = 5;
+	private static final int BLOCK_UPGRADE = 2;
 
 	public SecondHand() {
 		super(ID, NAME, "images/cards/SecondHand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -49,9 +49,9 @@ public class SecondHand extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (p.hand.group.size() > 0) {
-			AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
-		// AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(this.magicNumber), this.magicNumber));
+			// AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
 		}
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(this.magicNumber), this.magicNumber));
 
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));		
 	}

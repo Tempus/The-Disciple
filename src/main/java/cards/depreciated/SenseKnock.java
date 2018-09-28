@@ -42,7 +42,7 @@ public class SenseKnock extends MetricsCard {
  
  		for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 		    AbstractDungeon.actionManager.addToBottom(
-		    	new PatternShiftAction(p, mo, 0));
+		    	new PatternShiftAction(p, mo));
 		}	
 	}
 

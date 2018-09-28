@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.daily.DailyMods;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Prefs;
 import com.megacrit.cardcrawl.screens.DeathScreen;
@@ -84,9 +83,6 @@ public class customMetrics implements Runnable {
     addData("seed_source_timestamp", Long.valueOf(Settings.seedSourceTimestamp));
     addData("is_daily", Boolean.valueOf(Settings.isDailyRun));
     addData("special_seed", Settings.specialSeed);
-    if ((Settings.dailyMods != null) && (Settings.dailyMods.getEnabledModIDs().size() > 0)) {
-      addData("daily_mods", Settings.dailyMods.getEnabledModIDs());
-    }
     addData("is_trial", Boolean.valueOf(Settings.isTrial));
     addData("is_endless", Boolean.valueOf(Settings.isEndless));
     if (death)

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.daily.DailyMods;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -20,6 +19,10 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.cards.red.*;
+import com.megacrit.cardcrawl.cards.green.*;
+import com.megacrit.cardcrawl.cards.blue.*;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
@@ -34,18 +37,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.graphics.GL20;
 
-import com.megacrit.cardcrawl.vfx.scene.LogoFlameEffect;
-import com.megacrit.cardcrawl.vfx.GhostlyFireEffect;
-import com.megacrit.cardcrawl.vfx.GhostlyWeakFireEffect;
-import com.megacrit.cardcrawl.vfx.StaffFireEffect;
-import com.megacrit.cardcrawl.vfx.TorchHeadFireEffect;
-
 import basemod.abstracts.CustomPlayer;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.relics.Metronome;
 import chronomuncher.orbs.ReplicaOrb;
 import chronomuncher.vfx.GoldEnergyFlameEffect;
+import chronomuncher.cards.*;
 
 public class Chronomuncher extends CustomPlayer {
 
@@ -77,10 +75,6 @@ public class Chronomuncher extends CustomPlayer {
     private double counter = 0.0f;
     private Texture tex = new Texture("images/char/temp.png");
 
-    private ArrayList<LogoFlameEffect> flame = new ArrayList();
-    private float flameTimer = 0.2F;
-    private static final float FLAME_INTERVAL = 0.05F;
-
     public static final ArrayList<Texture> energyActiveLayers = new ArrayList<Texture>();
     public static final ArrayList<Texture> energyDisabledLayers = new ArrayList<Texture>();
 
@@ -107,8 +101,7 @@ public class Chronomuncher extends CustomPlayer {
 
     @Override
     protected void initializeStarterDeck() {
-
-        if (((Boolean)DailyMods.cardMods.get("Insanity")).booleanValue())
+        if (ModHelper.isModEnabled("Insanity"))
         {
           for (int i = 0; i < 50; i++) {
 
@@ -124,12 +117,7 @@ public class Chronomuncher extends CustomPlayer {
               (AbstractCard)CardLibrary.cards.get(tmp.get(AbstractDungeon.cardRandomRng.random(0, tmp.size() - 1))).makeCopy());
           }
         }
-
-        else if (((Boolean)DailyMods.cardMods.get("Draft")).booleanValue()) {
-          // We do nothing, honest.
-        }
-
-        else if (((Boolean)DailyMods.cardMods.get("Shiny")).booleanValue())
+        else if (ModHelper.isModEnabled("Shiny"))
         {
           CardGroup everyRareCard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
           
@@ -145,7 +133,24 @@ public class Chronomuncher extends CustomPlayer {
             UnlockTracker.markCardAsSeen(c.cardID);
           }
         }
-
+        else if (ModHelper.isModEnabled("Draft") || ModHelper.isModEnabled("SealedDeck")) {
+            return;
+        }
+        else if (ModHelper.isModEnabled("Chimera"))
+        {
+          this.masterDeck.addToTop(new Bash());
+          this.masterDeck.addToTop(new Survivor());
+          this.masterDeck.addToTop(new Zap());
+          this.masterDeck.addToTop(new PatternShift());
+          this.masterDeck.addToTop(new Strike_Red());
+          this.masterDeck.addToTop(new Strike_Green());
+          this.masterDeck.addToTop(new Strike_Blue());
+          this.masterDeck.addToTop(new Strike_Bronze());
+          this.masterDeck.addToTop(new Defend_Red());
+          this.masterDeck.addToTop(new Defend_Green());
+          this.masterDeck.addToTop(new Defend_Blue());
+          this.masterDeck.addToTop(new Defend_Bronze());
+        }
         else {
           for (String s : this.getStartingDeck()) {
             this.masterDeck.addToTop(CardLibrary.getCard(Enum.CHRONO_CLASS, s).makeCopy());
@@ -233,7 +238,6 @@ public class Chronomuncher extends CustomPlayer {
     @Override
     public void update() {
         super.update();
-        // this.updateFlame();
 
         if (EnergyPanel.totalCount > 0){
             this.angle7 += Gdx.graphics.getDeltaTime() * 40.0F;
@@ -252,16 +256,6 @@ public class Chronomuncher extends CustomPlayer {
             this.angle2 += Gdx.graphics.getDeltaTime() * -10.0F;
             this.angle1 += Gdx.graphics.getDeltaTime() * -20.0F;
         }
-    }
-
-    private void updateFlame()
-    {
-      this.flameTimer -= Gdx.graphics.getDeltaTime();
-      if (this.flameTimer < 0.0F)
-      {
-        this.flameTimer = 0.05F;
-        AbstractDungeon.effectList.add(new GoldEnergyFlameEffect(198.0F, 190.0F, 1.0F, Color.GOLDENROD.cpy())); // this duration
-      }
     }
 
     public static ArrayList<String> getStartingDeck() {
@@ -306,12 +300,12 @@ public class Chronomuncher extends CustomPlayer {
         }    
     }
 
-    public void applyEndOfTurnTriggers() {
-        super.applyEndOfTurnTriggers();
-        if (this.hasRelic("Metronome")) {
-            ((Metronome)this.getRelic("Metronome")).atEndofTurn();
-        }
-    }
+    // public void applyEndOfTurnTriggers() {
+    //     super.applyEndOfTurnTriggers();
+    //     if (this.hasRelic("Metronome")) {
+    //         ((Metronome)this.getRelic("Metronome")).atEndofTurn();
+    //     }
+    // }
 
     @Override
     public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {

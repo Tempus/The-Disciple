@@ -1,5 +1,38 @@
 Changelog:
 
+0.9.7
+
+	Compliance: Updated for week 43 update.
+	Feature: Now supports Chimera custom mod.
+	Feature: Retaining cards and relics now merge and retained cards are selected at once at the end of the turn.
+	Balance: Echonomics now exhausts.
+	Balance: Allargando damage changed from 17(22) to 16(22).
+	Balance: Second Hand block decreased 7(10) to 5(7).
+	Audio: Pattern Shift and its preview now have sounds.
+	Audio: Wake Up Call now plays a bell sound on use.
+	Audio: Pendulum now plays a sound on use.
+	Audio: Added sounds to Engulf.
+	Audio: Added sounds to the three Goos.
+	Audio: Added sounds to Slime Spray.
+	Audio: Fast Forward now has a sound.
+	Audio: Clock and Load now has a sound. 
+	Effect: Pattern Shift has an additional particle effect when played.
+	Effect: Rage Command and Bite Command now have a bite effect when they damage the enemy.
+	Effect: Recurrance now has effects for each hit.
+	Effect: Oracle Form's Augury power now has a nifty effect whilst you choose cards.
+	Effect: Clock and Load now has a timed Replica incrementer effect.
+	Effect: Fast Forward now has a timed Replica decrementer effect.
+	Effect: Slime Spray, Goos, and Engulf have a custom slime effect.
+	Bug: Over Time+ now does 6 damage instead of 10.
+	Bug: Book of Stabbing no longer increases it's stab count when Pattern Shift preview mouses over.
+	Bug: Recurrance now interacts correctly with Shackled.
+	Bug: Resonant Call no longer crashes the game with cards using Card atlases (many vanilla cards).
+	Bug: Resonant Call no longer is free to cast.
+	Bug: Resonant Call now correctly affects type-dependent effects such as Pen Nib, Art of War, Double Tap, etc.
+	Bug: Cryopreserver no longer sets the wrong timer on upgraded relics.
+	Bug: Facsmilie no longer mixes up War Paint and Whetstone.
+	Bug: Fast Forward no longer breaks orbs without timers.
+
 0.9.6
 
 	Feature: A20 Balance Pass.

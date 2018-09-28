@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
-
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -20,6 +20,8 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.cards.AbstractSelfSwitchCard;
 import chronomuncher.actions.SwitchAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import chronomuncher.vfx.SlimeSplashEffect;
 
 import java.util.List;
 import java.util.Arrays;
@@ -62,7 +64,13 @@ public class SwitchGoo extends AbstractSelfSwitchCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(
-			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+		AbstractDungeon.actionManager.addToBottom(
+			new SFXAction("SLIME_ATTACK", 0.4F));
+
+		AbstractDungeon.actionManager.addToBottom(
+			new VFXAction(new SlimeSplashEffect(m.drawX, m.drawY + m.hb_h/2.0F)));
 
 		switch (this.currentID) {
 			case "AcidicGoo":

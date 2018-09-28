@@ -33,18 +33,30 @@ public class UnlockedPlans extends ReplicaOrb
             4,                  // int timerUp
             new LockedPlans(),
             ""); // AbstractCard locked)
+
+    this.activateEffect();
+    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
   }
 
   @Override
-  public void onEndOfTurn()
-  { 
-    // super.onEndOfTurn();
+  public void onStartOfTurn()
+  {
+    super.onStartOfTurn();
     this.activateEffect();
-    if (AbstractDungeon.player.hand.group.size() > 0) {
-      AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, this.passiveAmount));
-      // AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
-    }
+
+    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
   }
+
+  // @Override
+  // public void onEndOfTurn()
+  // { 
+  //   // super.onEndOfTurn();
+  //   this.activateEffect();
+  //   if (AbstractDungeon.player.hand.group.size() > 0) {
+  //     // AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, this.passiveAmount));
+  //   }
+  //   AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainOncePower(this.passiveAmount), this.passiveAmount));    
+  // }
   
   @Override
   public AbstractOrb makeCopy() { return new UnlockedPlans(this.upgraded); }

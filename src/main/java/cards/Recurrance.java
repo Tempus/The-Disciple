@@ -43,15 +43,9 @@ public class Recurrance extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
-		// SANE MULTI-HITS? OR MAYBE COPY PASTA WAS RIGHT ALL ALONG
 		for (int hit = 0; hit < this.magicNumber; hit++) {
-			// Apply the effect
-			AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.NONE;
-			if (hit == this.magicNumber-1) { effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT; }
-			else { effect = AbstractGameAction.AttackEffect.NONE; }
-
 			AbstractDungeon.actionManager.addToBottom(
-				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), effect));
+				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 		}
 
 		// if (this.damage > 0) {
@@ -63,6 +57,8 @@ public class Recurrance extends MetricsCard {
 		    for (AbstractPower pow : m.powers) {
 				if (pow.type == AbstractPower.PowerType.DEBUFF) {
 					if (pow.canGoNegative == true) {
+						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
+					} else if (pow.ID == "Shackled") {
 						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
 					} else {
 						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));

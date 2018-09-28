@@ -52,6 +52,7 @@ public class ResonantCall extends MetricsCard {
 		if (c.cardID == this.cardID) { return; }
 		this.mimic = c.makeStatEquivalentCopy();
 
+		// Flash depending on what you switch to
 		if (this.mimic.type == AbstractCard.CardType.ATTACK) {
 			this.superFlash(Color.CORAL.cpy());
 		} else if (this.mimic.type == AbstractCard.CardType.ATTACK) {
@@ -60,31 +61,36 @@ public class ResonantCall extends MetricsCard {
 			this.superFlash(Color.LIME.cpy());
 		}
 
-
+		// Update cost
 		this.target = c.target;
 		this.cost = c.cost;
+		this.energyOnUse = c.cost;
 		this.costForTurn = c.costForTurn;
 		this.isCostModified = true;
+		this.isCostModifiedForTurn = true;
 
+		// Update description
 		this.rawDescription = "Mimics " + c.name + ".";
 		if (this.upgraded) { this.rawDescription = this.rawDescription + UPGRADE_DESCRIPTION; }
 		initializeDescription();
 
+		// Match type to card type
 		this.type = this.mimic.type;
 
+		// Laod card portrait
 		if (this.mimic instanceof CustomCard) {
 			this.loadCardImage(((CustomCard)this.mimic).textureImg);
 		} else {
 			Texture img = null;
-			img = (Texture)ReflectionHacks.getPrivate(this.mimic, CustomCard.class, "portraitImg");
+			img = (Texture)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portraitImg");
 
 			if (img == null) {
-				TextureAtlas.AtlasRegion a = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this.mimic, CustomCard.class, "portrait");
-				img = a.getTexture();
+				TextureAtlas.AtlasRegion a = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portrait");
+				ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", a);
+			} else {
+				TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(img, 0, 0, 250, 190);
+				ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
 			}
-
-			TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(img, 0, 0, 250, 190);
-			ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
 		}
 	}
 
@@ -95,9 +101,22 @@ public class ResonantCall extends MetricsCard {
 	}
 
 	@Override
+	public void calculateCardDamage(AbstractMonster mo) { 
+		super.calculateCardDamage(mo);
+		if (this.mimic != null) { this.mimic.calculateCardDamage(mo); }
+	}
+
+	@Override
+	public void applyPowers() { 
+		super.applyPowers();
+		if (this.mimic != null) { this.mimic.applyPowers(); }
+	}
+
+	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.mimic.use(p,m);
-		this.resetResonance();
+		this.superFlash(Color.GOLD.cpy());
+		this.loadCardImage("images/cards/ResonantCall.png");
 	}
 
 	@Override
@@ -137,7 +156,6 @@ public class ResonantCall extends MetricsCard {
 	}
 
 	public void resetResonance() {
-		this.superFlash(Color.GOLD.cpy());
 		this.cost = -1;
 		this.costForTurn = this.cost;
 		this.isCostModifiedForTurn = false;

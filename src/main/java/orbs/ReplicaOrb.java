@@ -65,9 +65,9 @@ public abstract class ReplicaOrb extends AbstractOrb {
     this.upgraded = upgraded;
 
     this.baseTimer = timer;
-    this.timer = timer;
+    if (upgraded) { this.baseTimer = timerUp; }
+    this.timer = this.baseTimer;
     this.timeElapsed = 0;
-    if (upgraded) { this.timer = timerUp; }
 
     this.basePassiveAmount = passive;
     if (this.upgraded) { this.basePassiveAmount = passiveUp; }
@@ -153,7 +153,8 @@ public abstract class ReplicaOrb extends AbstractOrb {
     if (Settings.FAST_MODE) {
       speedTime = 0.0F;
     }
-    AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.PLASMA), speedTime));
+    AbstractDungeon.effectList.add(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.PLASMA));    
+    // AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.PLASMA), speedTime));
   }
 
   @Override

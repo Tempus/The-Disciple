@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -22,6 +21,7 @@ import chronomuncher.ChronoMod;
 import chronomuncher.vfx.PatternShiftPreviewEffect;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.PatternShiftAction;
+import chronomuncher.vfx.PatternLinesEffect;
 
 import basemod.ReflectionHacks;
 
@@ -41,6 +41,7 @@ public class PatternShift extends MetricsCard {
 	public EnemyMoveInfo nextMove;
 	public AbstractMonster newTarget;
 	public boolean intentRevert = false;
+	public static long songID = 0;
 
 	public PatternShift() {
 		super(ID, NAME, "images/cards/PatternShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -49,9 +50,16 @@ public class PatternShift extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToTop(new PatternShiftAction(p, m, this.rollSeed));
+		AbstractDungeon.actionManager.addToTop(new PatternShiftAction(p, m));
+        CardCrawlGame.sound.playA("POWER_TIME_WARP", 0.5F);
 		if (m.hasPower("Sleep")) { AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, "Sleep")); }
 		if (m.hasPower("Stun"))  { AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, p, "Stun"));  }
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
+		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
 	}
 
 	@Override
@@ -81,6 +89,9 @@ public class PatternShift extends MetricsCard {
         super.calculateCardDamage(m);
 
         if (this.newTarget == null) {
+        	CardCrawlGame.sound.stop("EVENT_SHINING");
+   	        this.songID = CardCrawlGame.sound.playA("EVENT_SHINING", -0.5F);
+
 	        this.newTarget = m;
 
 	        this.move = (EnemyMoveInfo)ReflectionHacks.getPrivate(m, AbstractMonster.class, "move");
@@ -90,7 +101,7 @@ public class PatternShift extends MetricsCard {
 			long seed0 = (long)ReflectionHacks.getPrivate(AbstractDungeon.aiRng.random, RandomXS128.class, "seed0");
 			long seed1 = (long)ReflectionHacks.getPrivate(AbstractDungeon.aiRng.random, RandomXS128.class, "seed1");
 
-			PatternShiftAction.previewNextIntent(this.newTarget, this.rollSeed);
+			PatternShiftAction.previewNextIntent(this.newTarget);
 
 			// Restore the random state
 			AbstractDungeon.aiRng.counter = counter;
@@ -108,12 +119,14 @@ public class PatternShift extends MetricsCard {
 		}
 
         if (this.newTarget != null && this.intentRevert) {
+        	CardCrawlGame.sound.stop("EVENT_SHINING");
+
 			// Remove the move we added, and the one we're about to readd
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
 
 		    // Set old move
-			PatternShiftAction.restorePreviewedSpecialCases(this.newTarget, this.rollSeed);
+			PatternShiftAction.restorePreviewedSpecialCases(this.newTarget);
 
 	        this.newTarget.setMove(this.move.nextMove, this.move.intent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
 			this.newTarget.createIntent();

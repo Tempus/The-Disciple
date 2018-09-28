@@ -32,6 +32,8 @@ public class Echonomics extends MetricsCard {
 
 		this.baseMagicNumber = ECHO_AMT;
 		this.magicNumber = this.baseMagicNumber;
+
+		this.exhaust = true;
 	}
 
 	@Override

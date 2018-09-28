@@ -11,12 +11,14 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.cards.AbstractSelfSwitchCard;
 import chronomuncher.actions.SwitchAction;
+import chronomuncher.powers.RetainOncePower;
 
 import java.util.List;
 import java.util.Arrays;
@@ -58,7 +60,10 @@ public class SwitchSavings extends AbstractSelfSwitchCard {
 		switch (this.currentID) {
 			case "SpringForward":
 			    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber, false)); 
-				if (this.upgraded) { AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, 1)); }
+				if (this.upgraded) { 
+					// AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, 1)); 
+					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(1), 1));
+				}
 				break;
 			case "Fallback":
 				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));

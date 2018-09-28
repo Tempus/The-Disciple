@@ -406,8 +406,8 @@
   },
   "Echonomics": {
       "NAME": "Echonomics",
-      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this turn.",
-      "UPGRADE_DESCRIPTION": "This turn, your next !M! cards are duplicated into your hand and costs 0 this turn."
+      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this turn. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "This turn, your next !M! cards are duplicated into your hand and costs 0 this turn. NL Exhaust."
   },
   "Parity": {
       "NAME": "Parity",

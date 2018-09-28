@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -40,6 +41,7 @@ public class WakeUpCall extends MetricsCard {
 			AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
 		}
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("BELL", 1.0F));
 	}
 
 	public void onMoveToDiscard() {

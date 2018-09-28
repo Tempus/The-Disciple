@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.powers.RetainCardPower;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -27,13 +28,18 @@ public class Metronome extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
 
-    public void atEndofTurn() {
-        // Retained 1 additional card each turn
+    public void atBattleStart() {
         flash();
-        if (AbstractDungeon.player.hand.group.size() > 0) {
-            AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, CARDS_TO_RETAIN));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new RetainCardPower(AbstractDungeon.player, CARDS_TO_RETAIN), CARDS_TO_RETAIN));
     }
+
+    // public void atEndofTurn() {
+    //     // Retained 1 additional card each turn
+    //     flash();
+    //     if (AbstractDungeon.player.hand.group.size() > 0) {
+    //         AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(AbstractDungeon.player, CARDS_TO_RETAIN));
+    //     }
+    // }
     
     public void atPreBattle()
     {

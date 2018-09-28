@@ -22,6 +22,8 @@ public class RetainOncePower extends AbstractPower
   private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("RetainOnce");
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+  public int permaRetain = 0;
   
   public RetainOncePower(int amount)
   {
@@ -32,19 +34,28 @@ public class RetainOncePower extends AbstractPower
     this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/RetainOnce.png"), 0, 0, 84, 84);
     this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/RetainOnceSmall.png"), 0, 0, 32, 32);
     updateDescription();
+    this.permaRetain = permaRetain;
+    this.priority = 4;
   }
 
   @Override
   public void atStartOfTurn() 
   {
+    if (this.owner.hasPower("Retain Cards")) {
+      this.owner.getPower("Retain Cards").amount -= this.permaRetain;
+    }
     AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
   }
 
   @Override
   public void atEndOfTurn(boolean isPlayer)
   {
-    if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty()) && (!AbstractDungeon.player.hasRelic("Runic Pyramid")) && 
-      (!AbstractDungeon.player.hasPower("Equilibrium"))) {
+    if (this.owner.hasPower("Retain Cards")) {
+      this.permaRetain = this.amount;
+      this.owner.getPower("Retain Cards").amount += this.amount;
+      this.amount = 0;
+    }
+    else if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
       AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(this.owner, this.amount));
     }
   }

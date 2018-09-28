@@ -14,10 +14,14 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import chronomuncher.ChronoMod;
+import chronomuncher.vfx.OracleScreenEffect;
+import chronomuncher.vfx.OracleStarEffect;
 
 public class AuguryPower extends AbstractPower
 {
@@ -26,7 +30,9 @@ public class AuguryPower extends AbstractPower
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
   public boolean upgraded = false;
-  public static int DISCARDS = 2;
+  public boolean starsOn = false;
+  public int DISCARDS = 2;
+  public static SeekAction activeAction;
 
   public AuguryPower(Boolean upgraded)
   {
@@ -39,6 +45,7 @@ public class AuguryPower extends AbstractPower
     this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/AugurySmall.png"), 0, 0, 32, 32);
 
     this.upgraded = upgraded;
+    this.starsOn = false;
     this.type = AbstractPower.PowerType.BUFF;
   }
   
@@ -83,9 +90,24 @@ public class AuguryPower extends AbstractPower
     //   }
     // }
 
-    AbstractDungeon.actionManager.addToBottom(new SeekAction(this.amount));
+    activeAction = new SeekAction(this.amount);
+    AbstractDungeon.actionManager.addToBottom(activeAction);
+    this.starsOn = true;
   }
   
+  public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
+    super.renderIcons(sb, x, y, c);
+    if (this.starsOn) {
+      if (activeAction.isDone) {
+        ChronoMod.log("Switching off stars");
+        this.starsOn = false;
+      }
+
+      AbstractDungeon.effectsQueue.add(new OracleScreenEffect());
+      AbstractDungeon.effectsQueue.add(new OracleStarEffect());
+    }
+  }
+
   public void onRemove()
   {
     AbstractDungeon.player.gameHandSize = AbstractDungeon.player.masterHandSize;
