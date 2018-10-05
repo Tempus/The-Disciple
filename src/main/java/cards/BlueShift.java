@@ -29,6 +29,7 @@ public class BlueShift extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
+		this.retain = true;
 	}
 
 	@Override

@@ -54,6 +54,7 @@ public class DelayedAttackPower extends AbstractPower
   {
     this(owner, turns, damage);
     this.ignoreBlock = ignoreBlock;
+    this.updateDescription();
   }
 
   
@@ -78,10 +79,18 @@ public class DelayedAttackPower extends AbstractPower
   
   public void updateDescription()
   {
-    if (this.amount == 1) {
-      this.description = String.format(DESCRIPTIONS[1], new Object[] { Integer.valueOf(this.damage) });
+    if (!this.ignoreBlock) {
+      if (this.amount == 1) {
+        this.description = String.format(DESCRIPTIONS[1], new Object[] { Integer.valueOf(this.damage) });
+      } else {
+        this.description = String.format(DESCRIPTIONS[0], new Object[] { Integer.valueOf(this.amount), Integer.valueOf(this.damage) });
+      }
     } else {
-      this.description = String.format(DESCRIPTIONS[0], new Object[] { Integer.valueOf(this.amount), Integer.valueOf(this.damage) });
+      if (this.amount == 1) {
+        this.description = String.format(DESCRIPTIONS[3], new Object[] { Integer.valueOf(this.damage) });
+      } else {
+        this.description = String.format(DESCRIPTIONS[2], new Object[] { Integer.valueOf(this.amount), Integer.valueOf(this.damage) });
+      }
     }
   }
 }

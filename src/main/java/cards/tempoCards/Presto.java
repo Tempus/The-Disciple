@@ -8,10 +8,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import chronomuncher.actions.PlayExhaustedCardAction;
 import chronomuncher.actions.SmokeBombAction;
 
@@ -59,17 +62,28 @@ public class Presto extends MetricsCard {
 		// this.baseMagicNumber = MAGIC;
 		// this.magicNumber = UPGRADE_PLUS_MAGIC;
 
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		// if (this.upgraded) {
-  // 			AbstractDungeon.actionManager.addToTop(
-  // 				new GainGoldAction(p, 20));
-		// }
+  		if (this.upgraded) {
+			int increaseGold = 0;
+	
+		    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+				if (!mo.isDead && !mo.escaped) {
+					if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
+			            increaseGold = AbstractDungeon.treasureRng.random(25, 35) / AbstractDungeon.getCurrRoom().monsters.monsters.size(); }
+			        else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
+			            increaseGold = AbstractDungeon.treasureRng.random(10, 20) / AbstractDungeon.getCurrRoom().monsters.monsters.size(); }
 
-  		AbstractDungeon.actionManager.addToBottom(
-			new SmokeBombAction(this.upgraded));
+			  		AbstractDungeon.actionManager.addToBottom(new GainGoldAction(mo, increaseGold));
+			    }
+			}
+		}
+
+  		AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5F));
+  		AbstractDungeon.actionManager.addToBottom(new SmokeBombAction(this.upgraded));
 	}
 
 	@Override

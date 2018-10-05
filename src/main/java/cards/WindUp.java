@@ -31,6 +31,7 @@ public class WindUp extends MetricsCard {
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;
+		this.retain = true;
 	}
 
 	@Override

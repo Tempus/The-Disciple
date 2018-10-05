@@ -50,6 +50,7 @@ public class SwitchExoVibe extends AbstractSelfSwitchCard {
 		} else {
 			this.switchTo(switchID);
 		}
+    	this.tags.add(Enum.SWITCH_CARD);
 	}
 
 	public SwitchExoVibe() { this(null); }

@@ -51,6 +51,7 @@ public class SwitchSavings extends AbstractSelfSwitchCard {
 		} else {
 			this.switchTo(switchID);
 		}
+    	this.tags.add(Enum.SWITCH_CARD);
 	}
 
 	public SwitchSavings() { this(null); }

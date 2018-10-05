@@ -33,6 +33,7 @@ public class LockedHand extends MetricsCard {
 	public LockedHand() {
 		super(ID, NAME, "images/cards/LockedHand.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

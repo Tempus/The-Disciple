@@ -31,6 +31,7 @@ public class Cuckoo extends MetricsCard {
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;
+		this.retain = true;
 	}
 
 	@Override

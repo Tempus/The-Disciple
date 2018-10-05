@@ -55,8 +55,8 @@ public class RetainOncePower extends AbstractPower
       this.owner.getPower("Retain Cards").amount += this.amount;
       this.amount = 0;
     }
-    else if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
-      AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(this.owner, this.amount));
+    else if ((!AbstractDungeon.player.hand.isEmpty())) {
+      AbstractDungeon.actionManager.addToTop(new RetainCardsAction(this.owner, this.amount));
     }
   }
 

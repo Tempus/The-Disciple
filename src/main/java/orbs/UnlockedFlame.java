@@ -61,6 +61,9 @@ public class UnlockedFlame extends ReplicaOrb
   }
   
   @Override
+  public void decrementTimer() {}  
+
+  @Override
   public AbstractOrb makeCopy() { return new UnlockedFlame(this.upgraded); }
 }
 

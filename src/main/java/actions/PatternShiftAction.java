@@ -240,7 +240,7 @@ public class PatternShiftAction extends AbstractGameAction {
       						break;
       					default:
 		      				AbstractDungeon.actionManager.addToTop(new ChangeStateAction(m, "Activate Orb"));
-		      				AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
+		      				// AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
 		      				break;
 		      		}
       			}
@@ -339,8 +339,8 @@ public class PatternShiftAction extends AbstractGameAction {
 		// 	method.invoke(m, seed); 
 		// }
 		// catch (Throwable e) {
-  // 			ChronoMod.log(e.toString());
- 	// 	}
+		// ChronoMod.log(e.toString());
+		// }
  		m.rollMove();
 		m.createIntent();
 
@@ -600,16 +600,16 @@ public class PatternShiftAction extends AbstractGameAction {
       				switch (m.nextMove) {
       					case 1:
       						hexa = (Hexaghost)m;
-  		      				// AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
 		      				hexa.setMove((byte)4, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)hexa.damage.get(1)).base);
 							hexa.createIntent();
 							return true;
       					case 6:
       						hexa = (Hexaghost)m;
       						break;
-      					default:
-		      				AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
-		      				break;
+      					// default:
+      					// 	m.rollMove();
+      					// 	m.createIntent();
+		      			// 	break;
 		      		}
       			}
       			break;

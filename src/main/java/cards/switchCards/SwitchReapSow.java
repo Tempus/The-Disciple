@@ -49,6 +49,7 @@ public class SwitchReapSow extends AbstractSelfSwitchCard {
 		} else {
 			this.switchTo(switchID);
 		}
+    	this.tags.add(Enum.SWITCH_CARD);
 	}
 
 	public SwitchReapSow() { this(null); }

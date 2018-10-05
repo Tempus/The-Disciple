@@ -56,6 +56,7 @@ public class Largo extends MetricsCard {
 
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = MAGIC;
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override

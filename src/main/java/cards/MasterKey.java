@@ -40,6 +40,7 @@ public class MasterKey extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.exhaust = true;
+		this.retain = true;
 	}
 
 	@Override

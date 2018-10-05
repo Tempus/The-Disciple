@@ -194,6 +194,9 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 		if (card != null) {
 			this.type = card.type;
 			this.cost = card.cost;
+			if (this.isCostModified == false) {
+				this.costForTurn = card.cost; }
+
 			this.target = card.target;
 
 			this.isMultiDamage = card.isMultiDamage;

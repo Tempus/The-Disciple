@@ -14,8 +14,7 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.AuguryPower;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 
 public class OracleForm extends MetricsCard {
 	public static final String ID = "OracleForm";
@@ -38,7 +37,7 @@ public class OracleForm extends MetricsCard {
 		
 		this.magicNumber = this.baseMagicNumber;
 
-		CardTags.addTags(this, BaseModTags.FORM);
+    	this.tags.add(BaseModCardTags.FORM);
 	}
 
 	@Override

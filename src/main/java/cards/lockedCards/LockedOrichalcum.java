@@ -33,6 +33,7 @@ public class LockedOrichalcum extends MetricsCard {
 	public LockedOrichalcum() {
 		super(ID, NAME, "images/cards/LockedOrichalcum.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

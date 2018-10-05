@@ -33,6 +33,7 @@ public class LockedMedicine extends MetricsCard {
 	public LockedMedicine() {
 		super(ID, NAME, "images/cards/LockedMedicine.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

@@ -61,6 +61,9 @@ public class UnlockedTornado extends ReplicaOrb
   }
   
   @Override
+  public void decrementTimer() {}  
+
+  @Override
   public AbstractOrb makeCopy() { return new UnlockedTornado(this.upgraded); }
 }
 

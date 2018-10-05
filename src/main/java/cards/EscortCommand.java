@@ -42,7 +42,8 @@ public class EscortCommand extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 
-		this.baseBlock = this.magicNumber;
+		this.baseBlock = this.baseMagicNumber;
+		super.applyPowers();
 		this.calculateCardDamage(null);
 
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block, true, AbstractGameAction.AttackEffect.SHIELD));
@@ -51,10 +52,17 @@ public class EscortCommand extends MetricsCard {
 
 	@Override
 	public void applyPowers() {
+		// Next turn's block
+		this.baseBlock = this.baseMagicNumber;
 		super.applyPowers();
-		this.block = this.magicNumber;
 		this.calculateCardDamage(null);
+		if (this.isBlockModified) { this.isMagicNumberModified = true; }
+		this.magicNumber = this.block;
+		this.baseBlock = BLOCK_AMT;
+
+		// This turn's block
 		this.block = this.baseBlock;
+		super.applyPowers();
 		this.calculateCardDamage(null);
 	}
 

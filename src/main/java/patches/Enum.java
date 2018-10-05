@@ -12,5 +12,14 @@ public class Enum {
 
     @SpireEnum
     public static AbstractPlayer.PlayerClass CHRONO_CLASS;
+
+	@SpireEnum 
+	public static AbstractCard.CardTags TEMPO_CARD;
+
+	@SpireEnum 
+	public static AbstractCard.CardTags SWITCH_CARD;
+
+	@SpireEnum 
+	public static AbstractCard.CardTags REPLICA_CARD;
     
 } 

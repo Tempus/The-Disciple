@@ -18,8 +18,7 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.RetainOncePower;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 
 public class SecondHand extends MetricsCard {
 	public static final String ID = "SecondHand";
@@ -43,7 +42,7 @@ public class SecondHand extends MetricsCard {
 		this.baseBlock = BLOCK;
 		this.block = BLOCK;
 
-		CardTags.addTags(this, BaseModTags.GREMLIN_MATCH);
+    	this.tags.add(BaseModCardTags.GREMLIN_MATCH);
 	}
 
 	@Override

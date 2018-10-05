@@ -57,6 +57,11 @@ public class UnlockedIceCream extends ReplicaOrb
   }
 
   @Override
+  public void onShatter() {
+    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, "Conserve"));
+  }
+
+  @Override
   public AbstractOrb makeCopy() { return new UnlockedIceCream(this.upgraded); }
 }
 

@@ -34,6 +34,7 @@ public class Backlash extends MetricsCard {
 		this.baseDamage = 0;
 		this.baseMagicNumber = MULTI;
 		this.magicNumber = MULTI;
+		this.retain = true;
 	}
 
 	@Override

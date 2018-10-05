@@ -33,6 +33,7 @@ public class LockedMercury extends MetricsCard {
 	public LockedMercury() {
 		super(ID, NAME, "images/cards/LockedMercury.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

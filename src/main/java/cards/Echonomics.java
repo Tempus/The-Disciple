@@ -38,7 +38,7 @@ public class Echonomics extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EchonomicsPower(this.magicNumber), this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EchonomicsPower(this.magicNumber, this.upgraded), this.magicNumber));
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class Echonomics extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeMagicNumber(1);
+			// upgradeMagicNumber(1);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
 		}

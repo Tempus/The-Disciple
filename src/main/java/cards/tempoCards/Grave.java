@@ -58,6 +58,7 @@ public class Grave extends MetricsCard {
 
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = UPGRADE_PLUS_MAGIC;
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override

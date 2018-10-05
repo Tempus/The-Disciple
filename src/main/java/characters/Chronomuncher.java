@@ -183,24 +183,7 @@ public class Chronomuncher extends CustomPlayer {
         for (Texture tex : this.energyDisabledLayers) {
             tex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
-
-        // try {
-        //     Field tmp;
-
-        //     tmp = this.getClass().getDeclaredField("orbVfx");
-        //     tmp.setAccessible(true);
-            
-        //     tmp.set(this, new Texture("images/char/orb/neworb/vfx.png"));
-
-        // } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-        //     e.printStackTrace();
-        // }
     }
-
-    // public Texture getOrbVfxTexture() {
-    //     return new Texture("images/char/orb/neworb/vfx.png");
-    // }
-
 
     @SuppressWarnings("unused")
     public void renderPlayerImage(SpriteBatch sb) {
@@ -286,26 +269,6 @@ public class Chronomuncher extends CustomPlayer {
             STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, HAND_SIZE,
             Enum.CHRONO_CLASS, getStartingRelics(), getStartingDeck(), false);
     }
-
-    @Override
-    public void applyStartOfTurnPostDrawRelics() {
-        super.applyStartOfTurnPostDrawRelics();
-
-        // Orb callback
-        for (AbstractOrb o : AbstractDungeon.player.orbs) {
-            if (o instanceof ReplicaOrb) {
-                ReplicaOrb u = (ReplicaOrb)o;
-                u.atTurnStartPostDraw();
-            }
-        }    
-    }
-
-    // public void applyEndOfTurnTriggers() {
-    //     super.applyEndOfTurnTriggers();
-    //     if (this.hasRelic("Metronome")) {
-    //         ((Metronome)this.getRelic("Metronome")).atEndofTurn();
-    //     }
-    // }
 
     @Override
     public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {

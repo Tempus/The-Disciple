@@ -1,5 +1,31 @@
 Changelog:
 
+0.9.8
+
+	Balance: Misterioso now only plays unique cards.
+	Balance: Echonomics plus now makes a single copy that is free all combat, instead of two copies free for the turn.
+	Text: Escort Command now correctly shows in green when next turn's block is modified.
+	Text: Fibonacci damage was capitalized.
+	Text: Short Sighted's Delayed Attack Power now specifies that you lose health instead of dealing damage to you.
+	Text: Echonomics text was cleaned up.
+	Feature: Card Tags converted to the new week 44 vanilla system, including healing cards
+	Bug: Equilibrium now discounts retained cards.
+	Bug: Echonomics no longer copies other Echonomics.
+	Bug: Switch cards no longer cost 0 on draft.
+	Bug: Analog now stacks its retain with other sources of retain.
+	Bug: Ice Cream Replica now correctly removes conserve on shattering.
+	Bug: Prime Time now doubles damage once again after being retained.
+	Bug: Whetstone and War Paint replicas now work with Diverse and Prismatic Shard.
+	Bug: Whetstone and War Paint replicas no longer reset the discounted cost of retained cards when upgraded.
+	Bug: Runic Pyramid no longer keeps card cost discounts from non-retain sources after discarding.
+	Bug: Flame, Lightning, and Tornado replicas no longer occasionally shatter from Fast Forward.
+	Bug: Descriptions on all multi-target cards now correctly update with vuln/slow if there is a single target remaining.
+	Bug: Fast Forward no longer mistakenly self-retains.
+	Bug: Escort Command's next turn now correctly accounts for powers.
+	Bug: Presto should now give the correct amount of gold following the week 43 Greed card vanilla fix.
+	Bug: Cards retained over multiple turns decrease their cost once again.
+	Bug: Self-retaining cards now retain the first turn when spawned mid-turn, such as via Nilry's Codex.
+
 0.9.7
 
 	Compliance: Updated for week 43 update.

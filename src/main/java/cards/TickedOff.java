@@ -31,6 +31,7 @@ public class TickedOff extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK;
+		this.retain = true;
 	}
 
 	@Override

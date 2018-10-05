@@ -64,6 +64,11 @@ public class PrimeTime extends MetricsCard {
 		this.wasRetained = false;
 	}
 
+	public void update() {
+		super.update();
+		if (this.retain) { this.wasRetained = true; }
+	}
+
 	@Override
 	public AbstractCard makeCopy() {
 		return new PrimeTime();

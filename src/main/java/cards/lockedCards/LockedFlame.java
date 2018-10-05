@@ -33,6 +33,7 @@ public class LockedFlame extends MetricsCard {
 	public LockedFlame() {
 		super(ID, NAME, "images/cards/LockedFlame.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

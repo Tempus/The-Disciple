@@ -57,6 +57,7 @@ public class Misterioso extends MetricsCard {
 
 		this.baseMagicNumber = MAGIC;
 		this.magicNumber = MAGIC;
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override

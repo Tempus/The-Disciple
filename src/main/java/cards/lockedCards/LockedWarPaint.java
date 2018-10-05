@@ -33,6 +33,7 @@ public class LockedWarPaint extends MetricsCard {
 	public LockedWarPaint() {
 		super(ID, NAME, "images/cards/LockedWarPaint.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

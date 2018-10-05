@@ -88,9 +88,8 @@ public class Analog extends MetricsCard {
 		    		(mo.intent == AbstractMonster.Intent.SLEEP) ||
 		    		(mo.intent == AbstractMonster.Intent.STUN) ||
 		    		(mo.intent == AbstractMonster.Intent.UNKNOWN)) {
-				    AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
-		    		// AbstractDungeon.actionManager.addToBottom(
-		    		// 	new ApplyPowerAction(p,p,new RetainOncePower(this.magicNumber),this.magicNumber,true));
+		    		AbstractDungeon.actionManager.addToBottom(
+		    			new ApplyPowerAction(p,p,new RetainOncePower(this.magicNumber),this.magicNumber,true));
 		    	}
 
 	    	}

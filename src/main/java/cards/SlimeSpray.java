@@ -38,6 +38,7 @@ public class SlimeSpray extends MetricsCard {
 
 		this.baseDamage = ATTACK_DMG;
 		this.isMultiDamage = true;
+		this.retain = true;
 	}
 
 	@Override

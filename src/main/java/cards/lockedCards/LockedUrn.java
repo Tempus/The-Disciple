@@ -33,6 +33,7 @@ public class LockedUrn extends MetricsCard {
 	public LockedUrn() {
 		super(ID, NAME, "images/cards/LockedUrn.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

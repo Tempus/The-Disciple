@@ -57,6 +57,7 @@ public class SwitchGoo extends AbstractSelfSwitchCard {
 		} else {
 			this.switchTo(switchID);
 		}
+    	this.tags.add(Enum.SWITCH_CARD);
 	}
 
 	public SwitchGoo() { this(null); }

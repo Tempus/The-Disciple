@@ -33,6 +33,7 @@ public class LockedPlans extends MetricsCard {
 	public LockedPlans() {
 		super(ID, NAME, "images/cards/LockedPlans.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

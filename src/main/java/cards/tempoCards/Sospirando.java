@@ -61,6 +61,7 @@ public class Sospirando extends MetricsCard {
 		this.magicNumber = UPGRADE_PLUS_MAGIC;
 
 		this.exhaust = true;
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override

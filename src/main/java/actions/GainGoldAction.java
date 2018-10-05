@@ -13,32 +13,30 @@ import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import com.megacrit.cardcrawl.core.Settings;
 import java.util.ArrayList;
 
 public class GainGoldAction
   extends AbstractGameAction
 {
   private int increaseGold;
-  private static final float DURATION = 0.1F;
   
-  public GainGoldAction(AbstractCreature target, int goldAmount)
+  public GainGoldAction(AbstractCreature source, int goldAmount)
   {
-    this.source = target;
-    this.target = target;
+    this.source = source;
+    this.target = AbstractDungeon.player;
     this.increaseGold = goldAmount;
     this.actionType = AbstractGameAction.ActionType.DAMAGE;
-    this.duration = 0.1F;
+    this.duration = Settings.ACTION_DUR_MED;
   }
   
   public void update()
   {
-    if ((this.duration == 0.1F) && 
-      (this.target != null))
+    if ((this.duration == Settings.ACTION_DUR_MED) && (this.target != null))
     {
-      AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-      
-        for (int i = 0; i < this.increaseGold; i++) {
-          AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+        AbstractDungeon.player.gainGold(increaseGold);
+        for (int i = 0; i < increaseGold; i++) {
+          AbstractDungeon.effectList.add(new GainPennyEffect(this.target, this.source.hb.cX, this.source.hb.cY, this.target.hb.cX, this.target.hb.cY, true));
         }
     }
     tickDuration();

@@ -54,6 +54,7 @@ public class Allargando extends MetricsCard {
 		this.baseDamage = DMG;
 
 		this.isMultiDamage = true;
+    	this.tags.add(Enum.TEMPO_CARD);
 	}
 
 	@Override

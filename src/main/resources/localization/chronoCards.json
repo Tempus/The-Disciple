@@ -26,8 +26,8 @@
   },
   "Accruing": {
       "NAME": "Accruing",
-      "DESCRIPTION": "Deal !D! fibonacci damage.",
-      "UPGRADE_DESCRIPTION": "Deal !D! fibonacci damage. NL Self-Retaining."
+      "DESCRIPTION": "Deal !D! Fibonacci damage.",
+      "UPGRADE_DESCRIPTION": "Deal !D! Fibonacci damage. NL Self-Retaining."
   },
   "Backlash": {
       "NAME": "Backlash",
@@ -199,7 +199,7 @@
   },
   "Misterioso": {
       "NAME": "Misterioso",
-      "DESCRIPTION": "Play !M! cards randomly from your Exhaust pile."
+      "DESCRIPTION": "Play up to !M! cards randomly from your Exhaust pile."
   },
   "SecondHand": {
       "NAME": "Second Hand",
@@ -406,8 +406,8 @@
   },
   "Echonomics": {
       "NAME": "Echonomics",
-      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this turn. NL Exhaust.",
-      "UPGRADE_DESCRIPTION": "This turn, your next !M! cards are duplicated into your hand and costs 0 this turn. NL Exhaust."
+      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this combat. NL Exhaust."
   },
   "Parity": {
       "NAME": "Parity",

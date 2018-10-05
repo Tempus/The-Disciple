@@ -32,6 +32,10 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
 
 	public void update() {
 
+		if (this.amount > AbstractDungeon.player.exhaustPile.size()) {
+			this.amount = AbstractDungeon.player.exhaustPile.size();
+		}
+
 		for (int i = 0; i < this.amount ; i++ ) {
 			
 			if (AbstractDungeon.player.exhaustPile.isEmpty())

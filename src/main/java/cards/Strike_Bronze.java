@@ -13,8 +13,7 @@ import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
-import basemod.helpers.BaseModTags;
-import basemod.helpers.CardTags;
+import basemod.helpers.BaseModCardTags;
 
 public class Strike_Bronze extends MetricsCard {
 	public static final String ID = "Strike_Br";
@@ -32,7 +31,8 @@ public class Strike_Bronze extends MetricsCard {
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;
-		CardTags.addTags(this, BaseModTags.BASIC_STRIKE, BaseModTags.STRIKE);
+    	this.tags.add(BaseModCardTags.BASIC_STRIKE);
+    	this.tags.add(AbstractCard.CardTags.STRIKE);
 	}
 
 	@Override

@@ -36,6 +36,7 @@ public class ShortSighted extends MetricsCard {
 		this.magicNumber = this.baseMagicNumber;
 
 		this.baseDamage = HEAL * 2;
+    	this.tags.add(AbstractCard.CardTags.HEALING);
 	}
 
 	@Override

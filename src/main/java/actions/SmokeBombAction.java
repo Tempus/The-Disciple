@@ -53,20 +53,6 @@ public class SmokeBombAction extends AbstractGameAction {
 			target.hideHealthBar();
 			target.isEscaping = true;
 			target.escapeTimer = 2.5F;
-
-			if (this.upgraded) {
-				int increaseGold = 0;
-				// AbstractDungeon.effectList.add(new GainPennyEffect(this.p, this.target.hb.cX, this.target.hb.cY, this.p.hb.cX, this.p.hb.cY, true));
-				if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) {
-		            increaseGold = AbstractDungeon.treasureRng.random(25, 35);
-		        }
-		        else if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
-		            increaseGold = AbstractDungeon.treasureRng.random(10, 20);
-			    }
-			    for (int i = 0; i < increaseGold; i++) {
-					AbstractDungeon.effectList.add(new GainPennyEffect(this.p, this.p.hb.cX, this.p.hb.cY, this.p.hb.cX, this.p.hb.cY, true));
-        		}
-			}
 		}
 
    		this.isDone = true;	

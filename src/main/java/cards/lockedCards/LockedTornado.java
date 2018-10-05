@@ -35,6 +35,7 @@ public class LockedTornado extends MetricsCard {
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.isInnate = true;
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

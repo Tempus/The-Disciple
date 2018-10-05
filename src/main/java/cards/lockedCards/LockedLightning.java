@@ -33,6 +33,7 @@ public class LockedLightning extends MetricsCard {
 	public LockedLightning() {
 		super(ID, NAME, "images/cards/LockedLightning.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override

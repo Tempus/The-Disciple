@@ -3,7 +3,9 @@
     "NAME": "Delayed Attack",
     "DESCRIPTIONS": [
       "At the end of %1$s rounds, deal %2$s damage.",
-      "At the end of this round, deal %1$s damage."
+      "At the end of this round, deal %1$s damage.",
+      "At the end of %1$s rounds, lose %2$s health.",
+      "At the end of this round, lose %1$s health."
     ]
   },
   "DelayedBlock": {

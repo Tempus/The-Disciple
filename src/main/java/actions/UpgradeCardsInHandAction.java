@@ -75,7 +75,14 @@ public class UpgradeCardsInHandAction
       {
         for (AbstractCard c : this.p.hand.group) {
           c.setAngle(0);
-          c.resetAttributes();
+
+          // Reset attributes without reseting cost. Reseting cost would also make sense, but then it doesn't change back when going into your hand again.
+          c.block = c.baseBlock;
+          c.isBlockModified = false;
+          c.damage = c.baseDamage;
+          c.isDamageModified = false;
+          c.magicNumber = c.baseMagicNumber;
+          c.isMagicNumberModified = false;
         }
         AbstractDungeon.gridSelectScreen.open(this.canUpgrade, 1, "Upgrade", true);
         tickDuration();

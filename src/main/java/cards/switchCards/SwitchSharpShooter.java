@@ -54,15 +54,10 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		} else {
 			this.switchTo(switchID);
 		}
+    	this.tags.add(Enum.SWITCH_CARD);
 	}
 
 	public SwitchSharpShooter () { this(null); }
-
-	@Override
-	public void atTurnStart() {
-		if (this.upgraded && this.currentID == "FastForward") {
-			this.retain = true; }
-	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -92,7 +87,7 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 						AbstractDungeon.actionManager.addToBottom(new ModifyTimerAction(r, this.magicNumber));
 		        	}
 		        }
-				break;
+			break;
 		}
 	}
 }

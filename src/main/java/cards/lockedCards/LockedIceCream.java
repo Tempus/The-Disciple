@@ -33,6 +33,7 @@ public class LockedIceCream extends MetricsCard {
 	public LockedIceCream() {
 		super(ID, NAME, "images/cards/LockedIceCream.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+    	this.tags.add(Enum.REPLICA_CARD);
 	}
 
 	@Override
