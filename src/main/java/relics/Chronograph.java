@@ -20,7 +20,7 @@ public class Chronograph extends CustomRelic {
     private AbstractPlayer p;
 
     public Chronograph() {
-        super(ID, new Texture("images/relics/Chronograph.png"), new Texture("images/relics/outline/Chronograph.png"), RelicTier.BOSS, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/Chronograph.png"), new Texture("chrono_images/relics/outline/Chronograph.png"), RelicTier.BOSS, LandingSound.CLINK);
     }
 
     @Override

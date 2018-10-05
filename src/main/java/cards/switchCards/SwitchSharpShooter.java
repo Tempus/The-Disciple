@@ -42,7 +42,7 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 
 	public SwitchSharpShooter (String switchID) {
 		super("SharpShooter", "None", null, 0, "None", AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchSharpShooter.class);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchSharpShooter.class);
 
 		if (switchID == null) {
 			switchID = switchListInherit.get(new Random().nextInt(switchListInherit.size())).cardID;

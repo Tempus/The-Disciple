@@ -44,8 +44,8 @@ public class PatternShift extends MetricsCard {
 	public static long songID = 0;
 
 	public PatternShift() {
-		super(ID, NAME, "images/cards/PatternShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/PatternShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
 	}
 
 	@Override

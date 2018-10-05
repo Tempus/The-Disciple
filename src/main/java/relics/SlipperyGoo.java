@@ -17,7 +17,7 @@ public class SlipperyGoo extends CustomRelic {
     public static final String ID = "SlipperyGoo";
 
     public SlipperyGoo() {
-        super(ID, new Texture("images/relics/SlipperyGoo.png"), new Texture("images/relics/outline/SlipperyGoo.png"), RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/SlipperyGoo.png"), new Texture("chrono_images/relics/outline/SlipperyGoo.png"), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override

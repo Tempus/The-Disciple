@@ -37,7 +37,7 @@ public class SwitchExoVibe extends AbstractSelfSwitchCard {
 
 	public SwitchExoVibe(String switchID) {
 		super("ExoVibe", "None", null, 0, "None", AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.NONE, SwitchExoVibe.class);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.NONE, SwitchExoVibe.class);
 
 		if (switchID == null) {
 			switchID = switchListInherit.get(new Random().nextInt(switchListInherit.size())).cardID;

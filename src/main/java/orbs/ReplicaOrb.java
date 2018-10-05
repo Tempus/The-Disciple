@@ -61,7 +61,7 @@ public abstract class ReplicaOrb extends AbstractOrb {
  
   public ReplicaOrb(String ID, boolean upgraded, int passive, int passiveUp, int timer, int timerUp, AbstractCard locked, String originalRelic) {
     this.ID = ID;
-    this.img = ImageMaster.loadImage("images/orbs/" + ID + ".png");
+    this.img = ImageMaster.loadImage("chrono_images/orbs/" + ID + ".png");
     this.upgraded = upgraded;
 
     this.baseTimer = timer;

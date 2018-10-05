@@ -28,8 +28,8 @@ public class PrimeTime extends MetricsCard {
 	public Boolean wasRetained = false;
 
 	public PrimeTime() {
-		super(ID, NAME, "images/cards/PrimeTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/PrimeTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

@@ -35,8 +35,8 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_DMG = 3;
 
 	public BeatsPerMinute() {
-		super(ID, NAME, "images/cards/BeatsPerMinute.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE,
+		super(ID, NAME, "chrono_images/cards/BeatsPerMinute.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ENEMY, null);
 
 		this.baseDamage = ATTACK_DMG;

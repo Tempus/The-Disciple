@@ -30,8 +30,8 @@ public class ForgedGuard extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	public ForgedGuard() {
-		super(ID, NAME, "images/cards/ForgedGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF, CraftedGuard.class);
+		super(ID, NAME, "chrono_images/cards/ForgedGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF, CraftedGuard.class);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

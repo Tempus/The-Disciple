@@ -26,8 +26,8 @@ public class OverTime extends MetricsCard {
 	private static final int UPGRADE_PLUS_DMG = 2;
 
 	public OverTime() {
-		super(ID, NAME, "images/cards/OverTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE,
+		super(ID, NAME, "chrono_images/cards/OverTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = 0;

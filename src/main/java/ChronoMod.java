@@ -69,8 +69,8 @@ public class ChronoMod implements
     private static final String AUTHOR = "Chronometrics";
     private static final String DESCRIPTION = "The Disciple is a challenging custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.";
 
-    public static Color BRONZE = new Color(215f / 255f, 145f / 255f, 0f, 1f);
-    public static Color DARKBRONZE = new Color(155f / 255f, 105f / 255f, 0f, 1f);
+    public static Color CHRONO_GOLD = new Color(215f / 255f, 145f / 255f, 0f, 1f);
+    public static Color DARKCHRONO_GOLD = new Color(155f / 255f, 105f / 255f, 0f, 1f);
 
     public static Gson gson;
     private static Map<String, Keyword> keywords;
@@ -112,23 +112,23 @@ public class ChronoMod implements
         logger.info("                                       |_|           ");
 
         BaseMod.addColor(
-                Enum.BRONZE, 
-                BRONZE, // bgColor
-                // BRONZE, // back Color            - RED   -
-                // BRONZE, // frame Color           - GREEN -
+                Enum.CHRONO_GOLD, 
+                CHRONO_GOLD, // bgColor
+                // CHRONO_GOLD, // back Color            - RED   -
+                // CHRONO_GOLD, // frame Color           - GREEN -
                 // new Color(1f, 1f, 0f, 1f), // Card PLayed VFX Trail
                 // new Color(1f, 1f, 0f, 1f), // descBoxColor          - YELLOW-
-                // BRONZE,                    // Collection Page Frame Colour (and maybe VFX Trail, the data is unclear)
+                // CHRONO_GOLD,                    // Collection Page Frame Colour (and maybe VFX Trail, the data is unclear)
                 // new Color(1f, 0f, 1f, 1f), // glowColor             - MAGEN -  The colour of the tiny cards in the statistics page?
-                "images/cardui/bg_attack_bronze_512.png", 
-                "images/cardui/bg_skill_bronze_512.png",
-                "images/cardui/bg_power_bronze_512.png",
-                "images/cardui/card_bronze_orb_512.png",
-                "images/cardui/bg_attack_bronze.png", 
-                "images/cardui/bg_skill_bronze.png",
-                "images/cardui/bg_power_bronze.png",
-                "images/cardui/card_bronze_orb.png",
-                "images/cardui/description_bronze_orb.png"
+                "chrono_images/cardui/bg_attack_bronze_512.png", 
+                "chrono_images/cardui/bg_skill_bronze_512.png",
+                "chrono_images/cardui/bg_power_bronze_512.png",
+                "chrono_images/cardui/card_bronze_orb_512.png",
+                "chrono_images/cardui/bg_attack_bronze.png", 
+                "chrono_images/cardui/bg_skill_bronze.png",
+                "chrono_images/cardui/bg_power_bronze.png",
+                "chrono_images/cardui/card_bronze_orb.png",
+                "chrono_images/cardui/description_bronze_orb.png"
         );
 
         @SuppressWarnings("unused")
@@ -141,7 +141,7 @@ public class ChronoMod implements
         BaseMod.addPotion(HastePotion.class, Color.SKY, Color.TAN, null, "HastePotion", Enum.CHRONO_CLASS);
         BaseMod.addPotion(WardPotion.class, Color.SLATE, null, Color.ROYAL, "WardPotion", Enum.CHRONO_CLASS);
 
-        Texture badgeTexture = ImageMaster.loadImage("images/badge.png");
+        Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
 
         this.loadAudio();
@@ -149,12 +149,12 @@ public class ChronoMod implements
 
     public void loadAudio() {
         HashMap<String, Sfx> map = (HashMap<String, Sfx>)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
-        map.put("CHRONO-COGS", new Sfx("audio/Cogs.ogg", false));
-        map.put("CHRONO-SHARP1", new Sfx("audio/Slide_Sharp_01.ogg", false));
-        map.put("CHRONO-SHARP2", new Sfx("audio/Slide_Sharp_02.ogg", false));
-        map.put("CHRONO-SLOWDOWN", new Sfx("audio/SlowDown.ogg", false));
-        map.put("CHRONO-SPEEDUP", new Sfx("audio/SpeedUp.ogg", false));
-        map.put("CHRONO-TICK", new Sfx("audio/Tick.ogg", false));
+        map.put("CHRONO-COGS", new Sfx("chrono_audio/Cogs.ogg", false));
+        map.put("CHRONO-SHARP1", new Sfx("chrono_audio/Slide_Sharp_01.ogg", false));
+        map.put("CHRONO-SHARP2", new Sfx("chrono_audio/Slide_Sharp_02.ogg", false));
+        map.put("CHRONO-SLOWDOWN", new Sfx("chrono_audio/SlowDown.ogg", false));
+        map.put("CHRONO-SPEEDUP", new Sfx("chrono_audio/SpeedUp.ogg", false));
+        map.put("CHRONO-TICK", new Sfx("chrono_audio/Tick.ogg", false));
     }
         
     public void receivePostDeath() {
@@ -168,25 +168,25 @@ public class ChronoMod implements
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(Chronomuncher.class, "The Disciple", 
-                "The Disciple class", Enum.BRONZE, 
+                "The Disciple class", Enum.CHRONO_GOLD, 
                 "The Disciple", 
-                "images/char/chronoButton.png", 
-                "images/char/chronoPortrait.png", 
+                "chrono_images/char/chronoButton.png", 
+                "chrono_images/char/chronoPortrait.png", 
                 Enum.CHRONO_CLASS);
     }
 
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics....");
-        BaseMod.addRelicToCustomPool(new Chronometer(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new Chronograph(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new Metronome(), Enum.BRONZE);
-        // BaseMod.addRelicToCustomPool(new Lockbox(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new Cryopreserver(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new Carbonhydrate(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new HangingClock(), Enum.BRONZE);
-        BaseMod.addRelicToCustomPool(new BlueBox(), Enum.BRONZE);
+        BaseMod.addRelicToCustomPool(new Chronometer(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new Chronograph(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new Metronome(), Enum.CHRONO_GOLD);
+        // BaseMod.addRelicToCustomPool(new Lockbox(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new Cryopreserver(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new Carbonhydrate(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new HangingClock(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new BlueBox(), Enum.CHRONO_GOLD);
     }
 
     public void setCompendiumSwitchCards() {
@@ -228,21 +228,21 @@ public class ChronoMod implements
     }
 
     public void setGameSwitchCards() {
-        BaseMod.removeCard("Reap", Enum.BRONZE);
-        BaseMod.removeCard("ReapSow", Enum.BRONZE);
+        BaseMod.removeCard("Reap", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("ReapSow", Enum.CHRONO_GOLD);
 
-        BaseMod.removeCard("Exocoating", Enum.BRONZE);
-        BaseMod.removeCard("ExoVibe", Enum.BRONZE);
+        BaseMod.removeCard("Exocoating", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("ExoVibe", Enum.CHRONO_GOLD);
 
-        BaseMod.removeCard("AcidicGoo", Enum.BRONZE);
-        BaseMod.removeCard("ThickGoo", Enum.BRONZE);
-        BaseMod.removeCard("Goo", Enum.BRONZE);
+        BaseMod.removeCard("AcidicGoo", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("ThickGoo", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("Goo", Enum.CHRONO_GOLD);
 
-        BaseMod.removeCard("SpringForward", Enum.BRONZE);
-        BaseMod.removeCard("DaylightSavings", Enum.BRONZE);
+        BaseMod.removeCard("SpringForward", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("DaylightSavings", Enum.CHRONO_GOLD);
 
-        BaseMod.removeCard("ClockandLoad", Enum.BRONZE);
-        BaseMod.removeCard("SharpShooter", Enum.BRONZE);
+        BaseMod.removeCard("ClockandLoad", Enum.CHRONO_GOLD);
+        BaseMod.removeCard("SharpShooter", Enum.CHRONO_GOLD);
 
         ChronoMod.log("REMOVING CARDS FROM LIBRARY NOW");
         BaseMod.addCard(new SwitchReapSow());

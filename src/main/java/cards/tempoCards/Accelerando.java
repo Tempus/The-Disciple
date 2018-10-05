@@ -48,8 +48,8 @@ public class Accelerando extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 5;
 
 	public Accelerando() {
-		super(ID, NAME, "images/cards/Accelerando.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Accelerando.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
 
 		// this.baseDamage = DMG;
 		

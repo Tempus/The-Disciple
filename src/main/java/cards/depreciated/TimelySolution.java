@@ -29,8 +29,8 @@ public class TimelySolution extends MetricsCard {
 	private static final int COST = 1;
 
 	public TimelySolution() {
-		super(ID, NAME, "images/cards/TimelySolution.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
+		super(ID, NAME, "chrono_images/cards/TimelySolution.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseMagicNumber = 2;
 		this.magicNumber = this.baseMagicNumber;

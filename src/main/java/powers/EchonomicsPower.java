@@ -42,8 +42,8 @@ public class EchonomicsPower
     this.amount = amount;
     this.upgraded = upgraded;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLate.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/EchoLate.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
   }
   
   public void updateDescription()

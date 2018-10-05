@@ -34,8 +34,8 @@ public class ThickGoo extends AbstractSwitchCard {
 	private static final int EFFECT_UPGRADE = 0;	
 
 	public ThickGoo() {
-		super(ID, NAME, "images/cards/ThickGoo.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/ThickGoo.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY, AcidicGoo.class);
 
 		this.baseDamage = ATTACK_DMG;

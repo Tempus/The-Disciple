@@ -25,7 +25,7 @@ public class Ward extends MetricsCard {
 	private static final int UPGRADE_PLUS_BLOCK = 1;
 
 	public Ward() {
-		super(ID, NAME, "images/cards/Ward.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+		super(ID, NAME, "chrono_images/cards/Ward.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				AbstractCard.CardColor.COLORLESS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;

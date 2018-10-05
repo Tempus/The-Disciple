@@ -35,12 +35,12 @@ public class Parity extends MetricsCard {
 	private static final int BLOCK = 8;
 	private static final int UPGRADE_PLUS_BLOCK = 4;
 
-	private static final String ATTACKIMG = "images/cards/Parity.png";
-	private static final String SKILLIMG = "images/cards/ParityS.png";	
+	private static final String ATTACKIMG = "chrono_images/cards/Parity.png";
+	private static final String SKILLIMG = "chrono_images/cards/ParityS.png";	
 
 	public Parity() {
 		super(ID, NAME, SKILLIMG, COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseDamage = DMG;
 		this.baseBlock = BLOCK;

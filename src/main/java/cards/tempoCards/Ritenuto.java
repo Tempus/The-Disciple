@@ -47,8 +47,8 @@ public class Ritenuto extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 2;
 
 	public Ritenuto() {
-		super(ID, NAME, "images/cards/Ritenuto.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Ritenuto.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		// this.baseDamage = DMG;
 		

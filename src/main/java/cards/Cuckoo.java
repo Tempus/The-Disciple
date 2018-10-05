@@ -26,8 +26,8 @@ public class Cuckoo extends MetricsCard {
 	private static final int BLOCK_AMT = 4;
 
 	public Cuckoo() {
-		super(ID, NAME, "images/cards/Cuckoo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Cuckoo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

@@ -31,8 +31,8 @@ public class LockedMercury extends MetricsCard {
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public LockedMercury() {
-		super(ID, NAME, "images/cards/LockedMercury.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/LockedMercury.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
 	}
 

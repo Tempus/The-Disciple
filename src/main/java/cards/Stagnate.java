@@ -28,8 +28,8 @@ public class Stagnate extends MetricsCard {
 	private static final int SLEEP_TURNS = 3;
 
 	public Stagnate() {
-		super(ID, NAME, "images/cards/Stagnate.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Stagnate.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
 
 		this.baseMagicNumber = SLEEP_TURNS;
 		this.magicNumber = this.baseMagicNumber;

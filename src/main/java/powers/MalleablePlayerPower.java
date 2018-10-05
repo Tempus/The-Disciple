@@ -39,7 +39,7 @@ public class MalleablePlayerPower
     this.amount = amount;
     
     updateDescription();
-    this.img = ImageMaster.loadImage("images/powers/Malleable.png");
+    this.img = ImageMaster.loadImage("chrono_images/powers/Malleable.png");
   }
   
   public void updateDescription()

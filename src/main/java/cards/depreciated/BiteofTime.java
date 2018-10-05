@@ -28,8 +28,8 @@ public class BiteofTime extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_DMG = 2;
 
 	public BiteofTime() {
-		super(ID, NAME, "images/cards/BiteofTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC,
+		super(ID, NAME, "chrono_images/cards/BiteofTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC,
 				AbstractCard.CardTarget.ENEMY, Nibble.class);
 
 		this.baseDamage = ATTACK_DMG;

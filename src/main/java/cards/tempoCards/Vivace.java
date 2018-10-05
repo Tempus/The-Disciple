@@ -47,8 +47,8 @@ public class Vivace extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 0;
 
 	public Vivace() {
-		super(ID, NAME, "images/cards/Vivace.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Vivace.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = DMG;
 		

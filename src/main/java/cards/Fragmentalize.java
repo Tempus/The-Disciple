@@ -34,8 +34,8 @@ public class Fragmentalize extends MetricsCard {
 	private static final int DAMAGE_UPGRADE = 6;
 
 	public Fragmentalize() {
-		super(ID, NAME, "images/cards/Fragmentalize.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
+		super(ID, NAME, "chrono_images/cards/Fragmentalize.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.isMultiDamage = true;
 		this.baseDamage = DAMAGE;

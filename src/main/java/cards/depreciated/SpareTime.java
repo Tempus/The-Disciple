@@ -29,8 +29,8 @@ public class SpareTime extends MetricsCard {
 	private static final int DRAW_UPGRADE = 1;
 
 	public SpareTime() {
-		super(ID, NAME, "images/cards/SpareTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/SpareTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
 
 		this.baseMagicNumber = DRAW_UPGRADE;
 		this.magicNumber = this.baseMagicNumber;

@@ -31,8 +31,8 @@ public class LockedPlans extends MetricsCard {
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public LockedPlans() {
-		super(ID, NAME, "images/cards/LockedPlans.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/LockedPlans.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
 	}
 

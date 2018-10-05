@@ -27,7 +27,7 @@ public class BlueBox extends CustomRelic {
     private boolean cardSelected = true;
 
     public BlueBox() {
-        super(ID, new Texture("images/relics/BlueBox.png"), new Texture("images/relics/outline/BlueBox.png"), RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/BlueBox.png"), new Texture("chrono_images/relics/outline/BlueBox.png"), RelicTier.COMMON, LandingSound.CLINK);
     }
 
     @Override

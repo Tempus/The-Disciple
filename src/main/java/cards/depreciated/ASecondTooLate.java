@@ -27,8 +27,8 @@ public class ASecondTooLate extends MetricsCard {
 	private static final int ATTACK_DMG = 5;
 
 	public ASecondTooLate() {
-		super(ID, NAME, "images/cards/ASecondTooLate.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE,
+		super(ID, NAME, "chrono_images/cards/ASecondTooLate.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

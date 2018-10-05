@@ -29,8 +29,8 @@ public class ShortSighted extends MetricsCard {
 	private static final int HEAL_UPGRADE = 4;
 
 	public ShortSighted() {
-		super(ID, NAME, "images/cards/ShortSighted.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/ShortSighted.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = HEAL;
 		this.magicNumber = this.baseMagicNumber;

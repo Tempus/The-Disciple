@@ -45,11 +45,11 @@ public class SlimeSplashEffect
 
     tmp = MathUtils.random(2);
     if (tmp == 0) {
-      this.img = ImageMaster.loadImage("images/particles/slimeSplashA.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeSplashA.png");;
     } else if (tmp == 1) {
-      this.img = ImageMaster.loadImage("images/particles/slimeSplashB.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeSplashB.png");;
     } else {
-      this.img = ImageMaster.loadImage("images/particles/slimeSplashC.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeSplashC.png");;
     }
 
     this.scale = (MathUtils.random(0.3F, 0.5F) * Settings.scale);

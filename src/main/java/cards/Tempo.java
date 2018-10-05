@@ -32,8 +32,8 @@ public class Tempo extends AbstractSwitchCard {
 	private static final int COST = 0;
 
 	public Tempo() {
-		super(ID, NAME, "images/cards/Tempo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY, null);
+		super(ID, NAME, "chrono_images/cards/Tempo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY, null);
 	}
 
 	@Override

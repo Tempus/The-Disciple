@@ -27,8 +27,8 @@ public class Reiterate extends MetricsCard {
 	private static final int UPGRADE_PLUS_BLOCK = 7;
 
 	public Reiterate() {
-		super(ID, NAME, "images/cards/Reiterate.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Reiterate.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
 	}

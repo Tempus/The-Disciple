@@ -37,8 +37,8 @@ public class FormalWear extends MetricsCard {
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public FormalWear() {
-		super(ID, NAME, "images/cards/FormalWear.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/FormalWear.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

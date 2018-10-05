@@ -29,8 +29,8 @@ public class GuardCommand extends MetricsCard {
 	private static final int BLOCK_AMT = 16;
 
 	public GuardCommand() {
-		super(ID, NAME, "images/cards/GuardCommand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/GuardCommand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
 	}

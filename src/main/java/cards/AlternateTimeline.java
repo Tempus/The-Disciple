@@ -30,8 +30,8 @@ public class AlternateTimeline extends MetricsCard {
 	private static final int TRADE_UPGRADE = 1;
 
 	public AlternateTimeline() {
-		super(ID, NAME, "images/cards/AlternateTimeline.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/AlternateTimeline.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = TRADE;
 		this.magicNumber = this.baseMagicNumber;

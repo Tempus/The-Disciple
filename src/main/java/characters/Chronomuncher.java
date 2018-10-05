@@ -54,11 +54,11 @@ public class Chronomuncher extends CustomPlayer {
     public static final int HAND_SIZE = 5;
     public static final int ORB_SLOTS = 0;
 
-    public static final String DISCIPLE_SHOULDER_2 = "images/char/shoulder2.png"; // campfire pose
-    public static final String DISCIPLE_SHOULDER_1 = "images/char/shoulder.png"; // another campfire pose
-    public static final String DISCIPLE_CORPSE = "images/char/corpse.png"; // dead corpse
-    public static final String DISCIPLE_SKELETON_ATLAS = "images/char/skeleton.atlas"; // spine animation atlas
-    public static final String DISCIPLE_SKELETON_JSON = "images/char/skeleton.json"; // spine animation json
+    public static final String DISCIPLE_SHOULDER_2 = "chrono_images/char/shoulder2.png"; // campfire pose
+    public static final String DISCIPLE_SHOULDER_1 = "chrono_images/char/shoulder.png"; // another campfire pose
+    public static final String DISCIPLE_CORPSE = "chrono_images/char/corpse.png"; // dead corpse
+    public static final String DISCIPLE_SKELETON_ATLAS = "chrono_images/char/skeleton.atlas"; // spine animation atlas
+    public static final String DISCIPLE_SKELETON_JSON = "chrono_images/char/skeleton.json"; // spine animation json
 
     public float angle1 = 0F;
     public float angle2 = 0F;
@@ -73,15 +73,15 @@ public class Chronomuncher extends CustomPlayer {
     private final float orbScale = 1.15F * Settings.scale;
 
     private double counter = 0.0f;
-    private Texture tex = new Texture("images/char/temp.png");
+    private Texture tex = new Texture("chrono_images/char/temp.png");
 
     public static final ArrayList<Texture> energyActiveLayers = new ArrayList<Texture>();
     public static final ArrayList<Texture> energyDisabledLayers = new ArrayList<Texture>();
 
-    public static final String DEFAULT_ORB_VFX = "images/char/orb/neworb/vfx.png";
+    public static final String DEFAULT_ORB_VFX = "chrono_images/char/orb/neworb/vfx.png";
 
     public Chronomuncher(String name, PlayerClass setClass) {
-        super(name, setClass, new String[0], "images/char/orb/neworb/vfx.png", (String)null, (String)null);
+        super(name, setClass, new String[0], "chrono_images/char/orb/neworb/vfx.png", (String)null, (String)null);
 
         ChronoMod.log("Creating our character?");
 
@@ -108,7 +108,7 @@ public class Chronomuncher extends CustomPlayer {
             ArrayList<String> tmp = new ArrayList();
           
             for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
-              if (((AbstractCard)c.getValue()).color == Enum.BRONZE) {
+              if (((AbstractCard)c.getValue()).color == Enum.CHRONO_GOLD) {
                 tmp.add(c.getKey());
               }
             }
@@ -122,7 +122,7 @@ public class Chronomuncher extends CustomPlayer {
           CardGroup everyRareCard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
           
           for (Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
-            if ((((AbstractCard)c.getValue()).color == Enum.BRONZE) && (((AbstractCard)c.getValue()).rarity == AbstractCard.CardRarity.RARE)) {
+            if ((((AbstractCard)c.getValue()).color == Enum.CHRONO_GOLD) && (((AbstractCard)c.getValue()).rarity == AbstractCard.CardRarity.RARE)) {
               everyRareCard.addToBottom(((AbstractCard)c.getValue()).makeCopy());
             }
           }
@@ -160,22 +160,22 @@ public class Chronomuncher extends CustomPlayer {
 
 
     public void loadEnergyOrbs() {
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer1.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer2.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer3.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer4.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer5.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer6.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer7.png"));
-        this.energyActiveLayers.add(new Texture("images/char/orb/neworb/active/layer8.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer1.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer2.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer3.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer4.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer5.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer6.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer7.png"));
-        this.energyDisabledLayers.add(new Texture("images/char/orb/neworb/disabled/layer8.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer1.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer2.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer3.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer4.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer5.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer6.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer7.png"));
+        this.energyActiveLayers.add(new Texture("chrono_images/char/orb/neworb/active/layer8.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer1.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer2.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer3.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer4.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer5.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer6.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer7.png"));
+        this.energyDisabledLayers.add(new Texture("chrono_images/char/orb/neworb/disabled/layer8.png"));
 
         for (Texture tex : this.energyActiveLayers) {
             tex.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);

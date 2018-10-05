@@ -27,8 +27,8 @@ public class OldSpareTime extends MetricsCard {
 	private static final int COST = 1;
 
 	public OldSpareTime() {
-		super(ID, NAME, "images/cards/SpareTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/SpareTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.SELF);
 	}
 

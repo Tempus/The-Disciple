@@ -30,8 +30,8 @@ public class HandsUp extends MetricsCard {
 	private static final int STRDOWN_UPGRADE = 1;
 
 	public HandsUp() {
-		super(ID, NAME, "images/cards/HandsUp.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/HandsUp.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

@@ -36,8 +36,8 @@ public class MasterKey extends MetricsCard {
 	private static final int COST = 1;
 
 	public MasterKey() {
-		super(ID, NAME, "images/cards/MasterKey.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/MasterKey.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.exhaust = true;
 		this.retain = true;

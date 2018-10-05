@@ -48,8 +48,8 @@ public class Allargando extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	public Allargando() {
-		super(ID, NAME, "images/cards/Allargando.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ALL_ENEMY);
+		super(ID, NAME, "chrono_images/cards/Allargando.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseDamage = DMG;
 

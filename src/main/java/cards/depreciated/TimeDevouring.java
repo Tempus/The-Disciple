@@ -29,8 +29,8 @@ public class TimeDevouring extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_DMG = 50;
 
 	public TimeDevouring() {
-		super(ID, NAME, "images/cards/TimeDevouring.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE,
+		super(ID, NAME, "chrono_images/cards/TimeDevouring.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ENEMY, TimeConsuming.class);
 
 		this.baseDamage = ATTACK_DMG;

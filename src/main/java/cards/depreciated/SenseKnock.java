@@ -27,8 +27,8 @@ public class SenseKnock extends MetricsCard {
 	private static final int ATTACK_DMG = 10;
 
 	public SenseKnock() {
-		super(ID, NAME, "images/cards/SenseKnock.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/SenseKnock.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

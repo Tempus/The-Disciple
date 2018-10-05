@@ -31,8 +31,8 @@ public class LockedMedicine extends MetricsCard {
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public LockedMedicine() {
-		super(ID, NAME, "images/cards/LockedMedicine.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/LockedMedicine.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
 	}
 

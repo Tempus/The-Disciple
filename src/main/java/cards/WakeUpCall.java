@@ -28,8 +28,8 @@ public class WakeUpCall extends MetricsCard {
 	private static final int ATTACK_DMG_UP = 16;
 
 	public WakeUpCall() {
-		super(ID, NAME, "images/cards/WakeUpCall.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/WakeUpCall.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

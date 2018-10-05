@@ -27,8 +27,8 @@ public class CoatedVibrissa extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_BLOCK = 3;
 
 	public CoatedVibrissa() {
-		super(ID, NAME, "images/cards/CoatedVibrissa.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, Exocoating.class);
+		super(ID, NAME, "chrono_images/cards/CoatedVibrissa.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, Exocoating.class);
 
 		this.baseBlock = BLOCK_AMT;
 	}

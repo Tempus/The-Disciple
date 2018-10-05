@@ -31,8 +31,8 @@ public class LockedThread extends MetricsCard {
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public LockedThread() {
-		super(ID, NAME, "images/cards/LockedThread.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/LockedThread.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
 	}
 

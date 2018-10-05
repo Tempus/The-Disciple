@@ -27,8 +27,8 @@ public class ClockandLoad extends MetricsCard {
     private static final int ATTACK_DMG = 1;
 
     public ClockandLoad() {
-        super(ID, NAME, "images/cards/ClockandLoad.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-                Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+        super(ID, NAME, "chrono_images/cards/ClockandLoad.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+                Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
                 AbstractCard.CardTarget.ENEMY);
 
         this.baseDamage = 0;

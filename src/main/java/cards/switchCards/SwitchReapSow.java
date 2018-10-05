@@ -37,7 +37,7 @@ public class SwitchReapSow extends AbstractSelfSwitchCard {
 
 	public SwitchReapSow(String switchID) {
 		super("ReapSow", "None", null, 0, "None", AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.NONE, SwitchReapSow.class);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.NONE, SwitchReapSow.class);
 
 		if (switchID == null) {
 			switchID = switchListInherit.get(new Random().nextInt(switchListInherit.size())).cardID;

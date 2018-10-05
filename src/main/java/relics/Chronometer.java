@@ -21,7 +21,7 @@ public class Chronometer extends CustomRelic {
     private AbstractPlayer p;
 
     public Chronometer() {
-        super(ID, new Texture("images/relics/Chronometer.png"), new Texture("images/relics/outline/Chronometer.png"), RelicTier.STARTER, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/Chronometer.png"), new Texture("chrono_images/relics/outline/Chronometer.png"), RelicTier.STARTER, LandingSound.CLINK);
     }
 
     @Override

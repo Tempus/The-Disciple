@@ -33,8 +33,8 @@ public class Flay extends MetricsCard {
 	private static final int SHRINK_UPGRADE = 1;
 
 	public Flay() {
-		super(ID, NAME, "images/cards/Flay.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/Flay.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

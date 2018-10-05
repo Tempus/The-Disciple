@@ -50,8 +50,8 @@ public class EchoLatePower
     this.owner = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLate.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/EchoLate.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/EchoLateSmall.png"), 0, 0, 32, 32);
     this.isPostActionPower = true;
   }
   

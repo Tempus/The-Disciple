@@ -24,8 +24,8 @@ public class Flashback extends MetricsCard {
 	private static final int BLOCK_AMT = 2;
 
 	public Flashback() {
-		super(ID, NAME, "images/cards/Flashback.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Flashback.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

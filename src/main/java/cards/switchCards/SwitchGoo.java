@@ -45,7 +45,7 @@ public class SwitchGoo extends AbstractSelfSwitchCard {
 
 	public SwitchGoo(String switchID) {
 		super("Goo", "None", null, 0, "None", AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchGoo.class);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchGoo.class);
 
 		if (switchID == null) {
 			switchID = switchListInherit.get(new Random().nextInt(switchListInherit.size())).cardID;

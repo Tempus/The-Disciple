@@ -25,8 +25,8 @@ public class BlueShift extends MetricsCard {
 	private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	public BlueShift() {
-		super(ID, NAME, "images/cards/BlueShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/BlueShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
 		this.retain = true;

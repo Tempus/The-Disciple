@@ -31,8 +31,8 @@ public class NaturalGuard extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_BLOCK = 10;
 
 	public NaturalGuard() {
-		super(ID, NAME, "images/cards/NaturalGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, WatchCommand.class);
+		super(ID, NAME, "chrono_images/cards/NaturalGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, WatchCommand.class);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

@@ -34,8 +34,8 @@ public class TinyCardPatch {
 		    if (card.color == CardColor.CURSE) {
 		      return new Color(993541375);
 		    }
-		    if (card.color == Enum.BRONZE) {
-		    	return ChronoMod.BRONZE;
+		    if (card.color == Enum.CHRONO_GOLD) {
+		    	return ChronoMod.CHRONO_GOLD;
 		    }
 		    return new Color(-9849601);
 		}
@@ -61,8 +61,8 @@ public class TinyCardPatch {
 		    if (card.color == CardColor.CURSE) {
 		      return new Color(454761471);
 		    }
-		    if (card.color == Enum.BRONZE) {
-		    	return ChronoMod.DARKBRONZE;
+		    if (card.color == Enum.CHRONO_GOLD) {
+		    	return ChronoMod.DARKCHRONO_GOLD;
 		    }
 		    return new Color(-1303806465);
 		}

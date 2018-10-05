@@ -29,8 +29,8 @@ public class Foolish extends MetricsCard {
 	private static final int COST = 1;
 
 	public Foolish() {
-		super(ID, NAME, "images/cards/Foolish.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Foolish.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.exhaust = true;
 	}

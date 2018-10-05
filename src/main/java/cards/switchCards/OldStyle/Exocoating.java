@@ -30,8 +30,8 @@ public class Exocoating extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_BLOCK = 1;
 
 	public Exocoating() {
-		super(ID, NAME, "images/cards/Exocoating.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, CoatedVibrissa.class);
+		super(ID, NAME, "chrono_images/cards/Exocoating.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, CoatedVibrissa.class);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

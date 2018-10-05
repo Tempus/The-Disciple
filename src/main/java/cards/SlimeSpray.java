@@ -32,8 +32,8 @@ public class SlimeSpray extends MetricsCard {
 	private static final int UPGRADE_PLUS_DMG = 4;
 
 	public SlimeSpray() {
-		super(ID, NAME, "images/cards/SlimeSpray.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/SlimeSpray.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

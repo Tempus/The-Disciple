@@ -35,8 +35,8 @@ public class TimeDilatePower extends AbstractPower
     this.owner = owner;
     this.amount = amount;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/TimeDilate.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/TimeDilateSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/TimeDilate.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/TimeDilateSmall.png"), 0, 0, 32, 32);
     this.type = AbstractPower.PowerType.DEBUFF;
     this.isTurnBased = true;
   }

@@ -47,8 +47,8 @@ public class Lento extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	public Lento() {
-		super(ID, NAME, "images/cards/Lento.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Lento.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
 
 		// this.baseDamage = DMG;
 		

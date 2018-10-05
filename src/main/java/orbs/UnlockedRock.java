@@ -52,12 +52,12 @@ public class UnlockedRock extends ReplicaOrb
 
     Modifier = rockType.get(new Random().nextInt(rockType.size()));
 
-    this.img = new Texture("images/orbs/" + ID + Modifier + ".png");
+    this.img = new Texture("chrono_images/orbs/" + ID + Modifier + ".png");
   }
 
   // @Override
   // public void onStartOfTurn() {
-    // this.img = new Texture("images/orbs/" + ID + Modifier + "Sad.png");
+    // this.img = new Texture("chrono_images/orbs/" + ID + Modifier + "Sad.png");
   // }
 
   @Override

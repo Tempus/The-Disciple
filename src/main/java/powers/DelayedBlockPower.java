@@ -40,8 +40,8 @@ public class DelayedBlockPower extends AbstractPower
     this.block = block;
     updateDescription();
 
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/DelayedBlock.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/DelayedBlockSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedBlock.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedBlockSmall.png"), 0, 0, 32, 32);
   }
   
   public void atStartOfTurn()

@@ -27,8 +27,8 @@ public class OldTimer extends MetricsCard {
     private static final int UPGRADE_ENERGY = 1;
 
     public OldTimer() {
-        super(ID, NAME, "images/cards/OldTimer.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-                Enum.BRONZE, AbstractCard.CardRarity.RARE,
+        super(ID, NAME, "chrono_images/cards/OldTimer.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+                Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
                 AbstractCard.CardTarget.ENEMY);
 
         this.baseDamage = 0;

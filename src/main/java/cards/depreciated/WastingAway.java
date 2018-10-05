@@ -29,8 +29,8 @@ public class WastingAway extends MetricsCard {
 	private static final int DECREASE_UPGRADE = -3;
 
 	public WastingAway() {
-		super(ID, NAME, "images/cards/WastingAway.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE,
+		super(ID, NAME, "chrono_images/cards/WastingAway.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG - this.misc;

@@ -48,8 +48,8 @@ public class Rallentando extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 5;
 
 	public Rallentando() {
-		super(ID, NAME, "images/cards/Rallentando.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Rallentando.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		// this.baseDamage = DMG;
 		

@@ -39,13 +39,13 @@ public class ResonantCall extends MetricsCard {
 	// private static final int CARDS_TO_PLAY = 3;
 	// private static final int CARDS_TO_PLAY_UP = 2;
 
-	public static final Texture attackEdge = ImageMaster.loadImage("images/cards/ResonantCallAttack.png");
-	public static final Texture skillEdge = ImageMaster.loadImage("images/cards/ResonantCallSkill.png");
-	public static final Texture powerEdge = ImageMaster.loadImage("images/cards/ResonantCallPower.png");
+	public static final Texture attackEdge = ImageMaster.loadImage("chrono_images/cards/ResonantCallAttack.png");
+	public static final Texture skillEdge = ImageMaster.loadImage("chrono_images/cards/ResonantCallSkill.png");
+	public static final Texture powerEdge = ImageMaster.loadImage("chrono_images/cards/ResonantCallPower.png");
 
 	public ResonantCall() {
-		super(ID, NAME, "images/cards/ResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/ResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 	}
 
 	public void triggerOnOtherCardPlayed(AbstractCard c) {
@@ -116,7 +116,7 @@ public class ResonantCall extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		this.mimic.use(p,m);
 		this.superFlash(Color.GOLD.cpy());
-		this.loadCardImage("images/cards/ResonantCall.png");
+		this.loadCardImage("chrono_images/cards/ResonantCall.png");
 	}
 
 	@Override
@@ -138,8 +138,8 @@ public class ResonantCall extends MetricsCard {
 	}
 
 	public void parityUpdate() {
-		String ATTACKIMG = "images/cards/Parity.png";
-		String SKILLIMG = "images/cards/ParityS.png";	
+		String ATTACKIMG = "chrono_images/cards/Parity.png";
+		String SKILLIMG = "chrono_images/cards/ParityS.png";	
 
 		if (AbstractDungeon.actionManager.turn % 2 == 1) {
 			this.superFlash(Color.CORAL.cpy());
@@ -165,7 +165,7 @@ public class ResonantCall extends MetricsCard {
 		if (this.upgraded) {
 			this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
 		}
-		this.loadCardImage("images/cards/ResonantCall.png");
+		this.loadCardImage("chrono_images/cards/ResonantCall.png");
 		this.resetAttributes();
 		initializeDescription();
 	}

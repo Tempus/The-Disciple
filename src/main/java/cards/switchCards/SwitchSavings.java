@@ -39,7 +39,7 @@ public class SwitchSavings extends AbstractSelfSwitchCard {
 
 	public SwitchSavings(String switchID) {
 		super("DaylightSavings", "None", null, 0, "None", AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchSavings.class);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.NONE, SwitchSavings.class);
 
 		if (switchID == null) {
 			switchID = switchListInherit.get(new Random().nextInt(switchListInherit.size())).cardID;

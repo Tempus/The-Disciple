@@ -30,8 +30,8 @@ public class CraftedGuard extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_BLOCK = 4;
 
 	public CraftedGuard() {
-		super(ID, NAME, "images/cards/CraftedGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, NaturalGuard.class);
+		super(ID, NAME, "chrono_images/cards/CraftedGuard.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF, NaturalGuard.class);
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;

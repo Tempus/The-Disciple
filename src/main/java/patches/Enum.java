@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 public class Enum {
 
     @SpireEnum
-    public static AbstractCard.CardColor BRONZE;
+    public static AbstractCard.CardColor CHRONO_GOLD;
 
     @SpireEnum
     public static AbstractPlayer.PlayerClass CHRONO_CLASS;

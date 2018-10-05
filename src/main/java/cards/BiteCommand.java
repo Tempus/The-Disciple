@@ -30,8 +30,8 @@ public class BiteCommand extends MetricsCard {
 	private static final int UPGRADE_AMT = -1;
 
 	public BiteCommand() {
-		super(ID, NAME, "images/cards/BiteCommand.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/BiteCommand.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

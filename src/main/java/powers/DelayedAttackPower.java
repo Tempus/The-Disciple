@@ -46,8 +46,8 @@ public class DelayedAttackPower extends AbstractPower
     this.damage = damage;
     updateDescription();
 
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/DelayedAttack.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/DelayedAttackSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedAttack.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedAttackSmall.png"), 0, 0, 32, 32);
   }
 
   public DelayedAttackPower(AbstractCreature owner, int turns, int damage, boolean ignoreBlock)

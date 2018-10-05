@@ -44,8 +44,8 @@ public class Facsimile extends MetricsCard {
 	private final ArrayList<Pair<String, Class>> relicList = new ArrayList<Pair<String, Class>>();
 
 	public Facsimile() {
-		super(ID, NAME, "images/cards/Facsimile.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Facsimile.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = RELIC_CAP;
 		this.magicNumber = this.baseMagicNumber;

@@ -26,8 +26,8 @@ public class Strike_Bronze extends MetricsCard {
 	private static final int UPGRADE_PLUS_DMG = 3;
 
 	public Strike_Bronze() {
-		super(ID, NAME, "images/cards/Strike_Br.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC,
+		super(ID, NAME, "chrono_images/cards/Strike_Br.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

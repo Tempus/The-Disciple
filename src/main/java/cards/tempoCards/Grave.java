@@ -49,8 +49,8 @@ public class Grave extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	public Grave() {
-		super(ID, NAME, "images/cards/Grave.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Grave.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		// this.baseDamage = DMG;
 		

@@ -30,8 +30,8 @@ public class Break extends MetricsCard {
 	private static final int NEXT_UPGRADE_PLUS_BLOCK = 3;
 
 	public Break() {
-		super(ID, NAME, "images/cards/Break.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL);
+		super(ID, NAME, "chrono_images/cards/Break.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL);
 
 		this.baseBlock = BLOCK_AMT;
 		this.baseMagicNumber = NEXT_BLOCK_AMT;

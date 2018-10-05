@@ -5,5 +5,5 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 public class EnumLib {
     @SpireEnum
-    public static CardLibrary.LibraryType BRONZE;
+    public static CardLibrary.LibraryType CHRONO_GOLD;
 }

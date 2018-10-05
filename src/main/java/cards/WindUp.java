@@ -26,8 +26,8 @@ public class WindUp extends MetricsCard {
 	private static final int UPGRADE_PLUS_DMG = 5;
 
 	public WindUp() {
-		super(ID, NAME, "images/cards/WindUp.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/WindUp.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

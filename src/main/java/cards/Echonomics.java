@@ -27,8 +27,8 @@ public class Echonomics extends MetricsCard {
 	private static final int ECHO_AMT = 1;
 
 	public Echonomics() {
-		super(ID, NAME, "images/cards/Echonomics.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Echonomics.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = ECHO_AMT;
 		this.magicNumber = this.baseMagicNumber;

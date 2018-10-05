@@ -27,8 +27,8 @@ public class TickedOff extends MetricsCard {
 	private static final int BLOCK_UPGRADE = 5;
 
 	public TickedOff() {
-		super(ID, NAME, "images/cards/TickedOff.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/TickedOff.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK;
 		this.retain = true;

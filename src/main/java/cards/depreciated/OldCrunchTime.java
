@@ -33,8 +33,8 @@ public class OldCrunchTime extends MetricsCard {
 	private static final int ENERGY_UPGRADE = 1;
 
 	public OldCrunchTime() {
-		super(ID, NAME, "images/cards/OldCrunchTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/OldCrunchTime.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = ENERGY;
 		this.magicNumber = this.baseMagicNumber;

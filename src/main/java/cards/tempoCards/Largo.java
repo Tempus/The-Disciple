@@ -47,8 +47,8 @@ public class Largo extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	public Largo() {
-		super(ID, NAME, "images/cards/Largo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Largo.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		// this.baseDamage = DMG;
 		

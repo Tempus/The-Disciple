@@ -27,8 +27,8 @@ public class Echoward extends MetricsCard {
 	private static final int COST = 1;
 
 	public Echoward() {
-		super(ID, NAME, "images/cards/Echoward.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/Echoward.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.SELF);
 	}
 

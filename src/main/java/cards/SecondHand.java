@@ -34,8 +34,8 @@ public class SecondHand extends MetricsCard {
 	private static final int BLOCK_UPGRADE = 2;
 
 	public SecondHand() {
-		super(ID, NAME, "images/cards/SecondHand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/SecondHand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = RETAIN;
 		this.magicNumber = this.baseMagicNumber;

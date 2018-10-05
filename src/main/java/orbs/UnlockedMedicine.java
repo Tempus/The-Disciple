@@ -39,7 +39,7 @@ public class UnlockedMedicine extends ReplicaOrb
             new LockedMedicine(),
             "Medical Kit"); // AbstractCard locked)
 
-    if (upgraded) { this.img = ImageMaster.loadImage("images/orbs/Medicine+.png"); }
+    if (upgraded) { this.img = ImageMaster.loadImage("chrono_images/orbs/Medicine+.png"); }
   }
     
   @Override

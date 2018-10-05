@@ -20,7 +20,7 @@ public class Metronome extends CustomRelic {
     public static final int CARDS_TO_RETAIN = 1;
 
     public Metronome() {
-        super(ID, new Texture("images/relics/Metronome.png"), new Texture("images/relics/outline/Metronome.png"), RelicTier.BOSS, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/Metronome.png"), new Texture("chrono_images/relics/outline/Metronome.png"), RelicTier.BOSS, LandingSound.CLINK);
     }
 
     @Override

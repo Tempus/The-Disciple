@@ -29,8 +29,8 @@ public class Pendulum extends MetricsCard {
 	private static final int TURNS_APPLIED_UP = 2;
 
 	public Pendulum() {
-		super(ID, NAME, "images/cards/Pendulum.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
+		super(ID, NAME, "chrono_images/cards/Pendulum.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
 
 		this.baseMagicNumber = TURNS_APPLIED;
 		this.magicNumber = TURNS_APPLIED;

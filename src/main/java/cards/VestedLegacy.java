@@ -29,8 +29,8 @@ public class VestedLegacy extends MetricsCard {
 	private static int powerCount = 0;
 
 	public VestedLegacy() {
-		super(ID, NAME, "images/cards/VestedLegacy.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/VestedLegacy.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = WARDS;
 		this.magicNumber = WARDS;

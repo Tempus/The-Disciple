@@ -26,8 +26,8 @@ public class OracleForm extends MetricsCard {
 	private static final int COST = 3;
 
 	public OracleForm() {
-		super(ID, NAME, "images/cards/OracleForm.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/OracleForm.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		if (AbstractDungeon.player != null) { 
 			this.baseMagicNumber = AbstractDungeon.player.gameHandSize-1;

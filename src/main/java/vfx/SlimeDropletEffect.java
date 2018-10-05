@@ -48,11 +48,11 @@ public class SlimeDropletEffect
 
     tmp = MathUtils.random(2);
     if (tmp == 0) {
-      this.img = ImageMaster.loadImage("images/particles/slimeDropA.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeDropA.png");;
     } else if (tmp == 1) {
-      this.img = ImageMaster.loadImage("images/particles/slimeDropB.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeDropB.png");;
     } else {
-      this.img = ImageMaster.loadImage("images/particles/slimeDropC.png");;
+      this.img = ImageMaster.loadImage("chrono_images/particles/slimeDropC.png");;
     }
 
     this.scale = (MathUtils.random(0.1F, 0.8F) * Settings.scale);

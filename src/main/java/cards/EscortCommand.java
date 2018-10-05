@@ -30,8 +30,8 @@ public class EscortCommand extends MetricsCard {
 	private static final int NEXT_UPGRADE_PLUS_BLOCK = 3;
 
 	public EscortCommand() {
-		super(ID, NAME, "images/cards/EscortCommand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/EscortCommand.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
 		this.baseMagicNumber = NEXT_BLOCK_AMT;

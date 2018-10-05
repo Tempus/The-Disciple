@@ -27,8 +27,8 @@ public class OldResonantCall extends MetricsCard {
 	private static final int CARDS_TO_PLAY_UP = 2;
 
 	public OldResonantCall() {
-		super(ID, NAME, "images/cards/OldResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/OldResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = CARDS_TO_PLAY;
 		this.magicNumber = CARDS_TO_PLAY;

@@ -52,8 +52,8 @@ public class Presto extends MetricsCard {
 	private static final int UPGRADE_PLUS_MAGIC = 1;
 
 	public Presto() {
-		super(ID, NAME, "images/cards/Presto.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.NONE);
+		super(ID, NAME, "chrono_images/cards/Presto.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.NONE);
 
 		// this.baseDamage = DMG;
 		

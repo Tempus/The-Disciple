@@ -26,8 +26,8 @@ public class Defend_Bronze extends MetricsCard {
 	private static final int UPGRADE_PLUS_BLOCK = 3;
 
 	public Defend_Bronze() {
-		super(ID, NAME, "images/cards/Defend_Br.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, "chrono_images/cards/Defend_Br.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK_AMT;
     	this.tags.add(BaseModCardTags.BASIC_DEFEND);

@@ -37,8 +37,8 @@ public class StunPower extends AbstractPower
     updateDescription();
     this.type = AbstractPower.PowerType.DEBUFF;
 
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/Stun.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/StunSmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/Stun.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/StunSmall.png"), 0, 0, 32, 32);
 
     this.isTurnBased = true;
   }

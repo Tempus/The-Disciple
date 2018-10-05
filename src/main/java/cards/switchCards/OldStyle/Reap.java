@@ -39,8 +39,8 @@ public class Reap extends AbstractSwitchCard {
 	private boolean bullshit = false;
 
 	public Reap() {
-		super(ID, NAME, "images/cards/Reap.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/Reap.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ALL_ENEMY, Sow.class);
 
 		this.baseDamage = ATTACK_DMG;

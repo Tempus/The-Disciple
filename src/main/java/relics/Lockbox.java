@@ -13,7 +13,7 @@ public class Lockbox extends CustomRelic {
     public static final String ID = "Lockbox";
 
     public Lockbox() {
-        super(ID, new Texture("images/relics/Lockbox.png"), new Texture("images/relics/outline/Lockbox.png"), RelicTier.SHOP, LandingSound.SOLID);
+        super(ID, new Texture("chrono_images/relics/Lockbox.png"), new Texture("chrono_images/relics/outline/Lockbox.png"), RelicTier.SHOP, LandingSound.SOLID);
     }
 
     @Override

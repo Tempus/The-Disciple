@@ -28,8 +28,8 @@ public class Nibble extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_DMG = 0;
 
 	public Nibble() {
-		super(ID, NAME, "images/cards/Nibble.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.BASIC,
+		super(ID, NAME, "chrono_images/cards/Nibble.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC,
 				AbstractCard.CardTarget.ENEMY, BiteofTime.class);
 
 		this.baseDamage = ATTACK_DMG;

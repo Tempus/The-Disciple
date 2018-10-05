@@ -27,8 +27,8 @@ public class Backlash extends MetricsCard {
 	private static final int MULTI_UP = 1;
 
 	public Backlash() {
-		super(ID, NAME, "images/cards/Backlash.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.UNCOMMON,
+		super(ID, NAME, "chrono_images/cards/Backlash.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = 0;

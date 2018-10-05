@@ -39,8 +39,8 @@ public class CrunchTime extends MetricsCard {
 	private static final int ATTACK_UPGRADE = 3;
 
 	public CrunchTime() {
-		super(ID, NAME, "images/cards/CrunchTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/CrunchTime.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;

@@ -29,8 +29,8 @@ public class RageCommand extends MetricsCard {
   private static final int TURNS = 3;
   
   public RageCommand() {
-    super(ID, NAME, "images/cards/RageCommand.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-        Enum.BRONZE, AbstractCard.CardRarity.RARE,
+    super(ID, NAME, "chrono_images/cards/RageCommand.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+        Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
         AbstractCard.CardTarget.ALL_ENEMY);
     
     this.baseDamage = ATTACK_DMG;

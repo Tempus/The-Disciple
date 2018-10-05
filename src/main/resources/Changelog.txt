@@ -25,6 +25,8 @@ Changelog:
 	Bug: Presto should now give the correct amount of gold following the week 43 Greed card vanilla fix.
 	Bug: Cards retained over multiple turns decrease their cost once again.
 	Bug: Self-retaining cards now retain the first turn when spawned mid-turn, such as via Nilry's Codex.
+	Bug: Removed conflicts with the Mad Scientist mod.
+	Bug: Removed path conflicts with the Witch Mod.
 
 0.9.7
 

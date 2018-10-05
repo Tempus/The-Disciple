@@ -82,7 +82,7 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 			this.blockUp = blockUp;
 			this.magicNumberUp = magicNumUp;
 
-    		this.portraitImg = "images/cards/" + CardID + ".png";
+    		this.portraitImg = "chrono_images/cards/" + CardID + ".png";
 
 			CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(CardID);			
 			this.originalName = cardStrings.NAME;

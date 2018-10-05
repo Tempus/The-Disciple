@@ -41,8 +41,8 @@ public class AuguryPower extends AbstractPower
     this.owner = AbstractDungeon.player;
     this.amount = AbstractDungeon.player.gameHandSize-1;
     updateDescription();
-    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/Augury.png"), 0, 0, 84, 84);
-    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("images/powers/AugurySmall.png"), 0, 0, 32, 32);
+    this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/Augury.png"), 0, 0, 84, 84);
+    this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/AugurySmall.png"), 0, 0, 32, 32);
 
     this.upgraded = upgraded;
     this.starsOn = false;

@@ -30,8 +30,8 @@ public class Sow extends AbstractSwitchCard {
 	private static final int UPGRADE_PLUS_DMG = 5;
 
 	public Sow() {
-		super(ID, NAME, "images/cards/Sow.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.BRONZE, AbstractCard.CardRarity.COMMON,
+		super(ID, NAME, "chrono_images/cards/Sow.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.COMMON,
 				AbstractCard.CardTarget.ENEMY, Reap.class);
 
 		this.baseDamage = ATTACK_DMG;
