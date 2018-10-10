@@ -44,6 +44,7 @@ public class DelayedAttackPower extends AbstractPower
     this.owner = owner;
     this.amount = turns;
     this.damage = damage;
+    this.type = AbstractPower.PowerType.DEBUFF;
     updateDescription();
 
     this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedAttack.png"), 0, 0, 84, 84);
@@ -57,26 +58,26 @@ public class DelayedAttackPower extends AbstractPower
     this.updateDescription();
   }
 
-  
   public void atEndOfTurn(boolean isPlayer)
   {
     if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())
     {
       AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, 1));
-      if (this.amount == 1) {
-
-        if (this.ignoreBlock) {
-          AbstractDungeon.actionManager.addToBottom(
-            new LoseHPAction(this.owner, this.owner, this.damage));
-        } else {
-          AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(this.owner.hb.cX, this.owner.hb.cY - 40.0F * Settings.scale, Color.RED.cpy()), 0.3F));
-          AbstractDungeon.actionManager.addToBottom(
-            new DamageAction(this.owner, new DamageInfo(null, this.damage, DamageInfo.DamageType.THORNS), AttackEffect.NONE));
-        }
-      }
     }
   }
-  
+
+  @Override
+  public void onRemove() { 
+    if (this.ignoreBlock) {
+      AbstractDungeon.actionManager.addToBottom(
+        new LoseHPAction(this.owner, this.owner, this.damage));
+    } else {
+      AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(this.owner.hb.cX, this.owner.hb.cY - 40.0F * Settings.scale, Color.RED.cpy()), 0.3F));
+      AbstractDungeon.actionManager.addToBottom(
+        new DamageAction(this.owner, new DamageInfo(null, this.damage, DamageInfo.DamageType.THORNS), AttackEffect.NONE));
+    }
+  }
+
   public void updateDescription()
   {
     if (!this.ignoreBlock) {

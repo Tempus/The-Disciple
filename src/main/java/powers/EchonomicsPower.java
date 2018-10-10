@@ -48,11 +48,13 @@ public class EchonomicsPower
   
   public void updateDescription()
   {
-    if (this.amount == 1) {
-      this.description = DESCRIPTIONS[0];
-    } else {
-      this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
-    }
+    this.description = DESCRIPTIONS[0];
+
+    // if (this.amount == 1) {
+    //   this.description = DESCRIPTIONS[0];
+    // } else {
+    //   this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+    // }
   }
 
   public void atEndOfTurn(boolean isPlayer)
@@ -76,17 +78,19 @@ public class EchonomicsPower
       }
     }
 
-    AbstractCard c = card.makeStatEquivalentCopy();
-    if (!this.upgraded) {
-      c.modifyCostForTurn(-9);
-    } else {
-      c.modifyCostForCombat(-9);
-    }
-    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c));
+    if (card.isCostModified || card.isCostModifiedForTurn) {
+      AbstractCard c = card.makeStatEquivalentCopy();
+      if (!this.upgraded) {
+        c.modifyCostForTurn(-9);
+      } else {
+        c.modifyCostForCombat(-9);
+      }
+      AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c));
 
-    this.amount -= 1;
-    if (this.amount == 0) {
-      AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "Echonomics"));
+      this.amount -= 1;
+      if (this.amount == 0) {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, "Echonomics"));
+      }
     }
   }
 }

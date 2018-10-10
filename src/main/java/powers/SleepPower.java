@@ -17,6 +17,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 
+import basemod.ReflectionHacks;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -69,9 +71,23 @@ public class SleepPower extends AbstractPower
     }
   }
 
-  public void atStartOfTurn(AbstractCard card, UseCardAction action)
+  public void atStartOfTurn()
   {
     this.applySleep();
+    switch(this.monster.id) {
+      case "GiantHead":
+        int count = (int)ReflectionHacks.getPrivate(this.monster, this.monster.getClass(), "count");
+        ReflectionHacks.setPrivate(this.monster, this.monster.getClass(), "count", count + 1);
+        break;
+      case "BookOfStabbing":
+        int stabCount = (int)ReflectionHacks.getPrivate(this.monster, this.monster.getClass(), "stabCount");
+        ReflectionHacks.setPrivate(this.monster, this.monster.getClass(), "stabCount", stabCount - 1);
+        break;
+      case "Maw":
+        int turnCount = (int)ReflectionHacks.getPrivate(this.monster, this.monster.getClass(), "turnCount");
+        ReflectionHacks.setPrivate(this.monster, this.monster.getClass(), "turnsTaken", turnCount - 1);
+        break;
+    }
   }
   
   public void applySleep() {

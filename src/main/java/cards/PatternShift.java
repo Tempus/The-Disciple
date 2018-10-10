@@ -123,6 +123,7 @@ public class PatternShift extends MetricsCard {
 
 			// Remove the move we added, and the one we're about to readd
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
+		    if (this.newTarget.moveHistory.size() > 1)
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
 
 		    // Set old move

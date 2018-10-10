@@ -72,9 +72,9 @@
   "Echonomics": {
     "NAME": "Echonomics",
     "DESCRIPTIONS": [
-      "This turn, your next card is duplicated into your hand as a 0 cost card.",
-      "This turn, your next ",
-      " cards are duplicated into your hand as 0 cost cards."
+      "This turn, the next discounted cost card you play is duplicated into your hand as a 0 cost card.",
+      "This turn, the next ",
+      " discounted cost cards you play are duplicated into your hand as 0 cost cards."
     ]
   },
   "Echoward": {

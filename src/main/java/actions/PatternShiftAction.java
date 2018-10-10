@@ -194,24 +194,29 @@ public class PatternShiftAction extends AbstractGameAction {
 			// Gremlin Wizard charges more or goes back to no charge
 			case "GremlinWizard":
 				int currentCharge = (int)ReflectionHacks.getPrivate(m, m.getClass(), "currentCharge");
-				ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", currentCharge + 1);
 
-				if (currentCharge+1 >= 3) {
+				if (currentCharge >= 3) {
 					m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
-					m.createIntent();
-					return true;
-				}
+				} 
 
-				if ((m.intent == AbstractMonster.Intent.ATTACK)) {
-					ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", 0);
-					m.rollMove();
+				else if ((m.intent == AbstractMonster.Intent.ATTACK)) {
+					if (AbstractDungeon.ascensionLevel >= 17) {
+						m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
+     				} else {
+						m.setMove((byte)2, AbstractMonster.Intent.UNKNOWN);
+	   					ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", 0);
+					}
+				} else {
+					m.setMove((byte)2, AbstractMonster.Intent.UNKNOWN);
+	   				ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", currentCharge+1);
 				}
-				break;
+				m.createIntent();
+				return true;
 
 			// Hexaghost, ouch
 			case "Hexaghost":
       			ChronoMod.log("Move byte: " + Integer.toString(m.nextMove));
-      			Hexaghost hexa;
+      			Hexaghost hexa = (Hexaghost)m;
 
 				// If you skip the first turn, you need to activate him anyway
 				if (m.intent == AbstractMonster.Intent.UNKNOWN) {
@@ -225,24 +230,14 @@ public class PatternShiftAction extends AbstractGameAction {
 					m.createIntent();
 					return true;
       			} else {
-      				switch (m.nextMove) {
-      					case 1:
-      						hexa = (Hexaghost)m;
-      						hexa.changeState("Deactivate");
+      				hexa = (Hexaghost)m;
 
-  		      				// AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
-		      				hexa.setMove((byte)4, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)hexa.damage.get(1)).base);
-							hexa.createIntent();
-							return true;
-      					case 6:
-      						hexa = (Hexaghost)m;
-      						hexa.changeState("Deactivate");
-      						break;
-      					default:
-		      				AbstractDungeon.actionManager.addToTop(new ChangeStateAction(m, "Activate Orb"));
-		      				// AbstractDungeon.actionManager.addToBottom(new RollMoveAction(m));
-		      				break;
-		      		}
+					int orbActiveCount = (int)ReflectionHacks.getPrivate(hexa, Hexaghost.class, "orbActiveCount");
+					if (orbActiveCount == 6) {
+						hexa.changeState("Deactivate");
+					} else {
+						hexa.changeState("Activate Orb");
+					}
       			}
       			break;
 
@@ -407,15 +402,6 @@ public class PatternShiftAction extends AbstractGameAction {
 				ReflectionHacks.setPrivate(m, m.getClass(), "turnsTaken", turnsTaken - 1);
 				break;
 
-			case "GremlinWizard":
-				int currentCharge = (int)ReflectionHacks.getPrivate(m, m.getClass(), "currentCharge");
-				ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", currentCharge - 1);
-
-				if (currentCharge == 0) {
-					ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", 3);
-				}
-				break;
-
       		case "Lagavulin":
       			switch (m.nextMove) {
       				case 5: // sleep
@@ -431,6 +417,19 @@ public class PatternShiftAction extends AbstractGameAction {
 			case "SphericGuardian":
 				if (m.nextMove == 4) {
 					ReflectionHacks.setPrivate(m, m.getClass(), "secondMove", true); }
+				break;
+			case "Maw":
+				turnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "turnCount");
+				ReflectionHacks.setPrivate(m, m.getClass(), "turnCount", turnCount - 1);
+				break;
+			case "Hexaghost":
+      			Hexaghost hexa = (Hexaghost)m;
+				int orbActiveCount = (int)ReflectionHacks.getPrivate(hexa, Hexaghost.class, "orbActiveCount");
+				if (orbActiveCount == 0) {
+					ReflectionHacks.setPrivate(hexa, Hexaghost.class, "orbActiveCount", 6);
+				} else {
+					ReflectionHacks.setPrivate(hexa, Hexaghost.class, "orbActiveCount", orbActiveCount-1);
+				}
 				break;
             }
 
@@ -567,24 +566,27 @@ public class PatternShiftAction extends AbstractGameAction {
 			// Gremlin Wizard charges more or goes back to no charge
 			case "GremlinWizard":
 				int currentCharge = (int)ReflectionHacks.getPrivate(m, m.getClass(), "currentCharge");
-				ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", currentCharge + 1);
 
-				if (currentCharge+1 == 3) {
+				if (currentCharge >= 3) {
 					m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
-					m.createIntent();
-					return true;
-				}
+				} 
 
-				if ((m.intent == AbstractMonster.Intent.ATTACK)) {
-					ReflectionHacks.setPrivate(m, m.getClass(), "currentCharge", 0);
-					m.rollMove();
+				else if ((m.intent == AbstractMonster.Intent.ATTACK)) {
+					if (AbstractDungeon.ascensionLevel >= 17) {
+						m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
+     				} else {
+						m.setMove((byte)2, AbstractMonster.Intent.UNKNOWN);
+					}
+				} else {
+					m.setMove((byte)2, AbstractMonster.Intent.UNKNOWN);
 				}
-				break;
+				m.createIntent();
+				return true;
 
 			// Hexaghost, ouch
 			case "Hexaghost":
       			ChronoMod.log("Move byte: " + Integer.toString(m.nextMove));
-      			Hexaghost hexa;
+      			Hexaghost hexa = (Hexaghost)m;
 
 				// If you skip the first turn, you need to activate him anyway
 				if (m.intent == AbstractMonster.Intent.UNKNOWN) {
@@ -597,20 +599,12 @@ public class PatternShiftAction extends AbstractGameAction {
 					m.createIntent();
 					return true;
       			} else {
-      				switch (m.nextMove) {
-      					case 1:
-      						hexa = (Hexaghost)m;
-		      				hexa.setMove((byte)4, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)hexa.damage.get(1)).base);
-							hexa.createIntent();
-							return true;
-      					case 6:
-      						hexa = (Hexaghost)m;
-      						break;
-      					// default:
-      					// 	m.rollMove();
-      					// 	m.createIntent();
-		      			// 	break;
-		      		}
+					int orbActiveCount = (int)ReflectionHacks.getPrivate(hexa, Hexaghost.class, "orbActiveCount");
+					if (orbActiveCount == 6) {
+						ReflectionHacks.setPrivate(hexa, Hexaghost.class, "orbActiveCount", 0);
+					} else {
+						ReflectionHacks.setPrivate(hexa, Hexaghost.class, "orbActiveCount", orbActiveCount+1);
+					}
       			}
       			break;
 
@@ -696,8 +690,8 @@ public class PatternShiftAction extends AbstractGameAction {
 		// 	method.invoke(m, seed); 
 		// }
 		// catch (Throwable e) {
-  // 			ChronoMod.log(e.toString());
- 	// 	}
+    	//		ChronoMod.log(e.toString());
+ 		// 	}
 		m.rollMove();
 		m.createIntent();
 

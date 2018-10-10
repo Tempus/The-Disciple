@@ -2,13 +2,19 @@ Changelog:
 
 0.9.8
 
+	Feature: Analog now has an icon preview to show the effect of using the card on mouseover.
+	Feature: Card Tags converted to the new week 44 vanilla system, including healing cards
 	Balance: Misterioso now only plays unique cards.
 	Balance: Echonomics plus now makes a single copy that is free all combat, instead of two copies free for the turn.
+	Balance: Echonomics now only works on cards with discounted costs.
+	Balance: Sospirando is now "Apply Stun (all enemies). Gain Stun.".
+	Balance: Stacking Orcale Form now gives 2(3) card draw increase.
+	Balance: Wards now safely duplicate when doubled in hand via something like Burst.
+	Balance: Recurrance now decrements the turn counter for Bite and Rage Command.
 	Text: Escort Command now correctly shows in green when next turn's block is modified.
 	Text: Fibonacci damage was capitalized.
 	Text: Short Sighted's Delayed Attack Power now specifies that you lose health instead of dealing damage to you.
 	Text: Echonomics text was cleaned up.
-	Feature: Card Tags converted to the new week 44 vanilla system, including healing cards
 	Bug: Equilibrium now discounts retained cards.
 	Bug: Echonomics no longer copies other Echonomics.
 	Bug: Switch cards no longer cost 0 on draft.
@@ -27,6 +33,12 @@ Changelog:
 	Bug: Self-retaining cards now retain the first turn when spawned mid-turn, such as via Nilry's Codex.
 	Bug: Removed conflicts with the Mad Scientist mod.
 	Bug: Removed path conflicts with the Witch Mod.
+	Bug: Pattern Shift preview will no longer scale the Maw's damage continuously.
+	Bug: Maw, Giant Head, and Book of Stabbing no long continue to scale damage while sleeping.
+	Bug: Gremlin Wizard now functions correctly for Pattern Shift on all ascensions.
+	Bug: Fixed Hexaghost on Pattern Shift, once again.
+	Bug: Time Dilate no longer takes away Bite and Rage Command.
+	Bug: Oracle Form no longer allows you to draw past 10 cards, sending extra cards to the discard.
 
 0.9.7
 

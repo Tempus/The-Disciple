@@ -67,20 +67,23 @@ public class Sospirando extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
-		if (m.type == AbstractMonster.EnemyType.BOSS && !this.upgraded) {
-			AbstractDungeon.effectList.add(new PowerBuffEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - 48.0F, "Immune"));
-			return;
-		}
+		// if (m.type == AbstractMonster.EnemyType.BOSS && !this.upgraded) {
+		// 	AbstractDungeon.effectList.add(new PowerBuffEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - 48.0F, "Immune"));
+		// 	return;
+		// }
 
-		// if (!this.upgraded) {
+		if (!this.upgraded) {
 			AbstractDungeon.actionManager.addToBottom(
 				new ApplyPowerAction(m, p, new StunPower(m, this.magicNumber), this.magicNumber));
-		// } else {
-		//     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-		// 		if (!mo.isDead && !mo.escaped && mo != null) {
-		// 			AbstractDungeon.actionManager.addToBottom(
-		// 				new ApplyPowerAction(mo, p, new StunPower(mo, this.magicNumber), this.magicNumber)); } }
-		// }
+		} else {
+		    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+				if (!mo.isDead && !mo.escaped && mo != null) {
+					AbstractDungeon.actionManager.addToBottom(
+						new ApplyPowerAction(mo, p, new StunPower(mo, this.magicNumber), this.magicNumber)); } }
+		}
+
+		AbstractDungeon.actionManager.addToBottom(
+			new ApplyPowerAction(p, p, new StunPower(p, this.magicNumber), this.magicNumber));
 	}
 
 	@Override
@@ -92,6 +95,7 @@ public class Sospirando extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			this.target = AbstractCard.CardTarget.ALL_ENEMY;
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
    		   	// this.exhaust = false;

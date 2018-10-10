@@ -51,7 +51,7 @@ public class EchowardPower extends AbstractPower
   @Override
   public void onPlayCard(AbstractCard card, AbstractMonster m)
   {
-    if ((card.cardID == "Ward") && (card.freeToPlayOnce == true)) { return; }
+    if ((card.cardID == "Ward") && (card.exhaustOnFire == true)) { return; }
 
     for (int i = 0; i < this.amount; i++) {
       this.playWard(card);              
@@ -74,6 +74,7 @@ public class EchowardPower extends AbstractPower
     tmp.target_x = (Settings.WIDTH / 2.0F - 300.0F * Settings.scale);
     tmp.target_y = (Settings.HEIGHT / 2.0F);
     tmp.freeToPlayOnce = true;
+    tmp.exhaustOnFire = true;
     AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, true));
   }
 }

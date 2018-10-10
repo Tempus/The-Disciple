@@ -194,8 +194,8 @@
   },
   "Sospirando": {
       "NAME": "Sospirando",
-      "DESCRIPTION": "Apply Stun on a non-boss enemy. NL Exhaust.",
-      "UPGRADE_DESCRIPTION": "Apply Stun. NL Exhaust."
+      "DESCRIPTION": "Apply Stun. NL Gain Stun.",
+      "UPGRADE_DESCRIPTION": "Apply Stun to ALL enemies. NL Gain Stun."
   },
   "Misterioso": {
       "NAME": "Misterioso",
@@ -406,8 +406,8 @@
   },
   "Echonomics": {
       "NAME": "Echonomics",
-      "DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0. NL Exhaust.",
-      "UPGRADE_DESCRIPTION": "This turn, your next card is duplicated into your hand and costs 0 this combat. NL Exhaust."
+      "DESCRIPTION": "This turn, your next discounted card is duplicated into your hand and costs 0. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "This turn, your next discounted card is duplicated into your hand and costs 0 this combat. NL Exhaust."
   },
   "Parity": {
       "NAME": "Parity",

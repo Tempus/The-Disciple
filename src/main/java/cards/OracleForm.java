@@ -29,13 +29,9 @@ public class OracleForm extends MetricsCard {
 		super(ID, NAME, "chrono_images/cards/OracleForm.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
-		if (AbstractDungeon.player != null) { 
-			this.baseMagicNumber = AbstractDungeon.player.gameHandSize-1;
-		} else {
-			this.baseMagicNumber = 4;
-		}
-		
+		this.baseMagicNumber = 4;
 		this.magicNumber = this.baseMagicNumber;
+		this.updateBodyText();
 
     	this.tags.add(BaseModCardTags.FORM);
 	}
@@ -43,10 +39,14 @@ public class OracleForm extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (p.hasPower("Augury")) { 
+			int drawIncrease = 2;
 			if (this.upgraded) {
 				AuguryPower a = (AuguryPower)p.getPower("Augury");
 				a.upgraded = true;
+				drawIncrease = 3;
 			}
+			AbstractDungeon.actionManager.addToBottom(
+				new ApplyPowerAction(p, p, new AuguryPower(this.upgraded), drawIncrease));
 		} else {
 			AbstractDungeon.actionManager.addToBottom(
 				new ApplyPowerAction(p, p, new AuguryPower(this.upgraded), 0));
@@ -54,19 +54,25 @@ public class OracleForm extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new OracleForm();
-	}
+	public AbstractCard makeCopy() { return new OracleForm(); }
 
-	@Override
-	public void triggerWhenDrawn() {
-		this.magicNumber = AbstractDungeon.player.gameHandSize-1;
-		if (this.upgraded) { this.magicNumber++; }
-	}
+  	public void triggerWhenDrawn() { this.updateBodyText(); }
+	public void onPlayCard(AbstractCard c, AbstractMonster m) { this.updateBodyText(); }
+	public void atTurnStart() { this.updateBodyText(); }
 
-	public void atTurnStart() {
-		this.magicNumber = AbstractDungeon.player.gameHandSize-1;
-		if (this.upgraded) { this.magicNumber++; }
+	public void updateBodyText() {
+		if (AbstractDungeon.player != null) { 
+			this.magicNumber = AbstractDungeon.player.gameHandSize-1;
+			if (this.upgraded) { this.magicNumber++; }
+			if (AbstractDungeon.player.hasPower("Augury")) { 
+				this.baseMagicNumber = 2;
+				this.magicNumber = 2;
+				if (this.upgraded) { this.magicNumber++; }
+
+	      		this.rawDescription = "Choose an additional !M! cards.";
+	   		   	initializeDescription();
+			}
+		}
 	}
 
 	@Override

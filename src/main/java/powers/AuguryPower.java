@@ -33,6 +33,7 @@ public class AuguryPower extends AbstractPower
   public boolean starsOn = false;
   public int DISCARDS = 2;
   public static SeekAction activeAction;
+  public int additionalDraw = 0;
 
   public AuguryPower(Boolean upgraded)
   {
@@ -69,10 +70,13 @@ public class AuguryPower extends AbstractPower
     if (this.owner.hasPower("Draw")) {
       this.amount += this.owner.getPower("Draw").amount; }
 
+    this.amount += this.additionalDraw;
+
     if (this.amount > 10 - AbstractDungeon.player.hand.size()){
       this.amount = 10 - AbstractDungeon.player.hand.size();
     }
 
+    
     ChronoMod.log("Draw amount for Augury set to: " + Integer.toString(this.amount));
   }
 
@@ -106,6 +110,14 @@ public class AuguryPower extends AbstractPower
       AbstractDungeon.effectsQueue.add(new OracleScreenEffect());
       AbstractDungeon.effectsQueue.add(new OracleStarEffect());
     }
+  }
+
+  public void stackPower(int stackAmount)
+  {
+    if (this.amount == -1) { return; }
+    this.fontScale = 8.0F;
+    this.additionalDraw += stackAmount;
+    this.amount += stackAmount;
   }
 
   public void onRemove()
