@@ -63,6 +63,7 @@ public class Presto extends MetricsCard {
 		// this.magicNumber = UPGRADE_PLUS_MAGIC;
 
     	this.tags.add(Enum.TEMPO_CARD);
+    	this.isEthereal = true;
 	}
 
 	@Override

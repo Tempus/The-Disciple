@@ -39,6 +39,11 @@ public class PatternShiftAction extends AbstractGameAction {
   	private AbstractCard transformee;
   	public int seed = 0;
   	public static int StabbyMcStabs = 1;
+  	public static boolean entangleReset = false;
+
+  	public static boolean champThresholdReached;
+  	public static int champNumTurns;
+  	public static int forgeTimes;
 
 	public PatternShiftAction(AbstractPlayer p, AbstractMonster m) {
 		this.p = p;
@@ -72,6 +77,13 @@ public class PatternShiftAction extends AbstractGameAction {
 				if (m.nextMove == 2) {
       				AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, m, m.currentHealth));
       			}
+
+			// Champ has a bunch of hardcoded things since A19
+			case "Champ":
+				ReflectionHacks.setPrivate(m, m.getClass(), "numTurns", champNumTurns);
+				ReflectionHacks.setPrivate(m, m.getClass(), "forgeTimes", forgeTimes);
+				ReflectionHacks.setPrivate(m, m.getClass(), "thresholdReached", champThresholdReached);
+				break;
 
 			// firstMove only
 			case "SnakeMage":
@@ -133,36 +145,63 @@ public class PatternShiftAction extends AbstractGameAction {
 				ReflectionHacks.setPrivate(m, m.getClass(), "numTurns", count);
 				break;
 
-			// Looter is annoying, just like Mugger
+			// Bandits are all dumb and hardcoded now.
+			case "BanditBear":
+			    switch (m.nextMove)
+			    {
+			    case 2: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 1: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 3: 
+			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
+			      break;
+			    }
+   				break;
+
+   			case "BanditLeader":
+			    switch (m.nextMove)
+			    {
+			    case 2: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 1: 
+			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
+			      break;
+			    case 3: 
+      			  if (AbstractDungeon.ascensionLevel >= 17) {
+      			    m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
+				  } else {
+			        m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)m.damage.get(1)).base);
+				  }
+			      break;
+			    }
+   				break;
+   				
+   			// Looter is annoying, just like Mugger
 			case "Looter":
 			case "Mugger":
-				slashCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "slashCount");
-
-				switch (slashCount) {
-					case 0:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 1);
-						m.rollMove();
-						break;
+				switch (m.nextMove) {
 					case 1:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 2);
+						slashCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "slashCount");
 						m.rollMove();
+
+						if (slashCount == 1) {
+							m.setMove((byte)4, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(1)).base);
+						}
+
+						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", slashCount+1);
+						break;
+					case 4:
+						m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
 						break;
 					case 2:
-						if (m.nextMove == 2) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
-							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
-						} else {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
-							m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
-						}
+						m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
 						break;
-					default:
-						if (m.nextMove == 2) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
-							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
-						} else if (m.nextMove == 3) {
-							AbstractDungeon.actionManager.addToBottom(new EscapeAction(m));
-						}
+					case 3:
+						AbstractDungeon.actionManager.addToBottom(new EscapeAction(m));
 						break;
 				}
 
@@ -183,6 +222,13 @@ public class PatternShiftAction extends AbstractGameAction {
 				ReflectionHacks.setPrivate(m, m.getClass(), "initialSpawn", false);
 				if (m.intent == AbstractMonster.Intent.STRONG_DEBUFF) {
 					ReflectionHacks.setPrivate(m, m.getClass(), "ultUsed", true);
+				}
+				break;
+
+			// Writhing Mass test code?
+			case "WrithingMass":
+				if (m.intent == AbstractMonster.Intent.STRONG_DEBUFF) {
+					ReflectionHacks.setPrivate(m, m.getClass(), "usedMegaDebuff", true);
 				}
 				break;
 
@@ -293,7 +339,6 @@ public class PatternShiftAction extends AbstractGameAction {
 
 			// Slimes get split triggered reset, so they will do another intent until you hit them again
 			case "SpikeSlime_L":
-				ReflectionHacks.setPrivate(m, m.getClass(), "firstTurn", false);
 				ReflectionHacks.setPrivate(m, m.getClass(), "splitTriggered", false);
 				break;
 
@@ -386,11 +431,23 @@ public class PatternShiftAction extends AbstractGameAction {
 				ReflectionHacks.setPrivate(m, m.getClass(), "numTurns", count);
 				break;
 
+			case "SlaverRed":
+				if (entangleReset) { 
+					ReflectionHacks.setPrivate(m, m.getClass(), "usedEntangle", false); 
+					entangleReset = false;
+				}
+				break;
+
 			case "Looter":
 			case "Mugger":
-				slashCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "slashCount");
-				ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", slashCount - 1);
 				m.tint.changeColor(Color.WHITE.cpy(), 0.6F);
+				break;
+
+			// Champ has a bunch of hardcoded things since A19
+			case "Champ":
+				ReflectionHacks.setPrivate(m, m.getClass(), "numTurns", champNumTurns);
+				ReflectionHacks.setPrivate(m, m.getClass(), "forgeTimes", forgeTimes);
+				ReflectionHacks.setPrivate(m, m.getClass(), "thresholdReached", champThresholdReached);
 				break;
 
 			case "BookOfStabbing":
@@ -407,6 +464,13 @@ public class PatternShiftAction extends AbstractGameAction {
       				case 5: // sleep
 						int idleCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "idleCount");
 						ReflectionHacks.setPrivate(m, m.getClass(), "idleCount", idleCount - 1);
+						break;
+					case 1:
+						ReflectionHacks.setPrivate(m, m.getClass(), "debuffTurnCount", 2);
+						break;
+					case 3:
+						int debuffTurnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "debuffTurnCount");
+						ReflectionHacks.setPrivate(m, m.getClass(), "debuffTurnCount", debuffTurnCount - 1);
 						break;
 				} 
             	break;
@@ -445,6 +509,10 @@ public class PatternShiftAction extends AbstractGameAction {
 		// Special Cases
 		switch(m.id) {
 
+			case "AwakenedOne":
+				ReflectionHacks.setPrivate(m, m.getClass(), "firstTurn", false);
+				break;
+
 			case "Dagger":
 				if (m.nextMove == 2) {
 					m.tint.changeColor(Color.CLEAR.cpy(), 0.6F);
@@ -453,6 +521,13 @@ public class PatternShiftAction extends AbstractGameAction {
   					return true;
       			}
       			break;
+
+      		// Stupid champ and his junk
+			case "Champ":
+				champThresholdReached = (boolean)ReflectionHacks.getPrivate(m, m.getClass(), "thresholdReached");
+				champNumTurns = (int)ReflectionHacks.getPrivate(m, m.getClass(), "numTurns");
+				forgeTimes = (int)ReflectionHacks.getPrivate(m, m.getClass(), "forgeTimes");
+				break;
 
 			// Donu and deca need to swap
 			case "Deca":
@@ -508,35 +583,24 @@ public class PatternShiftAction extends AbstractGameAction {
 			// Looter is annoying, just like Mugger
 			case "Looter":
 			case "Mugger":
-				slashCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "slashCount");
-
-				switch (slashCount) {
-					case 0:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 1);
-						m.rollMove();
-						break;
+				switch (m.nextMove) {
 					case 1:
-						ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 2);
+						slashCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "slashCount");
 						m.rollMove();
+
+						if (slashCount == 1) {
+							m.setMove((byte)4, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(1)).base);
+						}
+						break;
+					case 4:
+						m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
 						break;
 					case 2:
-						if (m.nextMove == 2) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
-							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
-						} else {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 3);
-							m.setMove((byte)2, AbstractMonster.Intent.DEFEND);
-						}
+						m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
 						break;
-					default:
-						if (m.nextMove == 2) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 4);
-							m.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
-						} else if (m.nextMove == 3) {
-							ReflectionHacks.setPrivate(m, m.getClass(), "slashCount", 5);
-							m.setMove((byte)0, AbstractMonster.Intent.NONE);
-							m.tint.changeColor(Color.CLEAR.cpy(), 0.6F);
-						}
+					case 3:
+						m.tint.changeColor(Color.CLEAR.cpy(), 0.6F);
+						m.setMove((byte)0, AbstractMonster.Intent.NONE);
 						break;
 				}
 
@@ -548,6 +612,41 @@ public class PatternShiftAction extends AbstractGameAction {
 				StabbyMcStabs = (int)ReflectionHacks.getPrivate(m, m.getClass(), "stabCount");
 				break;
 
+			// Bandits are all dumb and hardcoded now.
+			case "BanditBear":
+			    switch (m.nextMove)
+			    {
+			    case 2: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 1: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 3: 
+			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
+			      break;
+			    }
+   				break;
+
+   			case "BanditLeader":
+			    switch (m.nextMove)
+			    {
+			    case 2: 
+			      m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)m.damage.get(1)).base);
+			      break;
+			    case 1: 
+			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK, ((DamageInfo)m.damage.get(0)).base);
+			      break;
+			    case 3: 
+      			  if (AbstractDungeon.ascensionLevel >= 17) {
+      			    m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
+				  } else {
+			        m.setMove((byte)3, AbstractMonster.Intent.ATTACK_DEBUFF, ((DamageInfo)m.damage.get(1)).base);
+				  }
+			      break;
+			    }
+   				break;
+
 			// The Collector has all sorts of stuff, but you can skip his ult
 			case "TheCollector":
 				int turnsTaken = (int)ReflectionHacks.getPrivate(m, m.getClass(), "turnsTaken") + 1;
@@ -555,6 +654,13 @@ public class PatternShiftAction extends AbstractGameAction {
 				ReflectionHacks.setPrivate(m, m.getClass(), "initialSpawn", false);
 				if (m.intent == AbstractMonster.Intent.STRONG_DEBUFF) {
 					ReflectionHacks.setPrivate(m, m.getClass(), "ultUsed", true);
+				}
+				break;
+
+			// Writhing Mass test code?
+			case "WrithingMass":
+				if (m.intent == AbstractMonster.Intent.STRONG_DEBUFF) {
+					ReflectionHacks.setPrivate(m, m.getClass(), "usedMegaDebuff", true);
 				}
 				break;
 
@@ -621,13 +727,21 @@ public class PatternShiftAction extends AbstractGameAction {
 							return true;
 						}
 						break;
+					case 1:
+						ReflectionHacks.setPrivate(m, m.getClass(), "debuffTurnCount", 0);
+						break;
+					case 3:
+						int debuffTurnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "debuffTurnCount");
+						ReflectionHacks.setPrivate(m, m.getClass(), "debuffTurnCount", debuffTurnCount + 1);
+						break;
             	}
             	break;
 
 			// Slaver should only try to use entangle once
 			case "SlaverRed":
 				ReflectionHacks.setPrivate(m, m.getClass(), "firstMove", false);
-				if (m.nextMove == 2) { ReflectionHacks.setPrivate(m, m.getClass(), "usedEntangle", true); }
+				if (m.nextMove == 2) { ReflectionHacks.setPrivate(m, m.getClass(), "usedEntangle", true); 
+				entangleReset = true; }
 				break;
 
 			// Slimes get split triggered reset, so they will do another intent until you hit them again
@@ -651,7 +765,6 @@ public class PatternShiftAction extends AbstractGameAction {
 
 			// Slimes get split triggered reset, so they will do another intent until you hit them again
 			case "SpikeSlime_L":
-				ReflectionHacks.setPrivate(m, m.getClass(), "firstTurn", false);
 				ReflectionHacks.setPrivate(m, m.getClass(), "splitTriggered", false);
 				break;
 

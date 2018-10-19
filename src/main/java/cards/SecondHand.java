@@ -41,8 +41,6 @@ public class SecondHand extends MetricsCard {
 		this.magicNumber = this.baseMagicNumber;
 		this.baseBlock = BLOCK;
 		this.block = BLOCK;
-
-    	this.tags.add(BaseModCardTags.GREMLIN_MATCH);
 	}
 
 	@Override

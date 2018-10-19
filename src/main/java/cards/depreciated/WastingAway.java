@@ -47,7 +47,7 @@ public class WastingAway extends MetricsCard {
 		AbstractDungeon.actionManager.addToBottom(
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     	
-    	AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(this.cardID, this.misc, this.magicNumber));
+    	// AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(this.cardID, this.misc, this.magicNumber));
 	}
 
 	@Override

@@ -24,7 +24,7 @@
     "NAME": "Cryopreserver",
     "FLAVOR": "Freshness is key to retaining great flavour.",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 #yFocus, making Replicas last a turn longer."
+      "Start each combat with #b1 #yFocus, making Replicas timers increaase by a turn."
     ]
   },
   "HangingClock": {

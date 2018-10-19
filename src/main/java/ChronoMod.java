@@ -167,12 +167,12 @@ public class ChronoMod implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(Chronomuncher.class, "The Disciple", 
-                "The Disciple class", Enum.CHRONO_GOLD, 
-                "The Disciple", 
-                "chrono_images/char/chronoButton.png", 
-                "chrono_images/char/chronoPortrait.png", 
-                Enum.CHRONO_CLASS);
+        BaseMod.addCharacter(
+            new Chronomuncher(CardCrawlGame.playerName),
+            // Enum.CHRONO_GOLD, 
+            "chrono_images/char/chronoButton.png", 
+            "chrono_images/char/chronoPortrait.png", 
+            Enum.CHRONO_CLASS);
     }
 
     @Override

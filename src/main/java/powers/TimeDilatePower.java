@@ -55,6 +55,7 @@ public class TimeDilatePower extends AbstractPower
           case "Unawakened":
           case "Split":
           case "Life Link":
+          case "Thievery":
             break;
 
           default:

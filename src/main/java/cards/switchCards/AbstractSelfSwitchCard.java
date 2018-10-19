@@ -180,12 +180,17 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 	public switchCard findSwitch(String id) {
 		for (switchCard card : switchList) {
 			if (card.cardID == id) {
+				this.misc = switchList.indexOf(card);
 				return card;
 			}
 		}
 
 		ChronoMod.log(this.cardID + " could not find the switch card " + id);
 		return null;
+	}
+
+	public void switchTo(Integer index) {
+		this.switchTo(switchList.get(index).cardID);
 	}
 
 	public void switchTo(String id) {

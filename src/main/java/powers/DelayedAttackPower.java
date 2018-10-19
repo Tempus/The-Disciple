@@ -44,7 +44,7 @@ public class DelayedAttackPower extends AbstractPower
     this.owner = owner;
     this.amount = turns;
     this.damage = damage;
-    this.type = AbstractPower.PowerType.DEBUFF;
+    this.type = AbstractPower.PowerType.BUFF;
     updateDescription();
 
     this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/DelayedAttack.png"), 0, 0, 84, 84);

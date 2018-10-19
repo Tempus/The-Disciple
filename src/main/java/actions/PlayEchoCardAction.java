@@ -78,11 +78,6 @@ public class PlayEchoCardAction extends AbstractGameAction {
 	    	}
 	    }
 	    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
-	    if (tmp.cardID.equals("Rampage")) {
-	      AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card, tmp.magicNumber));
-	    } else if (tmp.cardID.equals("Genetic Algorithm")) {
-	      AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(card.cardID, card.misc + card.magicNumber, card.magicNumber));
-	    }
 
 	    this.isDone = true;
 	}

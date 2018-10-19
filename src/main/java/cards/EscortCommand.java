@@ -48,6 +48,7 @@ public class EscortCommand extends MetricsCard {
 
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block, true, AbstractGameAction.AttackEffect.SHIELD));
 		this.baseBlock = BLOCK_AMT;
+		if (this.upgraded) { this.baseBlock += UPGRADE_PLUS_BLOCK; }
 	}
 
 	@Override
@@ -59,6 +60,7 @@ public class EscortCommand extends MetricsCard {
 		if (this.isBlockModified) { this.isMagicNumberModified = true; }
 		this.magicNumber = this.block;
 		this.baseBlock = BLOCK_AMT;
+		if (this.upgraded) { this.baseBlock += UPGRADE_PLUS_BLOCK; }
 
 		// This turn's block
 		this.block = this.baseBlock;

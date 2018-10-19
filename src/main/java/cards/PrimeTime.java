@@ -51,6 +51,13 @@ public class PrimeTime extends MetricsCard {
 	}
 
 	@Override
+	public AbstractCard makeStatEquivalentCopy() {
+		PrimeTime ret = (PrimeTime)super.makeStatEquivalentCopy();
+		ret.wasRetained = this.wasRetained;
+		return ret;
+	}
+
+	@Override
 	public void calculateCardDamage(AbstractMonster mo) {
 		super.calculateCardDamage(mo);
 		if (this.wasRetained) {

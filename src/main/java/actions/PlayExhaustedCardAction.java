@@ -32,36 +32,40 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
 
 	public void update() {
 
-		if (this.amount > AbstractDungeon.player.exhaustPile.size()) {
-			this.amount = AbstractDungeon.player.exhaustPile.size();
+		if (AbstractDungeon.player.exhaustPile.isEmpty())
+		{
+			this.isDone = true;
+			return;
+		}
+
+		CardGroup extracted = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+		extracted.group.addAll(AbstractDungeon.player.exhaustPile.getSkills().group);
+		extracted.group.addAll(AbstractDungeon.player.exhaustPile.getAttacks().group);
+		extracted.group.addAll(AbstractDungeon.player.exhaustPile.getPowers().group);
+
+		if (this.amount > extracted.size()) {
+			this.amount = extracted.size();
 		}
 
 		for (int i = 0; i < this.amount ; i++ ) {
-			
-			if (AbstractDungeon.player.exhaustPile.isEmpty())
-			{
-				this.isDone = true;
-				return;
-			}
-			else
-			{
-				AbstractCard card = AbstractDungeon.player.exhaustPile.getRandomCard(true);
+			AbstractCard card = extracted.getRandomCard(true);
+			extracted.removeCard(card);
 
-	    		AbstractCard tmp = card.makeStatEquivalentCopy();
-				tmp.freeToPlayOnce = true;
-	 		    tmp.purgeOnUse = true;
-				tmp.target_x = (Settings.WIDTH / 2.0F - (200.0f * i * Settings.scale));
-				tmp.target_y = (Settings.HEIGHT / 2.0F);
-				tmp.current_x = tmp.target_x;
-				tmp.current_y = tmp.target_y;
+    		AbstractCard tmp = card.makeStatEquivalentCopy();
+    		tmp.unfadeOut();
+			tmp.freeToPlayOnce = true;
+ 		    tmp.purgeOnUse = true;
+			tmp.target_x = (Settings.WIDTH / 2.0F - (200.0f * i * Settings.scale));
+			tmp.target_y = (Settings.HEIGHT / 2.0F);
+			tmp.current_x = tmp.target_x;
+			tmp.current_y = tmp.target_y;
 
-				AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
+			AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
 
-			    if (m != null) {
-			      tmp.calculateCardDamage(m);
-			    }
-			    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
-			}
+		    if (m != null) {
+		      tmp.calculateCardDamage(m);
+		    }
+		    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
 		}
 		
 		this.isDone = true;	

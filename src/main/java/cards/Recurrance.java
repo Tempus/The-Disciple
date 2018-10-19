@@ -61,11 +61,11 @@ public class Recurrance extends MetricsCard {
 						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
 					} else if (pow.ID == "Shackled") {
 						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-					} else if (pow.ID.contains("DelayedAttack")) {
-						AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
 					} else {
 						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
 					}
+				} else if (pow.ID.contains("DelayedAttack")) {
+						AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
 				}
 		    }
 		// }

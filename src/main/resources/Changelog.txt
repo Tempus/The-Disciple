@@ -1,5 +1,34 @@
 Changelog:
 
+0.10.2
+
+	Compliance: Update for week 46 patch.
+	Balance: Presto is now Ethereal.
+	Text: Beats Per Minute now correctly specifies you receive an updated Tempo card.
+	Bug: Bite and Rage Command are no longer blocked by artifact (but still affected by Recurrance and not by Pendulum).
+	Bug: Tempo cards now show up at the correct side of the master deck.
+	Bug: Upgraded Escort Command no longer forgets to add the upgraded block sometimes.
+	Bug: Prime Time now keeps it's retained bonus if duplicated via cards such as Echonomics, Double Tap, Echo Form, etc.
+	Bug: Spike Slime L no longer has a Pattern Shift bug preventing changes from occuring.
+	Bug: Slaver Red no longer skips entangle when you use Pattern Shift Preview.
+	Bug: Awakened One should now work correctly with Pattern Shift preview after he Awakens.
+	Bug: Bandits now work correctly with Pattern Shift.
+	Bug: Champ should now work correctly with Pattern Shift.
+
+0.10.1
+
+	Compliance: Updated for compatibility with week 45 patch and Basemod 4.0.0.
+	Balance: Misterioso will now not play Status or Curse cards.
+	Balance: Misterioso will now never play the same card from the exhaust pile twice.
+	Text: Sospirando now correctly mentions that it exhausts.
+	Text: Updated Cryopreserver text a tad for clarity.
+	Bug: Metronome, Well Laid Plans and Runic Pyramid now play together nicely once again.
+	Bug: Looter and Mugger once again behave with Pattern Shift.
+	Bug: Lagavulin should now behave correctly with Pattern Shift once again.
+	Bug: Misterioso played cards should be more visible now.
+	Bug: Pendulum/Time Dialate will ignore Thievery now.
+	Bug: Switch cards now save and restore their state when the game is saved and continued.
+
 0.9.8
 
 	Feature: Analog now has an icon preview to show the effect of using the card on mouseover.

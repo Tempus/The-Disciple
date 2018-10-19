@@ -17,6 +17,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.powers.RetainCardPower;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 
 import basemod.ReflectionHacks;
 
@@ -124,6 +127,17 @@ public class RestoreRetainedCardsEnergyUse {
 			AbstractDungeon.actionManager.monsterAttacksQueued = false;
 
 			AbstractDungeon.player.isEndingTurn = false;
+		}
+	}
+
+	@SpirePatch(clz = RetainCardPower.class, method="atEndOfTurn")
+	public static class atEndOfTurn {
+	
+		public static void Replace(AbstractPower __instance, boolean isPlayer)
+		{
+		    if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
+				AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(__instance.owner, __instance.amount));
+		    }
 		}
 	}
 }

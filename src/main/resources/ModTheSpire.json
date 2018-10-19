@@ -4,9 +4,9 @@
   "author_list": ["Chronometrics"],
   "description": "The Disciple is a custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.",
   "dependencies": ["basemod"],
-  "version": "0.9.8",
+  "version": "0.10.2",
   "credits": "Special Thanks to: \nRocketPad - for various character artwork. \nFormalFighting - for design assistance and early playtesting. \nSkylawinters - First alpha player. \nLyman - three card portraits. \nZandorum - Chronometer relic image improvements. \nKullwarrior, KongMD, xcalibre0 - consistent bug reporters.",
-  "sts_version": "10-04-2018",
-  "mts_version": "3.2.0",  
+  "sts_version": "10-18-2018",
+  "mts_version": "3.4.0",  
   "update_json": "https://api.github.com/repos/tempus/The-Disciple/releases/latest"  
 }

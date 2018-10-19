@@ -184,8 +184,8 @@
   },
   "Presto": {
       "NAME": "Presto",
-      "DESCRIPTION": "Escape from a non-boss combat. Receive no rewards.",
-      "UPGRADE_DESCRIPTION": "Escape from a non-boss combat. Receive only gold rewards."
+      "DESCRIPTION": "Escape from a non-boss combat. Receive no rewards. NL Ethereal.",
+      "UPGRADE_DESCRIPTION": "Escape from a non-boss combat. Receive only gold rewards. NL Ethereal."
   },
   "Grave": {
       "NAME": "Grave",
@@ -194,12 +194,12 @@
   },
   "Sospirando": {
       "NAME": "Sospirando",
-      "DESCRIPTION": "Apply Stun. NL Gain Stun.",
-      "UPGRADE_DESCRIPTION": "Apply Stun to ALL enemies. NL Gain Stun."
+      "DESCRIPTION": "Apply Stun. NL Gain Stun. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Apply Stun to ALL enemies. NL Gain Stun. NL Exhaust."
   },
   "Misterioso": {
       "NAME": "Misterioso",
-      "DESCRIPTION": "Play up to !M! cards randomly from your Exhaust pile."
+      "DESCRIPTION": "Play up to !M! cards randomly from your Exhaust pile. NL Will not play Status, or Curse cards."
   },
   "SecondHand": {
       "NAME": "Second Hand",
@@ -397,7 +397,7 @@
   "BeatsPerMinute": { 
       "NAME": "Beats Per Minute",
       "DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain a card based on enemy intent. Exhaust."
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills, permanently gain an upgraded card based on enemy intent. Exhaust."
   },
   "OldEchonomics": {
       "NAME": "Echonomics",
