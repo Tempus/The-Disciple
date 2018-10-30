@@ -17,10 +17,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
+import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -48,6 +50,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import chronomuncher.cards.*;
 import chronomuncher.relics.*;
 import chronomuncher.potions.*;
+import chronomuncher.events.*;
 import chronomuncher.patches.Enum;
 import chronomuncher.patches.EnumLib;
 import chronomuncher.patches.customMetrics;
@@ -144,6 +147,13 @@ public class ChronoMod implements
         Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
 
+        BaseMod.addEvent(ArtifactorA.ID, ArtifactorA.class, Exordium.ID);
+        BaseMod.addEvent(ArtifactorA.ID, ArtifactorA.class, Exordium.ID);
+        // BaseMod.addEvent(ArtifactorB.ID, ArtifactorB.class, Exordium.ID);
+        // BaseMod.addEvent(ArtifactorC.ID, ArtifactorC.class, Exordium.ID);
+        BaseMod.addEvent(Replicator.ID, Replicator.class, TheCity.ID);
+        BaseMod.addEvent(Relicator.ID, Relicator.class, TheBeyond.ID);
+
         this.loadAudio();
     }
 
@@ -187,6 +197,16 @@ public class ChronoMod implements
         BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new HangingClock(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new BlueBox(), Enum.CHRONO_GOLD);
+
+        BaseMod.addRelicToCustomPool(new ReplicaCarbonhydrate(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaFlame(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaLightning(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaMercury(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaOrichalcum(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaThread(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaTornado(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaWarPaint(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaWhetstone(), Enum.CHRONO_GOLD);
     }
 
     public void setCompendiumSwitchCards() {
@@ -308,19 +328,24 @@ public class ChronoMod implements
         BaseMod.addCard(new Keepsakes());
         BaseMod.addCard(new Largo());
         BaseMod.addCard(new Lento());
+        BaseMod.addCard(new LockedAnchor());
+        BaseMod.addCard(new LockedAstrolabe());
+        BaseMod.addCard(new LockedBell());
         BaseMod.addCard(new LockedBlood());
         // BaseMod.addCard(new LockedCalipers());
         BaseMod.addCard(new LockedCalendar());
         BaseMod.addCard(new LockedCarbon());
         BaseMod.addCard(new LockedFlame());
         // BaseMod.addCard(new LockedHand());
-        BaseMod.addCard(new LockedIceCream());
+        // BaseMod.addCard(new LockedIceCream());
         BaseMod.addCard(new LockedLightning());
+        BaseMod.addCard(new LockedMawBank());
         BaseMod.addCard(new LockedMedicine());
         BaseMod.addCard(new LockedMercury());
         // BaseMod.addCard(new LockedNitrogen());
         BaseMod.addCard(new LockedOrichalcum());
         BaseMod.addCard(new LockedPlans());
+        BaseMod.addCard(new LockedScales());
         BaseMod.addCard(new LockedThread());
         BaseMod.addCard(new LockedTornado());
         BaseMod.addCard(new LockedUrn());
@@ -410,6 +435,10 @@ public class ChronoMod implements
         // PowerStrings
         String potionStrings = Gdx.files.internal("localization/chronoPotions.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
+
+        // Eventstring
+        String eventStrings = Gdx.files.internal("localization/chronoEvents.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
     }
 
     public void receiveCardUsed(AbstractCard c)

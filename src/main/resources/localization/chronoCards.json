@@ -128,7 +128,7 @@
   },
   "Moderato": {
       "NAME": "Moderato",
-      "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak."
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
   },
   "Allegretto": {
       "NAME": "Allegretto",
@@ -145,18 +145,18 @@
   },
   "ThickGoo": {
       "NAME": "Thick Goo",
-      "DESCRIPTION": "Deal !D! damage. NL Apply slow. NL Switches into Acidic Goo.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply slow. NL Switches into Acidic Goo+."
+      "DESCRIPTION": "Deal !D! damage. NL Apply Slow. NL Switches into Acidic Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply Slow. NL Switches into Acidic Goo+."
   },
   "AcidicGoo": {
       "NAME": "Acidic Goo",
-      "DESCRIPTION": "Deal !D! damage. NL Apply !M! vulnerable. NL Switches into Viscous Goo.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! vulnerable. NL Switches into Viscous Goo+."
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Switches into Viscous Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Switches into Viscous Goo+."
   },
   "ViscousGoo": {
       "NAME": "Viscous Goo",
-      "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Switches into Thick Goo.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Switches into Thick Goo+."
+      "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Switches into Thick Goo.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Switches into Thick Goo+."
   },
   "RageCommand": {
       "NAME": "Rage Command",
@@ -273,7 +273,6 @@
   "Pendulum": {
       "NAME": "Pendulum",
       "DESCRIPTION": "Remove enemy buffs for !M! turns. NL Exhaust."
-      // "UPGRADE_DESCRIPTION": "Reverse enemy buffs for !M! turns. NL Exhaust."
   },
   "TimelySolution": {
       "NAME": "Timely Solution",
@@ -290,7 +289,7 @@
   },
   "BackFourSeconds": {
       "NAME": "Back Four Seconds",
-      "DESCRIPTION": "Restore your HP to your last turn's HP. NL Exhaust.",
+      "DESCRIPTION": "Restore your HP to your last turn's HP. NL Self-Retaining. NL Exhaust.",
       "UPGRADE_DESCRIPTION": "Restore your HP to your last turn's HP. NL Self-Retaining. NL Exhaust."
   },
   "Foolish": {
@@ -316,78 +315,98 @@
   },
   "LockedMercury": {
       "NAME": "Locked Mercury",
-      "DESCRIPTION": "Unlocks a Mercury Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Mercury+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Mercury Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Mercury+ Replica."
   },
   "LockedIceCream": {
       "NAME": "Locked Ice Cream",
-      "DESCRIPTION": "Unlocks a frozen Dessert Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a frozen Dessert+ Replica."
+      "DESCRIPTION": "Unlocks an [#EFC851]Ice [#EFC851]Cream Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Ice [#EFC851]Cream+ Replica."
   },
   "LockedOrichalcum": {
       "NAME": "Locked Orichalcum",
-      "DESCRIPTION": "Unlocks an Orichalcum Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks an Orichalcum+ Replica."
+      "DESCRIPTION": "Unlocks an [#EFC851]Orichalcum Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks an [#EFC851]Orichalcum+ Replica."
   },
   "LockedHand": {
       "NAME": "Locked Hand",
-      "DESCRIPTION": "Unlocks an old Fossil Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks an old Fossil+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Mummified [#EFC851]Hand Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Mummified [#EFC851]Hand+ Replica."
   },
   "LockedUrn": {
       "NAME": "Locked Urn",
-      "DESCRIPTION": "Unlocks an Urn Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks an Urn+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Bird-Faced [#EFC851]Urn Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Bird-Faced [#EFC851]Urn+ Replica."
   },
   "LockedCalipers": {
       "NAME": "Locked Calipers",
-      "DESCRIPTION": "Unlocks a Calipers Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Calipers+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Calipers Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Calipers+ Replica."
   },
   "LockedCarbon": {
       "NAME": "Locked Carbon",
-      "DESCRIPTION": "Unlocks a Carbon Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Carbon+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Carbonhydrate Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Carbonhydrate+ Replica."
   },
   "LockedNitrogen": {
       "NAME": "Locked Nitrogen",
-      "DESCRIPTION": "Unlocks a liquid Nitrogen Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a liquid Nitrogen+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Cryopreserver Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Cryopreserver+ Replica."
   },
   "LockedBlood": {
       "NAME": "Locked Blood",
-      "DESCRIPTION": "Unlocks a drop of Blood Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a drop of Blood+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Blood [#EFC851]Vial Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Blood [#EFC851]Vial+ Replica."
   },
   "LockedFlame": {
       "NAME": "Locked Flame",
-      "DESCRIPTION": "Unlocks a Flame Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Flame+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Bottled [#EFC851]Flame Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Bottled [#EFC851]Flame+ Replica."
   },
   "LockedLightning": {
       "NAME": "Locked Lightning",
-      "DESCRIPTION": "Unlocks a bolt of Thunder Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a bolt of Thunder+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Bottled [#EFC851]Lightning Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Bottled [#EFC851]Lightning+ Replica."
   },
   "LockedTornado": {
       "NAME": "Locked Tornado",
-      "DESCRIPTION": "Innate. NL Unlocks a Tornado Replica.",
-      "UPGRADE_DESCRIPTION": "Innate. NL Unlocks a Tornado+ Replica."
+      "DESCRIPTION": "Innate. NL Unlocks a [#EFC851]Bottled [#EFC851]Tornado Replica.",
+      "UPGRADE_DESCRIPTION": "Innate. NL Unlocks a [#EFC851]Bottled [#EFC851]Tornado+ Replica."
   },
   "LockedThread": {
       "NAME": "Locked Thread",
-      "DESCRIPTION": "Unlocks a spool of Thread Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a spool of Thread+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Thread [#EFC851]and [#EFC851]Needle Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Thread [#EFC851]and [#EFC851]Needle+ Replica."
   },
   "LockedMedicine": {
       "NAME": "Locked Medicine",
-      "DESCRIPTION": "Unlocks a Medicine Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Medicine+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Medical [#EFC851]Kit Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Medical [#EFC851]Kit+ Replica."
   },
   "LockedPlans": {
       "NAME": "Locked Plans",
-      "DESCRIPTION": "Unlocks a key Plans Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a key Plans+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Well [#EFC851]Laid [#EFC851]Plans Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Well [#EFC851]Laid [#EFC851]Plans+ Replica."
+  },
+  "LockedAnchor": {
+      "NAME": "Locked Anchor",
+      "DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Unlocks an [#EFC851]Anchor Replica.",
+      "UPGRADE_DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Unlocks an [#EFC851]Anchor+ Replica."
+  },
+  "LockedBell": {
+      "NAME": "Locked Bell",
+      "DESCRIPTION": "Unlocks a [#EFC851]Calling [#EFC851]Bell Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Calling [#EFC851]Bell+ Replica."
+  },
+  "LockedMawBank": {
+      "NAME": "Locked Maw Bank",
+      "DESCRIPTION": "Unlocks a [#EFC851]Maw [#EFC851]Bank Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Maw [#EFC851]Bank+ Replica."
+  },
+  "LockedAstrolabe": {
+      "NAME": "Locked Astrolabe",
+      "DESCRIPTION": "Unlocks an [#EFC851]Astrolabe Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks an [#EFC851]Astrolabe+ Replica."
   },
   "Tempo": {
       "NAME": "Tempo",
@@ -487,7 +506,8 @@
   },
   "Facsimile": {
       "NAME": "Facsimile",
-      "DESCRIPTION": "Create replicas of up to !M! of your relics. NL Exhaust."
+      "DESCRIPTION": "Create replicas of X of your eligible relics. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Create replicas of X of your eligible relics."
   },
 
   "OracleForm": {
@@ -521,8 +541,8 @@
   },
   "LockedCalendar": {
       "NAME": "Locked Calendar",
-      "DESCRIPTION": "Unlocks a Calendar Replica.",
-      "UPGRADE_DESCRIPTION": "Innate. Unlocks a Calendar+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Stone [#EFC851]Calendar Replica.",
+      "UPGRADE_DESCRIPTION": "Innate. Unlocks a [#EFC851]Stone [#EFC851]Calendar+ Replica."
   },
   "FormalWear": {
       "NAME": "Formal Wear",
@@ -531,13 +551,18 @@
   },
   "LockedWarPaint": {
       "NAME": "Locked War Paint",
-      "DESCRIPTION": "Unlocks a War Paint Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a War Paint+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]War [#EFC851]Paint Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]War [#EFC851]Paint+ Replica."
   },
   "LockedWhetstone": {
       "NAME": "Locked Whetstone",
-      "DESCRIPTION": "Unlocks a Whetstone Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a Whetstone+ Replica."
+      "DESCRIPTION": "Unlocks a [#EFC851]Whetstone Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Whetstone+ Replica."
+  },
+  "LockedScales": {
+      "NAME": "Locked Scales",
+      "DESCRIPTION": "Unlocks a [#EFC851]Bronze [#EFC851]Scales Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Bronze [#EFC851]Scales+ Replica."
   },
 
   "Ward": {

@@ -24,7 +24,7 @@
     "NAME": "Cryopreserver",
     "FLAVOR": "Freshness is key to retaining great flavour.",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 #yFocus, making Replicas timers increaase by a turn."
+      "All Replicas have their timers increased by a turn."
     ]
   },
   "HangingClock": {
@@ -61,6 +61,69 @@
     "FLAVOR": "It doesn't look like all those cards should fit in it...",
     "DESCRIPTIONS": [
       "Add #b2 cards to your deck from the cards you skipped over earlier."
+    ]
+  },
+  "Carbonhydrate?": {
+    "NAME": "Carbonhydrate?",
+    "FLAVOR": "Chicken",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yCarbon #yreplica."
+    ]
+  },
+  "Flame?": {
+    "NAME": "Flame?",
+    "FLAVOR": "Peas",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yFlame #yreplica."
+    ]
+  },
+  "Lightning?": {
+    "NAME": "Lightning?",
+    "FLAVOR": "Cake",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yLightning #yreplica."
+    ]
+  },
+  "Mercury?": {
+    "NAME": "Mercury?",
+    "FLAVOR": "Eggs",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yMercury #yreplica."
+    ]
+  },
+  "Orichalcum?": {
+    "NAME": "Orichalcum?",
+    "FLAVOR": "Basil",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yOrichalcum #yreplica."
+    ]
+  },
+  "Thread?": {
+    "NAME": "Thread?",
+    "FLAVOR": "Summer",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yThread #yreplica."
+    ]
+  },
+  "Tornado?": {
+    "NAME": "Tornado?",
+    "FLAVOR": "Spirit Poop",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yTornado #yreplica."
+    ]
+  },
+  "WarPaint?": {
+    "NAME": "War Paint?",
+    "FLAVOR": "Onions",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yWar #yPaint #yreplica."
+    ]
+  },
+  "Whetstone?": {
+    "NAME": "Whetstone?",
+    "FLAVOR": "Coconut",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yWhetstone #yreplica."
     ]
   }
 }

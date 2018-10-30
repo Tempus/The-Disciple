@@ -51,9 +51,9 @@ public class LockedMercury extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Mercury", "Deals #g3 damage to ALL enemies at the start of your turn. NL #pShatters #pin #b4 #pturns."));
+			this.tips.add(new TooltipInfo("Mercury", "Deals #g3 damage to ALL enemies at the start of your turn. NL #pShatters #pin #b5 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Mercury+", "Deals #g5 damage to ALL enemies at the start of your turn. NL #pShatters #pin #b4 #pturns."));
+			this.tips.add(new TooltipInfo("Mercury+", "Deals #g5 damage to ALL enemies at the start of your turn. NL #pShatters #pin #b5 #pturns."));
 		}
 
 	    return this.tips;

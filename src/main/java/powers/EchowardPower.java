@@ -75,6 +75,7 @@ public class EchowardPower extends AbstractPower
     tmp.target_y = (Settings.HEIGHT / 2.0F);
     tmp.freeToPlayOnce = true;
     tmp.exhaustOnFire = true;
+    tmp.purgeOnUse = true;
     AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, true));
   }
 }

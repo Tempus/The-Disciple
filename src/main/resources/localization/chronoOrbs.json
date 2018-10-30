@@ -72,22 +72,22 @@
   "Mercury": {
     "NAME": "Mercury",
     "DESCRIPTION": [
-      "Deal #b3 damage to ALL enemies at the start of your turn.",
-      "Deal #b5 damage to ALL enemies at the start of your turn."
+      "Deal #b3 damage to ALL enemies at the end of your turn.",
+      "Deal #b5 damage to ALL enemies at the end of your turn."
     ]
   },
   "Nitrogen": {
     "NAME": "Nitrogen",
     "DESCRIPTION": [
-      "Gain #b2 #yFocus.",
-      "Gain #b3 #yFocus."
+      "All Replicas have their timers increased by #y2 turns.",
+      "All Replicas have their timers increased by #y3 turns."
     ]
   },
   "Orichalcum": {
     "NAME": "Orichalcum",
     "DESCRIPTION": [
       "If you end your turn without #yBlock, gain #b6 #yBlock.",
-      "If you end your turn without #yBlock, gain #b8 #yBlock."
+      "If you end your turn without #yBlock, gain #b9 #yBlock."
     ]
   },
   "Plans": {
@@ -131,5 +131,40 @@
       "Whenever you play a #yPower, heal #b2 HP.",
       "Whenever you play a #yPower, heal #b3 HP."
     ]
-  }
+  },
+  "Anchor": {
+    "NAME": "Anchor",
+    "DESCRIPTION": [
+      "Just weighs you down. Timer counts up instead of down.",
+      "Timer counts up instead of down. On shattering, gain #b10 #yBlock."
+    ]
+  },  
+  "MawBank": {
+    "NAME": "Maw Bank",
+    "DESCRIPTION": [
+      "Gain #g12 gold on shattering.",
+      "Gain #g16 gold on shattering."
+    ]
+  }, 
+  "Astrolabe": {
+    "NAME": "Astrolabe",
+    "DESCRIPTION": [
+      "Exhaust a card from your hand, and add a new random card to your hand and upgrade it.",
+      "Exhaust a card from your hand, and choose a card to add to your hand and upgrade it."
+    ]
+  }, 
+  "Bell": {
+    "NAME": "Bell",
+    "DESCRIPTION": [
+      "Creates #g1 #yReplica and add #g1 curse to your draw pile at the start of each turn.",
+      "Creates #g1 #yReplica and add #g1 curse to your draw pile at the start of each turn."
+    ]
+  },
+  "Bronze Scales": {
+    "NAME": "Bronze Scales",
+    "DESCRIPTION": [
+      "When receiving #yAttack damage, deals #b3 damage back.",
+      "When receiving #yAttack damage, deals #b5 damage back."
+    ]
+  }  
 }

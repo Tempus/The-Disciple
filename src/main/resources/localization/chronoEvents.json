@@ -1,0 +1,68 @@
+{
+  "ArtifactorA": {
+    "NAME": "Artifactor",
+    "DESCRIPTIONS": [
+      "It's a piece of cake to bake a pretty cake. This dude thinks your replicas could be better, and will make you one. What type do you want?",
+      "He does! You get a relic that makes replicas.",
+      "You leave, nyah."
+    ],
+    "OPTIONS": [
+      "[Armor] #gObtain #ga #gRelic.",
+      "[Weapon] #gObtain #ga #gRelic.",
+      "[Bottle] #gObtain #ga #gRelic, one less energy on the first turn of combat.",
+      "[Leave]"
+    ]
+  },
+  "ArtifactorB": {
+    "NAME": "Artifactor",
+    "DESCRIPTIONS": [
+      "It's a piece of cake to bake a pretty cake. This dude thinks your replicas could be better, and will make you one. What type do you want?",
+      "He does! You get a relic that makes replicas.",
+      "You leave, nyah."
+    ],
+    "OPTIONS": [
+      "[Armor] #gObtain #ga #gRelic.",
+      "[Weapon] #gObtain #ga #gRelic.",
+      "[Bottle] #gObtain #ga #gRelic, one less energy on the first turn of combat.",
+      "[Leave]"
+    ]
+  },
+  "ArtifactorC": {
+    "NAME": "Artifactor",
+    "DESCRIPTIONS": [
+      "A dude says he can maybe make better replicas than what you've got. Specializes in bottles.",
+      "He does! You get a relic that makes replicas.",
+      "You leave, nyah."
+    ],
+    "OPTIONS": [
+      "[Replicate a Bottled Flame] #gObtain #ga #grelic.",
+      "[Replicate a Bottled Lightning] #gObtain #ga #gRelic.",
+      "[Replicate a Bottled Tornado] #gObtain #ga #gRelic.",
+      "[Leave]"
+    ]
+  },
+  "Replicator": {
+    "NAME": "Replicator",
+    "DESCRIPTIONS": [
+      "They'll transform 3 cards into Locked Replicas.",
+      "twingeAmazing",
+      "chronoTicked"
+    ],
+    "OPTIONS": [
+      "[Transform] #gTransform #g2 #gcards into random #gReplica #gcards of the same rarity.",
+      "[Leave]"
+    ]
+  },
+  "Relicator": {
+    "NAME": "Relicator",
+    "DESCRIPTIONS": [
+      "Turn a replica card into a relic, at a cost.",
+      "chronoSnug",
+      "twingeEvil"
+    ],
+    "OPTIONS": [
+      "[Craft] Choose a replica, lose it, gain that relic. Gain a Pain.",
+      "[Leave]"
+    ]
+  }  
+}

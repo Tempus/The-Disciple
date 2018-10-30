@@ -110,6 +110,8 @@ public abstract class ReplicaOrb extends AbstractOrb {
 
   public void atTurnStartPostDraw() {}
 
+  public void onVictory() {}
+
   @Override
   public void onEvoke()
   {

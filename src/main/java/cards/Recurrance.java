@@ -19,6 +19,11 @@ import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
 import java.lang.Math;
+import java.util.Iterator;
+import basemod.helpers.TooltipInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Recurrance extends MetricsCard {
 	public static final String ID = "Recurrance";
@@ -29,7 +34,8 @@ public class Recurrance extends MetricsCard {
 	private static final int COST = 1;
 	private static final int ATTACK_DMG = 3;
 	private static final int HITS = 2;
-	private static final int HITS_UPGRADE = 1;
+	private static final int HITS_UPGRADE = 0;
+	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public Recurrance() {
 		super(ID, NAME, "chrono_images/cards/Recurrance.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
@@ -49,26 +55,38 @@ public class Recurrance extends MetricsCard {
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 		}
 
-		// if (this.damage > 0) {
-		// 	int unblockedHits = this.magicNumber - (int)Math.floor(m.currentBlock / this.damage);
+		AbstractPower pow;
+	    for (Object e = m.powers.iterator(); ((Iterator)e).hasNext();) {
+      		pow = (AbstractPower)((Iterator)e).next();
+	    	if (!m.hasPower(pow.ID)) { continue; }
 
-		// 	if (unblockedHits < 1) { return; }
-
-			// HITS WERE UNBLOCKED, SO ADD SHIT TO STACKS
-		    for (AbstractPower pow : m.powers) {
-				if (pow.type == AbstractPower.PowerType.DEBUFF) {
-					if (pow.canGoNegative == true) {
-						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-					} else if (pow.ID == "Shackled") {
-						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-					} else {
-						AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
-					}
-				} else if (pow.ID.contains("DelayedAttack")) {
-						AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
+			if (pow.type == AbstractPower.PowerType.DEBUFF) {
+				if (pow.canGoNegative == true && pow.amount < 0) {
+					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
+				} else if (pow.ID == "Shackled") {
+					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
+				} else {
+					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
 				}
-		    }
-		// }
+			} else if (pow.ID.contains("DelayedAttack")) {
+					AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
+			}
+	    }
+	}
+
+	@Override
+	public List<TooltipInfo> getCustomTooltips() {
+		this.tips.clear();
+		
+	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+			if (!mo.isDead && !mo.escaped) {
+				if (mo.hasPower("DelayedAttack")) {
+					this.tips.add(new TooltipInfo("Delayed Attack", "Recurrance will shorten the time needed until a delayed attack occurs, which can cause it to trigger instantly if it reaches zero."));
+				}
+			}
+		}
+
+	    return this.tips;
 	}
 
 	@Override
@@ -80,7 +98,7 @@ public class Recurrance extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(HITS_UPGRADE);
+			upgradeDamage(1);
 			upgradeMagicNumber(HITS_UPGRADE);
 		}
 	}

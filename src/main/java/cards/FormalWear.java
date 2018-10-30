@@ -31,6 +31,7 @@ public class FormalWear extends MetricsCard {
 
 	private static final int COST = 2;
 	private static final int ATTACK_DMG = 14;
+	private static final int POOPFACE = 2;
 	private static final int ROCKS = 1;
 	private static final int ROCK_UP = 1;
 
@@ -78,6 +79,7 @@ public class FormalWear extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
+			upgradeDamage(POOPFACE);
 			upgradeMagicNumber(ROCK_UP);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();

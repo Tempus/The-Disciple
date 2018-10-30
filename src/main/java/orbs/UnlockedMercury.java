@@ -35,14 +35,13 @@ public class UnlockedMercury extends ReplicaOrb
   }
 
   @Override
-  public void onStartOfTurn()
+  public void onEndOfTurn()
   { 
-    super.onStartOfTurn();
     this.activateEffect();
 
     AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new MercuryHourglass()));
     AbstractDungeon.actionManager.addToBottom(
-      new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.passiveAmount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+    new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.passiveAmount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
   }
   
   @Override

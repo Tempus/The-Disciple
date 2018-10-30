@@ -1,5 +1,39 @@
 Changelog:
 
+0.10.3
+
+	Card: New Card, Locked Anchor. Ethereal. Gains 10 block, Anchor Replica counts up instead of down. On upgrade, shattering Anchor gains 10 block.
+	Card: New Card, Locked Scales. Bronze Scales replica gives you 3(5) thorns for 6 turns.
+	Card: New Card, Locked Maw Bank. Maw Bank replica gives 12(16) gold if it's in play at the end of combat. Shatters in 8 turns.
+	Card: New Card, Locked Astrolabe. Astrolabe replica exhausts a card, then gives a random (choice from 3) upgraded card. Shatters in 3 turns.
+	Card: New Card, Locked Bell. Calling Bell replica gives a random replica for 3(4) turns, and puts a random curse in your draw pile.
+	Card: Removed Locked Ice Cream from the game.
+	Card: Facsimile is now an X cost card, which spawns one replica of a relic you own per energy spent (and rocks when no replicas are available).
+	Event: New Event in Exordium, offers a choice between relics granting replicas at the start of combat.
+	Event: New Event in City, offers a chance to transform cards into replica cards.
+	Event: New Event in Beyond, offers the opportunity to turn a replica card into a relic for a curse (Pain).
+	Balance: Facsimile now offers Plans+ from Chronograph, and Medicine+ from Blue Candle.
+	Balance: Locked Mercury now lasts 5 turns instead of 4.
+	Balance: Locked Mercury now activates at the end of your turn instead of the start.
+	Balance: Recurrance no longer upgrades the number of hits.
+	Balance: Back Four Seconds now costs 3(2) energy and always self-retains.
+	Balance: Flay is now Rare, instead of Uncommon.
+	Balance: Flay+ now does 5 damage, instead of 4.
+	Balance: Locked Plans is now Uncommon, instead of Rare.
+	Balance: Locked Calendar+ is now Innate.
+	Balance: Echoward no longer exhausts wards but purges them like echo form.
+	Balance: Over Time damage increased to 4(7) damage per exhausted card, to counter the lack of echoed cards.
+	Text: Orichalcum Replica tooltip now correctly shows the amount of block gained.
+	Text: Cryopreserver text is now less descriptive but more accurate and concise.
+	Text: Locked cards are now coloured correctly in card descriptions, and replica names are expanded.
+	Text: Pendulum will display a tooltip describing its effect with Rage and Bite Command when those effects are applied.
+	Text: Recurrance will display a tooltip describing its effect with Rage and Bite Command when those effects are applied.
+	Bug: Recurrance no longer occasionally crashes when Time Dilate is in unusual positions and certain other mods are active.
+	Bug: Recurrance no longer causes negative slow when Replay the Spire's overriden Slow Power is active.
+	Bug: Resonant Call now flashes the correct colour for Skills.
+	Bug: Resonant Call will now reset itself if it finds a card it can't mimic (such as Duct Taped cards).
+	Bug: Fixed a Parity bug where it would cause a crash on entering the compendium if you died in a combat room and then check it.
+
 0.10.2
 
 	Compliance: Update for week 46 patch.

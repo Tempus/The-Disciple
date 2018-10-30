@@ -25,7 +25,7 @@ public class BackFourSeconds extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
-	private static final int COST = 2;
+	private static final int COST = 3;
 
 	public BackFourSeconds() {
 		super(ID, NAME, "chrono_images/cards/BackFourSeconds.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -39,15 +39,17 @@ public class BackFourSeconds extends MetricsCard {
 		AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, AbstractDungeon.actionManager.playerHpLastTurn-p.currentHealth));
 	}
 
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
+	// public void onMoveToDiscard() {
+	// 	super.onMoveToDiscard();
+	// 	this.costForTurn = this.cost;
+	// 	this.isCostModifiedForTurn = false;
+	// }
 
 	@Override
 	public void atTurnStart() {
-		if (this.upgraded) { this.retain = true; }
+		// if (this.upgraded) { 
+			this.retain = true;
+			 // }
 	}
 
 	@Override
@@ -58,7 +60,8 @@ public class BackFourSeconds extends MetricsCard {
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
-			this.retain = true;
+			// this.retain = true;
+			upgradeBaseCost(2);
 			upgradeName();
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();

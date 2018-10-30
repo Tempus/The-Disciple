@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.powers.RetainCardPower;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import chronomuncher.actions.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import com.badlogic.gdx.math.MathUtils;
 
@@ -36,7 +37,7 @@ public class Facsimile extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-	private static final int COST = 2;
+	private static final int COST = -1;
 	private static final int RELIC_CAP = 3;
 	private static final int RELIC_CAP_UPGRADE = 7;
 
@@ -70,6 +71,13 @@ public class Facsimile extends MetricsCard {
 		relicList.add(new Pair("Chronograph", 		UnlockedPlans.class));
 		relicList.add(new Pair("War Paint", 		UnlockedWarPaint.class));
 		relicList.add(new Pair("Whetstone", 		UnlockedWhetstone.class));
+
+		relicList.add(new Pair("MawBank", 			UnlockedMawBank.class));
+		relicList.add(new Pair("Anchor", 			UnlockedAnchor.class));
+		relicList.add(new Pair("Astrolabe", 		UnlockedAstrolabe.class));
+		relicList.add(new Pair("Calling Bell", 		UnlockedBell.class));
+		relicList.add(new Pair("Blue Candle", 		UnlockedMedicine.class));
+		relicList.add(new Pair("Bronze Scales", 	UnlockedScales.class));
 
 		this.updateRelicDescription();
 	}
@@ -106,8 +114,12 @@ public class Facsimile extends MetricsCard {
 	    for (AbstractRelic relic : AbstractDungeon.player.relics) {
 			for (Pair<String, Class> replica : relicList) {
 				if (replica.getKey() == relic.relicId) {
-					if (replica.getKey() == "Chronometer" || replica.getKey() == "Chronograph") {
+					if (replica.getKey() == "Chronometer") {
 						this.replicaStrings.add("Plans from " + relic.name);
+					} else if (replica.getKey() == "Chronograph") {
+						this.replicaStrings.add("Plans+ from " + relic.name);
+					} else if (replica.getKey() == "Blue Candle") {
+						this.replicaStrings.add("Medicine+ from " + relic.name);
 					} else {
 						this.replicaStrings.add(relic.name);
 					}
@@ -127,10 +139,10 @@ public class Facsimile extends MetricsCard {
 			relicsListed = String.join(", ", this.replicaStrings);
 		}
 
-		String amount = Integer.toString(this.magicNumber);
+		String amount = Integer.toString(EnergyPanel.totalCount);
 
 		ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
-		tips.add(new TooltipInfo("Replicate", "Replicas will be created for " + amount + " of the following relics: " + relicsListed));
+		tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for " + amount + " of the following relics: " + relicsListed));
 
 	    return tips;
 	}
@@ -138,12 +150,31 @@ public class Facsimile extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 
-		ArrayList<Class> replicaClasses = new ArrayList<Class>();
+	   	int effect = EnergyPanel.totalCount;
+	    if (p.hasRelic("Chemical X"))
+	    {
+	        effect += 2;
+	        p.getRelic("Chemical X").flash();
+	    }
+	    if (effect > 0)
+	    {
+	    	generateOrbs(effect);
 
-	    for (AbstractRelic relic : p.relics) {
+	        if (!this.freeToPlayOnce) {
+	            p.energy.use(EnergyPanel.totalCount);
+	        }
+	    }
+	}
+
+	public void generateOrbs(int amount) {
+		ArrayList<Class> replicaClasses = new ArrayList<Class>();
+		ArrayList<String> replicaNames = new ArrayList<String>();
+
+	    for (AbstractRelic relic : AbstractDungeon.player.relics) {
 			for (Pair<String, Class> replica : relicList) {
 				if (replica.getKey() == relic.relicId) {
 					replicaClasses.add(replica.getValue());
+					replicaNames.add(replica.getKey());
 				}
 			}
 		}
@@ -151,20 +182,34 @@ public class Facsimile extends MetricsCard {
 		int index = 0;
 		ReplicaOrb orb;
 
-		int limit = this.magicNumber;
-		if (this.upgraded || limit > replicaClasses.size()) { limit = replicaClasses.size(); }
+		int limit = amount;
+		// if (this.upgraded || limit > replicaClasses.size()) { limit = replicaClasses.size(); }
+		String chosenName;
 
-		for (int c = 0; c < limit; c++ ) {
-			index = MathUtils.random(0,replicaClasses.size()-1);
+		for (int c = 0; c < amount; c++ ) {
 			orb = null;
+			index = -1;
+			chosenName = " ";
+
+			// No orbs left case
+			Class rClass;
+			if (replicaClasses.size() == 0) {
+				rClass = UnlockedRock.class;
+			} else {
+				index = MathUtils.random(0,replicaClasses.size()-1);
+				rClass = replicaClasses.get(index);
+				replicaNames.get(index);
+			}
 
 			try {
-				Class rClass = replicaClasses.get(index);
-
 				Class partypes[] = new Class[1];
 				partypes[0] = Boolean.TYPE;
 	            Object arglist[] = new Object[1];
-	            arglist[0] = new Boolean(false); // Set to this.upgraded to spawn upgraded replicas instead
+	            boolean upgrade = false;
+
+	            if (chosenName == "Chronograph" || chosenName == "Blue Candle") { upgrade = true; }
+
+	            arglist[0] = new Boolean(upgrade); // Set to this.upgraded to spawn upgraded replicas instead
 
 				Constructor constructor = rClass.getConstructor(partypes);
 				orb = (ReplicaOrb)constructor.newInstance(arglist); 
@@ -173,10 +218,13 @@ public class Facsimile extends MetricsCard {
 	            e.printStackTrace();
 			}
 
-			replicaClasses.remove(index);
+			if (index != -1) {
+				replicaClasses.remove(index);
+				replicaNames.remove(index);
+			}
 
 			if (orb != null) {
-	 				    AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
+	 				AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
 			}
 	    }
 	}
@@ -189,6 +237,7 @@ public class Facsimile extends MetricsCard {
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
+			this.exhaust = false;
 			upgradeName();
 			upgradeMagicNumber(RELIC_CAP_UPGRADE);
    		   	initializeDescription();

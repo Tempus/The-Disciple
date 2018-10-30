@@ -62,11 +62,16 @@ public class Parity extends MetricsCard {
 		super.update();
 		if (AbstractDungeon.currMapNode != null) { 
 			if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-				if (AbstractDungeon.player.masterDeck.contains(this)) {
+				if (AbstractDungeon.player != null) {
+					if (AbstractDungeon.player.masterDeck.contains(this)) {
+						this.rawDescription = DESCRIPTION;
+				      	initializeDescription();
+					} else {
+						this.updateParity();
+					}
+				} else if (this.rawDescription != DESCRIPTION) {
 					this.rawDescription = DESCRIPTION;
-			      	initializeDescription();
-				} else {
-					this.updateParity();
+				    initializeDescription();
 				}
 			}
 		}

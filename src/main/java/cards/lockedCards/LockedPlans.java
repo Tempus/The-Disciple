@@ -32,7 +32,7 @@ public class LockedPlans extends MetricsCard {
 
 	public LockedPlans() {
 		super(ID, NAME, "chrono_images/cards/LockedPlans.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
 	}
 

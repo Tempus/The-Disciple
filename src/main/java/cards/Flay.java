@@ -34,7 +34,7 @@ public class Flay extends MetricsCard {
 
 	public Flay() {
 		super(ID, NAME, "chrono_images/cards/Flay.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
 				AbstractCard.CardTarget.ALL_ENEMY);
 
 		this.baseDamage = ATTACK_DMG;
@@ -78,7 +78,7 @@ public class Flay extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			// upgradeDamage(UPGRADE_PLUS_DMG);
+			upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeMagicNumber(SHRINK_UPGRADE);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();

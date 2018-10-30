@@ -46,52 +46,61 @@ public class ResonantCall extends MetricsCard {
 	public ResonantCall() {
 		super(ID, NAME, "chrono_images/cards/ResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+		if (this.upgraded) {
+			this.retain = true;
+		}
 	}
 
 	public void triggerOnOtherCardPlayed(AbstractCard c) {
-		if (c.cardID == this.cardID) { return; }
-		this.mimic = c.makeStatEquivalentCopy();
+		try {
+			if (c.cardID == this.cardID) { return; }
+			this.mimic = c.makeStatEquivalentCopy();
 
-		// Flash depending on what you switch to
-		if (this.mimic.type == AbstractCard.CardType.ATTACK) {
-			this.superFlash(Color.CORAL.cpy());
-		} else if (this.mimic.type == AbstractCard.CardType.ATTACK) {
-			this.superFlash(Color.SKY.cpy());
-		} else {
-			this.superFlash(Color.LIME.cpy());
-		}
-
-		// Update cost
-		this.target = c.target;
-		this.cost = c.cost;
-		this.energyOnUse = c.cost;
-		this.costForTurn = c.costForTurn;
-		this.isCostModified = true;
-		this.isCostModifiedForTurn = true;
-
-		// Update description
-		this.rawDescription = "Mimics " + c.name + ".";
-		if (this.upgraded) { this.rawDescription = this.rawDescription + UPGRADE_DESCRIPTION; }
-		initializeDescription();
-
-		// Match type to card type
-		this.type = this.mimic.type;
-
-		// Laod card portrait
-		if (this.mimic instanceof CustomCard) {
-			this.loadCardImage(((CustomCard)this.mimic).textureImg);
-		} else {
-			Texture img = null;
-			img = (Texture)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portraitImg");
-
-			if (img == null) {
-				TextureAtlas.AtlasRegion a = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portrait");
-				ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", a);
+			// Flash depending on what you switch to
+			if (this.mimic.type == AbstractCard.CardType.ATTACK) {
+				this.superFlash(Color.CORAL.cpy());
+			} else if (this.mimic.type == AbstractCard.CardType.SKILL) {
+				this.superFlash(Color.SKY.cpy());
 			} else {
-				TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(img, 0, 0, 250, 190);
-				ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+				this.superFlash(Color.LIME.cpy());
+			}
+
+			// Update cost
+			this.target = c.target;
+			this.cost = c.cost;
+			this.energyOnUse = c.cost;
+			this.costForTurn = c.costForTurn;
+			this.isCostModified = true;
+			this.isCostModifiedForTurn = true;
+
+			// Update description
+			this.rawDescription = "Mimics " + c.name + ".";
+			if (this.upgraded) { this.rawDescription = this.rawDescription + UPGRADE_DESCRIPTION; }
+			initializeDescription();
+
+			// Match type to card type
+			this.type = this.mimic.type;
+
+			// Laod card portrait
+			if (this.mimic instanceof CustomCard) {
+				this.loadCardImage(((CustomCard)this.mimic).textureImg);
+			} else {
+				Texture img = null;
+				img = (Texture)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portraitImg");
+
+				if (img == null) {
+					TextureAtlas.AtlasRegion a = (TextureAtlas.AtlasRegion)ReflectionHacks.getPrivate(this.mimic, AbstractCard.class, "portrait");
+					ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", a);
+				} else {
+					TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(img, 0, 0, 250, 190);
+					ReflectionHacks.setPrivateInherited(this, CustomCard.class, "portrait", cardImg);
+				}
 			}
 		}
+		catch (Exception e) {
+			this.resetResonance();
+		}
+
 	}
 
 	@Override

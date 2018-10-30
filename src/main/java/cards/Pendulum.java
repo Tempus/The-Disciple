@@ -10,12 +10,15 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.TimeDilationPower;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import basemod.helpers.TooltipInfo;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.TimeDilatePower;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pendulum extends MetricsCard {
 	public static final String ID = "Pendulum";
@@ -27,6 +30,7 @@ public class Pendulum extends MetricsCard {
 	private static final int COST = 1;
 	private static final int TURNS_APPLIED = 3;
 	private static final int TURNS_APPLIED_UP = 2;
+	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public Pendulum() {
 		super(ID, NAME, "chrono_images/cards/Pendulum.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -41,6 +45,21 @@ public class Pendulum extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new TimeDilatePower(m, this.magicNumber), this.magicNumber, true));
 		AbstractDungeon.actionManager.addToBottom(new SFXAction("SINGING_BOWL"));
+	}
+
+	@Override
+	public List<TooltipInfo> getCustomTooltips() {
+		this.tips.clear();
+		
+	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+			if (!mo.isDead && !mo.escaped) {
+				if (mo.hasPower("DelayedAttack")) {
+					this.tips.add(new TooltipInfo("Delayed Attack", "Pendulum will cause a time paradox, causing the delayed attack to occur immediately AND be reapplied once the time dilation wears off."));
+				}
+			}
+		}
+
+	    return this.tips;
 	}
 
 	@Override
