@@ -495,6 +495,20 @@ public class PatternShiftAction extends AbstractGameAction {
 					ReflectionHacks.setPrivate(hexa, Hexaghost.class, "orbActiveCount", orbActiveCount-1);
 				}
 				break;
+
+			case "CorruptHeart":
+				turnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "moveCount");
+				ReflectionHacks.setPrivate(m, m.getClass(), "moveCount", turnCount - 1);
+				break;
+
+			case "SpireShield":
+				turnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "moveCount");
+				ReflectionHacks.setPrivate(m, m.getClass(), "moveCount", turnCount - 1);
+				break;
+			case "SpireSpear":
+				turnCount = (int)ReflectionHacks.getPrivate(m, m.getClass(), "moveCount");
+				ReflectionHacks.setPrivate(m, m.getClass(), "moveCount", turnCount - 1);
+				break;
             }
 
         return true;

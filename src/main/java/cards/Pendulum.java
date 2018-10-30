@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.powers.TimeDilationPower;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import basemod.helpers.TooltipInfo;
@@ -50,6 +51,8 @@ public class Pendulum extends MetricsCard {
 	@Override
 	public List<TooltipInfo> getCustomTooltips() {
 		this.tips.clear();
+
+		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return this.tips; }
 		
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {

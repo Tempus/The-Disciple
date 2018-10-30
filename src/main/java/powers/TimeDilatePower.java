@@ -56,6 +56,8 @@ public class TimeDilatePower extends AbstractPower
           case "Split":
           case "Life Link":
           case "Thievery":
+          case "Surrounded":
+          case "BackAttack":
             break;
 
           default:
@@ -67,7 +69,7 @@ public class TimeDilatePower extends AbstractPower
             AbstractDungeon.onModifyPower();
             break;
         }
-      } else if (p.ID == "Shackled" && p.amount > 0) {
+      } else if ((p.ID == "Shackled" && p.amount > 0) || p.ID == "BeatOfDeath") {
         this.savedPowers.add(p);
         p.onRemove();
         ((Iterator)e).remove();

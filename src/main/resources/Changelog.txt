@@ -1,5 +1,13 @@
 Changelog:
 
+0.10.4 
+
+	Bug: Recurrance and Pendulum no longer crash on tooltip.
+	Bug: Fixed Pattern Shift support with Corrupt Heart.
+	Bug: Fixed Pattern Shift support with Spire Shield.
+	Bug: Fixed Pattern Shift support with Spire Spear.
+	Bug: Pendulum now works with Beat of Death.
+
 0.10.3
 
 	Card: New Card, Locked Anchor. Ethereal. Gains 10 block, Anchor Replica counts up instead of down. On upgrade, shattering Anchor gains 10 block.

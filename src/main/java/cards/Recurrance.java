@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -78,6 +79,8 @@ public class Recurrance extends MetricsCard {
 	public List<TooltipInfo> getCustomTooltips() {
 		this.tips.clear();
 		
+		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return this.tips; }
+
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {
 				if (mo.hasPower("DelayedAttack")) {
