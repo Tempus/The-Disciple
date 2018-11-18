@@ -30,10 +30,12 @@ public class ChronoChannelAction
   public void update()
   {
     if (AbstractDungeon.player.maxOrbs == 10) {
-      AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "You cannot fit any more #rreplicas for now.", true));
+      if (!AbstractDungeon.player.hasEmptyOrb()) {
+        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "You cannot fit any more #rreplicas for now.", true));
 
-      this.isDone = true;
-      return;
+        this.isDone = true;
+        return;
+      }
     } else {
       AbstractDungeon.player.increaseMaxOrbSlots(1, false);
       CardCrawlGame.sound.playA("GUARDIAN_ROLL_UP", 1.0F);

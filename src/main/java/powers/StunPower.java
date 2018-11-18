@@ -18,7 +18,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.*;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -29,6 +32,8 @@ public class StunPower extends AbstractPower
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
   public AbstractMonster monster;
+
+  public EnemyMoveInfo move;
 
   public StunPower(AbstractCreature owner, int amount)
   {
@@ -49,6 +54,7 @@ public class StunPower extends AbstractPower
   public void onInitialApplication() {
     if (this.owner instanceof AbstractPlayer) { this.endTurn(); }
     else {
+      this.move = (EnemyMoveInfo)ReflectionHacks.getPrivate(this.owner, AbstractMonster.class, "move");
       this.monster.setMove((byte)-2, AbstractMonster.Intent.STUN); 
       this.monster.createIntent();
     }
@@ -76,50 +82,12 @@ public class StunPower extends AbstractPower
       {
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, 1));
         if (this.amount == 1) {
-          switch(this.monster.id) {
-
-            case "SlimeBoss":
-              this.monster.setMove((byte)4, AbstractMonster.Intent.STRONG_DEBUFF);
-              break;
-
-            case "Looter":
-            case "Mugger":
-              this.monster.setMove((byte)2, AbstractMonster.Intent.DEFEND);
-              break;
-
-            default:
-              this.monster.rollMove(); 
-              break;
-          }
+          this.monster.setMove(this.move.nextMove, this.move.intent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
+          this.monster.createIntent();
         }
       }
     }
   }
-
-  // @Override
-  // public void atStartOfTurn()
-  // {
-  //   if (this.owner instanceof AbstractPlayer) {
-  //     // Special Cases:
-  //     switch(this.monster.id) {
-
-  //       case "SlimeBoss":
-  //         this.monster.setMove((byte)4, AbstractMonster.Intent.STRONG_DEBUFF);
-  //         break;
-
-  //       case "Looter":
-  //       case "Mugger":
-  //         this.monster.setMove((byte)2, AbstractMonster.Intent.DEFEND);
-  //         break;
-
-  //       default:
-  //         this.monster.rollMove(); 
-  //         break;
-  //     }
-
-  //     this.monster.createIntent();
-  //   }
-  // }
 
   public void endTurn() {
       AbstractDungeon.actionManager.cardQueue.clear();

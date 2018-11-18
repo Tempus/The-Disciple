@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import chronomuncher.patches.Enum;
 import chronomuncher.cards.AbstractSelfSwitchCard;
 
-@SpirePatch(clz=CardLibrary.class, method="getCopy", paramtypez={String.class,int.class,int.class }
-)
+@SpirePatch(clz=CardLibrary.class, method="getCopy", paramtypez={String.class,int.class,int.class })
 public class RestoreSavedSwitchCardPatch
 {
     public static AbstractCard Postfix(AbstractCard retVal, String key, int upgradeTime, int misc) {

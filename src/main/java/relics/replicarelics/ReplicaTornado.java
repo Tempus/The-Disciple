@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -27,7 +28,7 @@ public class ReplicaTornado extends CustomRelic {
     @Override
     public void atBattleStart() {
         flash();
-        AbstractDungeon.player.energy.use(1);
+        AbstractDungeon.actionManager.addToBottom(new LoseEnergyAction(1));
         AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedTornado(false)));
     }
 

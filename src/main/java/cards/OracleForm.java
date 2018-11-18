@@ -53,9 +53,6 @@ public class OracleForm extends MetricsCard {
 		}
 	}
 
-	@Override
-	public AbstractCard makeCopy() { return new OracleForm(); }
-
   	public void triggerWhenDrawn() { this.updateBodyText(); }
 	public void onPlayCard(AbstractCard c, AbstractMonster m) { this.updateBodyText(); }
 	public void atTurnStart() { this.updateBodyText(); }

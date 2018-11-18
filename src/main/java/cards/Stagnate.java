@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.DrawReductionPower;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -39,13 +40,10 @@ public class Stagnate extends MetricsCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("SLEEP_BLANKET"));
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-SHORTSLEEP"));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new DrawReductionPower(p, this.magicNumber), this.magicNumber));
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m,p,new SleepPower(m, this.magicNumber),this.magicNumber));
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Stagnate();
 	}
 
 	@Override

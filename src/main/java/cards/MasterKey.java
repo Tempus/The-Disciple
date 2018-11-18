@@ -20,13 +20,13 @@ import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.relics.*;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.orbs.*;
 import chronomuncher.actions.PlayFreePowersAction;
 
-public class MasterKey extends MetricsCard {
+public class MasterKey extends AbstractSelfRetainingCard {
 	public static final String ID = "MasterKey";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -40,29 +40,13 @@ public class MasterKey extends MetricsCard {
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.exhaust = true;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new PlayFreePowersAction(this.upgraded));
    	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new MasterKey();
-	}
 
 	@Override
 	public void upgrade() {

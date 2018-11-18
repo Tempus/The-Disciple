@@ -6,15 +6,19 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
 import chronomuncher.ChronoMod;
-import chronomuncher.powers.TimeWarpMinorPower;
+import chronomuncher.actions.EndTurnAction;
 
 public class HangingClock extends CustomRelic {
     public static final String ID = "HangingClock";
+    private static final int COUNTDOWN_AMT = 12;
 
     public HangingClock() {
         super(ID, new Texture("chrono_images/relics/HangingClock.png"), new Texture("chrono_images/relics/outline/HangingClock.png"), RelicTier.BOSS, LandingSound.CLINK);
@@ -27,9 +31,12 @@ public class HangingClock extends CustomRelic {
     
     @Override
     public void atBattleStart() {
-        flash();
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new TimeWarpMinorPower(AbstractDungeon.player), 1));
-        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        this.counter = 0;
+    }
+
+    @Override
+    public void onVictory() {
+        this.counter = -1;
     }
 
     public void onEquip()
@@ -40,6 +47,17 @@ public class HangingClock extends CustomRelic {
     public void onUnequip()
     {
       AbstractDungeon.player.energy.energyMaster -= 1;
+    }
+
+
+    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
+        flash();
+        this.counter += 1;
+        if (this.counter == COUNTDOWN_AMT)
+        {
+            this.counter = 0;
+            AbstractDungeon.actionManager.addToTop(new EndTurnAction());
+        }
     }
 
     @Override

@@ -54,11 +54,6 @@ public class SecondHand extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new SecondHand();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

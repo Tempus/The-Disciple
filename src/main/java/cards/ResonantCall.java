@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.PlayLowerBlockFromDeckAction;
@@ -25,7 +25,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.Color;
 
-public class ResonantCall extends MetricsCard {
+public class ResonantCall extends AbstractSelfRetainingCard {
 	public static final String ID = "ResonantCall";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -46,9 +46,6 @@ public class ResonantCall extends MetricsCard {
 	public ResonantCall() {
 		super(ID, NAME, "chrono_images/cards/ResonantCall.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
-		if (this.upgraded) {
-			this.retain = true;
-		}
 	}
 
 	public void triggerOnOtherCardPlayed(AbstractCard c) {
@@ -130,16 +127,12 @@ public class ResonantCall extends MetricsCard {
 
 	@Override
 	public void onMoveToDiscard() {
+		super.onMoveToDiscard();
 		this.resetResonance();
 	}
 
 	@Override
 	public void atTurnStart() {
-		ChronoMod.log("Triggering at turn start.");
-		if (this.upgraded) {
-			this.retain = true;
-		}
-
 		if (this.mimic != null) { 
 		ChronoMod.log("CardID is " + this.mimic.cardID);
 			if (this.mimic.cardID == "Parity") {
@@ -180,15 +173,10 @@ public class ResonantCall extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new ResonantCall();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			this.retain = true;
+			this.retains = true;
 			this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
    		   	initializeDescription();
 		}

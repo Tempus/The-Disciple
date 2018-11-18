@@ -29,20 +29,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.unlock.AbstractUnlock.UnlockType;
+import com.megacrit.cardcrawl.unlock.AbstractUnlock;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.BaseMod;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.SetUnlocksSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
-import basemod.interfaces.PostDeathSubscriber;
-import basemod.interfaces.OnCardUseSubscriber;
-import basemod.interfaces.PreStartGameSubscriber;
-import basemod.interfaces.PostDrawSubscriber;
-import basemod.interfaces.OnPowersModifiedSubscriber;
+import basemod.interfaces.*;
+import basemod.abstracts.CustomUnlockBundle;
 import basemod.ReflectionHacks;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -64,7 +57,7 @@ import org.apache.logging.log4j.Logger;
 public class ChronoMod implements 
         PostInitializeSubscriber, EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, PreStartGameSubscriber,
         EditStringsSubscriber, SetUnlocksSubscriber, EditRelicsSubscriber, OnCardUseSubscriber, PostDeathSubscriber, PostDrawSubscriber,
-        OnPowersModifiedSubscriber {
+        OnPowersModifiedSubscriber, PreMonsterTurnSubscriber {
 
     public static final Logger logger = LogManager.getLogger(ChronoMod.class.getName());
     
@@ -147,13 +140,7 @@ public class ChronoMod implements
         Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
 
-        BaseMod.addEvent(ArtifactorA.ID, ArtifactorA.class, Exordium.ID);
-        BaseMod.addEvent(ArtifactorA.ID, ArtifactorA.class, Exordium.ID);
-        // BaseMod.addEvent(ArtifactorB.ID, ArtifactorB.class, Exordium.ID);
-        // BaseMod.addEvent(ArtifactorC.ID, ArtifactorC.class, Exordium.ID);
-        BaseMod.addEvent(Replicator.ID, Replicator.class, TheCity.ID);
-        BaseMod.addEvent(Relicator.ID, Relicator.class, TheBeyond.ID);
-
+        BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
         this.loadAudio();
     }
 
@@ -164,7 +151,15 @@ public class ChronoMod implements
         map.put("CHRONO-SHARP2", new Sfx("chrono_audio/Slide_Sharp_02.ogg", false));
         map.put("CHRONO-SLOWDOWN", new Sfx("chrono_audio/SlowDown.ogg", false));
         map.put("CHRONO-SPEEDUP", new Sfx("chrono_audio/SpeedUp.ogg", false));
+        map.put("CHRONO-LOWWHOOSH", new Sfx("chrono_audio/LowWhoosh.ogg", false));
+        map.put("CHRONO-TICKINGCLEAN", new Sfx("chrono_audio/TickingClean.ogg", false));
+        map.put("CHRONO-TICKINGDIRTY", new Sfx("chrono_audio/TickingDirty.ogg", false));
         map.put("CHRONO-TICK", new Sfx("chrono_audio/Tick.ogg", false));
+        map.put("CHRONO-CHIME", new Sfx("chrono_audio/Chime.ogg", false));
+        map.put("CHRONO-WINDUP", new Sfx("chrono_audio/WindUp.ogg", false));
+        map.put("CHRONO-SHORTSLEEP", new Sfx("chrono_audio/ShortSleep.ogg", false));
+        map.put("CHRONO-ELASTIC", new Sfx("chrono_audio/Elastic.ogg", false));
+        map.put("CHRONO-CUCKOO", new Sfx("chrono_audio/Cuckoo.ogg", false));
     }
         
     public void receivePostDeath() {
@@ -193,20 +188,32 @@ public class ChronoMod implements
         BaseMod.addRelicToCustomPool(new Metronome(), Enum.CHRONO_GOLD);
         // BaseMod.addRelicToCustomPool(new Lockbox(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new Cryopreserver(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new Carbonhydrate(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new PaperTurtyl(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new HangingClock(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new BlueBox(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new SpikedShell(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new SpringShield(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new HeavySwitch(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new MysticCrockPot(), Enum.CHRONO_GOLD);
+        // BaseMod.addRelicToCustomPool(new SleevePocket(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new WaitingRoom(), Enum.CHRONO_GOLD);
 
-        BaseMod.addRelicToCustomPool(new ReplicaCarbonhydrate(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaOrichalcum(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaMedicine(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaWarPaint(), Enum.CHRONO_GOLD);
+
+        BaseMod.addRelicToCustomPool(new ReplicaScales(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaMercury(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaWhetstone(), Enum.CHRONO_GOLD);
+
+        BaseMod.addRelicToCustomPool(new ReplicaNitrogen(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaIceCream(), Enum.CHRONO_GOLD);
+        BaseMod.addRelicToCustomPool(new ReplicaHand(), Enum.CHRONO_GOLD);
+
         BaseMod.addRelicToCustomPool(new ReplicaFlame(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new ReplicaLightning(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new ReplicaMercury(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new ReplicaOrichalcum(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new ReplicaThread(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new ReplicaTornado(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new ReplicaWarPaint(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new ReplicaWhetstone(), Enum.CHRONO_GOLD);
     }
 
     public void setCompendiumSwitchCards() {
@@ -276,12 +283,12 @@ public class ChronoMod implements
     public void receiveEditCards() {
         logger.info("Adding cards....");
 
-        // setCompendiumSwitchCards();
-        BaseMod.addCard(new SwitchReapSow());
-        BaseMod.addCard(new SwitchExoVibe());
-        BaseMod.addCard(new SwitchGoo());
-        BaseMod.addCard(new SwitchSavings());
-        BaseMod.addCard(new SwitchSharpShooter());
+        setCompendiumSwitchCards();
+        // BaseMod.addCard(new SwitchReapSow());
+        // BaseMod.addCard(new SwitchExoVibe());
+        // BaseMod.addCard(new SwitchGoo());
+        // BaseMod.addCard(new SwitchSavings());
+        // BaseMod.addCard(new SwitchSharpShooter());
 
         // BaseMod.addCard(new ASecondTooLate());
         BaseMod.addCard(new Accelerando());
@@ -334,7 +341,7 @@ public class ChronoMod implements
         BaseMod.addCard(new LockedBlood());
         // BaseMod.addCard(new LockedCalipers());
         BaseMod.addCard(new LockedCalendar());
-        BaseMod.addCard(new LockedCarbon());
+        BaseMod.addCard(new LockedTurtyl());
         BaseMod.addCard(new LockedFlame());
         // BaseMod.addCard(new LockedHand());
         // BaseMod.addCard(new LockedIceCream());
@@ -462,40 +469,77 @@ public class ChronoMod implements
         }    
     }
 
-    public void receivePowersModified() {
-        if (AbstractDungeon.player.hasRelic(Chronometer.ID))  {
-            ((Chronometer)AbstractDungeon.player.getRelic(Chronometer.ID)).removeConfusion();
-        }
-        if (AbstractDungeon.player.hasRelic(Chronograph.ID))  {
-            ((Chronograph)AbstractDungeon.player.getRelic(Chronograph.ID)).removeConfusion();
-        }
+    public boolean receivePreMonsterTurn(AbstractMonster m) {
+    //     if (m.ID == "TimeEater" && AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) {
+    //         switch (AbstractDungeon.actionManager.turn) {
+    //             case 0:
+    //                 break;
+    //             case 1:
+    //                 break;
+    //             case 2:
+    //                 break;
+    //             case 3:
+    //                 break;
+    //             case 4:
+    //                 break;
+    //             case 5:
+    //                 break;
+    //             case 6:
+    //                 break;
+    //             case 7:
+    //                 break;
+    //         }
+    //     }
+        return true;
     }
+
+    public void receivePowersModified() {
+    //     if (AbstractDungeon.player.hasRelic(Chronometer.ID))  {
+    //         ((Chronometer)AbstractDungeon.player.getRelic(Chronometer.ID)).removeConfusion();
+    //     }
+    //     if (AbstractDungeon.player.hasRelic(Chronograph.ID))  {
+    //         ((Chronograph)AbstractDungeon.player.getRelic(Chronograph.ID)).removeConfusion();
+    //     }
+    }
+
+    // Disciple Unlocks
+    //
+    //  Lv1:
+    //      Echonomics, Analog, Resonant Call
+    //
+    //  Lv2:
+    //      SharpShooter, LockedBell, Facsimile
+    //
+    //  Lv3:
+    //      PaperTurtyl, Slippery Goo, Metronome
+    //
+    //  Lv4:
+    //      Beats Per Minute, Wake Up Call, Stagnate
+    //
+    //  Lv5:
+    //      Cryopreserver, HangingClock, BlueBox
+    //
 
     @Override
     public void receiveSetUnlocks() {
-//      UnlockTracker.addCard("Flicker");
-//      UnlockTracker.addCard("Transference");
-//      UnlockTracker.addCard("ForceRipple");
-//      // seeker unlock 1
-//      BaseMod.addUnlockBundle(new CustomUnlockBundle(
-//              "Flicker", "Transference", "ForceRipple"
-//              ), TheSeekerEnum.THE_SEEKER, 1);
-//      
-//      // seeker unlock 2
-//      BaseMod.addUnlockBundle(new CustomUnlockBundle(
-//              "Channel", "Shimmer", "ThoughtRaze"
-//              ), TheSeekerEnum.THE_SEEKER, 2);
-//      UnlockTracker.addCard("Channel");
-//      UnlockTracker.addCard("Shimmer");
-//      UnlockTracker.addCard("ThoughtRaze");
-//      
-//      // seeker unlock 3 (Vacuum tmp in place of Feedback)
-//      BaseMod.addUnlockBundle(new CustomUnlockBundle(
-//              "Convergence", "Hypothesis", "Nexus"
-//              ), TheSeekerEnum.THE_SEEKER, 3);
-//      UnlockTracker.addCard("Convergence");
-//      UnlockTracker.addCard("Hypothesis");
-//      UnlockTracker.addCard("Nexus");
-    }
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+             "Echonomics", "Analog", "ResonantCall"
+             ), Enum.CHRONO_CLASS, 1);
 
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+             "SharpShooter", "LockedBell", "Facsimile"
+             ), Enum.CHRONO_CLASS, 2);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+             "PaperTurtyl", "SlipperyGoo", "Metronome"
+             ), Enum.CHRONO_CLASS, 3);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(
+             "BeatsPerMinute", "WakeUpCall", "Stagnate"
+             ), Enum.CHRONO_CLASS, 4);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+             "Cryopreserver", "HangingClock", "BlueBox"
+             ), Enum.CHRONO_CLASS, 5);
+    }
 }

@@ -50,12 +50,6 @@ public class RageCommand extends MetricsCard {
   }
   
   @Override
-  public AbstractCard makeCopy()
-  {
-    return new RageCommand();
-  }
-  
-  @Override
   public void upgrade()
   {
     if (!this.upgraded)

@@ -39,11 +39,6 @@ public class Echoward extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Echoward();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

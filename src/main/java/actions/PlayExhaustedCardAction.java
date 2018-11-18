@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -55,7 +56,7 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
     		tmp.unfadeOut();
 			tmp.freeToPlayOnce = true;
  		    tmp.purgeOnUse = true;
-			tmp.target_x = (Settings.WIDTH / 2.0F - (200.0f * i * Settings.scale));
+			tmp.target_x = (Settings.WIDTH / 2.0F - (300.0f * Settings.scale));
 			tmp.target_y = (Settings.HEIGHT / 2.0F);
 			tmp.current_x = tmp.target_x;
 			tmp.current_y = tmp.target_y;
@@ -65,7 +66,7 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
 		    if (m != null) {
 		      tmp.calculateCardDamage(m);
 		    }
-		    AbstractDungeon.player.useCard(tmp, m, card.energyOnUse);
+            AbstractDungeon.actionManager.cardQueue.add(0, new CardQueueItem(tmp, m, card.energyOnUse));
 		}
 		
 		this.isDone = true;	

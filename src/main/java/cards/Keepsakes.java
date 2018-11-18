@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.powers.RetainCardPower;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -52,6 +53,7 @@ public class Keepsakes extends MetricsCard {
 			AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.NONE;
 			if (hit == this.magicNumber-1) { effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT; }
 
+        	AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-TICK"));
 			AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), effect));
 		}
@@ -64,11 +66,6 @@ public class Keepsakes extends MetricsCard {
 		    // AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, unblockedHits));
 		    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new RetainOncePower(unblockedHits), unblockedHits));
   		}	
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Keepsakes();
 	}
 
 	@Override

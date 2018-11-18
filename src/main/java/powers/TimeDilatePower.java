@@ -61,7 +61,7 @@ public class TimeDilatePower extends AbstractPower
             break;
 
           default:
-            if (p.name == "Delayed Attack") { break; }
+            if (p.name == "Delayed Attack" || p.name == "Wake Up Call" || p.name == "The Bomb") { break; }
             if (p.ID != "Flight") {
               this.savedPowers.add(p); }
             p.onRemove();

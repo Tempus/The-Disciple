@@ -52,11 +52,6 @@ public class Rewind extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Rewind();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

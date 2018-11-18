@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
+import chronomuncher.powers.WakeUpCallPower;
 
 import java.lang.Math;
 import java.util.Iterator;
@@ -64,13 +65,14 @@ public class Recurrance extends MetricsCard {
 			if (pow.type == AbstractPower.PowerType.DEBUFF) {
 				if (pow.canGoNegative == true && pow.amount < 0) {
 					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-				} else if (pow.ID == "Shackled") {
-					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, -this.magicNumber, true));
-				} else {
+				} else if (pow.ID != "Shackled") {
 					AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, pow, this.magicNumber, true));
 				}
-			} else if (pow.ID.contains("DelayedAttack")) {
-					AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
+			} else if (pow.ID.contains("DelayedAttack") || pow.ID.contains("TheBomb")) {
+				AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(m, p, pow, this.magicNumber));
+			} else if (pow.ID.contains("WakeUpCall")) {
+				((WakeUpCallPower)pow).damage.base = ((WakeUpCallPower)pow).damage.base + this.magicNumber;
+				((WakeUpCallPower)pow).updateDescription();
 			}
 	    }
 	}
@@ -79,6 +81,7 @@ public class Recurrance extends MetricsCard {
 	public List<TooltipInfo> getCustomTooltips() {
 		this.tips.clear();
 		
+		if (AbstractDungeon.getCurrMapNode() == null) { return this.tips; }
 		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return this.tips; }
 
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -93,15 +96,10 @@ public class Recurrance extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Recurrance();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(1);
+			upgradeDamage(2);
 			upgradeMagicNumber(HITS_UPGRADE);
 		}
 	}

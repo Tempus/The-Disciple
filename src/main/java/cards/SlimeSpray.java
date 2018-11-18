@@ -16,12 +16,12 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import chronomuncher.vfx.SlimeSplashEffect;
 
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
 
-public class SlimeSpray extends MetricsCard {
+public class SlimeSpray extends AbstractSelfRetainingCard {
 	public static final String ID = "SlimeSpray";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -38,7 +38,7 @@ public class SlimeSpray extends MetricsCard {
 
 		this.baseDamage = ATTACK_DMG;
 		this.isMultiDamage = true;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
@@ -58,22 +58,6 @@ public class SlimeSpray extends MetricsCard {
 					new VFXAction(new SlimeSplashEffect(mo.drawX, mo.drawY + mo.hb_h/2.0F)));
 			}
 		}
-	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-    }
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new SlimeSpray();
 	}
 
 	@Override

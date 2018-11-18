@@ -43,11 +43,6 @@ public class Strike_Bronze extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Strike_Bronze();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

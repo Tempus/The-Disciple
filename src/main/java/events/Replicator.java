@@ -87,21 +87,22 @@ public class Replicator
       switch (buttonPressed)
       {
       case 0: 
-        this.pickCard = true;
+        this.imageEventText.updateBodyText(REPLICATE_RESULT);
+        this.screenNum = 2;
+        this.imageEventText.updateDialogOption(0, OPTIONS[1]);
 
         CardGroup choosers = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         choosers.group.addAll(AbstractDungeon.player.masterDeck.getSkills().group);
         choosers.group.addAll(AbstractDungeon.player.masterDeck.getAttacks().group);
         choosers.group.addAll(AbstractDungeon.player.masterDeck.getPowers().group);
 
-        AbstractDungeon.gridSelectScreen.open(choosers, 2, "Choose 2 cards to transform into Locked Replicas", false, false, false, true);
+        int picks = 2;
+        // There's no cards to pick
+        if (choosers.size() <= 0) { return; } 
+        else if (choosers.size() == 1) { picks = 1; }
 
-        // AbstractCard curse = new Pain();
-        // AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2, Settings.HEIGHT / 2));
-
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);
-        this.screenNum = 2;
-        this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+        this.pickCard = true;
+        AbstractDungeon.gridSelectScreen.open(choosers, picks, "Choose 2 cards to transform into Locked Replicas", false, false, false, true);
         break;
       case 1: 
         this.screenNum = 2;

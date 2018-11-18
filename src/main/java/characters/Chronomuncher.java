@@ -55,6 +55,10 @@ import chronomuncher.vfx.GoldEnergyFlameEffect;
 import chronomuncher.cards.*;
 import chronomuncher.character.EnergyOrbGold;
 
+import chronomuncher.vfx.OracleScreenEffect;
+import chronomuncher.vfx.OracleStarEffect;
+import chronomuncher.vfx.JumpingClockHeartEffect;
+
 public class Chronomuncher extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 3;
@@ -67,8 +71,8 @@ public class Chronomuncher extends CustomPlayer {
     public static final String DISCIPLE_SHOULDER_2 = "chrono_images/char/shoulder2.png"; // campfire pose
     public static final String DISCIPLE_SHOULDER_1 = "chrono_images/char/shoulder.png"; // another campfire pose
     public static final String DISCIPLE_CORPSE = "chrono_images/char/corpse.png"; // dead corpse
-    public static final String DISCIPLE_SKELETON_ATLAS = "chrono_images/char/skeleton.atlas"; // spine animation atlas
-    public static final String DISCIPLE_SKELETON_JSON = "chrono_images/char/skeleton.json"; // spine animation json
+    public static final String DISCIPLE_SKELETON_ATLAS = "chrono_images/char/Disciple.atlas"; // spine animation atlas
+    public static final String DISCIPLE_SKELETON_JSON = "chrono_images/char/Disciple.json"; // spine animation json
 
     private double counter = 0.0f;
     private Texture tex = new Texture("chrono_images/char/temp.png");
@@ -88,9 +92,15 @@ public class Chronomuncher extends CustomPlayer {
 
         this.energyOrb = new EnergyOrbGold();
 
-        // loadAnimation(DISCIPLE_SKELETON_ATLAS, DISCIPLE_SKELETON_JSON, 1.0F); 
+        loadAnimation(DISCIPLE_SKELETON_ATLAS, DISCIPLE_SKELETON_JSON, 1.0F); 
  
-        // AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+        this.state.setAnimation(0, "idle", true);
+        this.state.setAnimation(1, "clock", true);
+        this.state.setAnimation(2, "leftjingle", true);
+        this.state.setAnimation(3, "rightjingle", true);
+        this.state.setAnimation(4, "middlejingle", true);
+
+        // AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
         // e.setTime(e.getEndTime() * MathUtils.random());
     }
 
@@ -109,6 +119,9 @@ public class Chronomuncher extends CustomPlayer {
 
     @Override
     public Color getCardRenderColor() { return ChronoMod.CHRONO_GOLD; }
+
+    @Override
+    public Texture getCustomModeCharacterButtonImage() { return ImageMaster.loadImage("chrono_images/char/chronoButtonCustom.png"); }
 
     @Override
     public String getVampireText() { return 
@@ -157,7 +170,7 @@ public class Chronomuncher extends CustomPlayer {
     // End week 45 compliance
 
     @Override
-    protected void initializeStarterDeck() {
+    public void initializeStarterDeck() {
         if (ModHelper.isModEnabled("Insanity"))
         {
           for (int i = 0; i < 50; i++) {
@@ -215,43 +228,54 @@ public class Chronomuncher extends CustomPlayer {
         }
     }
 
-    @SuppressWarnings("unused")
-    public void renderPlayerImage(SpriteBatch sb) {
-        if(!(AbstractDungeon.player instanceof Chronomuncher))
-            return;
+    // @SuppressWarnings("unused")
+    // public void renderPlayerImage(SpriteBatch sb) {
+    //     if(!(AbstractDungeon.player instanceof Chronomuncher))
+    //         return;
         
-        sb.setColor(1, 1, 1, 1);
+    //     sb.setColor(1, 1, 1, 1);
                 
-        counter += Gdx.graphics.getDeltaTime();
+    //     counter += Gdx.graphics.getDeltaTime();
         
-        if(counter > 100.0 && Math.sin(counter) > 0.9999) {
-            counter = Math.PI / 2;
-        }
+    //     if(counter > 100.0 && Math.sin(counter) > 0.9999) {
+    //         counter = Math.PI / 2;
+    //     }
         
-        float scale = 1.0f * (float)Settings.scale + (float)(0.01f*Math.sin(counter)); 
+    //     float scale = 1.0f * (float)Settings.scale + (float)(0.01f*Math.sin(counter)); 
 
-        // sb.draw(tex, 256, 310, 0, 0, 512f, 512f, scale, scale * 1.05f, 0.0f, 0, 0, 512, 512, false, false);
+    //     // sb.draw(tex, 256, 310, 0, 0, 512f, 512f, scale, scale * 1.05f, 0.0f, 0, 0, 512, 512, false, false);
 
-        sb.draw(tex,
+    //     sb.draw(tex,
 
-            this.drawX - tex.getWidth() * Settings.scale / 2.0F + this.animX,  // x
-            this.drawY,                                                             // y
+    //         this.drawX - tex.getWidth() * Settings.scale / 2.0F + this.animX,  // x
+    //         this.drawY,                                                             // y
 
-            tex.getWidth() * scale,                                   // 
-            tex.getHeight() * scale * 1.05f, 
+    //         tex.getWidth() * scale,                                   // 
+    //         tex.getHeight() * scale * 1.05f, 
 
-            0, 0, 
+    //         0, 0, 
 
-            tex.getWidth(), 
-            tex.getHeight(), 
+    //         tex.getWidth(), 
+    //         tex.getHeight(), 
 
-            this.flipHorizontal, this.flipVertical);
-    }
+    //         this.flipHorizontal, this.flipVertical);
+    // }
 
-    @Override
-    public void update() {
-        super.update();
-    }
+    // @Override
+    // public void update() {
+    //     super.update();
+
+    //     AbstractDungeon.effectList.add(new OracleScreenEffect());
+    //     AbstractDungeon.effectList.add(new OracleStarEffect());
+
+    //     counter -= Gdx.graphics.getDeltaTime();
+    //     if (counter < 0.0F)
+    //     {
+    //         float randomX = MathUtils.random(0.1F, 0.9F);
+    //         AbstractDungeon.effectList.add(new JumpingClockHeartEffect(randomX, MathUtils.random(0.05F, 0.35F), MathUtils.random(0.05F, 0.3F)));
+    //         counter = 0.15F;
+    //     }
+    // }
 
     @Override
     public void updateOrb(int energy) {

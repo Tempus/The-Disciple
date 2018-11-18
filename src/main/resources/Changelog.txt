@@ -1,5 +1,56 @@
 Changelog:
 
+0.10.5
+
+	Feature: Now supports Heart victories with effects and cutscenes! First mod to do so. The cutscene art is STILL IN BETA.
+	Relic: Added new relic, Spiked Shell. Does Fibonacci damage at end of turn for each card played, if your hand is empty.
+	Relic: Added new relic, Mystic Crock Pot. Increases the block and attack of retained cards by 10% each time retained.
+	Relic: Added new relic, Heavy Switch. Self-retained cards no longer self-retain, but give regular retain.
+	Relic: Added new relic, Spring Shield. Delayed Attacks play a ward each turn they are delayed for.
+	Relic: Carbonhydrate, including Locked Carbon, is now Paper Twirtle.
+	Art: Updated event relic art.
+	Art: Goo colour on the switch card Goo now matches the colour of the effect icon they apply.
+	Art: New art for Reap.
+	Art: New character button for Custom character select.
+	Animation: Disciple now has a skeletal animation.
+	Balance: Chronometer and Chronograph no longer give confusion immunity.
+	Feature: Retained card dialogue no longer adds self-retaining cards to your options.
+	Text: Text updated for custom events.
+	Text: Improved wording on Tiring Slam+ to be consistent with Perfected Strike.
+	Text: Facsimile+ now correctly identifies that it no longer exhausts.
+	Text: Fixed a typo in Maw Bank's description.
+	Text: Chronograph text was changed to end of combat for consistency with vanilla.
+	Text: Locked Calendar now has Innate on a separate line.
+	Text: Chronometer and Chronogrpah description updated to be more clear about card retention discounts.
+	Events: Events Relicator and Replicator can no longer occur on non-Disciple characters, avoiding potential crashes.
+	Effect: Reap now does a larger, cleave-like effect.
+	Effect: Misterioso now more clearly shows which cards get played from the exhaust pile.
+	Effect: Added sounds to Back Four Seconds, Pendulum, Grave, Stagnate, Old Timer, Keepsakes, Cuckoo, Chronoelasticity, Tempo, and BPM.
+	Effect: Hanging Clock relic now has the time eater end turn effect.
+	Effect: Hanging Clock relic now counts on the relic, instead of applying a power.
+	Balance: Recurrance+ now does 5 damage 2 times instead of 4 damage 2 times.
+	Balance: Stun now will revert enemies to the last attack they were attempting, while Sleep advances them to the next when they wake.
+	Balance: Wake Up Call now deals 44(60) damage when the enemy is next sleeping or stunned, instead of only when used and being self-retaining.
+	Balance: Hands Up now does delayed strength, a custom power that is affected by Recurrance instead of Shackled.
+	Balance: Shackled is no longer affected by Recurrance.
+	Balance: Wake Up Call is now affected by Recurrance, in the form of adding more damage.
+	Balance: Wake Up Call now costs 1 instead of 2.
+	Bug: Clock and Load will now work when focus is applied.
+	Bug: Fixed additional potential crashes with Pendulum and Recurrance tooltips in the Library screen.
+	Bug: Using Tempo or BPM with Runic Dome no longer shows you the intent through the card preview.
+	Bug: Self-retaining cards created by outside sources should now retain on the turn they are created.
+	Bug: Replicas no longer refuse to unlock when orb slots are maxed but some slots are empty.
+	Bug: Artifactor event no longer can occur twice on Disciple.
+	Bug: Switch cards no longer upgrade themselves secretly in the background.
+	Bug: Pattern Shift now correctly handles Maw roar once again.
+	Bug: Attempted another fix to rotation of upgrade cards via Whetstone and War Paint.
+	Bug: Bandit Leader and Bear now correctly shift after the first turn via Pattern Shift.
+	Cleanup: Some code cleanup on cards.
+	Bug: Thieves now run on waking up from Sleep.
+	Bug: Event bottled replica relics now correctly lose energy the first turn.
+	Bug: Fixed an issue where Pattern Shift wasn't consistent on the first mouse over on the first turn.
+	Bug: Recurrance now interacts with The Bomb, same as with Delayed Attack.
+
 0.10.4 
 
 	Bug: Recurrance and Pendulum no longer crash on tooltip.

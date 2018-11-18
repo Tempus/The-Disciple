@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
@@ -50,9 +50,8 @@ public class DelayedGainStrengthPower extends AbstractPower
     if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())
     {
       AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, 1));
-      if (this.amount <= 2) {
-        AbstractDungeon.actionManager.addToBottom(
-          new ApplyPowerAction(this.owner, this.owner, new GainStrengthPower(this.owner, this.strength), this.strength, true, AbstractGameAction.AttackEffect.NONE));
+      if (this.amount <= 1) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount), this.amount));
       }
     }
   }

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -46,16 +47,12 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 	    if (m.isDying || (m.currentHealth + m.currentBlock <= this.damage)) {
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-SHARP2"));
 			AbstractDungeon.actionManager.addToBottom(new IntentTransformAction(p, m, this.upgraded));
 		}
 
 		AbstractDungeon.actionManager.addToBottom(
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new BeatsPerMinute();
 	}
 
     @Override

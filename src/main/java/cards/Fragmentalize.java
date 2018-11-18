@@ -56,11 +56,6 @@ public class Fragmentalize extends MetricsCard {
    	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Fragmentalize();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

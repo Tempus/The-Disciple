@@ -42,12 +42,7 @@ public class AlternateTimeline extends MetricsCard {
     	AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
     	AbstractDungeon.actionManager.addToBottom(new SeekAction(this.magicNumber));
    	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new AlternateTimeline();
-	}
-
+   	
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {

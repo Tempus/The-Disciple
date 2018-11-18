@@ -159,7 +159,8 @@ public class PatternShiftAction extends AbstractGameAction {
 			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
 			      break;
 			    }
-   				break;
+				m.createIntent();
+				return true;
 
    			case "BanditLeader":
 			    switch (m.nextMove)
@@ -178,7 +179,8 @@ public class PatternShiftAction extends AbstractGameAction {
 				  }
 			      break;
 			    }
-   				break;
+				m.createIntent();
+				return true;
    				
    			// Looter is annoying, just like Mugger
 			case "Looter":
@@ -340,6 +342,10 @@ public class PatternShiftAction extends AbstractGameAction {
 			// Slimes get split triggered reset, so they will do another intent until you hit them again
 			case "SpikeSlime_L":
 				ReflectionHacks.setPrivate(m, m.getClass(), "splitTriggered", false);
+				break;
+
+			case "Maw":
+				ReflectionHacks.setPrivate(m, m.getClass(), "roared", true);
 				break;
 
 			// Special case guardian stuff
@@ -640,7 +646,8 @@ public class PatternShiftAction extends AbstractGameAction {
 			      m.setMove((byte)1, AbstractMonster.Intent.ATTACK_DEFEND, ((DamageInfo)m.damage.get(0)).base);
 			      break;
 			    }
-   				break;
+				m.createIntent();
+				return true;
 
    			case "BanditLeader":
 			    switch (m.nextMove)
@@ -659,7 +666,8 @@ public class PatternShiftAction extends AbstractGameAction {
 				  }
 			      break;
 			    }
-   				break;
+				m.createIntent();
+				return true;
 
 			// The Collector has all sorts of stuff, but you can skip his ult
 			case "TheCollector":
@@ -780,6 +788,10 @@ public class PatternShiftAction extends AbstractGameAction {
 			// Slimes get split triggered reset, so they will do another intent until you hit them again
 			case "SpikeSlime_L":
 				ReflectionHacks.setPrivate(m, m.getClass(), "splitTriggered", false);
+				break;
+
+			case "Maw":
+				ReflectionHacks.setPrivate(m, m.getClass(), "roared", true);
 				break;
 
 			// Special case guardian stuff

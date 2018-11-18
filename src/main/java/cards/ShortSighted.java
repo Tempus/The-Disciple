@@ -49,11 +49,6 @@ public class ShortSighted extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new ShortSighted();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

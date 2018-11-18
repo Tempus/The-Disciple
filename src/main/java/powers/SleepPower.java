@@ -107,7 +107,7 @@ public class SleepPower extends AbstractPower
 
       case "Looter":
       case "Mugger":
-        this.monster.setMove((byte)2, AbstractMonster.Intent.DEFEND);
+        this.monster.setMove((byte)3, AbstractMonster.Intent.ESCAPE);
         break;
       default:
         this.monster.rollMove(); 

@@ -34,7 +34,7 @@ public class RandomReplicaAction
     choices.add(UnlockedAnchor.class);
     choices.add(UnlockedAstrolabe.class);
     choices.add(UnlockedCalendar.class);
-    choices.add(UnlockedCarbon.class);
+    choices.add(UnlockedTurtyl.class);
     choices.add(UnlockedFlame.class);
     choices.add(UnlockedHand.class);
     choices.add(UnlockedIceCream.class);

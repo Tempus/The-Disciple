@@ -40,8 +40,8 @@
   },
   "WakeUpCall": {
       "NAME": "Wake Up Call",
-      "DESCRIPTION": "If the enemy is sleeping or stunned, NL deal !D! damage. NL Self-Retaining.",
-      "UPGRADE_DESCRIPTION": "If the enemy is sleeping or stunned, NL deal !D! damage. NL Self-Retaining."
+      "DESCRIPTION": "When the enemy is sleeping or stunned next, NL deal !D! damage.",
+      "UPGRADE_DESCRIPTION": "When the enemy is sleeping or stunned next, NL deal !D! damage."
   },
   "PreemptiveStrike": {
       "NAME": "Pre-emptive Strike",
@@ -79,7 +79,7 @@
   "TiringSlam": {
       "NAME": "Tiring Slam",
       "DESCRIPTION": "Deal !D! damage. NL Exhaust a card in your hand.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust a card from your hand, draw pile, or discard pile."
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust a card from ANY of your cards."
   },
   "Rewind": {
       "NAME": "Rewind",
@@ -343,10 +343,10 @@
       "DESCRIPTION": "Unlocks a [#EFC851]Calipers Replica.",
       "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Calipers+ Replica."
   },
-  "LockedCarbon": {
-      "NAME": "Locked Carbon",
-      "DESCRIPTION": "Unlocks a [#EFC851]Carbonhydrate Replica.",
-      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Carbonhydrate+ Replica."
+  "LockedTurtyl": {
+      "NAME": "Locked Twirtle",
+      "DESCRIPTION": "Unlocks a [#EFC851]Paper [#EFC851]Twirtle Replica.",
+      "UPGRADE_DESCRIPTION": "Unlocks a [#EFC851]Paper [#EFC851]Twirtle+ Replica."
   },
   "LockedNitrogen": {
       "NAME": "Locked Nitrogen",
@@ -542,7 +542,7 @@
   "LockedCalendar": {
       "NAME": "Locked Calendar",
       "DESCRIPTION": "Unlocks a [#EFC851]Stone [#EFC851]Calendar Replica.",
-      "UPGRADE_DESCRIPTION": "Innate. Unlocks a [#EFC851]Stone [#EFC851]Calendar+ Replica."
+      "UPGRADE_DESCRIPTION": "Innate. NL Unlocks a [#EFC851]Stone [#EFC851]Calendar+ Replica."
   },
   "FormalWear": {
       "NAME": "Formal Wear",

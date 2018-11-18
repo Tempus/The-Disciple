@@ -1,67 +1,40 @@
 {
-  "ArtifactorA": {
-    "NAME": "Artifactor",
+  "Artifactor": {
+    "NAME": "The Forger's Studio",
     "DESCRIPTIONS": [
-      "It's a piece of cake to bake a pretty cake. This dude thinks your replicas could be better, and will make you one. What type do you want?",
-      "He does! You get a relic that makes replicas.",
-      "You leave, nyah."
+      "You wander upon a #y~strange~ #y~building.~ Inside, what seems to be a collection of famous #bcurios, #prelics, and #rbaubles adorn the tables haphazardly. At the back, you see a small counter and on it lies a #ykat. Beside it are four labelled boxes and the sign #g@'Take@ #g@One'.@",
+      "Reaching into the box, you feel #runcomfortable, #r@unspeakable@ sensations. Latching onto to something solid, your hand emerges clutching a #grelic gingerly.",
+      "You walk slowly towards the exit, the #ykat peering at you beneath hooded #reyes with a small smirk of its own."
     ],
     "OPTIONS": [
       "[Armor] #gObtain #ga #gRelic.",
       "[Weapon] #gObtain #ga #gRelic.",
-      "[Bottle] #gObtain #ga #gRelic, one less energy on the first turn of combat.",
-      "[Leave]"
-    ]
-  },
-  "ArtifactorB": {
-    "NAME": "Artifactor",
-    "DESCRIPTIONS": [
-      "It's a piece of cake to bake a pretty cake. This dude thinks your replicas could be better, and will make you one. What type do you want?",
-      "He does! You get a relic that makes replicas.",
-      "You leave, nyah."
-    ],
-    "OPTIONS": [
-      "[Armor] #gObtain #ga #gRelic.",
-      "[Weapon] #gObtain #ga #gRelic.",
-      "[Bottle] #gObtain #ga #gRelic, one less energy on the first turn of combat.",
-      "[Leave]"
-    ]
-  },
-  "ArtifactorC": {
-    "NAME": "Artifactor",
-    "DESCRIPTIONS": [
-      "A dude says he can maybe make better replicas than what you've got. Specializes in bottles.",
-      "He does! You get a relic that makes replicas.",
-      "You leave, nyah."
-    ],
-    "OPTIONS": [
-      "[Replicate a Bottled Flame] #gObtain #ga #grelic.",
-      "[Replicate a Bottled Lightning] #gObtain #ga #gRelic.",
-      "[Replicate a Bottled Tornado] #gObtain #ga #gRelic.",
+      "[Oddity] #gObtain #ga #gRelic.",
+      "[Bottle] #gObtain #ga #gRelic, #rone #rless #renergy on the first turn of combat.",
       "[Leave]"
     ]
   },
   "Replicator": {
-    "NAME": "Replicator",
+    "NAME": "Counterfeiting",
     "DESCRIPTIONS": [
-      "They'll transform 3 cards into Locked Replicas.",
-      "twingeAmazing",
-      "chronoTicked"
+      "You come across a familiar #ykat perched by the side of the room. It's studying a group of #yrelic #ypaintings intently. There are spots for #gtwo #gmore #gpaintings lying empty in the dust.",
+      "The #ykat stretches, gives you a glance, and saunters away. As you look down, you notice that only the two of yours remain, but they #garen't #gthe #gsame as when you placed them seconds ago.",
+      "You don't trust a #ykat, and you never will. Let them #r@stare@ all they like."
     ],
     "OPTIONS": [
-      "[Transform] #gTransform #g2 #gcards into random #gReplica #gcards of the same rarity.",
+      "[Transform] #gTransform #g2 #gcards into random #gReplica #gcards of the same #yrarity.",
       "[Leave]"
     ]
   },
   "Relicator": {
     "NAME": "Relicator",
     "DESCRIPTIONS": [
-      "Turn a replica card into a relic, at a cost.",
-      "chronoSnug",
-      "twingeEvil"
+      "A smug looking #ykat sits atop a #gpile #gof #grelics. You have never seen two #grelics alike, but here there are dozens and dozens that could be twins. It ~gazes~ at you, as if in invitation.",
+      "Walking away with your offering, it returns a short time later, and deposits a #grelic in your outstretched hand. It #rbites #ryour #r@finger@ painfully as you pull the hand away.",
+      "Your policy has always been to not pick fights with creatures #rmore #rpowerful than you, and this one seems content to let you #gpass."
     ],
     "OPTIONS": [
-      "[Craft] Choose a replica, lose it, gain that relic. Gain a Pain.",
+      "[Craft] Choose a #yreplica, lose it, and gain that #grelic. #rCurse #r- #rPain.",
       "[Leave]"
     ]
   }  

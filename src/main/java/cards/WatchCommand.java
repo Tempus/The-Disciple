@@ -40,11 +40,6 @@ public class WatchCommand extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new WatchCommand();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

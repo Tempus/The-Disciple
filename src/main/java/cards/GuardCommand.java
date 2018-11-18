@@ -47,11 +47,6 @@ public class GuardCommand extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new GuardCommand();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

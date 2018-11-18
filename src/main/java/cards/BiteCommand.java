@@ -52,11 +52,6 @@ public class BiteCommand extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new BiteCommand();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

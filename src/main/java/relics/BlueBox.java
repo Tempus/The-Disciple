@@ -54,6 +54,8 @@ public class BlueBox extends CustomRelic {
             }
         }
 
+        if (timeWarpCards.size() <= 0) { return; }
+
         this.cardSelected = false;
         if (AbstractDungeon.isScreenUp)
         {

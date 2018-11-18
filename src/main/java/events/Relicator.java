@@ -151,9 +151,6 @@ public class Relicator
       switch (buttonPressed)
       {
       case 0: 
-        this.pickCard = true;
-          ChronoMod.log("pls plsplsplplpslsplsplspslpslsplspslpslsplspslpslspslpslspslpslspslpslspslpslspslpslspslpslspslps.");
-
         CardGroup choosers = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
           if (c.hasTag(Enum.REPLICA_CARD)) {
@@ -162,14 +159,19 @@ public class Relicator
           }
         }
 
+        this.imageEventText.updateBodyText(REPLICATE_RESULT);
+        this.screenNum = 2;         
+        this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+
+        // There's no replicas to pick
+        if (choosers.size() <= 0) { return; } 
+
+        this.pickCard = true;
         AbstractDungeon.gridSelectScreen.open(choosers, 1, "Choose a card to turn into a real boy", false, false, false, true);
 
         AbstractCard curse = new Pain();
         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2, Settings.HEIGHT / 2));
 
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);
-        this.screenNum = 2;         
-        this.imageEventText.updateDialogOption(0, OPTIONS[1]);
         break;
       case 1: 
         this.screenNum = 2;

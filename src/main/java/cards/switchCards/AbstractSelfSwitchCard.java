@@ -154,7 +154,7 @@ public abstract class AbstractSelfSwitchCard extends MetricsCard {
 		AbstractSelfSwitchCard card = (AbstractSelfSwitchCard)makeCopy();
 		card.switchTo(this.currentID);
 
-		for (int i = 0; i < this.timesUpgraded; i++) {
+		if (this.upgraded) {
 		  card.upgrade();
 		}
 		card.name = this.name;

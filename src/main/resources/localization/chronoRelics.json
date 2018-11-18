@@ -1,7 +1,7 @@
 {
-  "Carbonhydrate": {
-    "NAME": "Carbonhydrate",
-    "FLAVOR": "Lack of a proper diet can yield to adverse health effects and poor physical condition.",
+  "Paper Turtyl": {
+    "NAME": "Paper Twirtle",
+    "FLAVOR": "Just holding on to this makes you feel faster.",
     "DESCRIPTIONS": [
       "#ySlowed enemies begin with an additional three #ySlow."
     ]
@@ -10,14 +10,14 @@
     "NAME": "Chronometer",
     "FLAVOR": "Proper measurement yields greater efficiency, or so you have been taught.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy less until played, and you're immune to Confusion."
+      "Retained cards cost 1 energy each turn they remain in your hand, until they leave your hand."
     ]
   },
   "Chronograph": {
     "NAME": "Chronograph",
     "FLAVOR": "Ermm, description pending.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy less until played, are upgraded for the battle, and you're immune to Confusion. Replaces Chronometer."
+      "Retained cards cost 1 energy each and are upgraded until the end of combat for turn they remain in your hand, until they leave your hand. Replaces Chronometer."
     ]
   },
   "Cryopreserver": {
@@ -63,65 +63,148 @@
       "Add #b2 cards to your deck from the cards you skipped over earlier."
     ]
   },
+
+  "SpikedShell": {
+    "NAME": "Spiked Shell",
+    "FLAVOR": "The spiral curves alluringly.",
+    "DESCRIPTIONS": [
+      "If you have no cards left in your hand at the end of your turn, deal #b",
+      " Fibonacchi damage for each card played this turn to a random enemy."
+    ]
+  },
+  "SpringShield": {
+    "NAME": "Spring Shield",
+    "FLAVOR": "The further back you pull, the more satisfying the thunk.",
+    "DESCRIPTIONS": [
+      "Delayed attacks play a ward each turn before they activate."
+    ]
+  },
+  "HeavySwitch": {
+    "NAME": "Heavy Switch",
+    "FLAVOR": "It used to be light.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, retain up to one additional card for each self-retaining card in hand, self-retaining cards no longer self-retain."
+    ]
+  },
+  "SleevePocket": {
+    "NAME": "Sleeve Pocket",
+    "FLAVOR": "I bet you could hide a few useful things in here and no one would be the wiser.",
+    "DESCRIPTIONS": [
+      "Choose up to 5 cards from your deck. If any are in your draw pile, you are guaranteed to draw one each turn.",
+      "Choose up to 5 cards for ",
+      "You are guaranteed to draw one of ",
+      " each turn if they are in your draw pile."
+    ]
+  },
+  "MysticCrockPot": {
+    "NAME": "Mystic Crock Pot",
+    "FLAVOR": "The slow cooker is the best way to let your cards stew for a bit.",
+    "DESCRIPTIONS": [
+      "For each turn they are retained, cards gain 10% more damage and block until played."
+    ]
+  },
+  "WaitingRoom": {
+    "NAME": "Waiting Room",
+    "FLAVOR": "In order to survive the waiting room, you must have patience.",
+    "DESCRIPTIONS": [
+      "Once per combat, if you play no cards in a turn the enemies will fall asleep."
+    ]
+  },
+
   "Carbonhydrate?": {
     "NAME": "Carbonhydrate?",
-    "FLAVOR": "Chicken",
+    "FLAVOR": "It looks almost like a real Carbonhydrate.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yCarbon #yreplica."
     ]
   },
   "Flame?": {
     "NAME": "Flame?",
-    "FLAVOR": "Peas",
+    "FLAVOR": "It looks almost like a real Bottled Flame.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yFlame #yreplica."
     ]
   },
   "Lightning?": {
     "NAME": "Lightning?",
-    "FLAVOR": "Cake",
+    "FLAVOR": "It looks almost like a real Bottled Lightning.",
     "DESCRIPTIONS": [
-      "At the start of each combat, #yUnlock #ya #yLightning #yreplica."
+      "At the start of each combat, #yUnlock #ya #yThunder #yreplica."
     ]
   },
   "Mercury?": {
     "NAME": "Mercury?",
-    "FLAVOR": "Eggs",
+    "FLAVOR": "It looks almost like a real Mercury Hourglass.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yMercury #yreplica."
     ]
   },
   "Orichalcum?": {
     "NAME": "Orichalcum?",
-    "FLAVOR": "Basil",
+    "FLAVOR": "It looks almost like a real Orichalcum.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yOrichalcum #yreplica."
     ]
   },
   "Thread?": {
     "NAME": "Thread?",
-    "FLAVOR": "Summer",
+    "FLAVOR": "It looks almost like a real Thread and Needle.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yThread #yreplica."
     ]
   },
   "Tornado?": {
     "NAME": "Tornado?",
-    "FLAVOR": "Spirit Poop",
+    "FLAVOR": "It looks almost like a real Bottle Tornado.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yTornado #yreplica."
     ]
   },
   "WarPaint?": {
     "NAME": "War Paint?",
-    "FLAVOR": "Onions",
+    "FLAVOR": "It looks almost like a real War Paint.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yWar #yPaint #yreplica."
     ]
   },
+  "Nitrogen?": {
+    "NAME": "Cryopreserver?",
+    "FLAVOR": "It looks almost like a real Cryopreserver.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yCryopreserver #yreplica."
+    ]
+  },
+  "Medicine?": {
+    "NAME": "Medical Kit?",
+    "FLAVOR": "It looks almost like a real Medical Kit.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yMedical #yKit #yreplica."
+    ]
+  },
+  "Hand?": {
+    "NAME": "Mummified Hand?",
+    "FLAVOR": "It looks almost like a real Mummified Hand.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yMummified #yHand #yreplica."
+    ]
+  },
+  "Scales?": {
+    "NAME": "Bronze Scales?",
+    "FLAVOR": "It looks almost like a real Bronze Scales.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yBronze #yScales #yreplica."
+    ]
+  },
+  "IceCream?": {
+    "NAME": "Ice Cream?",
+    "FLAVOR": "It looks almost like a real Ice Cream.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, #yUnlock #ya #yIce #yCream #yreplica."
+    ]
+  },
   "Whetstone?": {
     "NAME": "Whetstone?",
-    "FLAVOR": "Coconut",
+    "FLAVOR": "It looks almost like a real Whetstone.",
     "DESCRIPTIONS": [
       "At the start of each combat, #yUnlock #ya #yWhetstone #yreplica."
     ]

@@ -9,14 +9,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.actions.ExhaustFromDeckAction;
 
 
-public class Cuckoo extends MetricsCard {
+public class Cuckoo extends AbstractSelfRetainingCard {
 	public static final String ID = "Cuckoo";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -31,28 +32,13 @@ public class Cuckoo extends MetricsCard {
 
 		this.baseMagicNumber = BLOCK_AMT;
 		this.magicNumber = this.baseMagicNumber;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-CUCKOO"));
 		AbstractDungeon.actionManager.addToBottom(new ExhaustFromDeckAction(this.magicNumber));
-	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Cuckoo();
 	}
 
 	@Override

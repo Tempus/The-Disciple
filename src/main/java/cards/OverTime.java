@@ -61,11 +61,6 @@ public class OverTime extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new OverTime();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

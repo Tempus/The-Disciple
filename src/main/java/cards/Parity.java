@@ -101,11 +101,6 @@ public class Parity extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Parity();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

@@ -1,0 +1,181 @@
+
+Disciple.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Simple Disciple Newmask/Scythe
+  rotate: false
+  xy: 182, 1
+  size: 191, 135
+  orig: 191, 135
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Rear_Back
+  rotate: false
+  xy: 182, 253
+  size: 193, 54
+  orig: 193, 54
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Rear_Forward
+  rotate: false
+  xy: 375, 1
+  size: 89, 152
+  orig: 89, 152
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Foot
+  rotate: false
+  xy: 182, 138
+  size: 164, 113
+  orig: 164, 113
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Front_Rear
+  rotate: false
+  xy: 377, 259
+  size: 102, 86
+  orig: 102, 86
+  offset: 0, 0
+  index: -1
+tentacle_center
+  rotate: false
+  xy: 1, 1
+  size: 179, 766
+  orig: 179, 766
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Front_Central
+  rotate: false
+  xy: 377, 155
+  size: 86, 102
+  orig: 86, 102
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Body
+  rotate: false
+  xy: 357, 347
+  size: 69, 111
+  orig: 69, 111
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Clock
+  rotate: false
+  xy: 466, 1
+  size: 27, 40
+  orig: 27, 40
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Shoulder_Cape
+  rotate: false
+  xy: 262, 309
+  size: 93, 86
+  orig: 93, 86
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Neck_cord
+  rotate: false
+  xy: 466, 70
+  size: 30, 12
+  orig: 30, 12
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Right
+  rotate: false
+  xy: 501, 61
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Middle
+  rotate: false
+  xy: 501, 50
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Left
+  rotate: false
+  xy: 498, 72
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Cleric_Head
+  rotate: false
+  xy: 428, 400
+  size: 60, 50
+  orig: 60, 50
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/headpiece
+  rotate: false
+  xy: 428, 452
+  size: 60, 39
+  orig: 60, 39
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/earring_left
+  rotate: false
+  xy: 485, 50
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/earring_right
+  rotate: false
+  xy: 243, 457
+  size: 56, 12
+  orig: 56, 12
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Loincloth
+  rotate: false
+  xy: 182, 309
+  size: 78, 105
+  orig: 78, 105
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Belt
+  rotate: false
+  xy: 182, 416
+  size: 59, 40
+  orig: 59, 40
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Left_'arm'
+  rotate: false
+  xy: 428, 347
+  size: 74, 51
+  orig: 74, 51
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Right_'arm'
+  rotate: false
+  xy: 262, 397
+  size: 88, 58
+  orig: 88, 58
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Gold_Key
+  rotate: false
+  xy: 466, 43
+  size: 17, 25
+  orig: 17, 25
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Bone_Key
+  rotate: false
+  xy: 495, 1
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+Simple Disciple Newmask/Iron_Key
+  rotate: false
+  xy: 495, 24
+  size: 12, 24
+  orig: 12, 24
+  offset: 0, 0
+  index: -1

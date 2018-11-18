@@ -39,11 +39,6 @@ public class Defend_Bronze extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Defend_Bronze();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

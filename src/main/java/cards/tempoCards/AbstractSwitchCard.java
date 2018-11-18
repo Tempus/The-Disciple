@@ -87,27 +87,14 @@ public abstract class AbstractSwitchCard extends MetricsCard {
 			if (newTarget == null) { return; }
 
         	Hitbox target = newTarget.hb;
-        	// Gdx.input.setCursorPosition((int)target.cX, Settings.HEIGHT - (int)target.cY);
-			// this.cardToPreview.current_x = target.cX;
-			// this.cardToPreview.current_y = Settings.HEIGHT - target.cY;
 
 			this.cardToPreview.current_x = Gdx.input.getX() + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F);
 			this.cardToPreview.current_y = Settings.HEIGHT - Gdx.input.getY() + ((AbstractCard.IMG_HEIGHT / 2.0F) / 1.5F);
 
-		    // if ((AbstractDungeon.player != null) && (AbstractDungeon.player.isDraggingCard)) {
-		    //     return;
-		    // }
-
-		    // 	//						x    = card center	  + half the card width 			 + half the preview width 					  + Padding			* Viewport scale * drawscale
-	   	 //    if (this.current_x > Settings.WIDTH * 0.75F) {
-		    //     this.cardToPreview.current_x = this.current_x + (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
-		    // } else {
-		    //     this.cardToPreview.current_x = this.current_x - (((AbstractCard.IMG_WIDTH / 2.0F) + ((AbstractCard.IMG_WIDTH / 2.0F) / 1.5F) + (CARD_TIP_PAD)) * this.drawScale);
-		    // }
-
-	     //    this.cardToPreview.current_y = this.current_y + ((AbstractCard.IMG_HEIGHT / 2.0F) - (AbstractCard.IMG_HEIGHT / 2.0F / 1.5F)) * this.drawScale;
-
 	        this.cardToPreview.drawScale = tmpScale;
+			if (AbstractDungeon.player.hasRelic("Runic Dome")) {
+				this.cardToPreview.setLocked();
+			}
 	        this.cardToPreview.render(sb);
 	    }
 	}

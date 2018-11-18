@@ -49,11 +49,6 @@ public class Break extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Break();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

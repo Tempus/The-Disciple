@@ -36,6 +36,7 @@ public class Facsimile extends MetricsCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	private static final int COST = -1;
 	private static final int RELIC_CAP = 3;
@@ -55,7 +56,7 @@ public class Facsimile extends MetricsCard {
 
 		relicList.add(new Pair("Blood Vial", 		UnlockedBlood.class));
 		relicList.add(new Pair("StoneCalendar", 	UnlockedCalendar.class));
-		relicList.add(new Pair("Carbonhydrate", 	UnlockedCarbon.class));
+		relicList.add(new Pair("Paper Turtyl", 		UnlockedTurtyl.class));
 		relicList.add(new Pair("Bottled Flame", 	UnlockedFlame.class));
 		relicList.add(new Pair("Bottled Lightning", UnlockedLightning.class));
 		relicList.add(new Pair("Bottled Tornado", 	UnlockedTornado.class));
@@ -102,7 +103,10 @@ public class Facsimile extends MetricsCard {
    			end = " NL Currrently you can't replicate any of your relics.";
    		}
 	    
-	    this.rawDescription = DESCRIPTION + end;	    	
+	    this.rawDescription = DESCRIPTION + end;
+	    if (this.upgraded) {
+	    	this.rawDescription = UPGRADE_DESCRIPTION + end;
+	    }	
       	this.initializeDescription();
    	}
 
@@ -227,11 +231,6 @@ public class Facsimile extends MetricsCard {
 	 				AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
 			}
 	    }
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Facsimile();
 	}
 
 	@Override

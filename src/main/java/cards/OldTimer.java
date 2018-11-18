@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -38,6 +39,7 @@ public class OldTimer extends MetricsCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-CHIME"));
         AbstractDungeon.actionManager.addToBottom(
             new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
     }
@@ -59,11 +61,6 @@ public class OldTimer extends MetricsCard {
         this.baseDamage = (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() * this.magicNumber);
         super.applyPowers();
         initializeDescription();
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        return new OldTimer();
     }
 
     @Override

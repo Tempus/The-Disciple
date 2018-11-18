@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
 
-public class Backlash extends MetricsCard {
+public class Backlash extends AbstractSelfRetainingCard {
 	public static final String ID = "Backlash";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -34,7 +34,7 @@ public class Backlash extends MetricsCard {
 		this.baseDamage = 0;
 		this.baseMagicNumber = MULTI;
 		this.magicNumber = MULTI;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
@@ -47,12 +47,6 @@ public class Backlash extends MetricsCard {
 		}
 	}
 
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
 	public void calculateCardDamage(AbstractMonster mo) {
 		this.baseDamage = mo.currentBlock * this.magicNumber;
 		super.calculateCardDamage(mo);
@@ -62,16 +56,6 @@ public class Backlash extends MetricsCard {
 		this.baseDamage = 0;
 		this.damage = 0;
 		super.update();
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Backlash();
 	}
 
 	@Override

@@ -37,11 +37,6 @@ public class Ward extends MetricsCard {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 	}
 
-	@Override
-	public AbstractCard makeCopy() {
-		return new Ward();
-	}
-
     public void triggerOnExhaust() {
    		AbstractDungeon.player.limbo.group.remove(this);
     	AbstractDungeon.player.exhaustPile.addToTop(this);

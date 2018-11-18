@@ -77,11 +77,6 @@ public class PrimeTime extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new PrimeTime();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

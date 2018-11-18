@@ -29,13 +29,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.RetainOncePower;
 
 
-public class Analog extends MetricsCard {
+public class Analog extends AbstractSelfRetainingCard {
 	public static final String ID = "Analog";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -66,18 +66,13 @@ public class Analog extends MetricsCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 
-		this.retain = true;
+		this.retains = true;
 
     	TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("powers/powers.atlas"));
     	this.icons.put("strength", 	new texTip(atlas.findRegion("128/strength")));
     	this.icons.put("dexterity", new texTip(atlas.findRegion("128/dexterity")));
     	this.icons.put("artifact", 	new texTip(atlas.findRegion("128/artifact")));
     	this.icons.put("retain", 	new texTip(new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/RetainOnce.png"), 0, 0, 84, 84)));
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
 	}
 
 	@Override
@@ -128,11 +123,6 @@ public class Analog extends MetricsCard {
 
 	    	}
 		}
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Analog();
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
-
+import chronomuncher.powers.DelayedLoseStrengthPower;
 
 public class HandsUp extends MetricsCard {
 	public static final String ID = "HandsUp";
@@ -45,12 +45,7 @@ public class HandsUp extends MetricsCard {
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
 		AbstractDungeon.actionManager.addToBottom(
-			new ApplyPowerAction(m, p, new GainStrengthPower(m, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new HandsUp();
+			new ApplyPowerAction(m, p, new DelayedLoseStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
 	}
 
 	@Override

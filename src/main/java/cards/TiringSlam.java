@@ -48,11 +48,6 @@ public class TiringSlam extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new TiringSlam();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

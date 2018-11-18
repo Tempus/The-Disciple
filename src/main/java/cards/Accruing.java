@@ -10,12 +10,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
 
-public class Accruing extends MetricsCard {
+public class Accruing extends AbstractSelfRetainingCard {
 	public static final String ID = "Accruing";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -39,19 +39,9 @@ public class Accruing extends MetricsCard {
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 	}
 
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
 	@Override
 	public void atTurnStart() {
 		this.baseDamage = fibbonacci(AbstractDungeon.player.hand.size());
-
-		if (this.upgraded) {
-			this.retain = true;
-		}
 	}
 
 	@Override
@@ -67,14 +57,9 @@ public class Accruing extends MetricsCard {
     }
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Accruing();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
-			this.retain = true;
+			this.retains = true;
 			upgradeName();
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();

@@ -71,11 +71,6 @@ public class FormalWear extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new FormalWear();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

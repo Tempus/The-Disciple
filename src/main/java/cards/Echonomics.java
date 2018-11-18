@@ -42,11 +42,6 @@ public class Echonomics extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Echonomics();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

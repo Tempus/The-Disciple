@@ -9,13 +9,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 
 
-public class WindUp extends MetricsCard {
+public class WindUp extends AbstractSelfRetainingCard {
 	public static final String ID = "WindUp";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -31,29 +32,14 @@ public class WindUp extends MetricsCard {
 				AbstractCard.CardTarget.ENEMY);
 
 		this.baseDamage = ATTACK_DMG;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-WINDUP"));
 		AbstractDungeon.actionManager.addToBottom(
 			new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new WindUp();
 	}
 
 	@Override

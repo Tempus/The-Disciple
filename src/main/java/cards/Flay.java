@@ -70,11 +70,6 @@ public class Flay extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new Flay();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

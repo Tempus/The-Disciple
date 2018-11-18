@@ -47,12 +47,6 @@ public class VestedLegacy extends MetricsCard {
 		AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileAction(card, DECK_WARDS, true, true));			
 	}
 
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new VestedLegacy();
-	}
-
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {

@@ -78,11 +78,6 @@ public class CrunchTime extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new CrunchTime();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

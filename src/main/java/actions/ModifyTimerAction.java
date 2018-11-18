@@ -33,6 +33,7 @@ public class ModifyTimerAction
       if (this.amount > 0) {
         CardCrawlGame.sound.play("CHRONO-SPEEDUP", 0.2F);
         this.orb.timer++;
+        this.orb.timeElapsed--;
         this.amount--;
       }
       else {

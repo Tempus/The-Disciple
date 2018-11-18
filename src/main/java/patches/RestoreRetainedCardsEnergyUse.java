@@ -1,5 +1,6 @@
 package chronomuncher.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 
@@ -26,6 +27,7 @@ import basemod.ReflectionHacks;
 import chronomuncher.ChronoMod;
 import chronomuncher.cards.PrimeTime;
 import chronomuncher.actions.EndTurnResetAttributesAction;
+import chronomuncher.patches.RetainedForField;
 
 public class RestoreRetainedCardsEnergyUse {
 
@@ -37,6 +39,8 @@ public class RestoreRetainedCardsEnergyUse {
 		{
 			if ( AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) {
 	            e.modifyCostForTurn(-1);
+				int kept = RetainedForField.retainedFor.get(e);
+	            RetainedForField.retainedFor.set(e, kept+1);
 			}
     		if ( AbstractDungeon.player.hasRelic("Chronograph")) {
 		      if (e.canUpgrade())
@@ -69,6 +73,8 @@ public class RestoreRetainedCardsEnergyUse {
 					&& (AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) 
 			    	) {
 					__instance.modifyCostForTurn(-1);
+					int kept = RetainedForField.retainedFor.get(__instance);
+		            RetainedForField.retainedFor.set(__instance, kept+1);
 					__instance.isCostModifiedForTurn = true;
 		    		if ( AbstractDungeon.player.hasRelic("Chronograph")) {
 				      if (__instance.canUpgrade())
@@ -86,6 +92,7 @@ public class RestoreRetainedCardsEnergyUse {
 						// ChronoMod.log(__instance.cardID + "'s cost was reset, no Pyramid or not in hand.");
 					    __instance.costForTurn = __instance.cost;
 					    __instance.isCostModifiedForTurn = false;			
+			            RetainedForField.retainedFor.set(__instance, 0);
 					}
 				} else {
 					if (AbstractDungeon.player.hasRelic("Runic Pyramid") 
@@ -95,6 +102,8 @@ public class RestoreRetainedCardsEnergyUse {
 						// Decrease cost here?
 						// ChronoMod.log(__instance.cardID + " was retained with Runic Pyramid active, and is in your hand.");
 					    __instance.modifyCostForTurn(-1);
+						int kept = RetainedForField.retainedFor.get(__instance);
+			            RetainedForField.retainedFor.set(__instance, kept+1);
 					    __instance.isCostModifiedForTurn = true;
 					    __instance.retain = false;
 					} 

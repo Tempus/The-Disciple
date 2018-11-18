@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
@@ -38,12 +39,8 @@ public class Tempo extends AbstractSwitchCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-SHARP1"));
 		AbstractDungeon.actionManager.addToTop(new IntentTransformAction(p, m, this));
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Tempo();
 	}
 
 	@Override

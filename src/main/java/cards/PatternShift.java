@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.RandomXS128;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.vfx.PatternShiftPreviewEffect;
 import chronomuncher.patches.Enum;
@@ -28,7 +28,7 @@ import basemod.ReflectionHacks;
 import java.lang.reflect.*;
 
 
-public class PatternShift extends MetricsCard {
+public class PatternShift extends AbstractSelfRetainingCard {
 	public static final String ID = "PatternShift";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -36,7 +36,6 @@ public class PatternShift extends MetricsCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	private static final int COST = 0;
-	public static int rollSeed = 0;
 	public EnemyMoveInfo move;
 	public EnemyMoveInfo nextMove;
 	public AbstractMonster newTarget;
@@ -46,6 +45,8 @@ public class PatternShift extends MetricsCard {
 	public PatternShift() {
 		super(ID, NAME, "chrono_images/cards/PatternShift.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY);
+
+		this.retains = true;
 	}
 
 	@Override
@@ -60,17 +61,6 @@ public class PatternShift extends MetricsCard {
 		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
 		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
 		AbstractDungeon.effectsQueue.add(new PatternLinesEffect(m.intentHb.cX, m.intentHb.cY));
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.rollSeed = AbstractDungeon.aiRng.random(99);
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new PatternShift();
 	}
 
 	@Override
@@ -123,7 +113,7 @@ public class PatternShift extends MetricsCard {
 
 			// Remove the move we added, and the one we're about to readd
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
-		    if (this.newTarget.moveHistory.size() > 1)
+		    if (this.newTarget.moveHistory.size() > 0)
 		    this.newTarget.moveHistory.remove(this.newTarget.moveHistory.size() - 1);
 
 		    // Set old move

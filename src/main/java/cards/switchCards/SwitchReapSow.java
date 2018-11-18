@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.localization.CardStrings;
-
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -59,8 +61,10 @@ public class SwitchReapSow extends AbstractSelfSwitchCard {
 		switch (this.currentID) {
 			case "Reap":
 			    AbstractDungeon.actionManager.addToBottom(
-			    	new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL)); 
-				break;
+			    	new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE)); 
+			    AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
+			    AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new CleaveEffect(), 0.1F));
+    			break;
 			case "Sow":
 				AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));

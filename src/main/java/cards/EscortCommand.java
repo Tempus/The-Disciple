@@ -69,11 +69,6 @@ public class EscortCommand extends MetricsCard {
 	}
 
 	@Override
-	public AbstractCard makeCopy() {
-		return new EscortCommand();
-	}
-
-	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

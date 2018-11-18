@@ -20,8 +20,8 @@
       " #yBlock rather than all of your #yBlock."
     ]
   },
-  "Carbon": {
-    "NAME": "Carbon",
+  "Turtyl": {
+    "NAME": "Paper Twirtle",
     "DESCRIPTION": [
       "Adds #b3 additional slow to slowed enemies at the start of your turn.",
       "Applies #b3 slow to ALL enemies at the start of your turn."
@@ -142,8 +142,8 @@
   "MawBank": {
     "NAME": "Maw Bank",
     "DESCRIPTION": [
-      "Gain #g12 gold on shattering.",
-      "Gain #g16 gold on shattering."
+      "Gain #g12 gold at the end of Combat if Maw Bank Replica hasn't been shattered.",
+      "Gain #g16 gold at the end of Combat if Maw Bank Replica hasn't been shattered."
     ]
   }, 
   "Astrolabe": {

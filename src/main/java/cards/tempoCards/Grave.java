@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.powers.FocusPower;
 import chronomuncher.powers.HastePower;
 import chronomuncher.powers.SleepPower;
 import chronomuncher.powers.StunPower;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -65,6 +66,8 @@ public class Grave extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(
 			new ApplyPowerAction(m, p, new SleepPower(m, this.magicNumber), this.magicNumber));
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("SLEEP_BLANKET"));
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-SHORTSLEEP"));
 
 
 	}

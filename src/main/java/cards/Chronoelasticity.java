@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.defect.SeekAction;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.powers.SlowPower;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -49,6 +50,7 @@ public class Chronoelasticity extends MetricsCard {
 	    }
 	    if (effect > 0)
 	    {
+        	AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-ELASTIC"));
 	      for (int i = 0; i < effect; i++)
 	      {
 		    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -65,11 +67,6 @@ public class Chronoelasticity extends MetricsCard {
 	      }
 	    }
    	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Chronoelasticity();
-	}
 
 	@Override
 	public void upgrade() {

@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 
-import chronomuncher.cards.MetricsCard;
+import chronomuncher.cards.AbstractSelfRetainingCard;
 import chronomuncher.ChronoMod;
 import chronomuncher.patches.Enum;
 import chronomuncher.powers.HastePower;
 
 
-public class TickedOff extends MetricsCard {
+public class TickedOff extends AbstractSelfRetainingCard {
 	public static final String ID = "TickedOff";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
@@ -31,29 +31,13 @@ public class TickedOff extends MetricsCard {
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseBlock = BLOCK;
-		this.retain = true;
+		this.retains = true;
 	}
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new HastePower(p, 0), 0));
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-	}
-
-	public void onMoveToDiscard() {
-		super.onMoveToDiscard();
-		this.costForTurn = this.cost;
-		this.isCostModifiedForTurn = false;
-	}
-
-	@Override
-	public void atTurnStart() {
-		this.retain = true;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new TickedOff();
 	}
 
 	@Override

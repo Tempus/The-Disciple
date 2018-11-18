@@ -45,13 +45,14 @@ public class Pendulum extends MetricsCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, m, new TimeDilatePower(m, this.magicNumber), this.magicNumber, true));
-		AbstractDungeon.actionManager.addToBottom(new SFXAction("SINGING_BOWL"));
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-TICKINGCLEAN"));
 	}
 
 	@Override
 	public List<TooltipInfo> getCustomTooltips() {
 		this.tips.clear();
 
+		if (AbstractDungeon.getCurrMapNode() == null) { return this.tips; }
 		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return this.tips; }
 		
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -63,11 +64,6 @@ public class Pendulum extends MetricsCard {
 		}
 
 	    return this.tips;
-	}
-
-	@Override
-	public AbstractCard makeCopy() {
-		return new Pendulum();
 	}
 
 	@Override
