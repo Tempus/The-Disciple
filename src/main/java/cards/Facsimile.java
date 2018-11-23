@@ -68,11 +68,9 @@ public class Facsimile extends MetricsCard {
 		relicList.add(new Pair("Orichalcum", 		UnlockedOrichalcum.class));
 		relicList.add(new Pair("Thread and Needle", UnlockedThread.class));
 		relicList.add(new Pair("Bird Faced Urn", 	UnlockedUrn.class));
-		relicList.add(new Pair("Chronometer", 		UnlockedPlans.class));
-		relicList.add(new Pair("Chronograph", 		UnlockedPlans.class));
+		relicList.add(new Pair("Metronome", 		UnlockedPlans.class));
 		relicList.add(new Pair("War Paint", 		UnlockedWarPaint.class));
 		relicList.add(new Pair("Whetstone", 		UnlockedWhetstone.class));
-
 		relicList.add(new Pair("MawBank", 			UnlockedMawBank.class));
 		relicList.add(new Pair("Anchor", 			UnlockedAnchor.class));
 		relicList.add(new Pair("Astrolabe", 		UnlockedAstrolabe.class));
@@ -100,7 +98,7 @@ public class Facsimile extends MetricsCard {
    		String plural = (this.replicaStrings.size() > 1) ? "s" : "";
    		String end = " NL Currently " + Integer.toString(this.replicaStrings.size()) + " relic" + plural + " can be replicated.";
    		if (this.replicaStrings.size() == 0) {
-   			end = " NL Currrently you can't replicate any of your relics.";
+   			end = " NL Currrently you will only replicate Rocks.";
    		}
 	    
 	    this.rawDescription = DESCRIPTION + end;
@@ -118,10 +116,8 @@ public class Facsimile extends MetricsCard {
 	    for (AbstractRelic relic : AbstractDungeon.player.relics) {
 			for (Pair<String, Class> replica : relicList) {
 				if (replica.getKey() == relic.relicId) {
-					if (replica.getKey() == "Chronometer") {
+					if (replica.getKey() == "Metronome") {
 						this.replicaStrings.add("Plans from " + relic.name);
-					} else if (replica.getKey() == "Chronograph") {
-						this.replicaStrings.add("Plans+ from " + relic.name);
 					} else if (replica.getKey() == "Blue Candle") {
 						this.replicaStrings.add("Medicine+ from " + relic.name);
 					} else {

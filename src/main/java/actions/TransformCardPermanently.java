@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.relics.BottledLightning;
 import com.megacrit.cardcrawl.relics.BottledTornado;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -61,7 +63,7 @@ public class TransformCardPermanently extends AbstractGameAction {
 		this.transformee.purgeOnUse = true;
 
   		// And add it to the deck
-		AbstractDungeon.player.masterDeck.addToBottom(this.transformToCard);
+		AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(this.transformToCard, Settings.WIDTH / 2.0F + (AbstractCard.IMG_WIDTH + 16.0F) * Settings.scale, Settings.HEIGHT / 2.0F));
 
 		// Update Bottles
 		 if (this.transformee.inBottleFlame) { 

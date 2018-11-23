@@ -31,25 +31,21 @@ import chronomuncher.patches.RetainedForField;
 
 public class RestoreRetainedCardsEnergyUse {
 
-	@SpirePatch(cls = "com.megacrit.cardcrawl.actions.unique.RestoreRetainedCardsAction", method="update")
-	public static class Update {
-	
-		@SpireInsertPatch( rloc = 7, localvars={"e"} )
-		public static void Insert(RestoreRetainedCardsAction __instance, AbstractCard e)
-		{
-			if ( AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) {
-	            e.modifyCostForTurn(-1);
-				int kept = RetainedForField.retainedFor.get(e);
-	            RetainedForField.retainedFor.set(e, kept+1);
-			}
-    		if ( AbstractDungeon.player.hasRelic("Chronograph")) {
-		      if (e.canUpgrade())
-		      {
-		        e.superFlash();
-		        e.upgrade();
-		        e.applyPowers();
-		      }
-  			}
+	public static void lowerCostFromRetain(AbstractCard c) {
+		c.modifyCostForTurn(-1);
+		int kept = RetainedForField.retainedFor.get(c);
+		RetainedForField.retainedFor.set(c, kept+1);
+		c.isCostModifiedForTurn = true;
+	}
+
+	public static void upgradeFromChronograph(AbstractCard c) {
+		if ( AbstractDungeon.player.hasRelic("Chronograph")) {
+		  if (c.canUpgrade())
+		  {
+			c.superFlash();
+			c.upgrade();
+			c.applyPowers();
+		  }
 		}
 	}
 
@@ -58,58 +54,35 @@ public class RestoreRetainedCardsEnergyUse {
 	
 		public static void Replace(AbstractCard __instance)
 		{
-		    __instance.block = __instance.baseBlock;
-		    __instance.isBlockModified = false;
-		    __instance.damage = __instance.baseDamage;
-		    __instance.isDamageModified = false;
-		    __instance.magicNumber = __instance.baseMagicNumber;
-		    __instance.isMagicNumberModified = false;
-		    __instance.damageTypeForTurn = (DamageInfo.DamageType)ReflectionHacks.getPrivate(__instance, AbstractCard.class, "damageType");
+			__instance.block = __instance.baseBlock;
+			__instance.isBlockModified = false;
+			__instance.damage = __instance.baseDamage;
+			__instance.isDamageModified = false;
+			__instance.magicNumber = __instance.baseMagicNumber;
+			__instance.isMagicNumberModified = false;
+			__instance.damageTypeForTurn = (DamageInfo.DamageType)ReflectionHacks.getPrivate(__instance, AbstractCard.class, "damageType");
 
+			// Check required for Compendium
 			if (AbstractDungeon.player != null) {
 
-			    if (AbstractDungeon.player.hasPower("Equilibrium") 
-			    	&& AbstractDungeon.player.hand.contains(__instance)
-					&& (AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) 
-			    	) {
-					__instance.modifyCostForTurn(-1);
-					int kept = RetainedForField.retainedFor.get(__instance);
-		            RetainedForField.retainedFor.set(__instance, kept+1);
-					__instance.isCostModifiedForTurn = true;
-		    		if ( AbstractDungeon.player.hasRelic("Chronograph")) {
-				      if (__instance.canUpgrade())
-				      {
-				        __instance.superFlash();
-				        __instance.upgrade();
-				        __instance.applyPowers();
-				      }
-		  			}
-					return;
-			    }
+				// We have a discounting relic, and the card is in the player's hand
+				if ((AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) 
+					&& AbstractDungeon.player.hand.contains(__instance)
+					&& ((__instance.retain == true) || AbstractDungeon.player.hasPower("Equilibrium"))) {
+					// lower costs and such
+					RestoreRetainedCardsEnergyUse.lowerCostFromRetain(__instance);
+					RestoreRetainedCardsEnergyUse.upgradeFromChronograph(__instance);
+				}
 
-				if ( __instance.retain == false) { 
-					if (!AbstractDungeon.player.hasRelic("Runic Pyramid") || !AbstractDungeon.player.hand.contains(__instance)) {
-						// ChronoMod.log(__instance.cardID + "'s cost was reset, no Pyramid or not in hand.");
-					    __instance.costForTurn = __instance.cost;
-					    __instance.isCostModifiedForTurn = false;			
-			            RetainedForField.retainedFor.set(__instance, 0);
+				// No discounting relic exists
+				else {
+					if ((AbstractDungeon.player.hasRelic("Runic Pyramid") && RetainedForField.retainedFor.get(__instance) > 0) 
+					&& (AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph"))) {
+						return;
 					}
-				} else {
-					if (AbstractDungeon.player.hasRelic("Runic Pyramid") 
-						&& __instance.retain 
-						&& (AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) 
-						&& AbstractDungeon.player.hand.contains(__instance)) {
-						// Decrease cost here?
-						// ChronoMod.log(__instance.cardID + " was retained with Runic Pyramid active, and is in your hand.");
-					    __instance.modifyCostForTurn(-1);
-						int kept = RetainedForField.retainedFor.get(__instance);
-			            RetainedForField.retainedFor.set(__instance, kept+1);
-					    __instance.isCostModifiedForTurn = true;
-					    __instance.retain = false;
-					} 
-					// else {
-					// 	ChronoMod.log(__instance.cardID + " did not qualify for cost decrease. In hand is " + Boolean.toString(AbstractDungeon.player.hand.contains(__instance)));
-					// }
+					__instance.costForTurn = __instance.cost;
+					__instance.isCostModifiedForTurn = false;			
+					RetainedForField.retainedFor.set(__instance, 0);
 				}
 			}
 		}
@@ -144,9 +117,9 @@ public class RestoreRetainedCardsEnergyUse {
 	
 		public static void Replace(AbstractPower __instance, boolean isPlayer)
 		{
-		    if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
+			if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
 				AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(__instance.owner, __instance.amount));
-		    }
+			}
 		}
 	}
 }

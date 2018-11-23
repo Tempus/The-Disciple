@@ -1,5 +1,19 @@
 Changelog:
 
+0.10.6
+
+	Art: Added new art for Spiked Shell.
+	Art: Added new art for Heavy Switch.
+	Art: Added new art for Hanging Clock, thanks and credit to RedDyeNo5.
+	Balance: Flay+ now does 4 damage instead of 5.
+	Feedback: Tempo and BPM now show the resulting card going to your deck.
+	Text: Paper Twirtle now correctly specifies its effect occurs each turn.
+	Text: Facsimile now specifes you get rocks when no relics are available.
+	Bug: Fixed a bug where Wards exhausted twice when played.
+	Bug: Retain code is cleaner, and no longer causes issues with Runic Pyramid discounts on other characters.
+	Bug: Flay+ now correctly readds the right amount of strength (instead of always 1).
+	Bug: Tempo cards now add to the correct spot of your deck.
+
 0.10.5
 
 	Feature: Now supports Heart victories with effects and cutscenes! First mod to do so. The cutscene art is STILL IN BETA.

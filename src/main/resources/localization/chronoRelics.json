@@ -3,21 +3,21 @@
     "NAME": "Paper Twirtle",
     "FLAVOR": "Just holding on to this makes you feel faster.",
     "DESCRIPTIONS": [
-      "#ySlowed enemies begin with an additional three #ySlow."
+      "#ySlowed enemies begin each turn with an additional three #ySlow."
     ]
   },
   "Chronometer": {
     "NAME": "Chronometer",
     "FLAVOR": "Proper measurement yields greater efficiency, or so you have been taught.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy each turn they remain in your hand, until they leave your hand."
+      "Retained cards cost 1 energy less each turn they remain in your hand, until they leave your hand."
     ]
   },
   "Chronograph": {
     "NAME": "Chronograph",
     "FLAVOR": "Ermm, description pending.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy each and are upgraded until the end of combat for turn they remain in your hand, until they leave your hand. Replaces Chronometer."
+      "Retained cards cost 1 energy less each and are upgraded until the end of combat for turn they remain in your hand, until they leave your hand. Replaces Chronometer."
     ]
   },
   "Cryopreserver": {

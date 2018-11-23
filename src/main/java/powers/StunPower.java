@@ -75,7 +75,7 @@ public class StunPower extends AbstractPower
     }
 
     if (!isPlayer && (this.owner instanceof AbstractMonster)) { 
-      this.monster.setMove((byte)-1, AbstractMonster.Intent.STUN); 
+      this.monster.setMove((byte)-2, AbstractMonster.Intent.STUN); 
       this.monster.createIntent();
 
       if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())

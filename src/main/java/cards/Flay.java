@@ -57,13 +57,13 @@ public class Flay extends MetricsCard {
 	 		    	new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.multiDamage[i]), -this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
 
 	 		    if (!mo.hasPower("Artifact")) {
-		 		    if (this.upgraded) {
+		 		    // if (this.upgraded) {
 			 		    AbstractDungeon.actionManager.addToBottom(
 			 		    	new ApplyPowerAction(mo, p, new DelayedGainStrengthPower(mo, this.magicNumber, this.multiDamage[i]), this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
-			 		} else {
-			 			AbstractDungeon.actionManager.addToBottom(
-		          			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.multiDamage[i]), this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
-			 		}
+			 		// } else {
+			 		// 	AbstractDungeon.actionManager.addToBottom(
+		    //       			new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.multiDamage[i]), this.multiDamage[i], true, AbstractGameAction.AttackEffect.NONE));
+			 		// }
 			 	}
 			}
 		}
@@ -73,7 +73,7 @@ public class Flay extends MetricsCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(UPGRADE_PLUS_DMG);
+			// upgradeDamage(UPGRADE_PLUS_DMG);
 			upgradeMagicNumber(SHRINK_UPGRADE);
       		this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
