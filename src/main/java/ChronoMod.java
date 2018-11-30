@@ -140,7 +140,8 @@ public class ChronoMod implements
         Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
 
-        BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
+        // BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
+        // BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
         this.loadAudio();
     }
 
@@ -283,12 +284,12 @@ public class ChronoMod implements
     public void receiveEditCards() {
         logger.info("Adding cards....");
 
-        setCompendiumSwitchCards();
-        // BaseMod.addCard(new SwitchReapSow());
-        // BaseMod.addCard(new SwitchExoVibe());
-        // BaseMod.addCard(new SwitchGoo());
-        // BaseMod.addCard(new SwitchSavings());
-        // BaseMod.addCard(new SwitchSharpShooter());
+        // setCompendiumSwitchCards();
+        BaseMod.addCard(new SwitchReapSow());
+        BaseMod.addCard(new SwitchExoVibe());
+        BaseMod.addCard(new SwitchGoo());
+        BaseMod.addCard(new SwitchSavings());
+        BaseMod.addCard(new SwitchSharpShooter());
 
         // BaseMod.addCard(new ASecondTooLate());
         BaseMod.addCard(new Accelerando());

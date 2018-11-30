@@ -87,7 +87,7 @@ public class TimeDilatePower extends AbstractPower
   @Override
   public void stackPower(int stackAmount){
     super.stackPower(stackAmount);
-    this.onInitialApplication();
+    // this.onInitialApplication();
   }  
   
   public void atEndOfRound()

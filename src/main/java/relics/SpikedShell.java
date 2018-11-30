@@ -28,11 +28,17 @@ public class SpikedShell extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + (fibbonacci(AbstractDungeon.actionManager.cardsPlayedThisTurn.size())+1) + this.DESCRIPTIONS[1];
+        int y = 0;
+        if (AbstractDungeon.player != null) {
+            y = AbstractDungeon.player.cardsPlayedThisTurn;
+        }
+
+        return this.DESCRIPTIONS[0] + fibbonacci(y) + this.DESCRIPTIONS[1] + (fibbonacci(y)+1) + this.DESCRIPTIONS[2];
     }
     
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         flash();
+        this.counter = fibbonacci(AbstractDungeon.player.cardsPlayedThisTurn);
         this.description = getUpdatedDescription();
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
@@ -40,13 +46,27 @@ public class SpikedShell extends CustomRelic {
     }
 
     public void trigger() {
-        if (AbstractDungeon.player.hand.size() == 0) {
+        if (AbstractDungeon.player.hand.size() + AbstractDungeon.player.limbo.size() == 0) {
             flash();
+            this.counter = fibbonacci(AbstractDungeon.actionManager.cardsPlayedThisTurn.size());
             AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(AbstractDungeon.player, fibbonacci(AbstractDungeon.actionManager.cardsPlayedThisTurn.size()), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(AbstractDungeon.player, fibbonacci(AbstractDungeon.player.cardsPlayedThisTurn), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
             AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            this.reset();
         }
+    }
+
+    public void onPlayerEndTurn() { this.reset(); }
+    public void atTurnStart() { this.reset(); this.counter = 0; }
+    public void onVictory() { this.reset(); }
+
+    public void reset() {
+        this.counter = -1;
+        this.description = getUpdatedDescription();
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        initializeTips();
     }
 
     public static int fibbonacci(int position) {

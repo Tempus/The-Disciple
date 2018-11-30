@@ -139,6 +139,9 @@ public class Artifactor
       this.imageEventText.clearRemainingOptions();
       break;
     default: 
+      AbstractDungeon.eventList.remove("Artifactor");
+      AbstractDungeon.eventList.remove("Artifactor");
+      AbstractDungeon.eventList.remove("Artifactor");
       openMap();
     }
   }

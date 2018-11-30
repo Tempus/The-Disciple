@@ -1,5 +1,47 @@
 Changelog:
 
+0.10.7
+
+	Art: New art for Strike.
+	Art: New art for Analog.
+	Art: New art for Second Hand.
+	Art: New art for relic Slippery Goo.
+	Art: New art for relic Chronograph.
+	Art: New art for relic Cryopreserver.
+	Art: New art for relic Metronome.
+	Art: Relic Hanging Clock's Outline is fixed.
+	Art: Update the outline for Spring Shield.
+	Art: New art for event Relicator.
+	Art: New art for event Replicator.
+	Text: Capitalization was unified across keywords.
+	Text: Stun was added as a keyword.
+	Text: Sleep was added as a keyword.
+	Text: Condensed the description for Chronometer and Chronograph.
+	Text: Spring Forward extraneous plural removed.
+	Text: Improved text on Wake Up Call.
+	Text: Spelling changed from Recurrance to Recurrence.
+	Text: Artifact depluralized in Analog.
+	Text: Fixed Text of Spiked Shell.
+	Text: Recurrence no longer highlights hits in green mistakenly on upgrade.
+	Text: Pendulum now specifies a targeted enemy.
+	Text: Description for Wake Up Call improved.
+	Text: Spiked Shell description improved.
+	Feature: Spiked Shell now shows a counter for the damage.
+	Feature: Added support for Googly Eyes mod.
+	Balance: Changed the frequency of the Artifactor event to twice normal.
+	Bug: Spiked Shell now reports the correct damage in its description.
+	Bug: Time Dilate no longer attempts to put additional buffs into itself after Recurrence is used on it.
+	Bug: Fixed a bug where unseen cards wouldn't have a description available on upgrade.
+	Bug: Fixed a huge memory sink on Analog in the Library, due to MegaCrit coding issues.
+	Bug: TinyCardPatch no longer has compatibility issues with other mods.
+	Bug: Fixed an issue with Pattern Shift not shifting Peppermint correctly on his first turn.
+	Bug: Resonant Call now works correctly with Pattern Shift preview.
+	Bug: Fixed a Runic Pyramid bug affecting discarded discounted cards.
+	Bug: Card retention should no longer affect other mods adversely.
+	Bug: Fragmentalize now correctly shatters replicas before doing the damage from them.
+	Bug: Wake Up Call power now correctly shows the damage it'll do.
+	Bug: Spiked Shell no longer ignores self-retaining cards.
+
 0.10.6
 
 	Art: Added new art for Spiked Shell.
@@ -13,6 +55,7 @@ Changelog:
 	Bug: Retain code is cleaner, and no longer causes issues with Runic Pyramid discounts on other characters.
 	Bug: Flay+ now correctly readds the right amount of strength (instead of always 1).
 	Bug: Tempo cards now add to the correct spot of your deck.
+	Bug: Pointy can now be put to sleep and stunned properly.
 
 0.10.5
 

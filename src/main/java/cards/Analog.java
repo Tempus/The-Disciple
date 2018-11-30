@@ -56,7 +56,7 @@ public class Analog extends AbstractSelfRetainingCard {
 		}
 	}
 
-	public HashMap<String, texTip> icons = new HashMap();
+	public static HashMap<String, texTip> icons = new HashMap();
 	private ArrayList<texTip> renderQueue = new ArrayList();
 
 	public Analog() {
@@ -68,11 +68,13 @@ public class Analog extends AbstractSelfRetainingCard {
 
 		this.retains = true;
 
-    	TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("powers/powers.atlas"));
-    	this.icons.put("strength", 	new texTip(atlas.findRegion("128/strength")));
-    	this.icons.put("dexterity", new texTip(atlas.findRegion("128/dexterity")));
-    	this.icons.put("artifact", 	new texTip(atlas.findRegion("128/artifact")));
-    	this.icons.put("retain", 	new texTip(new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/RetainOnce.png"), 0, 0, 84, 84)));
+		if (icons.size() == 0) {
+	    	TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("powers/powers.atlas"));
+	    	this.icons.put("strength", 	new texTip(atlas.findRegion("128/strength")));
+	    	this.icons.put("dexterity", new texTip(atlas.findRegion("128/dexterity")));
+	    	this.icons.put("artifact", 	new texTip(atlas.findRegion("128/artifact")));
+	    	this.icons.put("retain", 	new texTip(new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/RetainOnce.png"), 0, 0, 84, 84)));
+	    }
 	}
 
 	@Override
@@ -120,7 +122,6 @@ public class Analog extends AbstractSelfRetainingCard {
 		    		AbstractDungeon.actionManager.addToBottom(
 		    			new ApplyPowerAction(p,p,new RetainOncePower(this.magicNumber),this.magicNumber,true));
 		    	}
-
 	    	}
 		}
 	}
@@ -149,7 +150,7 @@ public class Analog extends AbstractSelfRetainingCard {
 	public void renderCardTip(SpriteBatch sb) {
 		super.renderCardTip(sb);
 
-		if (AbstractDungeon.player == null) { return; }
+		if (!CardCrawlGame.isInARun()) { return; }
 		if ((Settings.hideCards) || (!this.bullshit)) { return; }
 		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return; }
 

@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -77,52 +79,37 @@ public class WakeUpCallPower extends AbstractPower
     updateDescription();
   }
 
+  public void atStartOfTurn() { updateDescription(); }
+  public void atEndOfRound() { updateDescription(); }
+  public void atEndOfTurn(boolean isPlayer) { updateDescription(); }
+  public void onAfterUseCard(AbstractCard card, UseCardAction action) { updateDescription(); }
+
   @Override
   public void updateDescription()
   {
     if (!this.owner.isDead) {
       this.applyPowers();
-      this.amount = this.damage.output;
-      this.description = DESCRIPTIONS[0] + this.damage.output + DESCRIPTIONS[1];
+      this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
   }
 
   public void applyPowers() {
-    this.damage.output = this.damage.base;
-    this.damage.isModified = false;
-    float tmp = this.damage.output;
-    float mod;
-      for (AbstractPower p : this.owner.powers)
-      {
+    float tmp = this.damage.base;
+      for (AbstractPower p : AbstractDungeon.player.powers) {
         tmp = p.atDamageGive(tmp, this.damage.type);
-        if (this.damage.base != (int)tmp) {
-          this.damage.isModified = true;
-        }
       }
-      for (AbstractPower p : AbstractDungeon.player.powers)
-      {
+      for (AbstractPower p : this.owner.powers) {
         tmp = p.atDamageReceive(tmp, this.damage.type);
-        if (this.damage.base != (int)tmp) {
-          this.damage.isModified = true;
-        }
       }
-      for (AbstractPower p : this.owner.powers)
-      {
+      for (AbstractPower p : AbstractDungeon.player.powers) {
         tmp = p.atDamageFinalGive(tmp, this.damage.type);
-        if (this.damage.base != (int)tmp) {
-          this.damage.isModified = true;
-        }
       }
-      for (AbstractPower p : AbstractDungeon.player.powers)
-      {
+      for (AbstractPower p : this.owner.powers) {
         tmp = p.atDamageFinalReceive(tmp, this.damage.type);
-        if (this.damage.base != (int)tmp) {
-          this.damage.isModified = true;
-        }
       }
-      this.damage.output = MathUtils.floor(tmp);
-      if (this.damage.output < 0) {
-        this.damage.output = 0;
+      this.amount = MathUtils.floor(tmp);
+      if (this.amount < 0) {
+        this.amount = 0;
       }
   }
 }

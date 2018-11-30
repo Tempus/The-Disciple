@@ -67,8 +67,8 @@ public class PatternShiftAction extends AbstractGameAction {
 		switch(m.id) {
 
 			// firstTurn only
-			case "AwakenedOne":
 			case "Chosen":
+			case "AwakenedOne":
 			case "Snecko":
 				ReflectionHacks.setPrivate(m, m.getClass(), "firstTurn", false);
 				break;
@@ -209,13 +209,6 @@ public class PatternShiftAction extends AbstractGameAction {
 
 				m.createIntent();
 				return true;
-
-			// Spheric Guardian has a secondTurn as well
-			case "SphericGuardian":
-				ReflectionHacks.setPrivate(m, m.getClass(), "firstMove", false);
-				firstMove = (boolean)ReflectionHacks.getPrivate(m, m.getClass(), "firstMove");
-				if (!firstMove) { ReflectionHacks.setPrivate(m, m.getClass(), "secondMove", false); }
-				break;
 
 			// The Collector has all sorts of stuff, but you can skip his ult
 			case "TheCollector":

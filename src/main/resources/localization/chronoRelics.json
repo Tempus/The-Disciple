@@ -1,23 +1,16 @@
 {
-  "Paper Turtyl": {
-    "NAME": "Paper Twirtle",
-    "FLAVOR": "Just holding on to this makes you feel faster.",
-    "DESCRIPTIONS": [
-      "#ySlowed enemies begin each turn with an additional three #ySlow."
-    ]
-  },
   "Chronometer": {
     "NAME": "Chronometer",
     "FLAVOR": "Proper measurement yields greater efficiency, or so you have been taught.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy less each turn they remain in your hand, until they leave your hand."
+      "Cards in your hand cost 1 less energy for each turn they are retained."
     ]
   },
   "Chronograph": {
     "NAME": "Chronograph",
     "FLAVOR": "Ermm, description pending.",
     "DESCRIPTIONS": [
-      "Retained cards cost 1 energy less each and are upgraded until the end of combat for turn they remain in your hand, until they leave your hand. Replaces Chronometer."
+      "Cards in your hand cost 1 less energy and are upgraded for each turn they are retained. Replaces Chronometer."
     ]
   },
   "Cryopreserver": {
@@ -49,6 +42,13 @@
       "Start each combat with Haste."
     ]
   },
+  "Paper Turtyl": {
+    "NAME": "Paper Twirtle",
+    "FLAVOR": "Just holding on to this makes you feel faster.",
+    "DESCRIPTIONS": [
+      "#ySlowed enemies begin each turn with an additional three #ySlow."
+    ]
+  },
   "Metronome": {
     "NAME": "Metronome",
     "FLAVOR": "Tick... tick... tick...",
@@ -69,7 +69,8 @@
     "FLAVOR": "The spiral curves alluringly.",
     "DESCRIPTIONS": [
       "If you have no cards left in your hand at the end of your turn, deal #b",
-      " Fibonacchi damage for each card played this turn to a random enemy."
+      " Fibonacci damage to a random enemy. Damage increases along the Fibonacci series for each card played this turn. The next card you play will increase it to #b",
+      " damage."
     ]
   },
   "SpringShield": {

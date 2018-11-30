@@ -92,5 +92,20 @@
       "drawdown"
     ],
     "DESCRIPTION": "Decreases your card draw temporarily."
+  },
+  "SLEEP": {
+    "NAMES": [
+      "sleep",
+      "asleep",
+      "sleeping"
+    ],
+    "DESCRIPTION": "Sleeping creatures are unable to act for their turn. They will wake up if they take damage."
+  },
+  "STUN": {
+    "NAMES": [
+      "stun",
+      "stunned"
+    ],
+    "DESCRIPTION": "Stunned creatures are unable to act for their turn."
   }
 }

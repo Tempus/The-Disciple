@@ -139,6 +139,12 @@ public class ResonantCall extends AbstractSelfRetainingCard {
 				this.parityUpdate(); }}
 	}
 
+	@Override
+	public void update() {
+		super.update();
+		if (this.mimic != null) { this.mimic.update(); }
+	}
+
 	public void parityUpdate() {
 		String ATTACKIMG = "chrono_images/cards/Parity.png";
 		String SKILLIMG = "chrono_images/cards/ParityS.png";	

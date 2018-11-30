@@ -48,9 +48,9 @@ public class Fragmentalize extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractOrb o : p.orbs) {
             if (o instanceof ReplicaOrb) {
+		        AbstractDungeon.actionManager.addToBottom(new ShatterAction((ReplicaOrb)o));
 				AbstractDungeon.actionManager.addToBottom(
 	    			new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL)); 
-		        AbstractDungeon.actionManager.addToBottom(new ShatterAction((ReplicaOrb)o));
         	}
         }
    	}

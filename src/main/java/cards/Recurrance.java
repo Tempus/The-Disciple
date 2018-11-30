@@ -100,7 +100,7 @@ public class Recurrance extends MetricsCard {
 		if (!this.upgraded) {
 			upgradeName();
 			upgradeDamage(2);
-			upgradeMagicNumber(HITS_UPGRADE);
+			// upgradeMagicNumber(HITS_UPGRADE);
 		}
 	}
 }

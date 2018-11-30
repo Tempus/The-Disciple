@@ -31,8 +31,8 @@
   },
   "Backlash": {
       "NAME": "Backlash",
-      "DESCRIPTION": "Deal !D! damage. NL Deals double the enemy's block in damage. NL Self-Retaining.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals triple the enemy's block in damage. NL Self-Retaining."
+      "DESCRIPTION": "Deal !D! damage. NL Deals double the enemy's Block in damage. NL Self-Retaining.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deals triple the enemy's Block in damage. NL Self-Retaining."
   },
   "Engulf": {
       "NAME": "Engulf",
@@ -40,8 +40,8 @@
   },
   "WakeUpCall": {
       "NAME": "Wake Up Call",
-      "DESCRIPTION": "When the enemy is sleeping or stunned next, NL deal !D! damage.",
-      "UPGRADE_DESCRIPTION": "When the enemy is sleeping or stunned next, NL deal !D! damage."
+      "DESCRIPTION": "Will deal a !D! damage attack when the targeted enemy is Sleeping or Stunned.",
+      "UPGRADE_DESCRIPTION": "Will deal a !D! damage attack when the targeted enemy is Sleeping or Stunned."
   },
   "PreemptiveStrike": {
       "NAME": "Pre-emptive Strike",
@@ -88,12 +88,12 @@
   },
   "Flay": {
       "NAME": "Flay",
-      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! strength for one turn.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! strength for two turns."
+      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! Strength for one turn.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! Strength for two turns."
   },
   "Recurrance": {
-      "NAME": "Recurrance",
-      "DESCRIPTION": "Deal !D! damage !M! times. NL Apply !M! additional debuffs to each existing debuff."
+      "NAME": "Recurrence",
+      "DESCRIPTION": "Deal !D! damage !M! times. NL Apply !M! additional Debuffs to each existing Debuff."
   },
   "OldTimer": {
       "NAME": "Old Timer",
@@ -164,7 +164,7 @@
   },
   "HandsUp": {
       "NAME": "Hands Up",
-      "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! strength at the end of their turn."
+      "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength at the end of their turn."
   },
   "Stagnate": {
       "NAME": "Stagnate",
@@ -235,8 +235,8 @@
   },
   "Exocoating": {
       "NAME": "Exo-coating",
-      "DESCRIPTION": "Gain !M! plated armor. NL Switches into Coated Vibrissa.",
-      "UPGRADE_DESCRIPTION": "Gain !M! plated armor. NL Switches into Coated Vibrissa+."
+      "DESCRIPTION": "Gain !M! [#EFC851]Plated Armor. NL Switches into Coated Vibrissa.",
+      "UPGRADE_DESCRIPTION": "Gain !M! [#EFC851]Plated Armor. NL Switches into Coated Vibrissa+."
   },
   "ForgedGuard": {
       "NAME": "Forged Guard",
@@ -245,8 +245,8 @@
   },
   "CraftedGuard": {
       "NAME": "Crafted Guard",
-      "DESCRIPTION": "Gain !M! plated armor. NL Degrades into Natural Guard.",
-      "UPGRADE_DESCRIPTION": "Gain !M! plated armor. NL Degrades into Natural Guard+."
+      "DESCRIPTION": "Gain !M! [#EFC851]Plated Armor. NL Degrades into Natural Guard.",
+      "UPGRADE_DESCRIPTION": "Gain !M! [#EFC851]Plated Armor. NL Degrades into Natural Guard+."
   },
   "NaturalGuard": {
       "NAME": "Natural Guard",
@@ -272,7 +272,7 @@
   },
   "Pendulum": {
       "NAME": "Pendulum",
-      "DESCRIPTION": "Remove enemy buffs for !M! turns. NL Exhaust."
+      "DESCRIPTION": "Remove targeted enemy buffs for !M! turns. NL Exhaust."
   },
   "TimelySolution": {
       "NAME": "Timely Solution",
@@ -281,7 +281,7 @@
   },
   "Analog": {
       "NAME": "Analog",
-      "DESCRIPTION": "Gain !M! Strength, Dexterity, Artifacts, or Retain for each enemy based on its intent. NL Self-Retaining."
+      "DESCRIPTION": "Gain !M! Strength, Dexterity, Artifact, or Retain for each enemy based on its intent. NL Self-Retaining."
   },
   "ShortSighted": {
       "NAME": "Short Sighted",
@@ -410,8 +410,8 @@
   },
   "Tempo": {
       "NAME": "Tempo",
-      "DESCRIPTION": "Permanently transforms into a card based on enemy intent.",
-      "UPGRADE_DESCRIPTION": "Permanently transforms into an upgraded card based on enemy intent."
+      "DESCRIPTION": "Returns to your hand as a permanently transformed card based on enemy intent.",
+      "UPGRADE_DESCRIPTION": "Returns to your hand as a permanently transformed upgraded card based on enemy intent."
   },
   "BeatsPerMinute": { 
       "NAME": "Beats Per Minute",
@@ -494,7 +494,7 @@
   },
   "OldCrunchTime": {
       "NAME": "Crunch Time",
-      "DESCRIPTION": "Gain !M! [E] for each replica. NL Shatter all Replicas."
+      "DESCRIPTION": "Gain !M! [E] for each Replica. NL Shatter all Replicas."
   },
   "CrunchTime": { 
       "NAME": "Crunch Time",
@@ -518,7 +518,7 @@
   "SpringForward": {
       "NAME": "Spring Forward",
       "DESCRIPTION": "Innate. NL Draw !M! cards. NL Switches into Fallback.",
-      "UPGRADE_DESCRIPTION": "Innate. NL Draw 2 cards. NL Retain 1 cards. NL Switches into Fallback+."   
+      "UPGRADE_DESCRIPTION": "Innate. NL Draw 2 cards. NL Retain 1 card. NL Switches into Fallback+."   
   },
   "Fallback": {
       "NAME": "Fallback",

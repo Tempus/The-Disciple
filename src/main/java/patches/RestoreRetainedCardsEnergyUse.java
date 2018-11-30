@@ -2,6 +2,7 @@ package chronomuncher.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 
 import com.megacrit.cardcrawl.actions.unique.RestoreRetainedCardsAction;
@@ -52,39 +53,47 @@ public class RestoreRetainedCardsEnergyUse {
 	@SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method="resetAttributes")
 	public static class resetAttributes {
 	
-		public static void Replace(AbstractCard __instance)
+		public static SpireReturn Prefix(AbstractCard __instance)
 		{
-			__instance.block = __instance.baseBlock;
-			__instance.isBlockModified = false;
-			__instance.damage = __instance.baseDamage;
-			__instance.isDamageModified = false;
-			__instance.magicNumber = __instance.baseMagicNumber;
-			__instance.isMagicNumberModified = false;
-			__instance.damageTypeForTurn = (DamageInfo.DamageType)ReflectionHacks.getPrivate(__instance, AbstractCard.class, "damageType");
-
 			// Check required for Compendium
 			if (AbstractDungeon.player != null) {
 
-				// We have a discounting relic, and the card is in the player's hand
+				// Duplicated because patches suck
+				__instance.block = __instance.baseBlock;
+				__instance.isBlockModified = false;
+				__instance.damage = __instance.baseDamage;
+				__instance.isDamageModified = false;
+				__instance.magicNumber = __instance.baseMagicNumber;
+				__instance.isMagicNumberModified = false;
+				__instance.damageTypeForTurn = (DamageInfo.DamageType)ReflectionHacks.getPrivate(__instance, AbstractCard.class, "damageType");
+
+				// We have a discounting relic, and the card is in the player's hand, and it should be discounted (retain or equilibrium)
 				if ((AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph")) 
 					&& AbstractDungeon.player.hand.contains(__instance)
 					&& ((__instance.retain == true) || AbstractDungeon.player.hasPower("Equilibrium"))) {
 					// lower costs and such
 					RestoreRetainedCardsEnergyUse.lowerCostFromRetain(__instance);
 					RestoreRetainedCardsEnergyUse.upgradeFromChronograph(__instance);
+					return SpireReturn.Return(null);
 				}
 
-				// No discounting relic exists
+				// The card has previously been discounted, and should not be discounted
+				// This only happens if it is in your hand, you have runic pyramid, and it's been retained before
+				else if (AbstractDungeon.player.hand.contains(__instance)
+					&& AbstractDungeon.player.hasRelic("Runic Pyramid")
+					&& RetainedForField.retainedFor.get(__instance) > 0) {
+					// Just leave kthx
+					return SpireReturn.Return(null);
+				}
+
+				// No discounting relic exists, or it shouldn't be discounted
 				else {
-					if ((AbstractDungeon.player.hasRelic("Runic Pyramid") && RetainedForField.retainedFor.get(__instance) > 0) 
-					&& (AbstractDungeon.player.hasRelic("Chronometer") || AbstractDungeon.player.hasRelic("Chronograph"))) {
-						return;
-					}
-					__instance.costForTurn = __instance.cost;
-					__instance.isCostModifiedForTurn = false;			
 					RetainedForField.retainedFor.set(__instance, 0);
+					return SpireReturn.Continue();
 				}
 			}
+
+			return SpireReturn.Continue();
 		}
 	}
 
@@ -115,11 +124,12 @@ public class RestoreRetainedCardsEnergyUse {
 	@SpirePatch(clz = RetainCardPower.class, method="atEndOfTurn")
 	public static class atEndOfTurn {
 	
-		public static void Replace(AbstractPower __instance, boolean isPlayer)
+		public static SpireReturn Prefix(AbstractPower __instance, boolean isPlayer)
 		{
 			if ((isPlayer) && (!AbstractDungeon.player.hand.isEmpty())) {
 				AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(__instance.owner, __instance.amount));
 			}
+			return SpireReturn.Return(null);
 		}
 	}
 }
