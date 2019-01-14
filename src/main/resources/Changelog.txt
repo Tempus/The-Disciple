@@ -1,5 +1,30 @@
 Changelog:
 
+0.10.8
+
+	Release: Steam Release on Workshop.
+	Balance: Echonomics cost reduced to 0 from 1.
+	Balance: BPM buffed from 9(12) damage to 11(15).
+	Balance: Oracle Form buffed from 4(5) cards chosen to 5(6) cards chosen.
+	Balance: Oracle Form choices should occur a bit earlier. (impacts Astrolabe, Bell and Bottled Replicas)
+	Text: Keywords in relic descriptions are now correctly capitalized and coloured.
+	Art: New art for Back Four Seconds.
+	Art: New art for Wind Up.
+	Art: Updated art for Orichalcum Replicas and cards.
+	Art: Updated art for Whetstone Replicas and cards.
+	Art: Updated art for Vivace.
+	Art: Updated art for Allegretto.
+	Art: Updated art for Allegro.
+	Art: Updated art for Lento.
+	Art: Updated art for Rallentando.
+	Art: Updated art for Allegretto.
+	Art: Updated art for Keepsakes.
+	Art: Updated art for Coated Vibrissa.
+	Art: Updated art for Fast Forward.
+	Art: Updated art for Mercury Replica.
+	Bug: Fixed a collision with basemod's whatmod feature on Spring Shield.
+	Bug: Replica? Relics now spawn pre-draw, affecting start of turn replicas like Bottles.
+
 0.10.7
 
 	Art: New art for Strike.
@@ -35,7 +60,7 @@ Changelog:
 	Bug: Fixed a huge memory sink on Analog in the Library, due to MegaCrit coding issues.
 	Bug: TinyCardPatch no longer has compatibility issues with other mods.
 	Bug: Fixed an issue with Pattern Shift not shifting Peppermint correctly on his first turn.
-	Bug: Resonant Call now works correctly with Pattern Shift preview.
+	Bug: Resonant Call now works  correctly with Pattern Shift preview.
 	Bug: Fixed a Runic Pyramid bug affecting discarded discounted cards.
 	Bug: Card retention should no longer affect other mods adversely.
 	Bug: Fragmentalize now correctly shatters replicas before doing the damage from them.

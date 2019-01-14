@@ -58,8 +58,8 @@ public class AuguryPower extends AbstractPower
   public void setHandAmount() {
     this.amount = AbstractDungeon.player.masterHandSize;
 
-    if (!this.upgraded) {
-      this.amount -= 1; }
+    if (this.upgraded) {
+      this.amount += 1; }
 
     if (this.owner.hasPower("Draw Down")) {
       this.amount -= this.owner.getPower("Draw Down").amount; }
@@ -80,7 +80,7 @@ public class AuguryPower extends AbstractPower
     ChronoMod.log("Draw amount for Augury set to: " + Integer.toString(this.amount));
   }
 
-  public void atStartOfTurnPostDraw()
+  public void atStartOfTurn()
   {
     this.setHandAmount();
 

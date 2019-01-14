@@ -25,7 +25,7 @@ public class ReplicaWhetstone extends CustomRelic {
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
     
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         flash();
         AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedWhetstone(false)));
     }

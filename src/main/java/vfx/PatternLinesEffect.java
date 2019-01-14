@@ -39,4 +39,6 @@ public class PatternLinesEffect
     // this.scale -= Gdx.graphics.getDeltaTime() * 22.0F;
     this.rotation += Gdx.graphics.getDeltaTime() * this.rotationSpeed;
   }
+
+  public void dispose() {}
 }

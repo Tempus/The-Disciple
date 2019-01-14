@@ -55,4 +55,6 @@ public class JumpingClockHeartEffect
     sb.setColor(this.color);
     sb.draw(img, this.x, this.y, img.packedWidth / 2.0F, img.packedHeight / 2.0F, img.packedWidth, img.packedHeight, this.scale, this.scale, this.duration * 360.0F);
   }
+
+  public void dispose() {}
 }

@@ -3,21 +3,21 @@
     "NAME": "Chronometer",
     "FLAVOR": "Proper measurement yields greater efficiency, or so you have been taught.",
     "DESCRIPTIONS": [
-      "Cards in your hand cost 1 less energy for each turn they are retained."
+      "Cards in your hand cost 1 less energy for each turn they are #yRetained."
     ]
   },
   "Chronograph": {
     "NAME": "Chronograph",
     "FLAVOR": "Ermm, description pending.",
     "DESCRIPTIONS": [
-      "Cards in your hand cost 1 less energy and are upgraded for each turn they are retained. Replaces Chronometer."
+      "Cards in your hand cost 1 less energy and are #yupgraded for each turn they are #yRetained. Replaces Chronometer."
     ]
   },
   "Cryopreserver": {
     "NAME": "Cryopreserver",
     "FLAVOR": "Freshness is key to retaining great flavour.",
     "DESCRIPTIONS": [
-      "All Replicas have their timers increased by a turn."
+      "All #yReplicas have their timers increased by a turn."
     ]
   },
   "HangingClock": {
@@ -39,7 +39,7 @@
     "NAME": "Slippery Goo",
     "FLAVOR": "Never gonna catch me!",
     "DESCRIPTIONS": [
-      "Start each combat with Haste."
+      "Start each combat with #yHaste."
     ]
   },
   "Paper Turtyl": {
@@ -60,7 +60,7 @@
     "NAME": "Blue Box",
     "FLAVOR": "It doesn't look like all those cards should fit in it...",
     "DESCRIPTIONS": [
-      "Add #b2 cards to your deck from the cards you skipped over earlier."
+      "Add #b2 cards to your deck from the cards you skipped over earlier this run."
     ]
   },
 
@@ -69,7 +69,7 @@
     "FLAVOR": "The spiral curves alluringly.",
     "DESCRIPTIONS": [
       "If you have no cards left in your hand at the end of your turn, deal #b",
-      " Fibonacci damage to a random enemy. Damage increases along the Fibonacci series for each card played this turn. The next card you play will increase it to #b",
+      " #yFibonacci damage to a random enemy. Damage increases along the #yFibonacci series for each card played this turn. NL The next card you play will increase it to #b",
       " damage."
     ]
   },
@@ -77,14 +77,14 @@
     "NAME": "Spring Shield",
     "FLAVOR": "The further back you pull, the more satisfying the thunk.",
     "DESCRIPTIONS": [
-      "Delayed attacks play a ward each turn before they activate."
+      "Delayed attacks play a #yWard each turn before they activate."
     ]
   },
   "HeavySwitch": {
     "NAME": "Heavy Switch",
     "FLAVOR": "It used to be light.",
     "DESCRIPTIONS": [
-      "At the end of your turn, retain up to one additional card for each self-retaining card in hand, self-retaining cards no longer self-retain."
+      "At the end of your turn, #yRetain up to one additional card for each #ySelf-Retaining card in hand, #ySelf-Retaining cards no longer #ySelf-Retain."
     ]
   },
   "SleevePocket": {
@@ -101,14 +101,14 @@
     "NAME": "Mystic Crock Pot",
     "FLAVOR": "The slow cooker is the best way to let your cards stew for a bit.",
     "DESCRIPTIONS": [
-      "For each turn they are retained, cards gain 10% more damage and block until played."
+      "For each turn they are #yRetained, cards gain 10% more damage and #yBlock until played."
     ]
   },
   "WaitingRoom": {
     "NAME": "Waiting Room",
     "FLAVOR": "In order to survive the waiting room, you must have patience.",
     "DESCRIPTIONS": [
-      "Once per combat, if you play no cards in a turn the enemies will fall asleep."
+      "Once per combat, if you play no cards in a turn the enemies will fall #yAsleep."
     ]
   },
 

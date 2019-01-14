@@ -84,4 +84,6 @@ public class SlimeDropletEffect
     
     // sb.setBlendFunction(770, 771);
   }
+
+  public void dispose() {}
 }

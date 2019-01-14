@@ -29,4 +29,6 @@ public class OracleScreenEffect
     this.renderBehind = MathUtils.randomBoolean(0.8F);
     this.scale = (MathUtils.random(12.0F, 20.0F) * Settings.scale);
   }
+
+  public void dispose() {}
 }

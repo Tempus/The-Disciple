@@ -29,7 +29,7 @@ public class OracleForm extends MetricsCard {
 		super(ID, NAME, "chrono_images/cards/OracleForm.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
-		this.baseMagicNumber = 4;
+		this.baseMagicNumber = 5;
 		this.magicNumber = this.baseMagicNumber;
 		this.updateBodyText();
 
@@ -59,7 +59,7 @@ public class OracleForm extends MetricsCard {
 
 	public void updateBodyText() {
 		if (AbstractDungeon.player != null) { 
-			this.magicNumber = AbstractDungeon.player.gameHandSize-1;
+			this.magicNumber = AbstractDungeon.player.gameHandSize;
 			if (this.upgraded) { this.magicNumber++; }
 			if (AbstractDungeon.player.hasPower("Augury")) { 
 				this.baseMagicNumber = 2;

@@ -32,8 +32,8 @@ public class BeatsPerMinute extends AbstractSwitchCard {
     public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	private static final int COST = 1;
-	private static final int ATTACK_DMG = 9;
-	private static final int UPGRADE_PLUS_DMG = 3;
+	private static final int ATTACK_DMG = 11;
+	private static final int UPGRADE_PLUS_DMG = 4;
 
 	public BeatsPerMinute() {
 		super(ID, NAME, "chrono_images/cards/BeatsPerMinute.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,

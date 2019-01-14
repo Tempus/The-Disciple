@@ -25,7 +25,7 @@ public class ReplicaMedicine extends CustomRelic {
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
     
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         flash();
         AbstractDungeon.player.energy.use(1);
         AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedMedicine(false)));

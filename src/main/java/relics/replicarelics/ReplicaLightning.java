@@ -26,7 +26,7 @@ public class ReplicaLightning extends CustomRelic {
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
     
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         flash();
         AbstractDungeon.actionManager.addToBottom(new LoseEnergyAction(1));
         AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(new UnlockedLightning(false)));
