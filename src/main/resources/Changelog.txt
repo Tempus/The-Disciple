@@ -1,5 +1,49 @@
 Changelog:
 
+0.10.10
+
+	Feature: Disciple now features an 'Unlock' button to unlock ascensions without having to climb!
+	Balance: Locked Calendar now costs 2 and does 52 damage, instead of 1 for 40.
+	Balance: Fragmentalize now costs 2 instead of 1.
+	Balance: Flay now does 5(6) damage, and exhausts.
+	Text: Flay's text now more clearly states the relation between the Damage and Debuff.
+	Text: Tooltip text improved for Slow and Haste.
+	*Bug: Oracle Form no longer softlocks if your hand is full at the beginning of the turn.
+	*Bug: Augury no longer misreports the cards Oracle Form lets you pick.
+	Bug: Collision with Servant fixed.
+
+0.10.9
+
+	Balance: Vested Legacy now adds three Wards into your hand instead of four.
+	Balance: Relicator event overhauled to have unique downsides for each Replica card.
+	Balance: Waiting Room is now Rare instead of Common.
+	Balance: Nitrogen? and Unlocked Nitrogen now only increase timers by 1 instead of 2.
+	Balance: Hands Up changed to 6(10) and 1(1) strength down from 6(8) and 1(2) until I figure out how to make it palatable.
+	Balance: Backlash now costs 2 energy instead of 1.
+	Balance: Flay damage decreased from 4 to 3.
+	Balance: Spring Shield now gives 2 block instead of 1 Ward.
+	Card: Curse "Dizzy" added, which causes your hand to be Confused upon draw.
+	Event: Artifactor event now specifies what relics you are recieving.
+	Art: Mummified Hand Replica flashes the card it discounts now.
+	Art: New art for Beats Per Minute.
+	Art: New art for Stagnate.
+	Art: New art for Artifactor event.
+	Art: New art for Nitrogen replica.
+	Relic: Spiked Shell removed.
+	Text: Facsimile Tooltip clarified depending on context.
+	Text: Tempo and Beats per Minute tooltip now correctly identifies that there are 15 tempo cards.
+	Text: Hanging Clock now has the correct energy icon in its tooltip.
+	Text: Chronograph now has a description.
+	Text: All Replica? relics now have tooltips explaining their Replica.
+	Text: Waiting Room now specifies one turn of sleep.
+	Bug: Locked Urn is now correctly tagged as a healing card.
+	Bug: Blue Box should no longer have a confirm button.
+	Bug: Darklings should no longer get block from Break when they are half dead.
+	Bug: War Paint? and Whetstone? now correctly upgrade the first hand.
+	Bug: Unlocks disabled until basemod fix gets pushed upstream.
+	Bug: Waiting Room no longer activates multiple times per battle despite indications it will not.
+	Bug: Unlocks temporarily removed until basemod pushes fixes upstream.
+
 0.10.8
 
 	Release: Steam Release on Workshop.

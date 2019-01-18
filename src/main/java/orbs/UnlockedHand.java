@@ -76,6 +76,7 @@ public class UnlockedHand extends ReplicaOrb
       ChronoMod.log("Card group not empty");
       c = (AbstractCard)groupCopy.get(AbstractDungeon.cardRng.random(groupCopy.size() - 1));
       c.modifyCostForTurn(-this.passiveAmount);
+      c.flash();
     } else {
       ChronoMod.log("Card group is empty");
     }

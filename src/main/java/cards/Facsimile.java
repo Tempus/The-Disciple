@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.RetainCardPower;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import chronomuncher.actions.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -142,8 +143,14 @@ public class Facsimile extends MetricsCard {
 		String amount = Integer.toString(EnergyPanel.totalCount);
 
 		ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
-		tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for " + amount + " of the following relics: " + relicsListed));
-
+		if (CardCrawlGame.isInARun()) {
+			if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+				tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for " + amount + " of the following relics: " + relicsListed));
+			} else {
+				tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for X of the following relics: " + relicsListed));
+			}
+		}
+		
 	    return tips;
 	}
 

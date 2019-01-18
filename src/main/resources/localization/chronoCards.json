@@ -88,8 +88,8 @@
   },
   "Flay": {
       "NAME": "Flay",
-      "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! Strength for one turn.",
-      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Enemies lose !D! Strength for two turns."
+      "DESCRIPTION": "Deal !D! damage to ALL enemies, and they lose that much Strength for one turn. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies, and they lose that much Strength for two turns. NL Exhaust."
   },
   "Recurrance": {
       "NAME": "Recurrence",
@@ -530,7 +530,7 @@
       "DESCRIPTION": "Increase each replica's countdown timer by !M!. NL Switches into Fast Forward.",
       "UPGRADE_DESCRIPTION": "Increase each replica's countdown timer by !M!. NL Switches into Fast Forward+."   
   },
-  "FastForward": {
+  "FastForwardS": {
       "NAME": "Fast Forward",
       "DESCRIPTION": "Each replica counts down and plays !M! card from your draw pile. NL Switches into Clock and Load.",
       "UPGRADE_DESCRIPTION": "Each replica counts down and plays !M! cards from your draw pile. NL Switches into Clock and Load."
@@ -568,5 +568,9 @@
   "Ward": {
       "NAME": "Ward",
       "DESCRIPTION": "Gain !B! Block. NL Exhaust."
+  },
+  "Dizzy": {
+      "NAME": "Dizzy",
+      "DESCRIPTION": "Unplayable. NL Confuses your hand when drawn."
   }
 }

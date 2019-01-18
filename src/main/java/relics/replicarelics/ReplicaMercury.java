@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -19,6 +20,9 @@ public class ReplicaMercury extends CustomRelic {
 
     public ReplicaMercury() {
         super(ID, new Texture("chrono_images/relics/Mercury.png"), new Texture("chrono_images/relics/outline/Mercury.png"), RelicTier.SPECIAL, LandingSound.CLINK);
+
+        this.tips.add(new PowerTip("Mercury", "Deals #g3 damage to ALL enemies at the start of your turn. NL #pShatters #pin #b5 #pturns."));
+        this.initializeTips();
     }
 
     @Override

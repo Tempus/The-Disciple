@@ -25,13 +25,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock.UnlockType;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -140,9 +144,82 @@ public class ChronoMod implements
         Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
         BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
 
-        // BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
-        // BaseMod.addEvent(Artifactor.ID, Artifactor.class, Exordium.ID);
         this.loadAudio();
+
+        // outputSQLListsForMetrics();
+    }
+
+    public void outputSQLListsForMetrics() {
+        ArrayList<AbstractCard> cards = new ArrayList();
+        cards.addAll(CardLibrary.getCardList(EnumLib.CHRONO_GOLD));
+        cards.addAll(CardLibrary.getCardList(CardLibrary.LibraryType.COLORLESS));
+        cards.addAll(CardLibrary.getCardList(CardLibrary.LibraryType.CURSE));
+
+        ChronoMod.log("Cards in cardlist: " + CardLibrary.getCardList(EnumLib.CHRONO_GOLD).size());
+
+        String cardstring = "INSERT INTO `meta_card_data` (`id`, `name`, `character_class`, `neutral`, `invalid`, `rarity`, `type`, `cost`, `description`, `ignore_before`, `updated_on`, `score`, `a0_total`, `a114_total`, `a15_total`, `pick_updated_on`, `a0_pick`, `a114_pick`, `a15_pick`, `a0_not_pick`, `a114_not_pick`, `a15_not_pick`, `up_updated_on`, `a0_up`, `a114_up`, `a15_up`, `a0_purchased`, `a114_purchased`, `a15_purchased`, `a0_purged`, `a114_purged`, `a15_purged`, `wr_updated_on`, `a0_wr`, `a114_wr`, `a15_wr`, `a0_floor`, `a114_floor`, `a15_floor`, `a0_floordetails`, `a114_floordetails`, `a15_floordetails`) VALUES ";
+        cardstring = cardstring + "(0,'',1,0,0,'','','','',NULL,'0000-00-00 00:00:00',0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,'','',''),";
+
+        int i = 0;
+        for (AbstractCard c : cards) {
+            i++;
+            cardstring = cardstring + String.format("(%d,'%s',1,0,0,'%s','%s','%d','%s',NULL,'0000-00-00 00:00:00',0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,0,0,0,'0000-00-00 00:00:00',0,0,0,0,0,0,'','',''),", i, c.cardID, titleCase(c.rarity.name()), titleCase(c.type.name()), c.cost, c.rawDescription.replace("'","\'"));
+        }
+
+        cardstring = cardstring.substring(0, cardstring.length() - 1) + ";/*!40000 ALTER TABLE `meta_card_data` ENABLE KEYS */;";
+
+        ChronoMod.log(cardstring);
+
+        ChronoMod.log(" ");
+        ChronoMod.log(" ");
+        ChronoMod.log(" ");
+
+
+        ArrayList<AbstractRelic> relics = new ArrayList<>();
+        HashMap<String,AbstractRelic> sharedRelics = (HashMap<String,AbstractRelic>)ReflectionHacks.getPrivateStatic(RelicLibrary.class, "sharedRelics");
+        for (AbstractRelic relic : sharedRelics.values()) {
+            relics.add(relic);
+        }
+        for (HashMap.Entry<AbstractCard.CardColor,HashMap<String,AbstractRelic>> entry : BaseMod.getAllCustomRelics().entrySet()) {
+            for (AbstractRelic relic : entry.getValue().values()) {
+                relics.add(relic);
+            }
+        }
+
+        String relicstring = "INSERT INTO `meta_relic_data` (`id`, `name`, `invalid`, `character_class`, `description`, `rarity`, `event_id`, `ignore_before`) VALUES ";
+
+
+        i = 0;
+        for (AbstractRelic relic: relics) {
+            i++;
+            relicstring = relicstring + String.format("(%d,'%s',0,1,'%s','%s',0,'0000-00-00'),", i, relic.name, relic.description, relic.tier.name().toLowerCase());
+        }
+        ChronoMod.log(relicstring);
+
+
+    }
+
+    public static String titleCase(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+     
+        StringBuilder converted = new StringBuilder();
+     
+        boolean convertNext = true;
+        for (char ch : text.toCharArray()) {
+            if (Character.isSpaceChar(ch)) {
+                convertNext = true;
+            } else if (convertNext) {
+                ch = Character.toTitleCase(ch);
+                convertNext = false;
+            } else {
+                ch = Character.toLowerCase(ch);
+            }
+            converted.append(ch);
+        }
+     
+        return converted.toString();
     }
 
     public void loadAudio() {
@@ -193,7 +270,7 @@ public class ChronoMod implements
         BaseMod.addRelicToCustomPool(new SlipperyGoo(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new HangingClock(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new BlueBox(), Enum.CHRONO_GOLD);
-        BaseMod.addRelicToCustomPool(new SpikedShell(), Enum.CHRONO_GOLD);
+        // BaseMod.addRelicToCustomPool(new SpikedShell(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new SpringShield(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new HeavySwitch(), Enum.CHRONO_GOLD);
         BaseMod.addRelicToCustomPool(new MysticCrockPot(), Enum.CHRONO_GOLD);
@@ -252,7 +329,7 @@ public class ChronoMod implements
         h = new SwitchSharpShooter("ClockandLoad");
         h.cardID = "ClockandLoad";
         BaseMod.addCard(h);
-        BaseMod.addCard(new SwitchSharpShooter("FastForward"));
+        BaseMod.addCard(new SwitchSharpShooter("FastForwardS"));
     }
 
     public void setGameSwitchCards() {
@@ -289,7 +366,7 @@ public class ChronoMod implements
         BaseMod.addCard(new SwitchExoVibe());
         BaseMod.addCard(new SwitchGoo());
         BaseMod.addCard(new SwitchSavings());
-        BaseMod.addCard(new SwitchSharpShooter());
+        // BaseMod.addCard(new SwitchSharpShooter());
 
         // BaseMod.addCard(new ASecondTooLate());
         BaseMod.addCard(new Accelerando());
@@ -471,26 +548,34 @@ public class ChronoMod implements
     }
 
     public boolean receivePreMonsterTurn(AbstractMonster m) {
-    //     if (m.ID == "TimeEater" && AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) {
-    //         switch (AbstractDungeon.actionManager.turn) {
-    //             case 0:
-    //                 break;
-    //             case 1:
-    //                 break;
-    //             case 2:
-    //                 break;
-    //             case 3:
-    //                 break;
-    //             case 4:
-    //                 break;
-    //             case 5:
-    //                 break;
-    //             case 6:
-    //                 break;
-    //             case 7:
-    //                 break;
-    //         }
-    //     }
+        if (m.id == "TimeEater" && AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) {
+            switch (AbstractDungeon.actionManager.turn) {
+                case 2:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"What did you forget this time?",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"To give you another good slap to the face.",3.5F,3.5F));
+                    break;
+                case 3:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Will you put that clock away for one minute?",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Time is very complicated I wouldn't expect you to understand.",3.5F,3.5F));
+                    break;
+                case 4:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"1",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"2",3.5F,3.5F));
+                    break;
+                case 5:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"3",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"4.",3.5F,3.5F));
+                    break;
+                case 6:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"5?",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"6.",3.5F,3.5F));
+                    break;
+                case 7:
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"7?!",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"8.",3.5F,3.5F));
+                    break;
+            }
+        }
         return true;
     }
 
@@ -523,24 +608,24 @@ public class ChronoMod implements
 
     @Override
     public void receiveSetUnlocks() {
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-             "Echonomics", "Analog", "ResonantCall"
-             ), Enum.CHRONO_CLASS, 1);
+        // BaseMod.addUnlockBundle(new CustomUnlockBundle(
+        //      "Echonomics", "Analog", "ResonantCall"
+        //      ), Enum.CHRONO_CLASS, 1);
 
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-             "SharpShooter", "LockedBell", "Facsimile"
-             ), Enum.CHRONO_CLASS, 2);
+        // BaseMod.addUnlockBundle(new CustomUnlockBundle(
+        //      "SharpShooter", "LockedBell", "Facsimile"
+        //      ), Enum.CHRONO_CLASS, 2);
 
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
-             "PaperTurtyl", "SlipperyGoo", "Metronome"
-             ), Enum.CHRONO_CLASS, 3);
+        // BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+        //      "PaperTurtyl", "SlipperyGoo", "Metronome"
+        //      ), Enum.CHRONO_CLASS, 3);
 
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(
-             "BeatsPerMinute", "WakeUpCall", "Stagnate"
-             ), Enum.CHRONO_CLASS, 4);
+        // BaseMod.addUnlockBundle(new CustomUnlockBundle(
+        //      "BeatsPerMinute", "WakeUpCall", "Stagnate"
+        //      ), Enum.CHRONO_CLASS, 4);
 
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
-             "Cryopreserver", "HangingClock", "BlueBox"
-             ), Enum.CHRONO_CLASS, 5);
+        // BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+        //      "Cryopreserver", "HangingClock", "BlueBox"
+        //      ), Enum.CHRONO_CLASS, 5);
     }
 }

@@ -51,9 +51,9 @@ public class LockedNitrogen extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Nitrogen", "All #yreplicas last #g2 turns longer. NL #pShatters #pin #b6 #pturns."));
+			this.tips.add(new TooltipInfo("Nitrogen", "All #yreplicas last #g1 turns longer. NL #pShatters #pin #b6 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Nitrogen+", "All #yreplicas last #g3 turns longer. NL #pShatters #pin #b6 #pturns."));
+			this.tips.add(new TooltipInfo("Nitrogen+", "All #yreplicas last #g2 turns longer. NL #pShatters #pin #b6 #pturns."));
 		}
 
 	    return this.tips;

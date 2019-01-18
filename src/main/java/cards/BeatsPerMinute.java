@@ -60,7 +60,7 @@ public class BeatsPerMinute extends AbstractSwitchCard {
         this.tips.clear();
         
         this.tips.add(new TooltipInfo("Usage", "Hover this card over an enemy to see what card you gain if they are killed."));
-        this.tips.add(new TooltipInfo("Intent Transforms", "There are fourteen different intents in the game, each with their own unique card that corresponds to the intent."));
+        this.tips.add(new TooltipInfo("Intent Transforms", "There are fifteen different intents in the game, each with their own unique card that corresponds to the intent."));
 
         return this.tips;
     }

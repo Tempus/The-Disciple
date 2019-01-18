@@ -26,8 +26,8 @@ public class UnlockedNitrogen extends ReplicaOrb
   {
     super(  "Nitrogen",            // string ID, 
             upgraded,           // boolean upgraded, 
-            2,                  // int passive, 
-            3,                  // int passiveUp, 
+            1,                  // int passive, 
+            2,                  // int passiveUp, 
             4,                  // int timer
             3,                  // int timerUp
             new LockedNitrogen(),

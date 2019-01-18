@@ -26,8 +26,8 @@ public class UnlockedCalendar extends ReplicaOrb
   {
     super(  "Calendar",            // string ID, 
             upgraded,           // boolean upgraded, 
-            40,                  // int passive, 
-            40,                  // int passiveUp, 
+            52,                  // int passive, 
+            52,                  // int passiveUp, 
             7,                  // int timer
             4,                  // int timerUp
             new LockedCalendar(),

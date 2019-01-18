@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.events.GenericEventDialog;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.WarpedTongs;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
@@ -36,15 +37,55 @@ public class Artifactor
   private static final String LEAVE_RESULT = DESCRIPTIONS[2];
   private int screenNum = 0;
   private boolean pickCard = false;
+
+  public ArrayList<AbstractRelic> relics = new ArrayList();
   
   public Artifactor()
   {
     super(NAME, DIALOG_1, "chrono_images/events/Artifactor.png");
-    this.imageEventText.setDialogOption(OPTIONS[0]);
-    this.imageEventText.setDialogOption(OPTIONS[1]);
-    this.imageEventText.setDialogOption(OPTIONS[2]);
-    this.imageEventText.setDialogOption(OPTIONS[3]);
-    this.imageEventText.setDialogOption(OPTIONS[4]);
+
+    int tmp = MathUtils.random(2);
+
+    if (tmp == 0) {
+      relics.add(new ReplicaWarPaint()); }
+    else if (tmp == 1) {
+      relics.add(new ReplicaMedicine()); }
+    else {
+      relics.add(new ReplicaOrichalcum()); }
+    
+    this.imageEventText.setDialogOption(OPTIONS[0] + relics.get(0).name);
+
+    tmp = MathUtils.random(2);
+    if (tmp == 0) {
+      relics.add(new ReplicaWhetstone()); }
+    else if (tmp == 1) {
+      relics.add(new ReplicaScales()); }
+    else {
+      relics.add(new ReplicaMercury()); }
+
+    this.imageEventText.setDialogOption(OPTIONS[1] + relics.get(1).name);
+
+    tmp = MathUtils.random(2);
+    if (tmp == 0) {
+      relics.add(new ReplicaIceCream()); }
+    else if (tmp == 1) {
+      relics.add(new ReplicaHand()); }
+    else {
+      relics.add(new ReplicaNitrogen()); }
+
+    this.imageEventText.setDialogOption(OPTIONS[2] + relics.get(2).name);
+
+    tmp = MathUtils.random(2);
+    if (tmp == 0) {
+      relics.add(new ReplicaFlame()); }
+    else if (tmp == 1) {
+      relics.add(new ReplicaLightning()); }
+    else {
+      relics.add(new ReplicaTornado()); }
+
+    this.imageEventText.setDialogOption(OPTIONS[3] + relics.get(3).name + OPTIONS[4]);
+
+    // this.imageEventText.setDialogOption(OPTIONS[5]);
   }
   
   public void onEnterRoom()
@@ -83,63 +124,21 @@ public class Artifactor
     case 0: 
       switch (buttonPressed)
       {
-      case 0: 
-        if (tmp == 0) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaWarPaint()); }
-        else if (tmp == 1) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaMedicine()); }
-        else {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaOrichalcum()); }
-        
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);
-        this.screenNum = 2;
-        this.imageEventText.updateDialogOption(0, OPTIONS[4]);
-        break;
-      case 1: 
-        if (tmp == 0) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaWhetstone()); }
-        else if (tmp == 1) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaScales()); }
-        else {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaMercury()); }
-
-        this.screenNum = 2;
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);
-        this.imageEventText.updateDialogOption(0, OPTIONS[4]);
-        break;
-      case 2: 
-        if (tmp == 0) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaIceCream()); }
-        else if (tmp == 1) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaHand()); }
-        else {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaNitrogen()); }
-
-        this.screenNum = 2;
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);
-        this.imageEventText.updateDialogOption(0, OPTIONS[4]);
-        break;
-      case 3: 
-        if (tmp == 0) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaFlame()); }
-        else if (tmp == 1) {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaLightning()); }
-        else {
-          AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, new ReplicaTornado()); }
-
-        this.screenNum = 2;
-        this.imageEventText.updateBodyText(REPLICATE_RESULT);        
-        this.imageEventText.updateDialogOption(0, OPTIONS[4]);
-        break;
       case 4: 
         this.screenNum = 2;
         this.imageEventText.updateBodyText(LEAVE_RESULT);
-        this.imageEventText.updateDialogOption(0, OPTIONS[4]);
+        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
+      default: 
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2, Settings.HEIGHT / 2, relics.get(buttonPressed));
+
+        this.screenNum = 2;
+        this.imageEventText.updateBodyText(REPLICATE_RESULT);        
+        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
+        break;
       }
       this.imageEventText.clearRemainingOptions();
       break;
     default: 
-      AbstractDungeon.eventList.remove("Artifactor");
       AbstractDungeon.eventList.remove("Artifactor");
       AbstractDungeon.eventList.remove("Artifactor");
       openMap();

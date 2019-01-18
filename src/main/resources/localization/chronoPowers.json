@@ -35,7 +35,16 @@
       "For each card played this turn, ",
       " gain #b10% more block from #yBlocks.",
       " (Gain #b",
-      "% more block)"
+      "% more block). Haste persists between turns."
+    ]
+  },
+  "Slow": {
+    "NAME": "Slow",
+    "DESCRIPTIONS": [
+      "For each card played this turn, ",
+      " takes #b10% more damage from #yAttacks.",
+      " (Take #b",
+      "% more damage). Slow persists between turns."
     ]
   },
   "MalleablePlayer": {

@@ -28,7 +28,7 @@ public class WaitingRoom extends CustomRelic {
     public static final String ID = "WaitingRoom";
 
     public WaitingRoom() {
-        super(ID, new Texture("chrono_images/relics/WaitingRoom.png"), new Texture("chrono_images/relics/outline/WaitingRoom.png"), RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, new Texture("chrono_images/relics/WaitingRoom.png"), new Texture("chrono_images/relics/outline/WaitingRoom.png"), RelicTier.RARE, LandingSound.CLINK);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class WaitingRoom extends CustomRelic {
     }
 
     public void onPlayerEndTurn() {
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() == 0) {
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() == 0 && this.pulse) {
             stopPulse();
             flash();
             AbstractDungeon.actionManager.addToBottom(new SFXAction("SLEEP_BLANKET"));

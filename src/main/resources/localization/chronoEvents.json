@@ -7,10 +7,11 @@
       "You walk slowly towards the exit, the #ykat peering at you beneath hooded #reyes with a small smirk of its own."
     ],
     "OPTIONS": [
-      "[Armor] #gObtain #ga #gRelic.",
-      "[Weapon] #gObtain #ga #gRelic.",
-      "[Oddity] #gObtain #ga #gRelic.",
-      "[Bottle] #gObtain #ga #gRelic, #rone #rless #renergy on the first turn of combat.",
+      "[Armor] #gObtain ",
+      "[Weapon] #gObtain ",
+      "[Oddity] #gObtain ",
+      "[Bottle] #gObtain ",
+      ", #rone #rless #renergy on the first turn of combat.",
       "[Leave]"
     ]
   },
@@ -29,13 +30,31 @@
   "Relicator": {
     "NAME": "Relicator",
     "DESCRIPTIONS": [
-      "A smug looking #ykat sits atop a #gpile #gof #grelics. You have never seen two #grelics alike, but here there are dozens and dozens that could be twins. It ~gazes~ at you, as if in invitation.",
+      "A smug looking #ykat sits atop a #gpile #gof #grelics. You have never seen two #grelics alike, but here there are dozens and dozens that could be twins. It ~gazes~ at you, and you don't know if it will let you leave.",
       "Walking away with your offering, it returns a short time later, and deposits a #grelic in your outstretched hand. It #rbites #ryour #r@finger@ painfully as you pull the hand away.",
       "Your policy has always been to not pick fights with creatures #rmore #rpowerful than you, and this one seems content to let you #gpass."
     ],
     "OPTIONS": [
-      "[Craft] Choose a #yreplica, lose it, and gain that #grelic. #rCurse #r- #rPain.",
-      "[Leave]"
+      "[Leave]",
+      "[Craft] Turn #yLocked #yAnchor into a #grelic. #rLose #r5 #rmax #rHP.",
+      "[Craft] Turn #yLocked #yAstrolabe into a #grelic. #rDowngrade #rtwo #rrandom #rcards.",
+      "[Craft] Turn #yLocked #yBell into a #grelic.",
+      "[Craft] Turn #yLocked #yFlame into a #grelic. #rGain #ra #rShiv.",
+      "[Craft] Turn #yLocked #yLightning into a #grelic. #rGain #rtwo #rWards.",
+      "[Craft] Turn #yLocked #yTornado into a #grelic. #rBecome #rCursed #r- #rDizzy.",
+      "[Craft] Turn #yLocked #yBlood into a #grelic. #rLose #r10 #rHP.",
+      "[Craft] Turn #yLocked #yCalendar into a #grelic. #rLose #r7 #rHP.",
+      "[Craft] Turn #yLocked #yMaw #yBank into a #grelic. #rLose #rall #rgold.",
+      "[Craft] Turn #yLocked #yMedicine into a #grelic. #rBecome #rInflicted #r- #rDaze.",
+      "[Craft] Turn #yLocked #yMedicine+ into two #grelics. #rBecome #rCursed #r- #rClumsy.",
+      "[Craft] Turn #yLocked #yMercury into a #grelic. #rLose #r15 #rHP.",
+      "[Craft] Turn #yLocked #yOrichalcum into a #grelic. #rLose #r3 #rmax #rHP.",
+      "[Craft] Turn #yLocked #yThread into a #grelic. #rLose #r30 #rHP.",
+      "[Craft] Turn #yLocked #yPlans into a #gMetronome. #rBecome #rCursed #r- #r2 #rWrithe.",
+      "[Craft] Turn #yLocked #yUrn into a #grelic. #rLose #r14 #rmax #rHP.",
+      "[Craft] Turn #yLocked #yWar #yPaint into a #grelic. #rDowngrade #ra #rrandom #rattack.",
+      "[Craft] Turn #yLocked #yWhetstone into a #grelic. #rDowngrade #ra #rrandom #rskill.",
+      "[Craft] Turn #yLocked #yTwirtle into a #grelic. #rGain #ra #rGremlin #rMask."
     ]
   }  
 }

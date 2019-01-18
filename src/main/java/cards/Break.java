@@ -42,7 +42,7 @@ public class Break extends MetricsCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-			if (!mo.isDead && !mo.escaped) {
+			if (!mo.isDead && !mo.escaped && !mo.isDying && !mo.halfDead) {
 				AbstractDungeon.actionManager.addToBottom(new GainBlockAction(mo, mo, this.magicNumber));
 			}
 		}

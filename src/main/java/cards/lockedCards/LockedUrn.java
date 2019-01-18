@@ -34,6 +34,7 @@ public class LockedUrn extends MetricsCard {
 		super(ID, NAME, "chrono_images/cards/LockedUrn.png", COST, DESCRIPTION, AbstractCard.CardType.POWER,
 				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
     	this.tags.add(Enum.REPLICA_CARD);
+    	this.tags.add(AbstractCard.CardTags.HEALING);
 	}
 
 	@Override

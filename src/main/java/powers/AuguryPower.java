@@ -53,6 +53,7 @@ public class AuguryPower extends AbstractPower
   public void onInitialApplication()
   {
     AbstractDungeon.player.gameHandSize = 0;
+    setHandAmount();
   }
     
   public void setHandAmount() {
@@ -76,7 +77,6 @@ public class AuguryPower extends AbstractPower
       this.amount = 10 - AbstractDungeon.player.hand.size();
     }
 
-    
     ChronoMod.log("Draw amount for Augury set to: " + Integer.toString(this.amount));
   }
 
@@ -93,6 +93,8 @@ public class AuguryPower extends AbstractPower
     //     AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(AbstractDungeon.player.drawPile.getRandomCard(true), AbstractDungeon.player.drawPile));
     //   }
     // }
+
+    if (this.amount == 0) { return; }
 
     activeAction = new SeekAction(this.amount);
     AbstractDungeon.actionManager.addToBottom(activeAction);

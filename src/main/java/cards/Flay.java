@@ -27,7 +27,7 @@ public class Flay extends MetricsCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
 	private static final int COST = 1;
-	private static final int ATTACK_DMG = 4;
+	private static final int ATTACK_DMG = 5;
 	private static final int UPGRADE_PLUS_DMG = 1;
 	private static final int TURNS_TO_SHRINK = 1;
 	private static final int SHRINK_UPGRADE = 1;
@@ -41,6 +41,7 @@ public class Flay extends MetricsCard {
 		this.baseMagicNumber = TURNS_TO_SHRINK;
 		this.magicNumber = this.baseMagicNumber;
 		this.isMultiDamage = true;
+		this.exhaust = true;
 	}
 
 	@Override

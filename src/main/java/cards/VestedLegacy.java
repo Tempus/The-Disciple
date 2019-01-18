@@ -24,7 +24,7 @@ public class VestedLegacy extends MetricsCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
 	private static final int COST = 1;
-	private static final int WARDS = 4;
+	private static final int WARDS = 3;
 	private static final int DECK_WARDS = 2;
 	private static int powerCount = 0;
 

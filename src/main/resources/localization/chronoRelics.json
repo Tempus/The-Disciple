@@ -8,7 +8,7 @@
   },
   "Chronograph": {
     "NAME": "Chronograph",
-    "FLAVOR": "Ermm, description pending.",
+    "FLAVOR": "Beyond measurements, one can manipulate the nature of reality itself.",
     "DESCRIPTIONS": [
       "Cards in your hand cost 1 less energy and are #yupgraded for each turn they are #yRetained. Replaces Chronometer."
     ]
@@ -25,7 +25,7 @@
     "FLAVOR": "Strangely, the hands on this clock only move when you do. And they only count down.",
     "DESCRIPTIONS": [
       "Whenever you play #b12 cards, your turn is ended.",
-      "Gain [R] at the start of each turn."
+      "Gain [E] at the start of each turn."
     ]
   },
   "Lockbox": {
@@ -77,7 +77,7 @@
     "NAME": "Spring Shield",
     "FLAVOR": "The further back you pull, the more satisfying the thunk.",
     "DESCRIPTIONS": [
-      "Delayed attacks play a #yWard each turn before they activate."
+      "Delayed attacks gain 2 #yBlock each turn before they activate."
     ]
   },
   "HeavySwitch": {
@@ -108,7 +108,7 @@
     "NAME": "Waiting Room",
     "FLAVOR": "In order to survive the waiting room, you must have patience.",
     "DESCRIPTIONS": [
-      "Once per combat, if you play no cards in a turn the enemies will fall #yAsleep."
+      "Once per combat, if you play no cards in a turn the enemies will fall #yAsleep for one turn."
     ]
   },
 

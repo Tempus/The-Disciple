@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -20,6 +21,8 @@ public class ReplicaFlame extends CustomRelic {
 
     public ReplicaFlame() {
         super(ID, new Texture("chrono_images/relics/Flame.png"), new Texture("chrono_images/relics/outline/Flame.png"), RelicTier.SPECIAL, LandingSound.CLINK);
+        this.tips.add(new PowerTip("Flame", "Draws a random #yAttack card from your deck at the start of your turn. Won't shatter on its own."));
+        this.initializeTips();
     }
 
     @Override

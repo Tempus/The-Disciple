@@ -27,7 +27,7 @@ public class LockedCalendar extends MetricsCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
-	private static final int COST = 1;
+	private static final int COST = 2;
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	public LockedCalendar() {
@@ -51,9 +51,9 @@ public class LockedCalendar extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Calendar", "Deals #b40 damage to all enemies on shattering. NL #pShatters #pin #g7 #pturns."));
+			this.tips.add(new TooltipInfo("Calendar", "Deals #b52 damage to all enemies on shattering. NL #pShatters #pin #g7 #pturns."));
 		} else {
-			this.tips.add(new TooltipInfo("Calendar+", "Deals #b40 damage to all enemies on shattering. NL #pShatters #pin #g5 #pturns."));
+			this.tips.add(new TooltipInfo("Calendar+", "Deals #b52 damage to all enemies on shattering. NL #pShatters #pin #g4 #pturns."));
 		}
 
 	    return this.tips;

@@ -37,7 +37,6 @@ public class DiscipleExclusiveEventsPatch {
                  ChronoMod.log("Adding additional Artifactor.");
              dungeon.eventList.add(Artifactor.ID);
              dungeon.eventList.add(Artifactor.ID);
-             dungeon.eventList.add(Artifactor.ID);
          }
      }
     }

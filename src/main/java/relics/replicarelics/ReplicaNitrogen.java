@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -19,6 +20,9 @@ public class ReplicaNitrogen extends CustomRelic {
 
     public ReplicaNitrogen() {
         super(ID, new Texture("chrono_images/relics/Nitrogen.png"), new Texture("chrono_images/relics/outline/Nitrogen.png"), RelicTier.SPECIAL, LandingSound.CLINK);
+
+        this.tips.add(new PowerTip("Nitrogen", "All #yreplicas last #g1 turns longer. NL #pShatters #pin #b6 #pturns."));
+        this.initializeTips();
     }
 
     @Override

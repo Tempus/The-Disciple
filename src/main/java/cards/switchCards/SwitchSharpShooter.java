@@ -33,10 +33,10 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 	// 					          CardType type, CardTarget target, boolean isMultiTarget, boolean isInnate, boolean exhaust, boolean isEthereal));
 
 	public List<switchCard> switchListInherit = Arrays.asList(
-		new AbstractSelfSwitchCard.switchCard("FastForward", "ClockandLoad", 2, 0, 0, 0, 0, 1, 1, 
+		new AbstractSelfSwitchCard.switchCard("FastForwardS", "ClockandLoad", 2, 0, 0, 0, 0, 1, 1, 
 						          		AbstractCard.CardType.SKILL, AbstractCard.CardTarget.ENEMY, false, false, false, false),
 
-		new AbstractSelfSwitchCard.switchCard("ClockandLoad", "FastForward", 1, 0, 0, 0, 0, 1, 1, 
+		new AbstractSelfSwitchCard.switchCard("ClockandLoad", "FastForwardS", 1, 0, 0, 0, 0, 1, 1, 
 						          		AbstractCard.CardType.SKILL, AbstractCard.CardTarget.SELF, false, false, false, false) );
 
 
@@ -67,7 +67,7 @@ public class SwitchSharpShooter extends AbstractSelfSwitchCard {
 		ReplicaOrb r;
 
 		switch (this.currentID) {
-			case "FastForward":
+			case "FastForwardS":
 		        for (AbstractOrb o : p.orbs) {
 		            if (o instanceof ReplicaOrb) {
 		            	r = (ReplicaOrb)o;

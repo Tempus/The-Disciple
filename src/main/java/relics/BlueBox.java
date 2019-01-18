@@ -65,7 +65,7 @@ public class BlueBox extends CustomRelic {
         }
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         
-        AbstractDungeon.gridSelectScreen.open(timeWarpCards, 2, false, "Bring two cards forward.");
+        AbstractDungeon.gridSelectScreen.open(timeWarpCards, 2, "Bring two cards forward.", false, false, false, false);
     }
 
     public void update()
