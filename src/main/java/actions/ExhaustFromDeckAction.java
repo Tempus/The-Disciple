@@ -11,15 +11,21 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import java.util.ArrayList;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import chronomuncher.ChronoMod;
 
 public class ExhaustFromDeckAction extends AbstractGameAction {
   private AbstractPlayer p;
   
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("UnlockButton");
+  public static final String[] TEXT = uiStrings.TEXT;
+
   public ExhaustFromDeckAction(int amount)
   {
     this.p = AbstractDungeon.player;
@@ -75,9 +81,9 @@ public class ExhaustFromDeckAction extends AbstractGameAction {
         return;
       }
       if (this.amount == 1) {
-        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose a card to Exhaust.", false);
+        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
       } else {
-        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose " + Integer.toString(this.amount) + " cards to Exhaust.", false);
+        AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[1] + Integer.toString(this.amount) + TEXT[2], false);
       }
       tickDuration();
       return;

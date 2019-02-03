@@ -33,7 +33,7 @@ public class Chronoelasticity extends MetricsCard {
 
 	public Chronoelasticity() {
 		super(ID, NAME, "chrono_images/cards/Chronoelasticity.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = SLOW;
 		this.magicNumber = this.baseMagicNumber;

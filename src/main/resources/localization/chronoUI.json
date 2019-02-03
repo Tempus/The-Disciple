@@ -1,0 +1,63 @@
+{
+  "UnlockButton": {
+    "TEXT": [
+      "The Disciple",
+      "Unlock"
+    ]
+  },
+  "Disciple": {
+    "TEXT": [
+      "It seems like your time has run out... once again.",
+      "The Disciple",
+      "This character is finally ready to play. It's about time."
+    ]
+  },
+  "UpgradeCardsInHandAction": {
+    "TEXT": [
+      "Upgrade a ",
+      "."
+    ]
+  },
+  "SmokeBombAction": {
+    "TEXT": [
+      "There's no escape!"
+    ]
+  },
+  "PowerFromDeckToHandAction": {
+    "TEXT": [
+      "Choose a Power to Add to Your Hand"
+    ]
+  },
+  "ExhaustFromPlayAction": {
+    "TEXT": [
+      "Choose a card to Exhaust.",
+      "Choose ",
+      " cards to Exhaust."
+    ]
+  },
+  "ExhaustFromDeckAction": {
+    "TEXT": [
+      "Choose a card to Exhaust.",
+      "Choose ",
+      " cards to Exhaust."
+    ]
+  },
+  "DiscardAndDamageAction": {
+    "TEXT": [
+      "Choose up to ",
+      " cards to discard"
+    ]
+  },
+  "ChronoChannelAction": {
+    "TEXT": [
+      "You cannot fit any more #rreplicas for now."
+    ]
+  },
+  "ModInfo": {
+    "TEXT": [
+      "The Disciple",
+      "Chronometrics",
+      "The Disciple is a challenging custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling."
+    ]
+  }
+}

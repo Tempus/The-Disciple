@@ -25,12 +25,15 @@ public class BackFourSeconds extends AbstractSelfRetainingCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
-	private static final int COST = 3;
+	public int HP_PERCENT = 50;
+	public int HP_PERCENT_UPGRADE = 25;
+	private static final int COST = 2;
 
 	public BackFourSeconds() {
 		super(ID, NAME, "chrono_images/cards/BackFourSeconds.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 
+		this.magicNumber = this.baseMagicNumber = HP_PERCENT;
 		this.exhaust = true;
 		this.retains = true;
 	}
@@ -38,15 +41,16 @@ public class BackFourSeconds extends AbstractSelfRetainingCard {
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(new SFXAction("CHRONO-TICKINGDIRTY"));
-		AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, AbstractDungeon.actionManager.playerHpLastTurn-p.currentHealth));
+		AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, (int)((AbstractDungeon.actionManager.playerHpLastTurn-p.currentHealth)*(this.magicNumber/100.0F))));
 	}
 
 	@Override
 	public void upgrade() {
 		if (!this.upgraded) {
-			upgradeBaseCost(2);
+			// upgradeBaseCost(2);
 			upgradeName();
-      		this.rawDescription = UPGRADE_DESCRIPTION;
+			upgradeMagicNumber(HP_PERCENT_UPGRADE);
+      		// this.rawDescription = UPGRADE_DESCRIPTION;
    		   	initializeDescription();
 		}
 	}

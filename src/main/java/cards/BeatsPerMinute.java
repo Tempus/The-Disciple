@@ -30,6 +30,7 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;   
     public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = 1;
 	private static final int ATTACK_DMG = 11;
@@ -37,7 +38,7 @@ public class BeatsPerMinute extends AbstractSwitchCard {
 
 	public BeatsPerMinute() {
 		super(ID, NAME, "chrono_images/cards/BeatsPerMinute.png", COST, DESCRIPTION, AbstractCard.CardType.ATTACK,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE,
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON,
 				AbstractCard.CardTarget.ENEMY, null);
 
 		this.baseDamage = ATTACK_DMG;
@@ -59,8 +60,8 @@ public class BeatsPerMinute extends AbstractSwitchCard {
     public List<TooltipInfo> getCustomTooltips() {
         this.tips.clear();
         
-        this.tips.add(new TooltipInfo("Usage", "Hover this card over an enemy to see what card you gain if they are killed."));
-        this.tips.add(new TooltipInfo("Intent Transforms", "There are fifteen different intents in the game, each with their own unique card that corresponds to the intent."));
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[2], EXTENDED_DESCRIPTION[3]));
 
         return this.tips;
     }

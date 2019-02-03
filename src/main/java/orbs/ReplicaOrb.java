@@ -45,7 +45,10 @@ public abstract class ReplicaOrb extends AbstractOrb {
   private float vfxIntervalMax = 0.7F;
   private static final float ORB_WAVY_DIST = 0.04F;
   private static final float PI_4 = 12.566371F;
-  
+
+  private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString("ReplicaOrb");
+  public static final String DESCRIPTION[] = orbString.DESCRIPTION;
+
   public AbstractCard lockedCard;
   protected boolean showChannelValue = true;
 
@@ -131,13 +134,13 @@ public abstract class ReplicaOrb extends AbstractOrb {
   {
     applyFocus();
 
-    String turn = " #pturns.";
-    if (this.timer == 1) { turn = " #pturn."; }
+    String turn = DESCRIPTION[0];
+    if (this.timer == 1) { turn = DESCRIPTION[1]; }
 
     if (!this.upgraded) {
-      this.description = (this.descriptions[0] + " NL #pShatters #pin #b" + this.timer + turn);
+      this.description = (this.descriptions[0] + DESCRIPTION[2] + this.timer + turn);
     } else {
-      this.description = (this.descriptions[1] + " NL #pShatters #pin #b" + this.timer + turn);
+      this.description = (this.descriptions[1] + DESCRIPTION[2] + this.timer + turn);
     }
   }
     

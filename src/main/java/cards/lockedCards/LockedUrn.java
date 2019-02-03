@@ -26,6 +26,7 @@ public class LockedUrn extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = 1;
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();

@@ -14,6 +14,9 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -25,6 +28,8 @@ import java.util.HashMap;
 public class BlueBox extends CustomRelic {
     public static final String ID = "BlueBox";
     private boolean cardSelected = true;
+    public static final RelicStrings relicString = CardCrawlGame.languagePack.getRelicStrings(ID);
+    public static final String TEXT[] = relicString.DESCRIPTIONS;
 
     public BlueBox() {
         super(ID, new Texture("chrono_images/relics/BlueBox.png"), new Texture("chrono_images/relics/outline/BlueBox.png"), RelicTier.COMMON, LandingSound.CLINK);
@@ -65,7 +70,7 @@ public class BlueBox extends CustomRelic {
         }
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         
-        AbstractDungeon.gridSelectScreen.open(timeWarpCards, 2, "Bring two cards forward.", false, false, false, false);
+        AbstractDungeon.gridSelectScreen.open(timeWarpCards, 2, TEXT[1], false, false, false, false);
     }
 
     public void update()

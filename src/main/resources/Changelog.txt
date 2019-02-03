@@ -2,15 +2,36 @@ Changelog:
 
 0.10.10
 
+	Card: Hands Up is now "Gain 4(6) Block, At the end of the round, deal damage equal to your remaining Block."
+	Card: Clock and Load is now "Deal 4(8) damage. Each turn, increase this card's damage by !M! for this combat."
 	Feature: Disciple now features an 'Unlock' button to unlock ascensions without having to climb!
+	Feature: Locked Whetstone and War Paint now have a superior selection screen.
+	Feature: Pendulum now pulses powers it will remove on mouseover.
+	Feature: Extracted strings to prep for localization.
 	Balance: Locked Calendar now costs 2 and does 52 damage, instead of 1 for 40.
 	Balance: Fragmentalize now costs 2 instead of 1.
+	Balance: Fragmentalize damage reduced from 17(23) to 16(20).
 	Balance: Flay now does 5(6) damage, and exhausts.
+	*Balance: Resonant Call now exhausts or purges when mimicing an exhausting or purged card.
+	Balance: Mystic Crock Pot increased from 10% to 20%.
+	Balance: Misterioso now purges the used Exhausted card.
+	Balance: Back Four Seconds is now Rare, costs 2, and heals 50%(75%) of damage taken instead of 100%.
+	Balance: Backlash+ now multiples by 2.5 instead of 3.
+	Balance: Chrono-elasticity is now rare, instead of uncommon.
+	Balance: Facsimile is now uncommon, instead of rare.
+	Balance: Beats Per Minute is now uncommon, instead of rare.
+	*Balance: Locked Medicine now discards status cards instead of exhausting them.
 	Text: Flay's text now more clearly states the relation between the Damage and Debuff.
 	Text: Tooltip text improved for Slow and Haste.
+	Text: Tooltip on Medical Kit Replica updated to reflect actual effect.
+	Text: Spelling fixed on Facsimile description.
+	Text: Fixed a text bug on Nitrogen Replica's tooltip.
+	Text: Unique dialogue now available when fighting Time Eater.
 	*Bug: Oracle Form no longer softlocks if your hand is full at the beginning of the turn.
 	*Bug: Augury no longer misreports the cards Oracle Form lets you pick.
 	Bug: Collision with Servant fixed.
+	Bug: Tiring Slam should no longer have troules exhausting hand cards, thanks to BD.
+	Bug: Whetstone and War Paint replicas should no longer angle cards strangely.
 
 0.10.9
 

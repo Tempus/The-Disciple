@@ -22,6 +22,9 @@ import chronomuncher.actions.GainGoldAction;
 
 public class UnlockedMawBank extends ReplicaOrb
 {
+  private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString("MawBank");
+  public static final String DESCRIPTION[] = orbString.DESCRIPTION;
+
   public UnlockedMawBank(boolean upgraded)
   {
     super(  "MawBank",            // string ID, 
@@ -40,7 +43,7 @@ public class UnlockedMawBank extends ReplicaOrb
     this.activateEffect();
     AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, new MawBank()));
     RewardItem r = new RewardItem(this.passiveAmount, true);
-    r.text = this.passiveAmount + " Gold from Maw Bank Replica";
+    r.text = this.passiveAmount + DESCRIPTION[2];
     AbstractDungeon.getCurrRoom().rewards.add(r);
   }
   

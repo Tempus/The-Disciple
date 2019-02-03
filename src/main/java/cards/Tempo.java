@@ -28,6 +28,7 @@ public class Tempo extends AbstractSwitchCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 
 	private static final int COST = 0;
@@ -56,8 +57,8 @@ public class Tempo extends AbstractSwitchCard {
     public List<TooltipInfo> getCustomTooltips() {
         this.tips.clear();
         
-        this.tips.add(new TooltipInfo("Usage", "Hover this card over an enemy to see what it will turn into."));
-        this.tips.add(new TooltipInfo("Intent Transforms", "There are fifteen different intents in the game, each with their own unique card that corresponds to the intent."));
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
+        this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[2], EXTENDED_DESCRIPTION[3]));
 
         return this.tips;
     }

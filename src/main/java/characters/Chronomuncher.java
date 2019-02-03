@@ -31,6 +31,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeDur;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -73,6 +75,9 @@ public class Chronomuncher extends CustomPlayer {
     public static final String DISCIPLE_CORPSE = "chrono_images/char/corpse.png"; // dead corpse
     public static final String DISCIPLE_SKELETON_ATLAS = "chrono_images/char/Disciple.atlas"; // spine animation atlas
     public static final String DISCIPLE_SKELETON_JSON = "chrono_images/char/Disciple.json"; // spine animation json
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Disciple");
+    public static final String[] TEXT = uiStrings.TEXT;
 
     private double counter = 0.0f;
     private Texture tex = new Texture("chrono_images/char/temp.png");
@@ -134,7 +139,7 @@ public class Chronomuncher extends CustomPlayer {
     }
     public String getSpireHeartText()
     {
-        return "It seems like your time has run out... once again.";
+        return TEXT[0];
     }
 
     public TextureAtlas.AtlasRegion getOrb()
@@ -161,7 +166,7 @@ public class Chronomuncher extends CustomPlayer {
     public String getCustomModeCharacterButtonSoundKey() { return "SLIME_ATTACK_2"; }
 
     @Override
-    public String getLocalizedCharacterName() { return "The Disciple"; }
+    public String getLocalizedCharacterName() { return TEXT[1]; }
 
     @Override
     public AbstractPlayer newInstance() { 
@@ -305,8 +310,8 @@ public class Chronomuncher extends CustomPlayer {
     }
 
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Disciple", 
-            "This character is finally ready to play. It's about time.",
+        return new CharSelectInfo(TEXT[1], 
+            TEXT[2],
             STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, HAND_SIZE,
             this, getStartingRelics(), getStartingDeck(), false);
     }

@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import com.badlogic.gdx.graphics.Texture;
 import basemod.abstracts.CustomRelic;
@@ -17,11 +20,13 @@ import chronomuncher.actions.*;
 
 public class ReplicaHand extends CustomRelic {
     public static final String ID = "Hand?";
+    public static final RelicStrings relicString = CardCrawlGame.languagePack.getRelicStrings(ID);
+    public static final String TEXT[] = relicString.DESCRIPTIONS;
 
     public ReplicaHand() {
         super(ID, new Texture("chrono_images/relics/Hand.png"), new Texture("chrono_images/relics/outline/Hand.png"), RelicTier.SPECIAL, LandingSound.CLINK);
 
-        this.tips.add(new PowerTip("Mummified Hand", "Reduces the cost of a card in your hand by #g1 when you play a Power. NL #pShatters #pin #b8 #pturns."));
+        this.tips.add(new PowerTip(TEXT[1], TEXT[2]));
         this.initializeTips();
     }
 

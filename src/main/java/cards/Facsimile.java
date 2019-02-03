@@ -38,6 +38,7 @@ public class Facsimile extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = -1;
 	private static final int RELIC_CAP = 3;
@@ -48,7 +49,7 @@ public class Facsimile extends MetricsCard {
 
 	public Facsimile() {
 		super(ID, NAME, "chrono_images/cards/Facsimile.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				Enum.CHRONO_GOLD, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
+				Enum.CHRONO_GOLD, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
 		this.baseMagicNumber = RELIC_CAP;
 		this.magicNumber = this.baseMagicNumber;
@@ -96,10 +97,10 @@ public class Facsimile extends MetricsCard {
    	public void updateRelicDescription() {
    		this.updateRelicList();
 
-   		String plural = (this.replicaStrings.size() > 1) ? "s" : "";
-   		String end = " NL Currently " + Integer.toString(this.replicaStrings.size()) + " relic" + plural + " can be replicated.";
+   		String plural = (this.replicaStrings.size() > 1) ? EXTENDED_DESCRIPTION[0] : "";
+   		String end = EXTENDED_DESCRIPTION[1] + Integer.toString(this.replicaStrings.size()) + EXTENDED_DESCRIPTION[2] + plural + EXTENDED_DESCRIPTION[3];
    		if (this.replicaStrings.size() == 0) {
-   			end = " NL Currrently you will only replicate Rocks.";
+   			end = EXTENDED_DESCRIPTION[4];
    		}
 	    
 	    this.rawDescription = DESCRIPTION + end;
@@ -118,9 +119,9 @@ public class Facsimile extends MetricsCard {
 			for (Pair<String, Class> replica : relicList) {
 				if (replica.getKey() == relic.relicId) {
 					if (replica.getKey() == "Metronome") {
-						this.replicaStrings.add("Plans from " + relic.name);
+						this.replicaStrings.add(EXTENDED_DESCRIPTION[5] + relic.name);
 					} else if (replica.getKey() == "Blue Candle") {
-						this.replicaStrings.add("Medicine+ from " + relic.name);
+						this.replicaStrings.add(EXTENDED_DESCRIPTION[6] + relic.name);
 					} else {
 						this.replicaStrings.add(relic.name);
 					}
@@ -135,7 +136,7 @@ public class Facsimile extends MetricsCard {
 
 		String relicsListed;
 		if (this.replicaStrings.size() == 0) {
-			relicsListed = "None of your relics can be replicated.";
+			relicsListed = EXTENDED_DESCRIPTION[7];
 		} else {
 			relicsListed = String.join(", ", this.replicaStrings);
 		}
@@ -145,9 +146,9 @@ public class Facsimile extends MetricsCard {
 		ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 		if (CardCrawlGame.isInARun()) {
 			if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-				tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for " + amount + " of the following relics: " + relicsListed));
+				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[8], EXTENDED_DESCRIPTION[9] + amount + EXTENDED_DESCRIPTION[10] + relicsListed));
 			} else {
-				tips.add(new TooltipInfo("Replicate", "Replicas will be arbitrarily created for X of the following relics: " + relicsListed));
+				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[8], EXTENDED_DESCRIPTION[11] + relicsListed));
 			}
 		}
 		

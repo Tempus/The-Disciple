@@ -26,6 +26,7 @@ public class LockedTornado extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = 0;
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
@@ -53,9 +54,9 @@ public class LockedTornado extends MetricsCard {
 		this.tips.clear();
 		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Tornado", "Draws a random #yPower card from your deck at the start of your turn. Won't shatter on its own."));
+			this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[2]));
 		} else {
-			this.tips.add(new TooltipInfo("Tornado+", "#gChoose a #yPower card from your deck at the start of your turn. Won't shatter on its own."));
+			this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[1], EXTENDED_DESCRIPTION[3]));
 		}
 
 	    return this.tips;

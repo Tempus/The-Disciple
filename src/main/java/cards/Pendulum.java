@@ -9,8 +9,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import basemod.helpers.TooltipInfo;
+import basemod.ReflectionHacks;
+import com.badlogic.gdx.Gdx;
 
 import chronomuncher.cards.MetricsCard;
 import chronomuncher.ChronoMod;
@@ -19,13 +24,17 @@ import chronomuncher.powers.TimeDilatePower;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 public class Pendulum extends MetricsCard {
 	public static final String ID = "Pendulum";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-	// public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
+	// public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+	public float duration = 0.0F;
+	public float startduration = 0.7F;
 
 	private static final int COST = 1;
 	private static final int TURNS_APPLIED = 3;
@@ -57,12 +66,53 @@ public class Pendulum extends MetricsCard {
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {
 				if (mo.hasPower("DelayedAttack")) {
-					this.tips.add(new TooltipInfo("Delayed Attack", "Pendulum will cause a time paradox, causing the delayed attack to occur immediately AND be reapplied once the time dilation wears off."));
+					this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[2]));
 				}
 			}
 		}
 
 	    return this.tips;
+	}
+
+	@Override
+    public void calculateCardDamage(AbstractMonster m)
+    {
+        super.calculateCardDamage(m);
+
+        if (duration > 0) { 
+			this.duration -= Gdx.graphics.getDeltaTime();
+          	return; 
+        }
+
+        duration = startduration;
+
+        for (AbstractPower p : m.powers) {
+        	ArrayList<AbstractGameEffect> effect = (ArrayList<AbstractGameEffect>)ReflectionHacks.getPrivate(p, AbstractPower.class, "effect");
+
+	        if (p.type == AbstractPower.PowerType.BUFF) {
+	          switch(p.ID) {
+	            case "Mode Shift":
+	            case "Minion":
+	            case "Fading":
+	            case "Shifting":
+	            case "Unawakened":
+	            case "Split":
+	            case "Life Link":
+	            case "Thievery":
+	            case "Surrounded":
+	            case "BackAttack":
+	              break;
+  
+	            default:
+	              if (p.name == "Delayed Attack" || p.name == "Wake Up Call" || p.name == "The Bomb") { break; }
+  
+	              effect.add(new SilentGainPowerEffect(p));
+	              break;
+	          }
+	        } else if ((p.ID == "Shackled" && p.amount > 0) || p.ID == "BeatOfDeath") {
+		  		effect.add(new SilentGainPowerEffect(p));
+	        }
+        }
 	}
 
 	@Override

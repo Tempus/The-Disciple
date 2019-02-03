@@ -23,7 +23,7 @@ public class Backlash extends AbstractSelfRetainingCard {
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
 	private static final int COST = 2;
-	private static final int MULTI = 2;
+	private static final int MULTI = 4;
 	private static final int MULTI_UP = 1;
 
 	public Backlash() {
@@ -48,7 +48,7 @@ public class Backlash extends AbstractSelfRetainingCard {
 	}
 
 	public void calculateCardDamage(AbstractMonster mo) {
-		this.baseDamage = mo.currentBlock * this.magicNumber;
+		this.baseDamage = (int)(mo.currentBlock * (this.magicNumber / 2.0F));
 		super.calculateCardDamage(mo);
 	}
 

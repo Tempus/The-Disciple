@@ -10,6 +10,9 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.badlogic.gdx.graphics.Texture;
 import java.util.ArrayList;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import com.megacrit.cardcrawl.core.Settings;
 import chronomuncher.patches.Enum;
@@ -19,6 +22,9 @@ import basemod.BaseMod;
 import basemod.ReflectionHacks;
 
 public class UnlockButtonPatch {
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("UnlockButton");
+    public static final String[] TEXT = uiStrings.TEXT;
 
 	@SpirePatch(clz = CharacterSelectScreen.class, method="initialize")
 	public static class initUnlockButton {
@@ -46,7 +52,7 @@ public class UnlockButtonPatch {
 
 	        for (CharacterOption o : __instance.options)
 	        {
-	          if (o.selected && o.name == "The Disciple")
+	          if (o.selected && o.name == UnlockButtonPatch.TEXT[0])
 	          {
 		        int asc = (int)ReflectionHacks.getPrivate(o, o.getClass(), "maxAscensionLevel");
 		        if (asc == 20) {

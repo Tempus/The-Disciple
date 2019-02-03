@@ -25,6 +25,8 @@ import chronomuncher.patches.RetainedForField;
 public class MysticCrockPot extends CustomRelic {
     public static final String ID = "MysticCrockPot";
 
+    public static float stewModifier = 0.2F;
+
     @SpirePatch(cls = "com.megacrit.cardcrawl.cards.AbstractCard", method="applyPowers")
     public static class applyPowers {
         public static void Postfix(AbstractCard self)
@@ -32,7 +34,7 @@ public class MysticCrockPot extends CustomRelic {
             if (!AbstractDungeon.player.hasRelic(MysticCrockPot.ID)) { return; }
 
             int tmp = self.damage;
-            self.damage = self.damage+MathUtils.floor(self.damage * (0.1F * RetainedForField.retainedFor.get(self)));
+            self.damage = self.damage+MathUtils.floor(self.damage * (stewModifier * RetainedForField.retainedFor.get(self)));
             if (self.damage != tmp) {
                 self.isDamageModified = true;
             }
@@ -45,7 +47,7 @@ public class MysticCrockPot extends CustomRelic {
         {
             if (!AbstractDungeon.player.hasRelic(MysticCrockPot.ID)) { return; }
             int tmp = self.block;
-            self.block = self.block+MathUtils.floor(self.block * (0.1F * RetainedForField.retainedFor.get(self)));
+            self.block = self.block+MathUtils.floor(self.block * (stewModifier * RetainedForField.retainedFor.get(self)));
             if (self.block != tmp) {
                 self.isBlockModified = true;
             }
@@ -58,11 +60,11 @@ public class MysticCrockPot extends CustomRelic {
         {
             if (!AbstractDungeon.player.hasRelic(MysticCrockPot.ID)) { return; }
             int tmp = self.damage;
-            self.damage = self.damage+MathUtils.floor(self.damage * (0.1F * RetainedForField.retainedFor.get(self)));
+            self.damage = self.damage+MathUtils.floor(self.damage * (stewModifier * RetainedForField.retainedFor.get(self)));
 
             if ((boolean)ReflectionHacks.getPrivate(self, AbstractCard.class, "isMultiDamage")) {
                 for (int i = 0; i < self.multiDamage.length; i++) {
-                    self.multiDamage[i] = self.multiDamage[i]+MathUtils.floor(self.multiDamage[i] * (0.1F * RetainedForField.retainedFor.get(self)));
+                    self.multiDamage[i] = self.multiDamage[i]+MathUtils.floor(self.multiDamage[i] * (stewModifier * RetainedForField.retainedFor.get(self)));
                 }
             }
 

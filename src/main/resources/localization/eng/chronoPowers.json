@@ -1,0 +1,138 @@
+{
+  "DelayedAttack": {
+    "NAME": "Delayed Attack",
+    "DESCRIPTIONS": [
+      "At the end of %1$s rounds, deal %2$s damage.",
+      "At the end of this round, deal %1$s damage.",
+      "At the end of %1$s rounds, lose %2$s health.",
+      "At the end of this round, lose %1$s health."
+    ]
+  },
+  "DelayedBlock": {
+    "NAME": "Delayed Block",
+    "DESCRIPTIONS": [
+      "In %1$s turns, gain %2$s Block.",
+      "At the start of next turn, gain %1$s Block."
+    ]
+  },
+  "DelayedGainStrength": {
+    "NAME": "Delayed Gain Strength",
+    "DESCRIPTIONS": [
+      "At the end of %1$s turns, gain %2$s Strength.",
+      "At the end of this turn, gain %1$s Strength."
+    ]
+  },
+  "DelayedLoseStrength": {
+    "NAME": "Delayed Lose Strength",
+    "DESCRIPTIONS": [
+      "At the end of %1$s turns, lose %2$s Strength.",
+      "At the end of this turn, lose %1$s Strength."
+    ]
+  },
+  "Haste": {
+    "NAME": "Haste",
+    "DESCRIPTIONS": [
+      "For each card played this turn, ",
+      " gain #b10% more block from #yBlocks.",
+      " (Gain #b",
+      "% more block). Haste persists between turns."
+    ]
+  },
+  "Slow": {
+    "NAME": "Slow",
+    "DESCRIPTIONS": [
+      "For each card played this turn, ",
+      " takes #b10% more damage from #yAttacks.",
+      " (Take #b",
+      "% more damage). Slow persists between turns."
+    ]
+  },
+  "MalleablePlayer": {
+    "NAME": "Malleable",
+    "DESCRIPTIONS": [
+      "On taking #yAttack damage, gains #b",
+      " #yBlock. #yBlock gain increases as ",
+      " is triggered. Resets to #b",
+      " at the start of your turn."
+    ]
+  },
+  "Sleep": {
+    "NAME": "Sleep",
+    "DESCRIPTIONS": [
+      "Remains asleep for #b",
+      " more turns, or until it takes damage."
+    ]
+  },
+  "RetainOnce": {
+    "NAME": "Retain Once",
+    "DESCRIPTIONS": [
+      "At the end of this turn, you may retain #b",
+      " card",
+      " cards."
+    ]
+  },
+  "SpareTime": {
+    "NAME": "Spare Time",
+    "DESCRIPTIONS": [
+      "Play a Ward for each energy used."
+    ]
+  },
+  "EchoLate": {
+    "NAME": "Late Echo Form",
+    "DESCRIPTIONS": [
+      "The last card you play each turn is played twice.",
+      "The last #b",
+      " cards you play each turn are played twice."
+    ]
+  },
+  "Echonomics": {
+    "NAME": "Echonomics",
+    "DESCRIPTIONS": [
+      "This turn, the next discounted cost card you play is duplicated into your hand as a 0 cost card.",
+      "This turn, the next ",
+      " discounted cost cards you play are duplicated into your hand as 0 cost cards."
+    ]
+  },
+  "Echoward": {
+    "NAME": "Echoward",
+    "DESCRIPTIONS": [
+      "Play a Ward for card played."
+    ]
+  },
+  "Stun": {
+    "NAME": "Stunned",
+    "DESCRIPTIONS": [
+      "Unable to act for #b",
+      " turn."
+    ]
+  },
+  "Time Warp Minor": {
+    "NAME": "Time Warp",
+    "DESCRIPTIONS": [
+      "Whenever you play #b",
+      " cards, your turn is ended."
+    ]
+  },
+  "TimeDilate": {
+    "NAME": "Time Dilate",
+    "DESCRIPTIONS": [
+      "Removes ",
+      " buffs from the enemy for ",
+      " turns, and then restores them."
+    ]
+  },
+  "Augury": {
+    "NAME": "Augury",
+    "DESCRIPTIONS": [
+      "Instead of drawing your hand at the beginning of your turn, choose ",
+      " cards from your draw pile. Cards drawn by other sources behave normally."
+    ]
+  },
+  "WakeUpCall": {
+    "NAME": "Wake Up Call",
+    "DESCRIPTIONS": [
+      "If this enemy falls asleep or is stunned, deal ",
+      " damage."
+    ]
+  }  
+}

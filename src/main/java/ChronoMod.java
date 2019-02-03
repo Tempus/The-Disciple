@@ -19,7 +19,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.localization.Keyword;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.*;
@@ -36,6 +37,9 @@ import com.megacrit.cardcrawl.unlock.AbstractUnlock.UnlockType;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -64,10 +68,13 @@ public class ChronoMod implements
         OnPowersModifiedSubscriber, PreMonsterTurnSubscriber {
 
     public static final Logger logger = LogManager.getLogger(ChronoMod.class.getName());
+
+    public static UIStrings uiStrings;
+    public static String[] TEXT;
     
-    private static final String MOD_NAME = "The Disciple";
-    private static final String AUTHOR = "Chronometrics";
-    private static final String DESCRIPTION = "The Disciple is a challenging custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.";
+    // private static final String MOD_NAME = "The Disciple";
+    // private static final String AUTHOR = "Chronometrics";
+    // private static final String DESCRIPTION = "The Disciple is a challenging custom Slay the Spire character themed after the Time Eater. The deck is designed around choosing the correct time for cards to be played to gain max value, and has four central themes: Card Retention, Intent Shifting, Card Transforming, and Temporary Relic Cycling.";
 
     public static Color CHRONO_GOLD = new Color(215f / 255f, 145f / 255f, 0f, 1f);
     public static Color DARKCHRONO_GOLD = new Color(155f / 255f, 105f / 255f, 0f, 1f);
@@ -141,8 +148,11 @@ public class ChronoMod implements
         BaseMod.addPotion(HastePotion.class, Color.SKY, Color.TAN, null, "HastePotion", Enum.CHRONO_CLASS);
         BaseMod.addPotion(WardPotion.class, Color.SLATE, null, Color.ROYAL, "WardPotion", Enum.CHRONO_CLASS);
 
+        uiStrings = CardCrawlGame.languagePack.getUIString("ModInfo");
+        TEXT = uiStrings.TEXT;
+
         Texture badgeTexture = ImageMaster.loadImage("chrono_images/badge.png");
-        BaseMod.registerModBadge(badgeTexture, MOD_NAME, AUTHOR, DESCRIPTION, null);
+        BaseMod.registerModBadge(badgeTexture, TEXT[0], TEXT[1], TEXT[2], null);
 
         this.loadAudio();
 
@@ -409,7 +419,15 @@ public class ChronoMod implements
         BaseMod.addCard(new Fragmentalize());
         BaseMod.addCard(new Grave());
         // BaseMod.addCard(new GuardCommand());
-        BaseMod.addCard(new HandsUp());
+        // BaseMod.addCard(new HandsUp());
+
+        BaseMod.addCard(new HandsUpB());
+        BaseMod.addCard(new HandsUpC());    // New Clock and Load
+        // BaseMod.addCard(new HandsUpD());
+        // BaseMod.addCard(new HandsUpE());
+        // BaseMod.addCard(new HandsUpF());
+        // BaseMod.addCard(new HandsUpG());
+
         BaseMod.addCard(new Keepsakes());
         BaseMod.addCard(new Largo());
         BaseMod.addCard(new Lento());
@@ -500,30 +518,56 @@ public class ChronoMod implements
     }
 
     @Override
-    public void receiveEditStrings() {        
+    public void receiveEditStrings() {
+
+        String language;
+        switch (Settings.language) {
+            // case KOR:
+            //     language = "kor";
+            //     break;
+            // case ZHS:
+            //     language = "zhs";
+            //     break;
+            // case ZHT:
+            //     language = "zht";
+            //     break;
+            // case FRA:
+            //     language = "fra";
+            //     break;
+            // case JPN:
+            //     language = "jpn";
+            //     break;
+            default:
+                language = "eng";
+        }
+    
         // RelicStrings
-        String relicStrings = Gdx.files.internal("localization/chronoRelics.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String relicStrings = Gdx.files.internal("localization/" + language + "/chronoRelics.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
 
         // CardStrings
-        String cardStrings = Gdx.files.internal("localization/chronoCards.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String cardStrings = Gdx.files.internal("localization/" + language + "/chronoCards.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
 
         // OrbStrings
-        String orbStrings = Gdx.files.internal("localization/chronoOrbs.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String orbStrings = Gdx.files.internal("localization/" + language + "/chronoOrbs.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
 
         // PowerStrings
-        String powerStrings = Gdx.files.internal("localization/chronoPowers.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String powerStrings = Gdx.files.internal("localization/" + language + "/chronoPowers.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
 
         // PowerStrings
-        String potionStrings = Gdx.files.internal("localization/chronoPotions.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String potionStrings = Gdx.files.internal("localization/" + language + "/chronoPotions.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
 
         // Eventstring
-        String eventStrings = Gdx.files.internal("localization/chronoEvents.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String eventStrings = Gdx.files.internal("localization/" + language + "/chronoEvents.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+
+        // UIstring
+        String uiStrings = Gdx.files.internal("localization/" + language + "/chronoUI.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
 
     public void receiveCardUsed(AbstractCard c)
@@ -551,28 +595,28 @@ public class ChronoMod implements
         if (m.id == "TimeEater" && AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) {
             switch (AbstractDungeon.actionManager.turn) {
                 case 2:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"What did you forget this time?",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"To give you another good slap to the face.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Whale brought you back did they?",3.5F,3.5F));
                     break;
                 case 3:
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Will you put that clock away for one minute?",3.5F,3.5F));
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Time is very complicated I wouldn't expect you to understand.",3.5F,3.5F));
                     break;
                 case 4:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"1",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"2",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"This throne is mine in due time.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Only temporarilly, at best.",3.5F,3.5F));
                     break;
                 case 5:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"3",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"4.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"I'm going to enjoy tossing you over the railing again.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Oh, I forgot about that! Champ said I made a big neeeowww on the way down..",3.5F,3.5F));
                     break;
                 case 6:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"5?",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"6.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Your TIME... is up.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"You used to hate my puns.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"It's been a long time since then.",3.5F,3.5F));
                     break;
                 case 7:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"7?!",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"8.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Care to step aside peacefully this time?",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"You don't deserve an easy victory.",3.5F,3.5F));
                     break;
             }
         }

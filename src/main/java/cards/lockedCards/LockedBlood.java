@@ -26,6 +26,7 @@ public class LockedBlood extends MetricsCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = 1;
 	public ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
@@ -50,11 +51,11 @@ public class LockedBlood extends MetricsCard {
 	@Override
 	public List<TooltipInfo> getCustomTooltips() {
 		this.tips.clear();
-
+		
 		if (!this.upgraded) {
-			this.tips.add(new TooltipInfo("Blood", "Heals #g2 HP every turn. NL #pShatters #pin #b3 #pturns."));
+			this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[2]));
 		} else {
-			this.tips.add(new TooltipInfo("Blood+", "Heals #g3 HP every turn. NL #pShatters #pin #b3 #pturns."));
+			this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[1], EXTENDED_DESCRIPTION[3]));
 		}
 
 	    return this.tips;

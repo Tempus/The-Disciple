@@ -31,6 +31,7 @@ public class ResonantCall extends AbstractSelfRetainingCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	public AbstractCard mimic;
 	public boolean displayMimic = false;
 	protected static final float CARD_TIP_PAD = 16.0F;
@@ -69,9 +70,11 @@ public class ResonantCall extends AbstractSelfRetainingCard {
 			this.costForTurn = c.costForTurn;
 			this.isCostModified = true;
 			this.isCostModifiedForTurn = true;
+			this.exhaust = c.exhaust;
+			this.purgeOnUse = c.purgeOnUse;
 
 			// Update description
-			this.rawDescription = "Mimics " + c.name + ".";
+			this.rawDescription = EXTENDED_DESCRIPTION[0] + c.name + EXTENDED_DESCRIPTION[1];
 			if (this.upgraded) { this.rawDescription = this.rawDescription + UPGRADE_DESCRIPTION; }
 			initializeDescription();
 
@@ -170,6 +173,9 @@ public class ResonantCall extends AbstractSelfRetainingCard {
 		this.mimic = null;
 		this.rawDescription = DESCRIPTION;
 		this.type = AbstractCard.CardType.SKILL;
+		this.exhaust = false;
+		this.purgeOnUse = false;
+
 		if (this.upgraded) {
 			this.rawDescription = DESCRIPTION + UPGRADE_DESCRIPTION;
 		}

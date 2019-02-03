@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import java.util.ArrayList;
 
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -56,7 +57,8 @@ public class UnlockedMedicine extends ReplicaOrb
     if (c.type == AbstractCard.CardType.STATUS || (this.upgraded && c.type == AbstractCard.CardType.CURSE)){
       this.activateEffect();
       AbstractDungeon.actionManager.addToBottom(new WaitAction(0.3f));
-      AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
+      // AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
+      AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(c, AbstractDungeon.player.hand));
       AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, new MedicalKit()));
       AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1)); 
     }

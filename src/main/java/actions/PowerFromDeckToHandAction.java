@@ -12,8 +12,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import java.util.ArrayList;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import chronomuncher.ChronoMod;
 
@@ -21,7 +24,9 @@ public class PowerFromDeckToHandAction
   extends AbstractGameAction
 {
   private AbstractPlayer p;
-  
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("PowerFromDeckToHandAction");
+  public static final String[] TEXT = uiStrings.TEXT;
+
   public PowerFromDeckToHandAction(int amount)
   {
     this.p = AbstractDungeon.player;
@@ -71,7 +76,7 @@ public class PowerFromDeckToHandAction
         this.isDone = true;
         return;
       }
-      AbstractDungeon.gridSelectScreen.open(tmp, this.amount, "Choose a Power to Add to Your Hand", false);
+      AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
       tickDuration();
       return;
     }

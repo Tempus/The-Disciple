@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.ui.buttons.Button;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.Prefs;
@@ -22,6 +24,9 @@ public class UnlockButton extends Button
 {
   public boolean hidden = true;
   public boolean disabled = false;
+
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("UnlockButton");
+  public static final String[] TEXT = uiStrings.TEXT;
 
   public UnlockButton(float x, float y, Texture img)
   {
@@ -41,16 +46,18 @@ public class UnlockButton extends Button
       // Unlock all ascensions
       for (CharacterOption o : CardCrawlGame.mainMenuScreen.charSelectScreen.options)
       {
-        if (o.name == "The Disciple")
+        if (o.name == TEXT[0])
         {
           Prefs pref = o.c.getPrefs();
           ReflectionHacks.setPrivate(o, o.getClass(), "maxAscensionLevel", 20);
+          o.c.getCharStat().incrementVictory();
+          pref.putInteger("WIN_COUNT", 1);
           pref.putInteger("ASCENSION_LEVEL", 20);
+          pref.putInteger("LAST_ASCENSION_LEVEL", 20);
           pref.flush();
           ChronoMod.log ("All Disciple Ascensions unlocked");
           CardCrawlGame.sound.playA("UNLOCK_PING", 0.0F);
           disabled = true;
-
         }
       }
 
@@ -75,6 +82,6 @@ public class UnlockButton extends Button
       fc = new Color(0.2F, 0.2F, 0.2F, 1.0F);
     }
 
-    FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, "Unlock", this.x+96.0F, 80.0F * Settings.scale, fc);
+    FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, TEXT[1], this.x+96.0F, 80.0F * Settings.scale, fc);
   }
 }

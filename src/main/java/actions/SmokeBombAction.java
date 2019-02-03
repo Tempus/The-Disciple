@@ -20,6 +20,8 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 import chronomuncher.ChronoMod;
 
@@ -27,6 +29,9 @@ public class SmokeBombAction extends AbstractGameAction {
 
 	private AbstractPlayer p;
 	private boolean upgraded = false;
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("SmokeBombAction");
+    public static final String[] TEXT = uiStrings.TEXT;
 
 	public SmokeBombAction(boolean upgraded) {
 		this.upgraded = upgraded;
@@ -39,7 +44,7 @@ public class SmokeBombAction extends AbstractGameAction {
 	    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
 	      if (m.type == AbstractMonster.EnemyType.BOSS)
 	      {
-     	 	AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "There's no escape!", true));
+     	 	AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
 	        this.isDone = true;
 	        return;
 	      }

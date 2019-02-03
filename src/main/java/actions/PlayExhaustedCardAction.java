@@ -53,6 +53,7 @@ public class PlayExhaustedCardAction extends AbstractGameAction {
 			extracted.removeCard(card);
 
     		AbstractCard tmp = card.makeStatEquivalentCopy();
+    		AbstractDungeon.player.exhaustPile.removeCard(card);
     		tmp.unfadeOut();
 			tmp.freeToPlayOnce = true;
  		    tmp.purgeOnUse = true;

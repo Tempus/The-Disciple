@@ -32,6 +32,7 @@ public class Recurrance extends MetricsCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 	private static final int COST = 1;
 	private static final int ATTACK_DMG = 3;
@@ -87,7 +88,7 @@ public class Recurrance extends MetricsCard {
 	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {
 				if (mo.hasPower("DelayedAttack")) {
-					this.tips.add(new TooltipInfo("Delayed Attack", "Recurrance will shorten the time needed until a delayed attack occurs, which can cause it to trigger instantly if it reaches zero."));
+					this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
 				}
 			}
 		}

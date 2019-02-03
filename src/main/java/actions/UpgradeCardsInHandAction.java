@@ -10,17 +10,23 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import java.util.ArrayList;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 
 public class UpgradeCardsInHandAction
   extends AbstractGameAction
 {
   private AbstractPlayer p;
   private ArrayList<AbstractCard> cannotUpgrade = new ArrayList();
-  private CardGroup canUpgrade = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+  private ArrayList<AbstractCard> canUpgrade = new ArrayList();
   private boolean upgraded = false;
   public AbstractCard.CardType cardType;
+
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("UpgradeCardsInHandAction");
+  public static final String[] TEXT = uiStrings.TEXT;
 
   public UpgradeCardsInHandAction(AbstractCard.CardType cardType, boolean entireHand)
   {
@@ -50,11 +56,14 @@ public class UpgradeCardsInHandAction
       }
 
       // Unupgraded Logic
-      // Find all upgradeable cards
+      // Separate upgrade candidates from non-candidates
       for (AbstractCard c : this.p.hand.group) {
         if (c.canUpgrade() && c.type == this.cardType) {
-          this.canUpgrade.addToBottom(c);
+          this.canUpgrade.add(c);
         } 
+        else {
+          this.cannotUpgrade.add(c);
+        }
       }
       // No cards,so just go back
       if (this.canUpgrade.size() == 0)
@@ -64,50 +73,44 @@ public class UpgradeCardsInHandAction
       }
       // Only one card, so no need to choose.
       else if (this.canUpgrade.size() == 1) {
-        for (AbstractCard c : this.canUpgrade.group) {
+        for (AbstractCard c : this.canUpgrade) {
           c.upgrade();
           this.isDone = true;
           return;
         }
       }
       // Choose a card from your hand
-      else
-      {
-        for (AbstractCard c : this.p.hand.group) {
-          c.setAngle(0, true);
-
-          // Reset attributes without reseting cost. Reseting cost would also make sense, but then it doesn't change back when going into your hand again.
-          c.block = c.baseBlock;
-          c.isBlockModified = false;
-          c.damage = c.baseDamage;
-          c.isDamageModified = false;
-          c.magicNumber = c.baseMagicNumber;
-          c.isMagicNumberModified = false;
-        }
-        // Maybe this fixes that damn angle
-        for (AbstractCard c : this.p.hand.group) { c.setAngle(0, true); }
-        AbstractDungeon.gridSelectScreen.open(this.canUpgrade, 1, "Upgrade", true);
-        // Or this
-        for (AbstractCard c : this.p.hand.group) { c.setAngle(0, true); }
+      else {
+        AbstractDungeon.player.hand.group.removeAll(this.cannotUpgrade);
+        AbstractDungeon.handCardSelectScreen.open(TEXT[0] + this.cardType.name().toLowerCase() + TEXT[1], 1, false, false, false, true);
         tickDuration();
         return;
       }
     }
 
-    if (AbstractDungeon.gridSelectScreen.upgradePreviewCard != null) {
-      AbstractDungeon.gridSelectScreen.upgradePreviewCard.applyPowers();
-    }
-    // Return if we've selected some cards
-    if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0)
+
+    if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved)
     {
-      for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards)
+      for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
       {
         c.upgrade();
+        c.superFlash();
+        AbstractDungeon.player.hand.addToTop(c);
       }
-      AbstractDungeon.gridSelectScreen.selectedCards.clear();
-      this.p.hand.refreshHandLayout();
+      returnCards();
+      AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+      AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
       this.isDone = true;
     }
     tickDuration();
+  }
+
+
+  private void returnCards()
+  {
+    for (AbstractCard c : this.cannotUpgrade) {
+      AbstractDungeon.player.hand.addToTop(c);
+    }
+    AbstractDungeon.player.hand.refreshHandLayout();
   }
 }
