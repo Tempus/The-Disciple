@@ -41,13 +41,13 @@ public class Metronome extends CustomRelic {
     //     }
     // }
     
-    public void atPreBattle()
-    {
-        flash();
-        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
-        CardCrawlGame.sound.play("CARD_POWER_IMPACT", 0.1F);
-    }
+    // public void atPreBattle()
+    // {
+    //     flash();
+    //     AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+    //     AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+    //     CardCrawlGame.sound.play("CARD_POWER_IMPACT", 0.1F);
+    // }
   
     @Override
     public AbstractRelic makeCopy() {

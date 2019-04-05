@@ -149,6 +149,9 @@ public class Relicator
       case "LockedTwirtle":
         this.imageEventText.setDialogOption(OPTIONS[19]);
         break;
+      case "LockedScales":
+        this.imageEventText.setDialogOption(OPTIONS[20]);
+        break;
       default:
         ChronoMod.log("This should never happen.");
     }  
@@ -199,16 +202,16 @@ public class Relicator
         if (g.size() > 0) {
           d = g.getRandomCard(true);
           AbstractDungeon.player.masterDeck.removeCard(d);
-          AbstractDungeon.player.masterDeck.addToTop(d.makeCopy());
-          AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(d.makeStatEquivalentCopy()));
+          AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(d.makeCopy(), Settings.WIDTH / 2 + 150.0F, Settings.HEIGHT / 2));
+          CardCrawlGame.sound.play("INTIMIDATE");
         }
         
         g = this.getUpgradedCards(AbstractDungeon.player.masterDeck);
         if (g.size() > 0) {
           d = g.getRandomCard(true);
           AbstractDungeon.player.masterDeck.removeCard(d);
-          AbstractDungeon.player.masterDeck.addToTop(d.makeCopy());
-          AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(d.makeStatEquivalentCopy()));
+          AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(d.makeCopy(), Settings.WIDTH / 2 + 150.0F, Settings.HEIGHT / 2));
+          CardCrawlGame.sound.play("INTIMIDATE");
         }
         break;
       case "LockedBell":
@@ -282,8 +285,8 @@ public class Relicator
         if (g.size() > 0) {
           d = g.getRandomCard(true);
           AbstractDungeon.player.masterDeck.removeCard(d);
-          AbstractDungeon.player.masterDeck.addToTop(d.makeCopy());
-          AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(d.makeStatEquivalentCopy()));
+          AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(d.makeCopy(), Settings.WIDTH / 2 + 150.0F, Settings.HEIGHT / 2));
+          CardCrawlGame.sound.play("INTIMIDATE");
         }
         break;
       case "LockedWhetstone":
@@ -292,13 +295,17 @@ public class Relicator
         if (g.size() > 0) {
           d = g.getRandomCard(true);
           AbstractDungeon.player.masterDeck.removeCard(d);
-          AbstractDungeon.player.masterDeck.addToTop(d.makeCopy());
-          AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(d.makeStatEquivalentCopy()));
+          AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(d.makeCopy(), Settings.WIDTH / 2 + 150.0F, Settings.HEIGHT / 2));
+          CardCrawlGame.sound.play("INTIMIDATE");
         }
         break;
       case "LockedTwirtle":
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new PaperTurtyl());
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new GremlinMask());
+        break;
+      case "LockedScales":
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new BronzeScales()); 
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Pain(), Settings.WIDTH / 2 - 150.0F, Settings.HEIGHT / 2));
         break;
       default:
         ChronoMod.log("This should never happen.");

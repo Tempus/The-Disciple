@@ -503,9 +503,31 @@ public class ChronoMod implements
     }
 
     public void receiveEditKeywords() {
+
+        String language;
+        switch (Settings.language) {
+            // case KOR:
+            //     language = "kor";
+            //     break;
+            // case ZHS:
+            //     language = "zhs";
+            //     break;
+            // case ZHT:
+            //     language = "zht";
+            //     break;
+            // case FRA:
+            //     language = "fra";
+            //     break;
+            // case JPN:
+            //     language = "jpn";
+            //     break;
+            default:
+                language = "eng";
+        }
+
         Gson gson = new Gson();
 
-        String keywordStrings = Gdx.files.internal("localization/chronoKeywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String keywordStrings = Gdx.files.internal("localization/" + language + "/chronoKeywords.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
 
         keywords = (Map)gson.fromJson(keywordStrings, typeToken);
@@ -603,7 +625,7 @@ public class ChronoMod implements
                     break;
                 case 4:
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"This throne is mine in due time.",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Only temporarilly, at best.",3.5F,3.5F));
+                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Only temporarily, at best.",3.5F,3.5F));
                     break;
                 case 5:
                     AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"I'm going to enjoy tossing you over the railing again.",3.5F,3.5F));

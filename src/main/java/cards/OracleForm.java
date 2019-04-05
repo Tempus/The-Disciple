@@ -31,7 +31,7 @@ public class OracleForm extends MetricsCard {
 
 		this.baseMagicNumber = 5;
 		this.magicNumber = this.baseMagicNumber;
-		this.updateBodyText();
+		this.updateBodyText(false);
 
     	this.tags.add(BaseModCardTags.FORM);
 	}
@@ -41,8 +41,6 @@ public class OracleForm extends MetricsCard {
 		if (p.hasPower("Augury")) { 
 			int drawIncrease = 2;
 			if (this.upgraded) {
-				AuguryPower a = (AuguryPower)p.getPower("Augury");
-				a.upgraded = true;
 				drawIncrease = 3;
 			}
 			AbstractDungeon.actionManager.addToBottom(
@@ -53,18 +51,30 @@ public class OracleForm extends MetricsCard {
 		}
 	}
 
-  	public void triggerWhenDrawn() { this.updateBodyText(); }
-	public void onPlayCard(AbstractCard c, AbstractMonster m) { this.updateBodyText(); }
-	public void atTurnStart() { this.updateBodyText(); }
+  	public void triggerWhenDrawn() { this.updateBodyText(false); }
+	public void onPlayCard(AbstractCard c, AbstractMonster m) { 
+		if (c.cardID == "OracleForm") {
+			this.updateBodyText(true); 
+		} else {
+			this.updateBodyText(false); 
+		}
+	}
+	public void atTurnStart() { this.updateBodyText(false); }
 
-	public void updateBodyText() {
+	public void updateBodyText(boolean now) {
 		if (AbstractDungeon.player != null) { 
 			this.magicNumber = AbstractDungeon.player.gameHandSize;
-			if (this.upgraded) { this.magicNumber++; }
-			if (AbstractDungeon.player.hasPower("Augury")) { 
+			if (this.upgraded) { 
+				this.magicNumber++; 
+			}
+
+			if (AbstractDungeon.player.hasPower("Augury") || now) { 
 				this.baseMagicNumber = 2;
 				this.magicNumber = 2;
-				if (this.upgraded) { this.magicNumber++; }
+				if (this.upgraded) { 
+					this.baseMagicNumber++;
+					this.magicNumber++;
+				}
 
 	      		this.rawDescription = "Choose an additional !M! cards.";
 	   		   	initializeDescription();
@@ -78,7 +88,7 @@ public class OracleForm extends MetricsCard {
 			upgradeName();
 			upgradeMagicNumber(1);
       		this.rawDescription = UPGRADE_DESCRIPTION;
-   		   	initializeDescription();
+   		   	updateBodyText(false);
 		}
 	}
 }

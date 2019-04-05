@@ -40,8 +40,9 @@ public class Analog extends AbstractSelfRetainingCard {
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;	
 
-	private static final int COST = 2;
+	private static final int COST = 1;
 	private static final int POWER = 1;
 
 	private static final float PADDING = 12.0F;
@@ -66,7 +67,7 @@ public class Analog extends AbstractSelfRetainingCard {
 		this.baseMagicNumber = POWER;
 		this.magicNumber = this.baseMagicNumber;
 
-		this.retains = true;
+		// this.retains = true;
 
 		if (icons.size() == 0) {
 	    	TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("powers/powers.atlas"));
@@ -120,7 +121,7 @@ public class Analog extends AbstractSelfRetainingCard {
 		    		(mo.intent == AbstractMonster.Intent.STUN) ||
 		    		(mo.intent == AbstractMonster.Intent.UNKNOWN)) {
 		    		AbstractDungeon.actionManager.addToBottom(
-		    			new ApplyPowerAction(p,p,new RetainOncePower(this.magicNumber),this.magicNumber,true));
+		    			new ApplyPowerAction(p,p,new RetainCardPower(p,this.magicNumber),this.magicNumber,true));
 		    	}
 	    	}
 		}
@@ -130,7 +131,10 @@ public class Analog extends AbstractSelfRetainingCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeMagicNumber(1);
+			// upgradeMagicNumber(1);
+      		this.rawDescription = UPGRADE_DESCRIPTION;
+   		   	initializeDescription();
+  			this.retains = true;
 		}
 	}
 

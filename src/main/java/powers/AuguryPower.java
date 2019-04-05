@@ -46,8 +46,12 @@ public class AuguryPower extends AbstractPower
     this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("chrono_images/powers/AugurySmall.png"), 0, 0, 32, 32);
 
     this.upgraded = upgraded;
+    if (upgraded) {
+      this.additionalDraw += 1;
+    }
     this.starsOn = false;
     this.type = AbstractPower.PowerType.BUFF;
+    setHandAmount();
   }
   
   public void onInitialApplication()
@@ -59,9 +63,6 @@ public class AuguryPower extends AbstractPower
   public void setHandAmount() {
     this.amount = AbstractDungeon.player.masterHandSize;
 
-    if (this.upgraded) {
-      this.amount += 1; }
-
     if (this.owner.hasPower("Draw Down")) {
       this.amount -= this.owner.getPower("Draw Down").amount; }
 
@@ -72,10 +73,6 @@ public class AuguryPower extends AbstractPower
       this.amount += this.owner.getPower("Draw").amount; }
 
     this.amount += this.additionalDraw;
-
-    if (this.amount > 10 - AbstractDungeon.player.hand.size()){
-      this.amount = 10 - AbstractDungeon.player.hand.size();
-    }
 
     ChronoMod.log("Draw amount for Augury set to: " + Integer.toString(this.amount));
   }
@@ -94,11 +91,17 @@ public class AuguryPower extends AbstractPower
     //   }
     // }
 
+    if (this.amount > 10 - AbstractDungeon.player.hand.size()){
+      this.amount = 10 - AbstractDungeon.player.hand.size();
+    }
+
     if (this.amount == 0) { return; }
 
     activeAction = new SeekAction(this.amount);
     AbstractDungeon.actionManager.addToBottom(activeAction);
     this.starsOn = true;
+
+    this.setHandAmount();    
   }
   
   public void renderIcons(SpriteBatch sb, float x, float y, Color c) {

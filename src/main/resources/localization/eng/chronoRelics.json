@@ -53,7 +53,7 @@
     "NAME": "Metronome",
     "FLAVOR": "Tick... tick... tick...",
     "DESCRIPTIONS": [
-      "Draw #b1 additional card at the beginning of battle. #yRetain #b1 additional card each turn."
+      "#yRetain #b1 additional card each turn."
     ]
   },
   "BlueBox": {

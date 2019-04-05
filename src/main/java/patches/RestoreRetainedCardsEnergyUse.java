@@ -36,7 +36,6 @@ public class RestoreRetainedCardsEnergyUse {
 		c.modifyCostForTurn(-1);
 		int kept = RetainedForField.retainedFor.get(c);
 		RetainedForField.retainedFor.set(c, kept+1);
-		c.isCostModifiedForTurn = true;
 	}
 
 	public static void upgradeFromChronograph(AbstractCard c) {

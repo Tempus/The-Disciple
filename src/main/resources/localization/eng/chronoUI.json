@@ -14,7 +14,7 @@
   },
   "UpgradeCardsInHandAction": {
     "TEXT": [
-      "Upgrade a ",
+      "upgrade",
       "."
     ]
   },

@@ -52,10 +52,9 @@ public class Backlash extends AbstractSelfRetainingCard {
 		super.calculateCardDamage(mo);
 	}
 
-	public void update() {
+	public void applyPowers() {
 		this.baseDamage = 0;
-		this.damage = 0;
-		super.update();
+		super.applyPowers();		
 	}
 
 	@Override

@@ -193,8 +193,8 @@
   },
   "Grave": {
       "NAME": "Grave",
-      "DESCRIPTION": "Put target enemy to sleep for !M! turn.",
-      "UPGRADE_DESCRIPTION": "Put target enemy to sleep for !M! turns."
+      "DESCRIPTION": "Put target enemy to sleep for !M! turn. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Put target enemy to sleep for !M! turns. NL Exhaust."
   },
   "Sospirando": {
       "NAME": "Sospirando",
@@ -289,7 +289,8 @@
   },
   "Analog": {
       "NAME": "Analog",
-      "DESCRIPTION": "Gain !M! Strength, Dexterity, Artifact, or Retain for each enemy based on its intent. NL Self-Retaining."
+      "DESCRIPTION": "Gain !M! Strength, Dexterity, Artifact, or Retain for each enemy based on its intent.",
+      "UPGRADE_DESCRIPTION": "Gain !M! Strength, Dexterity, Artifact, or Retain for each enemy based on its intent. NL Self-Retaining."      
   },
   "ShortSighted": {
       "NAME": "Short Sighted",
@@ -638,7 +639,11 @@
   "ResonantCall": {
       "NAME": "Resonant Call",
       "DESCRIPTION": "Mimics the effect and cost of the last card you played.",
-      "UPGRADE_DESCRIPTION": " NL Self-Retaining."
+      "UPGRADE_DESCRIPTION": " NL Self-Retaining.",
+      "EXTENDED_DESCRIPTION": [
+        "Mimics ",
+        ".",
+      ]      
   },
   "OldClockandLoad": {
       "NAME": "Clock and Load",

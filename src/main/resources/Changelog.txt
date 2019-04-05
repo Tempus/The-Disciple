@@ -12,7 +12,7 @@ Changelog:
 	Balance: Fragmentalize now costs 2 instead of 1.
 	Balance: Fragmentalize damage reduced from 17(23) to 16(20).
 	Balance: Flay now does 5(6) damage, and exhausts.
-	*Balance: Resonant Call now exhausts or purges when mimicing an exhausting or purged card.
+	Balance: Resonant Call now exhausts or purges when mimicing an exhausting or purged card.
 	Balance: Mystic Crock Pot increased from 10% to 20%.
 	Balance: Misterioso now purges the used Exhausted card.
 	Balance: Back Four Seconds is now Rare, costs 2, and heals 50%(75%) of damage taken instead of 100%.
@@ -20,18 +20,29 @@ Changelog:
 	Balance: Chrono-elasticity is now rare, instead of uncommon.
 	Balance: Facsimile is now uncommon, instead of rare.
 	Balance: Beats Per Minute is now uncommon, instead of rare.
-	*Balance: Locked Medicine now discards status cards instead of exhausting them.
+	Balance: Locked Medicine now discards status cards instead of exhausting them.
+	Balance: Grave now Exhausts.
+	Balance: Metronome no longer draws one additional card on the 1st turn.
 	Text: Flay's text now more clearly states the relation between the Damage and Debuff.
 	Text: Tooltip text improved for Slow and Haste.
 	Text: Tooltip on Medical Kit Replica updated to reflect actual effect.
 	Text: Spelling fixed on Facsimile description.
 	Text: Fixed a text bug on Nitrogen Replica's tooltip.
 	Text: Unique dialogue now available when fighting Time Eater.
-	*Bug: Oracle Form no longer softlocks if your hand is full at the beginning of the turn.
-	*Bug: Augury no longer misreports the cards Oracle Form lets you pick.
+	Text: Fixed a typo in the Locked War Paint and Whetstone descriptions.
+	Text: Fixed issues with Augury and Oracle Form+ text showing the wrong amounts.
+	Event: Relicator event now correctly shows the downgraded card.
+	Bug: Oracle Form no longer softlocks if your hand is full at the beginning of the turn.
+	Bug: Augury no longer misreports the cards Oracle Form lets you pick.
 	Bug: Collision with Servant fixed.
 	Bug: Tiring Slam should no longer have troules exhausting hand cards, thanks to BD.
 	Bug: Whetstone and War Paint replicas should no longer angle cards strangely.
+	Bug: Fixed a bug where Facsimile could cause crashes.
+	Bug: Fixed a bug where Backlash misreported the damage when you had strength.
+	Bug: Pattern Shift is no longer discounted at 0 cost when retained.
+	Bug: Facsimile now correctly creates a Medicine+ from Blue Candle.
+	Bug: Relicator can no longer softlock on Locked Scales.
+	Bug: Pointy no longer sleeps forever, or ignores sleep.
 
 0.10.9
 

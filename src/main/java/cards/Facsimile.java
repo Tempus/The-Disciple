@@ -136,7 +136,7 @@ public class Facsimile extends MetricsCard {
 
 		String relicsListed;
 		if (this.replicaStrings.size() == 0) {
-			relicsListed = EXTENDED_DESCRIPTION[7];
+			relicsListed = EXTENDED_DESCRIPTION[4];
 		} else {
 			relicsListed = String.join(", ", this.replicaStrings);
 		}
@@ -146,9 +146,9 @@ public class Facsimile extends MetricsCard {
 		ArrayList<TooltipInfo> tips = new ArrayList<TooltipInfo>();
 		if (CardCrawlGame.isInARun()) {
 			if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[8], EXTENDED_DESCRIPTION[9] + amount + EXTENDED_DESCRIPTION[10] + relicsListed));
+				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[7], EXTENDED_DESCRIPTION[8] + amount + EXTENDED_DESCRIPTION[9] + relicsListed));
 			} else {
-				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[8], EXTENDED_DESCRIPTION[11] + relicsListed));
+				tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[7], EXTENDED_DESCRIPTION[10] + relicsListed));
 			}
 		}
 		
@@ -206,7 +206,7 @@ public class Facsimile extends MetricsCard {
 			} else {
 				index = MathUtils.random(0,replicaClasses.size()-1);
 				rClass = replicaClasses.get(index);
-				replicaNames.get(index);
+				chosenName = replicaNames.get(index);
 			}
 
 			try {
@@ -216,6 +216,7 @@ public class Facsimile extends MetricsCard {
 	            boolean upgrade = false;
 
 	            if (chosenName == "Chronograph" || chosenName == "Blue Candle") { upgrade = true; }
+	            ChronoMod.log("Facsimile: created " + chosenName);
 
 	            arglist[0] = new Boolean(upgrade); // Set to this.upgraded to spawn upgraded replicas instead
 
@@ -232,7 +233,7 @@ public class Facsimile extends MetricsCard {
 			}
 
 			if (orb != null) {
-	 				AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
+	 			AbstractDungeon.actionManager.addToBottom(new ChronoChannelAction(orb));
 			}
 	    }
 	}

@@ -82,7 +82,7 @@ public class UpgradeCardsInHandAction
       // Choose a card from your hand
       else {
         AbstractDungeon.player.hand.group.removeAll(this.cannotUpgrade);
-        AbstractDungeon.handCardSelectScreen.open(TEXT[0] + this.cardType.name().toLowerCase() + TEXT[1], 1, false, false, false, true);
+        AbstractDungeon.handCardSelectScreen.open(TEXT[0] + TEXT[1], 1, false, false, false, true);
         tickDuration();
         return;
       }
