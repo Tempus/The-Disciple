@@ -28,7 +28,7 @@ public class SpringShield extends CustomRelic {
     public SpringShield() {
         super(ID, new Texture("chrono_images/relics/SpringShield.png"), new Texture("chrono_images/relics/outline/SpringShield.png"), RelicTier.COMMON, LandingSound.CLINK);
 
-        this.tips.add(new PowerTip("Delayed Effects", "Delayed Effects include Bite Command, Rage Command, Hands Up, Wake Up Call, and The Bomb."));
+        this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }
 
     @Override

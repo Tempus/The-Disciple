@@ -1,0 +1,138 @@
+{
+  "DelayedAttack": {
+    "NAME": "延迟攻击",
+    "DESCRIPTIONS": [
+      "在第 %1$s 个回合结束时，受到 %2$s 点伤害。",
+      "在本回合结束时，受到 %1$s 点伤害。",
+      "在第 %1$s 个回合结束时，失去 %2$s 点生命。",
+      "在本回合结束时，失去 %1$s 点生命。"
+    ]
+  },
+  "DelayedBlock": {
+    "NAME": "延迟格挡",
+    "DESCRIPTIONS": [
+      "在第 %1$s 个回合开始时，获得 %2$s 点格挡。",
+      "在下个回合开始时，获得 %1$s 点格挡。"
+    ]
+  },
+  "DelayedGainStrength": {
+    "NAME": "延迟力量提升",
+    "DESCRIPTIONS": [
+      "在第 %1$s 个回合结束时，获得 %2$s 点力量。",
+      "在本回合结束时，获得 %1$s 点力量。"
+    ]
+  },
+  "DelayedLoseStrength": {
+    "NAME": "延迟力量降低",
+    "DESCRIPTIONS": [
+      "在第 %1$s 个回合结束时，失去 %2$s 点力量。",
+      "在本回合结束时，失去 %1$s 点力量。"
+    ]
+  },
+  "Haste": {
+    "NAME": "急速",
+    "DESCRIPTIONS": [
+      "本回合每打出一张牌， ",
+      "获得 #y格挡 时额外获得 #b10% 。",
+      " (额外获得 #b",
+      "% 点格挡)。急速不会在回合结束时消失。"
+    ]
+  },
+  "Slow": {
+    "NAME": "缓慢",
+    "DESCRIPTIONS": [
+      "本回合每打出一张牌， ",
+      "受到 #y攻击伤害 时额外受到 #b10% 。",
+      " (额外受到 #b",
+      "% 点伤害)。缓慢不会在回合结束时消失。"
+    ]
+  },
+  "MalleablePlayer": {
+    "NAME": "Malleable",
+    "DESCRIPTIONS": [
+      "On taking #yAttack damage, gains #b",
+      " #yBlock. #yBlock gain increases as ",
+      " is triggered. Resets to #b",
+      " at the start of your turn."
+    ]
+  },
+  "Sleep": {
+    "NAME": "熟睡",
+    "DESCRIPTIONS": [
+      "陷入熟睡 #b",
+      " 个回合，受到伤害则直接醒来。"
+    ]
+  },
+  "RetainOnce": {
+    "NAME": "保留",
+    "DESCRIPTIONS": [
+      "回合结束时，你可以保留 #b",
+      " 张卡。",
+      " 张卡。"
+    ]
+  },
+  "SpareTime": {
+    "NAME": "Spare Time",
+    "DESCRIPTIONS": [
+      "Play a Ward for each energy used."
+    ]
+  },
+  "EchoLate": {
+    "NAME": "Late Echo Form",
+    "DESCRIPTIONS": [
+      "The last card you play each turn is played twice.",
+      "The last #b",
+      " cards you play each turn are played twice."
+    ]
+  },
+  "Echonomics": {
+    "NAME": "回音学",
+    "DESCRIPTIONS": [
+      "在本回合，复制你打出的下一张减少了耗能的牌，这张牌耗能为0。",
+      "在本回合，复制你打出的下 ",
+      " 张减少了耗能的牌，这张牌耗能为0。"
+    ]
+  },
+  "Echoward": {
+    "NAME": "多重招架",
+    "DESCRIPTIONS": [
+      "打出的牌将一并打出一张招架。"
+    ]
+  },
+  "Stun": {
+    "NAME": "眩晕",
+    "DESCRIPTIONS": [
+      "无法行动 #b",
+      " 个回合。"
+    ]
+  },
+  "Time Warp Minor": {
+    "NAME": "时间扭曲",
+    "DESCRIPTIONS": [
+      "每当你打出 #b",
+      " 张卡，你的回合结束。"
+    ]
+  },
+  "TimeDilate": {
+    "NAME": "时间膨胀",
+    "DESCRIPTIONS": [
+      "移除 ",
+      " 个增益状态从这名敌人身上 ",
+      " 回合，之后恢复它们。"
+    ]
+  },
+  "Augury": {
+    "NAME": "神谕形态",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，你不再进行抽牌，而是从抽牌堆中选择 ",
+      " 张牌加入手牌。不影响通过其他手段抽牌。"
+    ]
+  },
+  "WakeUpCall": {
+    "NAME": "敲醒服务",
+    "DESCRIPTIONS": [
+      "当敌人眩晕或熟睡时，造成 ",
+      " 点伤害。"
+    ]
+  }
+}

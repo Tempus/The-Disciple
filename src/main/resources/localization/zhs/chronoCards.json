@@ -1,0 +1,784 @@
+{
+  "Strike_Br": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "Defend_Br": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "WindUp": {
+    "NAME": "上发条",
+    "DESCRIPTION": "造成 !D! 点伤害。 保留 。"
+  },
+  "SlimeSpray": {
+    "NAME": "史莱姆喷雾",
+    "DESCRIPTION": "造成 !D! 点伤害，给予所有敌人一层 缓慢 。 保留 。"
+  },
+  "FollowThrough": {
+    "NAME": "继续深入",
+    "DESCRIPTION": "只能跟随其他打出的攻击牌打出。造成 !D! 点伤害。 保留 。"
+  },
+  "BiteCommand": {
+    "NAME": "敲击命令",
+    "DESCRIPTION": "2回合后造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "下回合造成 !D! 点伤害。"
+  },
+  "Accruing": {
+    "NAME": "累积",
+    "DESCRIPTION": "造成 !D! 点 斐波那契 伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 斐波那契 伤害。 保留 。"
+  },
+  "Backlash": {
+    "NAME": "反弹",
+    "DESCRIPTION": "造成 !D! 点伤害。伤害等同于敌人 格挡 的两倍。 保留 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。伤害等同于敌人 格挡 的2.5倍。 保留 。"
+  },
+  "Engulf": {
+    "NAME": "吞尔夫",
+    "DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层 缓慢 。"
+  },
+  "WakeUpCall": {
+    "NAME": "敲醒服务",
+    "DESCRIPTION": "对 眩晕 或 熟睡 的敌人造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "对 眩晕 或 熟睡 的敌人造成 !D! 点伤害。"
+  },
+  "PreemptiveStrike": {
+    "NAME": "先发制人",
+    "DESCRIPTION": "当敌人将要 强化 或 施加异常效果 时，造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "当敌人将要 强化 或 施加异常效果 时，造成 !D! 点伤害。 保留 。"
+  },
+  "TimeDevouring": {
+    "NAME": "时间吞噬",
+    "DESCRIPTION": "造成!D! 点伤害。 降级 为食用时间",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 降级 为食用时间+。"
+  },
+  "TimeConsuming": {
+    "NAME": "食用时间",
+    "DESCRIPTION": "造成 !D! 点伤害。 降级 为 啃食时间。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 降级 为 啃食时间+。"
+  },
+  "BiteofTime": {
+    "NAME": "啃食时间",
+    "DESCRIPTION": "造成 !D! 点伤害。 降级 为蚕食。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 降级 为蚕食+。"
+  },
+  "Nibble": {
+    "NAME": "蚕食",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 转换 为啃食时间。"
+  },
+  "WastingAway": {
+    "NAME": "日见亏损",
+    "DESCRIPTION": "造成 !D! 点伤害。打出时，永久降低这张卡 !M! 点伤害。 消耗 。"
+  },
+  "OverTime": {
+    "NAME": "与时俱增",
+    "DESCRIPTION": "造成 !D! 点伤害。本场战斗中每 消耗 一张牌，增加 !M! 点伤害。"
+  },
+  "TiringSlam": {
+    "NAME": "疲劳撞击",
+    "DESCRIPTION": "造成 !D! 点伤害。 消耗 一张手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 消耗 你当前牌组中的任意一张牌。"
+  },
+  "Rewind": {
+    "NAME": "倒带",
+    "DESCRIPTION": "造成 !D! 点伤害。当造成了未被 格挡 的伤害时，从 消耗 牌堆中选1张牌加入手中。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。从 消耗 牌堆中选2张牌加入手中。"
+  },
+  "Flay": {
+    "NAME": "拷打",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，并使它们在1回合内失去 !D! 点力量。 消耗 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害，并使它们在2回合内失去 !D! 点力量。 消耗 。"
+  },
+  "Recurrance": {
+    "NAME": "回溯",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。敌人身上每个已有的负面效果增加 !M! 层。",
+    "EXTENDED_DESCRIPTION": [
+      "延迟攻击",
+      "回溯的每次攻击都会使延迟攻击生效所需的回合数减少1。如果它减少到0，攻击效果将会立即触发。"
+    ]
+  },
+  "OldTimer": {
+    "NAME": "老前辈",
+    "DESCRIPTION": "造成 !D! 点伤害。本场战斗中每打出一张牌，伤害增加1点。"
+  },
+  "Keepsakes": {
+    "NAME": "纪念品",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。每造成一次不被 格挡 的伤害，这个回合额外 保留 一张牌。"
+  },
+  "Sow": {
+    "NAME": "播种",
+    "DESCRIPTION": "造成 !D! 点伤害。 转换 为收割。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 转换 为收割+。"
+  },
+  "Reap": {
+    "NAME": "收割",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 转换 为播种。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 转换 为播种+。"
+  },
+  "Allegro": {
+    "NAME": "快板乐曲",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "Allargando": {
+    "NAME": "渐响乐曲",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。"
+  },
+  "Vivace": {
+    "NAME": "活板乐曲",
+    "DESCRIPTION": "造成 !D! 点伤害。获得 !M! 点力量。"
+  },
+  "Moderato": {
+    "NAME": "中板乐曲",
+    "DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层虚弱。"
+  },
+  "Allegretto": {
+    "NAME": "小快板乐曲",
+    "DESCRIPTION": "造成 !D! 点伤害。获得 !B! 点 格挡 。"
+  },
+  "SenseKnock": {
+    "NAME": "感官敲击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。将所有敌人的意图转换为它们下回合的意图。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。将所有敌人的意图转换为它们下回合的意图。"
+  },
+  "ASecondTooLate": {
+    "NAME": "争分夺秒",
+    "DESCRIPTION": "造成 !D! 点伤害。当造成了未被 格挡 的伤害时，回复等同于敌人 缓慢 层数的生命。"
+  },
+  "ThickGoo": {
+    "NAME": "稠密粘液",
+    "DESCRIPTION": "造成 !D! 点伤害。给予 缓慢 。 转换 为酸性粘液。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。给予 缓慢 。 转换 为酸性粘液+。"
+  },
+  "AcidicGoo": {
+    "NAME": "酸性粘液",
+    "DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层易伤。 转换 为黏稠粘液。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层易伤。 转换 为黏稠粘液+。"
+  },
+  "ViscousGoo": {
+    "NAME": "黏稠粘液",
+    "DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层虚弱。 转换 为稠密粘液。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。给予 !M! 层虚弱。 转换 为稠密粘液+。"
+  },
+  "RageCommand": {
+    "NAME": "狂怒命令",
+    "DESCRIPTION": "3回合后，对所有敌人造成 !D! 点伤害。"
+  },
+  "HandsUp": {
+    "NAME": "举起手来",
+    "DESCRIPTION": "造成 !D! 点伤害。敌人回合结束时失去 !M! 点 力量 。"
+  },
+  "Stagnate": {
+    "NAME": "停滞",
+    "DESCRIPTION": "使敌人进入 熟睡 !M! 个回合。 自身在 !M! 个回合内 抽牌减少 。 NL 消耗 。"
+  },
+  "Lento": {
+    "NAME": "慢板乐曲",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "Largo": {
+    "NAME": "广板乐曲",
+    "DESCRIPTION": "获得 !B! 点 格挡 。给予 !M! 层 易伤 。"
+  },
+  "Adagio": {
+    "NAME": "柔板乐曲",
+    "DESCRIPTION": "获得 !B! 点 格挡 。获得 !M! 点 敏捷 。"
+  },
+  "Presto": {
+    "NAME": "急板乐曲",
+    "DESCRIPTION": "逃离一场非BOSS战，不会获得奖励。 虚无 。",
+    "UPGRADE_DESCRIPTION": "逃离一场非BOSS战，只会获得金钱奖励。 虚无 。"
+  },
+  "Grave": {
+    "NAME": "钝重乐曲",
+    "DESCRIPTION": "使敌人进入 熟睡 !M! 个回合。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "使敌人进入 熟睡 !M! 个回合。 NL 消耗 。"
+  },
+  "Sospirando": {
+    "NAME": "叹息",
+    "DESCRIPTION": "给予一名敌人 眩晕 。自身获得 眩晕 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "给予所有敌人 眩晕 。自身获得 眩晕 。 NL 消耗 。"
+  },
+  "Misterioso": {
+    "NAME": "神秘",
+    "DESCRIPTION": "从已 消耗 的牌中随机打出 !M! 张牌，这些牌不会返回消耗牌堆。不会打出 状态 和 诅咒 。"
+  },
+  "SecondHand": {
+    "NAME": "秒针",
+    "DESCRIPTION": "保留 !M! 张牌。 NL 获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "保留 !M! 张牌。 NL 获得 !B! 点 格挡 。"
+  },
+  "PatternShift": {
+    "NAME": "模式转移",
+    "DESCRIPTION": "将敌人的意图转换为它下回合的意图。 保留 。",
+    "UPGRADE_DESCRIPTION": "固有 。将敌人的意图转换为它下回合的意图。 保留 。"
+  },
+  "BlueShift": {
+    "NAME": "蓝移",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 保留 。"
+  },
+  "TickedOff": {
+    "NAME": "激怒",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 急速 。 NL 保留 。"
+  },
+  "Reiterate": {
+    "NAME": "重申",
+    "DESCRIPTION": "只能在获得 格挡 后跟随打出。 NL 获得 !B! 点 格挡 。 NL 保留 。"
+  },
+  "GuardCommand": {
+    "NAME": "保护命令",
+    "DESCRIPTION": "2回合后，获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "下个回合获得 !B! 点 格挡 。"
+  },
+  "CoatedVibrissa": {
+    "NAME": "触须裹装",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 转换 为外涂层。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 转换 为外涂层+。"
+  },
+  "Exocoating": {
+    "NAME": "外涂层",
+    "DESCRIPTION": "获得 !M! 层 多层护甲 。 NL 转换 为触须裹装。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 多层护甲 。 NL 转换 为触须裹装+。"
+  },
+  "ForgedGuard": {
+    "NAME": "伪造守卫",
+    "DESCRIPTION": "每个回合结束时获得 !M! 点 格挡 。 NL 降级 为精致守卫。",
+    "UPGRADE_DESCRIPTION": "每个回合结束时获得 !M! 点 格挡 。 NL 降级 为精致守卫+。"
+  },
+  "CraftedGuard": {
+    "NAME": "精致守卫",
+    "DESCRIPTION": "获得 !M! 层#p多层护甲。 NL 降级 为自然守卫。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层#p多层护甲。 NL 降级 为自然守卫+。"
+  },
+  "NaturalGuard": {
+    "NAME": "自然守卫",
+    "DESCRIPTION": "受到伤害时，获得 !M! 点 格挡 。 NL 降级 为查看命令。",
+    "UPGRADE_DESCRIPTION": "受到伤害时，获得 !M! 点 格挡 。 NL 降级 为查看命令+。"
+  },
+  "WatchCommand": {
+    "NAME": "查看命令",
+    "DESCRIPTION": "在接下来 !M! 个回合开始时 格挡 不会消失。"
+  },
+  "Flashback": {
+    "NAME": "闪回",
+    "DESCRIPTION": "将 !M! 张已 消耗 的牌放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张已 消耗 的牌放入你的手牌并 升级 它们。"
+  },
+  "Cuckoo": {
+    "NAME": "布谷鸟",
+    "DESCRIPTION": "消耗 抽牌堆中 !M! 张牌。 NL 保留 。"
+  },
+  "EscortCommand": {
+    "NAME": "护送命令",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 下回合获得 !M! 点 格挡 。"
+  },
+  "Pendulum": {
+    "NAME": "笔摆",
+    "DESCRIPTION": "移除目标敌人的增益效果 !M! 个回合。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "延迟攻击",
+      "笔摆将会引爆敌人身上所有的延迟攻击效果，并在时间膨胀效果结束后将它们重新赋予敌人。"
+    ]
+  },
+  "TimelySolution": {
+    "NAME": "及时方案",
+    "DESCRIPTION": "Desummons Minions.  保留 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL Desummons Minions.  保留 。"
+  },
+  "Analog": {
+    "NAME": "模拟",
+    "DESCRIPTION": "根据每个敌人的意图获得 !M! 点力量，敏捷，人工制品或 保留 。",
+    "UPGRADE_DESCRIPTION": "根据每个敌人的意图获得 !M! 点力量，敏捷，人工制品或 保留 。 NL 保留 。"
+  },
+  "ShortSighted": {
+    "NAME": "短视",
+    "DESCRIPTION": "回复 !M! 点生命。 NL 4回合后，损失两倍生命。"
+  },
+  "BackFourSeconds": {
+    "NAME": "回拨四秒",
+    "DESCRIPTION": "恢复你上回合损失生命的 !M! %。 NL 保留 。 NL 消耗 。"
+  },
+  "Foolish": {
+    "NAME": "愚蠢!",
+    "DESCRIPTION": "将你的生命调至最大生命的一半。 NL 降级 为短视。",
+    "UPGRADE_DESCRIPTION": "将你的生命调至最大生命的一半。 NL 降级 为短视+。"
+  },
+  "Maestoso": {
+    "NAME": "庄严乐曲",
+    "DESCRIPTION": "获得 !M! 点 集中 。"
+  },
+  "Accelerando": {
+    "NAME": "渐快乐曲",
+    "DESCRIPTION": "获得 !M! 层 急速 。"
+  },
+  "Rallentando": {
+    "NAME": "渐慢乐曲",
+    "DESCRIPTION": "给予 !M! 层 缓慢 。"
+  },
+  "Ritenuto": {
+    "NAME": "突慢乐曲",
+    "DESCRIPTION": "给予 !M! 层 虚弱 和 易伤 。"
+  },
+  "LockedMercury": {
+    "NAME": "上锁的水银沙漏",
+    "DESCRIPTION": "解锁一个 水银沙漏 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 水银沙漏+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "水银沙漏",
+      "水银沙漏+",
+      "在你的回合开始时，对所有敌人造成 #g3 点伤害。 NL #b5 回合后 #p破碎 。",
+      "在你的回合开始时，对所有敌人造成 #g5 点伤害。 NL #b5 回合后 #p破碎 。"
+    ]
+  },
+  "LockedIceCream": {
+    "NAME": "上锁的冰淇淋",
+    "DESCRIPTION": "解锁一个 冰淇淋 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 冰淇淋+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "冰淇淋",
+      "冰淇淋+",
+      "",
+      ""
+    ]
+  },
+  "LockedOrichalcum": {
+    "NAME": "上锁的奥利哈钢",
+    "DESCRIPTION": "解锁一个 奥利哈钢 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 奥利哈钢+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "奥利哈钢",
+      "奥利哈钢+",
+      "如果你在回合结束时没有任何 格挡 ，获得 #g6 点 格挡 。与其他奥利哈钢一同起效。 NL #b5 回合后 #p破碎 。",
+      "如果你在回合结束时没有任何 格挡 ，获得 #g9 点 格挡 。与其他奥利哈钢一同起效。 NL #b5 回合后 #p破碎 。"
+    ]
+  },
+  "LockedHand": {
+    "NAME": "上锁的干瘪之手",
+    "DESCRIPTION": "解锁一个 干瘪之手 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 干瘪之手+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "干瘪之手",
+      "干瘪之手+",
+      "",
+      ""
+    ]
+  },
+  "LockedUrn": {
+    "NAME": "上锁的鸟面瓮",
+    "DESCRIPTION": "解锁一个 鸟面瓮 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 鸟面瓮+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "鸟面瓮",
+      "鸟面瓮+",
+      "每使用一张能力牌，回复 #g2 点生命。 NL #b4 回合后 #p破碎 。",
+      "每使用一张能力牌，回复 #g3 点生命。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedCalipers": {
+    "NAME": "上锁的外卡钳",
+    "DESCRIPTION": "解锁一个 外卡钳 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 外卡钳+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "外卡钳",
+      "外卡钳+",
+      "",
+      ""
+    ]
+  },
+  "LockedTurtyl": {
+    "NAME": "上锁的纸乌龟",
+    "DESCRIPTION": "解锁一个 纸乌龟 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 纸乌龟+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "纸乌龟",
+      "纸乌龟+",
+      "每回合开始，给予已有 缓慢 的敌人增加 #g3 层 缓慢 。 NL #b5 回合后 #p破碎 。",
+      "每回合开始，给予所有敌人 #g3 层 缓慢 。 NL #b5 回合后 #p破碎 。"
+    ]
+  },
+  "LockedNitrogen": {
+    "NAME": "上锁的冷冻保存机",
+    "DESCRIPTION": "解锁一个 冷冻保存机 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 冷冻保存机+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "冷冻保存机",
+      "冷冻保存机+",
+      "所有 复制品 的计时增加 #g1 点。 NL #b6 回合后 #p破碎 。",
+      "所有 复制品 的计时增加 #g2 点。 NL #b6 回合后 #p破碎 。"
+    ]
+  },
+  "LockedBlood": {
+    "NAME": "上锁的小血瓶",
+    "DESCRIPTION": "解锁一个 小血瓶 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 小血瓶+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "小血瓶",
+      "小血瓶+",
+      "每回合回复 #g2 点生命。 NL #b3 回合后 #p破碎。",
+      "每回合回复 #g3 点生命。 NL #b3 回合后 #p破碎。"
+    ]
+  },
+  "LockedFlame": {
+    "NAME": "上锁的瓶装火焰",
+    "DESCRIPTION": "解锁一个 瓶装火焰 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 瓶装火焰+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "瓶装火焰",
+      "瓶装火焰+",
+      "每回合开始，从抽牌堆中随机抽取一张 #y攻击牌 加入你的手牌。不会自己 破碎 。",
+      "每回合开始，从抽牌堆中选取一张 #y攻击牌 加入你的手牌。不会自己 破碎 。"
+    ]
+  },
+  "LockedLightning": {
+    "NAME": "上锁的瓶装闪电",
+    "DESCRIPTION": "解锁一个 瓶装闪电 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 瓶装闪电+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "瓶装闪电",
+      "瓶装闪电+",
+      "每回合开始，从抽牌堆中随机抽取一张 #y技能牌 加入你的手牌。不会自己 破碎 。",
+      "每回合开始，从抽牌堆中选取一张 #y技能牌 加入你的手牌。 不会自己 破碎 。"
+    ]
+  },
+  "LockedTornado": {
+    "NAME": "上锁的瓶装旋风",
+    "DESCRIPTION": "固有 。解锁一个 瓶装旋风 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "固有 。解锁一个 瓶装旋风+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "瓶装旋风",
+      "瓶装旋风+",
+      "每回合开始，从抽牌堆中随机抽取一张 #y能力牌 加入你的手牌。不会自己 破碎 。",
+      "每回合开始，从抽牌堆中选取一张 #y能力牌 加入你的手牌。不会自己 破碎 。"
+    ]
+  },
+  "LockedThread": {
+    "NAME": "上锁的针线",
+    "DESCRIPTION": "解锁一个 针线 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 针线+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "针线",
+      "针线+",
+      "每回合获得 #g2 层 多层护甲 。 NL #g2 回合后 #p破碎 。",
+      "每回合获得 #g2 层 多层护甲 。 NL #g3 回合后 #p破碎 。"
+    ]
+  },
+  "LockedMedicine": {
+    "NAME": "上锁的医药箱",
+    "DESCRIPTION": "解锁一个 医药箱 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 医药箱+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "医药箱",
+      "医药箱+",
+      "每当你抽到一张 状态 牌， #y丢弃 它并抽一张牌。 NL #b7 回合后 #p破碎 。",
+      "每当你抽到一张 状态 牌或 诅咒 牌， #y丢弃 它并抽一张牌。 NL #b7 回合后 #p破碎 。"
+    ]
+  },
+  "LockedPlans": {
+    "NAME": "上锁的计划妥当",
+    "DESCRIPTION": "解锁一个 计划妥当 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 计划妥当+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "计划妥当",
+      "计划妥当+",
+      "每回合可 保留 #g1 张牌。 NL #b4 回合后 #p破碎 。",
+      "每回合可 保留 #g2 张牌。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedAnchor": {
+    "NAME": "上锁的锚",
+    "DESCRIPTION": "虚无 。获得 !B! 点 格挡 。解锁一个 锚 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "虚无 。获得 !B! 点 格挡 。解锁一个 锚+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "锚",
+      "锚+",
+      "只会让你感到沉重。 破碎 计时会累加而不是递减。",
+      "破碎 时，获得 #b10 点 格挡 。 破碎 计时会累加而不是递减。"
+    ]
+  },
+  "LockedBell": {
+    "NAME": "上锁的召唤铃铛",
+    "DESCRIPTION": "解锁一个 召唤铃铛 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 召唤铃铛+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "召唤铃铛",
+      "召唤铃铛+",
+      "每个回合开始，创造 #g1 个 复制品 并增加 #g1 张 诅咒 加入你的抽牌堆中。 NL #b3 回合后 #p破碎 。",
+      "每个回合开始，创造 #g1 个 复制品 并增加 #g1 张 诅咒 加入你的抽牌堆中。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedMawBank": {
+    "NAME": "上锁的巨口储蓄罐",
+    "DESCRIPTION": "解锁一个 巨口储蓄罐 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 巨口储蓄罐+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "巨口储蓄罐",
+      "巨口储蓄罐+",
+      "如果本场战斗结束时没有 破碎 ，获得 #g12 金币。 NL #b7 回合后 #p破碎 。",
+      "如果本场战斗结束时没有 破碎 ，获得 #g16 金币。 NL #b7 回合后 #p破碎 。"
+    ]
+  },
+  "LockedAstrolabe": {
+    "NAME": "上锁的星盘",
+    "DESCRIPTION": "解锁一个 星盘 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 星盘+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "星盘",
+      "星盘+",
+      "消耗 一张手牌，随机发现一张牌，加入手牌并 升级 。 NL #b3 回合后 #p破碎 。",
+      "消耗 一张手牌，发现三张牌，选择其中一张加入手牌并 升级 。 NL #b3 回合后 #p破碎 。"
+    ]
+  },
+  "LockedCalendar": {
+    "NAME": "上锁的历石",
+    "DESCRIPTION": "解锁一个 历石 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "固有 。解锁一个 历石+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "历石",
+      "历石+",
+      "破碎 时，对所有敌人造成 #b52 点伤害。 NL #b7 回合后 #p破碎 。",
+      "破碎 时，对所有敌人造成 #b52 点伤害。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedWarPaint": {
+    "NAME": "上锁的战纹涂料",
+    "DESCRIPTION": "解锁一个 战纹涂料 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 战纹涂料+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "战纹涂料",
+      "战纹涂料+",
+      "每回合 升级 手牌中的一张技能牌。升级效果持续到本场战斗结束。 NL #b4 回合后 #p破碎 。",
+      "每回合 升级 手牌中的所有技能牌。升级效果持续到本场战斗结束。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedWhetstone": {
+    "NAME": "上锁的磨刀石",
+    "DESCRIPTION": "解锁一个 磨刀石 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 磨刀石+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "磨刀石",
+      "磨刀石+",
+      "每回合 升级 手牌中的一张攻击牌。升级效果持续到本场战斗结束。 NL #b4 回合后 #p破碎 。",
+      "每回合 升级 手牌中的所有攻击牌。升级效果持续到本场战斗结束。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+  "LockedScales": {
+    "NAME": "上锁的铜制鳞片",
+    "DESCRIPTION": "解锁一个 铜制鳞片 的 复制品 。",
+    "UPGRADE_DESCRIPTION": "解锁一个 铜制鳞片+ 的 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "铜制鳞片",
+      "铜制鳞片+",
+      "每当你受到伤害时，造成 #b3 点反伤。 NL #b6 回合后 #p破碎 。",
+      "每当你受到伤害时，造成 #b5 点反伤。 NL #b6 回合后 #p破碎 。"
+    ]
+  },
+  "Tempo": {
+    "NAME": "节拍",
+    "DESCRIPTION": "根据敌人意图永久 转换 成另一张卡并返回手中。",
+    "UPGRADE_DESCRIPTION": "根据敌人意图永久 转换 成另一张卡并 升级 后返回手中。",
+    "EXTENDED_DESCRIPTION": [
+      "使用方法",
+      "将这张卡指向一名敌人，就可以看到它将会转换成什么卡。",
+      "意图转换",
+      "游戏中敌人的意图共有15种，每种意图都对应着一张可转换的卡。"
+    ]
+  },
+  "BeatsPerMinute": {
+    "NAME": "每分钟跳动",
+    "DESCRIPTION": "造成 !D! 点伤害。 如果这张卡杀死一个敌人，根据敌人意图永久获得一张卡。 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 如果这张卡杀死一个敌人，根据敌人意图永久获得一张卡并 升级 。 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "使用方法",
+      "将这张卡指向一名敌人，就可以看到杀死它后你将会获得什么卡。",
+      "意图转换",
+      "游戏中敌人的意图共有15种，每种意图都对应着一张可转换的卡。"
+    ]
+  },
+  "OldEchonomics": {
+    "NAME": "Echonomics",
+    "DESCRIPTION": "The first card you play each turn is played twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The last card you play each turn is played twice. NL Exhaust."
+  },
+  "Echonomics": {
+    "NAME": "回声学",
+    "DESCRIPTION": "在本回合，复制你打出的下一张减少了耗能的牌到你的手牌，这张牌在本回合耗能为0。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "在本回合，复制你打出的下一张减少了耗能的牌到你的手牌，这张牌在本场战斗中耗能为0。 NL 消耗 。"
+  },
+  "Parity": {
+    "NAME": "奇偶性",
+    "DESCRIPTION": "偶数回合时，造成 !D! 点伤害。奇数回合时，获得 !B! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": ["在偶数回合造成 !D! 点伤害。",
+      "在奇数回合获得 !B! 点 格挡 。"]
+  },
+  "MasterKey": {
+    "NAME": "万能钥匙",
+    "DESCRIPTION": "打出手牌中所有能力牌。 NL 保留 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "打出手牌和弃牌堆中所有能力牌。 NL 保留 。 NL 消耗 。"
+  },
+  "FeedbackCycle": {
+    "NAME": "反馈循环",
+    "DESCRIPTION": "你每有一层 急速 ，将一张 招架 加入手中。",
+    "UPGRADE_DESCRIPTION": "你每有一层 急速 ，将一张 招架 加入手中，额外增加 !M! 张。"
+  },
+  "VestedLegacy": {
+    "NAME": "既得遗产",
+    "DESCRIPTION": "增加 !M! 张 招架 加入手牌， 2 张加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "增加 !M! 张 升级 过的 招架 加入手牌， 2 张加入抽牌堆。"
+  },
+  "OldResonantCall": {
+    "NAME": "Resonant Call",
+    "DESCRIPTION": "Play the first !M! Block cards in your draw pile that give less Block than you currently have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Mimics ",
+      "."
+    ]
+  },
+  "ResonantCall": {
+    "NAME": "共鸣呼叫",
+    "DESCRIPTION": "模仿你上一张打出的牌的效果与耗能。",
+    "UPGRADE_DESCRIPTION": " NL 保留 。",
+    "EXTENDED_DESCRIPTION": [
+      "模仿 ",
+      "。"
+    ]
+  },
+  "OldClockandLoad": {
+    "NAME": "Clock and Load",
+    "DESCRIPTION": "造成 !D! 点伤害。本场战斗中每点 [E] 提升伤害。 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。本场战斗中每点 [E] 提升伤害。"
+  },
+  "OldSpareTime": {
+    "NAME": "Spare Time",
+    "DESCRIPTION": "在这个回合，每使用1点 [E] ，将1张 招架 加入手中。",
+    "UPGRADE_DESCRIPTION": "在这个回合，每使用1点 [E] ，将1张 升级 过的 招架 加入手中。"
+  },
+  "Echoward": {
+    "NAME": "多重招架",
+    "DESCRIPTION": "在这个回合，所有打出的牌都将一并打出一张 招架 。",
+    "UPGRADE_DESCRIPTION": "在这个回合，所有打出的牌都将一并打出一张 升级 过的 招架 。"
+  },
+  "PrimeTime": {
+    "NAME": "黄金时间",
+    "DESCRIPTION": "造成 !D! 点伤害。 如果这张卡被 保留 ，将造成两倍伤害。"
+  },
+  "AlternateTimeline": {
+    "NAME": "交替时间线",
+    "DESCRIPTION": "丢弃1张牌，从抽牌堆中选择1张牌加入手牌。",
+    "UPGRADE_DESCRIPTION": "丢弃 !M! 张牌，从抽牌堆中选择 !M! 张牌加入手牌。"
+  },
+  "Chronoelasticity": {
+    "NAME": "时间弹性",
+    "DESCRIPTION": "给予所有敌人 !M! 次 X 层 缓慢 。 NL 自身获得 !M! 次 X 层 急速 。"
+  },
+  "SpareTime": {
+    "NAME": "空余时间",
+    "DESCRIPTION": "打出你抽牌堆顶的 X 张牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": "打出你抽牌堆顶的 X+1 张牌。 消耗 。"
+  },
+  "OldCrunchTime": {
+    "NAME": "Crunch Time",
+    "DESCRIPTION": "破碎 所有 复制品 。每个 复制品 获得 !M! 点 [E] 。"
+  },
+  "CrunchTime": {
+    "NAME": "破碎时间",
+    "DESCRIPTION": "破碎 最新的一个 复制品 ，该 复制品 每有1点计时，造成 !D! 点伤害。"
+  },
+  "Fragmentalize": {
+    "NAME": "碎片化",
+    "DESCRIPTION": "破碎 所有 复制品 。每破碎一个复制品，对所有敌人造成 !D! 点伤害。 NL 消耗 。"
+  },
+  "Facsimile": {
+    "NAME": "副本",
+    "DESCRIPTION": "创造 X 个你拥有的可复制遗物的 复制品 。溢出的能量将创造 岩石 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "创造 X 个你拥有的可复制遗物的 复制品 。溢出的能量将创造 岩石 。",
+    "EXTENDED_DESCRIPTION": [
+      "", // used as a plural modifier
+      " NL 目前 ", // # of relics
+      " 个遗物", // plural modifier goes after here
+      " 可以用于复制。", //end of phrase
+      " NL 你当前没有可复制遗物，只能创造岩石。", // used if nothing to replicate
+      "计划妥当来自 ", // Plans replica name
+      "医疗箱+来自 ", //Medicine+ replica name
+      "复制",
+      "复制品将被随机创造 ",
+      "个，从以下遗物中选取原版： ",
+      "复制品将从以下遗物中随机选取X个作为原版进行创造："
+    ]
+  },
+
+  "OracleForm": {
+    "NAME": "神谕形态",
+    "DESCRIPTION": "每回合开始时，你不再进行抽牌，而是从抽牌堆中选择 !M! 张牌加入手牌。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，你不再进行抽牌，而是从抽牌堆中选择 !M! 张牌加入手牌。"
+  },
+  "SpringForward": {
+    "NAME": "前进",
+    "DESCRIPTION": "固有 。 NL 抽 !M! 张牌。 NL 转换 为回退。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 抽 !M! 张牌。 保留 1张牌。 NL 转换 为回退+。"
+  },
+  "Fallback": {
+    "NAME": "回退",
+    "DESCRIPTION": "获得 [E] [E] 。 NL 转换 为前进。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] 。 NL 转换 为前进+。 NL 消耗 。"
+  },
+  "ClockandLoad": {
+    "NAME": "计时与加载",
+    "DESCRIPTION": "增加每个 复制品  !M! 点计数。 转换 为快进。",
+    "UPGRADE_DESCRIPTION": "增加每个 复制品  !M! 点计数。 转换 为快进+。"
+  },
+  "FastForwardS": {
+    "NAME": "快进",
+    "DESCRIPTION": "减少每个 复制品 倒计时并从抽牌堆打出 !M! 张牌。 转换 为计时与加载。",
+    "UPGRADE_DESCRIPTION": "减少每个 复制品 倒计时并从抽牌堆打出 !M! 张牌。 转换 为计时与加载+。"
+  },
+  "Break": {
+    "NAME": "休息",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 所有敌人获得 !M! 点 格挡 。"
+  },
+  "FormalWear": {
+    "NAME": "正装",
+    "DESCRIPTION": "造成 !D! 点伤害。解锁1个 岩石 复制品 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 解锁 !M! 个 岩石+ 复制品 。",
+    "EXTENDED_DESCRIPTION": [
+      "岩石",
+      "岩石+",
+      "破碎 时对随机敌人造成 #g1 点伤害。 NL #b4 回合后 #p破碎 。",
+      "破碎 时对随机敌人造成 #g1 点伤害。 NL 更易出现稀有装扮。 NL #b4 回合后 #p破碎 。"
+    ]
+  },
+
+  "Ward": {
+    "NAME": "招架",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 消耗 。"
+  },
+  "Dizzy": {
+    "NAME": "头昏眼花",
+    "DESCRIPTION": "无法被打出 。 NL 抽到时对你的手牌施加 混乱 效果。"
+  },
+  "HandsUpB": {
+    "NAME": "举起手来！",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在回合结束时，造成剩余 格挡 数值的伤害。"
+  },
+  "HandsUpC": {
+    "NAME": "计时加载",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每个回合提升 !M! 点这张牌在本场战斗中的伤害。"
+  },
+  "HandsUpD": {
+    "NAME": "Strengths Up",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 敌人失去 !M! 点力量并在下回合获得 8 点力量。"
+  },
+  "HandsUpE": {
+    "NAME": "Ouch Up",
+    "DESCRIPTION": "敌人失去 !M! 点力量。每回合你和敌人受到已减去的力量数值的伤害。"
+  },
+  "HandsUpF": {
+    "NAME": "Cards Up",
+    "DESCRIPTION": "最多丢弃 !M! 张牌，每张造成 !D! 点伤害。"
+  },
+  "HandsUpG": {
+    "NAME": "Draws Up",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 下回合开始时少抽一张牌。"
+  }
+}

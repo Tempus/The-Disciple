@@ -1,0 +1,14 @@
+{
+  "HastePotion": {
+    "NAME": "急速药剂",
+    "DESCRIPTIONS": [
+      "获得 #y急速 。"
+    ]
+  },
+  "WardPotion": {
+    "NAME": "招架激素",
+    "DESCRIPTIONS": [
+      "将 #b3 张 #y招架 加入手牌。"
+    ]
+  }
+}

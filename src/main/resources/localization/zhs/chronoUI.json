@@ -1,0 +1,63 @@
+{
+  "UnlockButton": {
+    "TEXT": [
+      "门徒",
+      "解锁"
+    ]
+  },
+  "Disciple": {
+    "TEXT": [
+      "你的时间似乎已用尽……又一次。",
+      "门徒",
+      "时间吞噬者的门下弟子，想通过征服这座尖塔，取代老师的地位。"
+    ]
+  },
+  "UpgradeCardsInHandAction": {
+    "TEXT": [
+      "升级一张",
+      "。"
+    ]
+  },
+  "SmokeBombAction": {
+    "TEXT": [
+      "无处可逃了！"
+    ]
+  },
+  "PowerFromDeckToHandAction": {
+    "TEXT": [
+      "选择一张能力牌加入手中"
+    ]
+  },
+  "ExhaustFromPlayAction": {
+    "TEXT": [
+      "选择一张牌消耗。",
+      "选择 ",
+      " 张牌消耗。"
+    ]
+  },
+  "ExhaustFromDeckAction": {
+    "TEXT": [
+      "选择一张牌消耗。",
+      "选择 ",
+      " 张牌消耗。"
+    ]
+  },
+  "DiscardAndDamageAction": {
+    "TEXT": [
+      "选择最多 ",
+      " 张牌丢弃。"
+    ]
+  },
+  "ChronoChannelAction": {
+    "TEXT": [
+      "我现在无法再承受更多 #r复制品 。"
+    ]
+  },
+  "ModInfo": {
+    "TEXT": [
+      "门徒",
+      "时间计量学",
+      "门徒是一个具有挑战的，以时间吞噬者为主题的杀戮尖塔角色。该牌组的设计是围绕着选择正确的时间将牌打出，以获得最大价值，并有四个核心玩法：保留，意图转移，转换，和临时遗物。"
+    ]
+  }
+}
