@@ -78,7 +78,9 @@
     "NAME": "Spring Shield",
     "FLAVOR": "The further back you pull, the more satisfying the thunk.",
     "DESCRIPTIONS": [
-      "Delayed attacks gain 2 #yBlock each turn before they activate."
+      "Delayed attacks gain 2 #yBlock each turn before they activate.",
+      "Delayed Effects",
+      "Delayed Effects include Bite Command, Rage Command, Hands Up, Wake Up Call, and The Bomb."
     ]
   },
   "HeavySwitch": {
