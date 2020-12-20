@@ -33,7 +33,7 @@ import chronomuncher.patches.RetainedForField;
 public class RestoreRetainedCardsEnergyUse {
 
 	public static void lowerCostFromRetain(AbstractCard c) {
-		c.modifyCostForTurn(-1);
+		c.setCostForTurn(c.costForTurn-1);
 		int kept = RetainedForField.retainedFor.get(c);
 		RetainedForField.retainedFor.set(c, kept+1);
 	}

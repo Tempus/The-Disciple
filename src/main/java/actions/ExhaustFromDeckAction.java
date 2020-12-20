@@ -23,7 +23,7 @@ import chronomuncher.ChronoMod;
 public class ExhaustFromDeckAction extends AbstractGameAction {
   private AbstractPlayer p;
   
-  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("UnlockButton");
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustFromDeckAction");
   public static final String[] TEXT = uiStrings.TEXT;
 
   public ExhaustFromDeckAction(int amount)

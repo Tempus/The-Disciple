@@ -82,6 +82,6 @@ public class UnlockButton extends Button
       fc = new Color(0.2F, 0.2F, 0.2F, 1.0F);
     }
 
-    FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, TEXT[1], this.x+96.0F, 80.0F * Settings.scale, fc);
+    FontHelper.renderFont(sb, FontHelper.cardTitleFont, TEXT[1], this.x+96.0F, 80.0F * Settings.scale, fc);
   }
 }

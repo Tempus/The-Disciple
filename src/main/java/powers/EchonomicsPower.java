@@ -81,7 +81,7 @@ public class EchonomicsPower
     if (card.isCostModified || card.isCostModifiedForTurn) {
       AbstractCard c = card.makeStatEquivalentCopy();
       if (!this.upgraded) {
-        c.modifyCostForTurn(-9);
+        c.setCostForTurn(0);
       } else {
         c.modifyCostForCombat(-9);
       }

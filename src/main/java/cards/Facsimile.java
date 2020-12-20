@@ -27,7 +27,6 @@ import chronomuncher.patches.Enum;
 import chronomuncher.powers.RetainOncePower;
 import chronomuncher.orbs.*;
 
-import javafx.util.Pair;
 import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +44,8 @@ public class Facsimile extends MetricsCard {
 	private static final int RELIC_CAP_UPGRADE = 7;
 
 	public static ArrayList<String> replicaStrings = new ArrayList<String>();
-	private final ArrayList<Pair<String, Class>> relicList = new ArrayList<Pair<String, Class>>();
+	private final ArrayList<String> relicListKey = new ArrayList<String>();
+	private final ArrayList<Class>  relicListVal = new ArrayList<Class>();
 
 	public Facsimile() {
 		super(ID, NAME, "chrono_images/cards/Facsimile.png", COST, DESCRIPTION, AbstractCard.CardType.SKILL,
@@ -56,29 +56,52 @@ public class Facsimile extends MetricsCard {
 
 		this.exhaust = true;
 
-		relicList.add(new Pair("Blood Vial", 		UnlockedBlood.class));
-		relicList.add(new Pair("StoneCalendar", 	UnlockedCalendar.class));
-		relicList.add(new Pair("Paper Turtyl", 		UnlockedTurtyl.class));
-		relicList.add(new Pair("Bottled Flame", 	UnlockedFlame.class));
-		relicList.add(new Pair("Bottled Lightning", UnlockedLightning.class));
-		relicList.add(new Pair("Bottled Tornado", 	UnlockedTornado.class));
-		relicList.add(new Pair("Mummified Hand", 	UnlockedHand.class));
-		relicList.add(new Pair("Ice Cream", 		UnlockedIceCream.class));
-		relicList.add(new Pair("Medical Kit", 		UnlockedMedicine.class));
-		relicList.add(new Pair("Mercury Hourglass", UnlockedMercury.class));
-		relicList.add(new Pair("Cryopreserver", 	UnlockedNitrogen.class));
-		relicList.add(new Pair("Orichalcum", 		UnlockedOrichalcum.class));
-		relicList.add(new Pair("Thread and Needle", UnlockedThread.class));
-		relicList.add(new Pair("Bird Faced Urn", 	UnlockedUrn.class));
-		relicList.add(new Pair("Metronome", 		UnlockedPlans.class));
-		relicList.add(new Pair("War Paint", 		UnlockedWarPaint.class));
-		relicList.add(new Pair("Whetstone", 		UnlockedWhetstone.class));
-		relicList.add(new Pair("MawBank", 			UnlockedMawBank.class));
-		relicList.add(new Pair("Anchor", 			UnlockedAnchor.class));
-		relicList.add(new Pair("Astrolabe", 		UnlockedAstrolabe.class));
-		relicList.add(new Pair("Calling Bell", 		UnlockedBell.class));
-		relicList.add(new Pair("Blue Candle", 		UnlockedMedicine.class));
-		relicList.add(new Pair("Bronze Scales", 	UnlockedScales.class));
+		relicListKey.add("Blood Vial");	
+			relicListVal.add(UnlockedBlood.class);
+		relicListKey.add("StoneCalendar");
+			relicListVal.add(UnlockedCalendar.class);
+		relicListKey.add("Paper Turtyl");
+			relicListVal.add(UnlockedTurtyl.class);
+		relicListKey.add("Bottled Flame");	
+			relicListVal.add(UnlockedFlame.class);
+		relicListKey.add("Bottled Lightning");
+			relicListVal.add(UnlockedLightning.class);
+		relicListKey.add("Bottled Tornado");
+			relicListVal.add(UnlockedTornado.class);
+		relicListKey.add("Mummified Hand");	
+			relicListVal.add(UnlockedHand.class);
+		relicListKey.add("Ice Cream");
+			relicListVal.add(UnlockedIceCream.class);
+		relicListKey.add("Medical Kit");
+			relicListVal.add(UnlockedMedicine.class);
+		relicListKey.add("Mercury Hourglass");
+			relicListVal.add(UnlockedMercury.class);
+		relicListKey.add("Cryopreserver");
+			relicListVal.add(UnlockedNitrogen.class);
+		relicListKey.add("Orichalcum");
+			relicListVal.add(UnlockedOrichalcum.class);
+		relicListKey.add("Thread and Needle"); 
+			relicListVal.add(UnlockedThread.class);
+		relicListKey.add("Bird Faced Urn"); 	
+			relicListVal.add(UnlockedUrn.class);
+		relicListKey.add("Metronome");	
+			relicListVal.add(UnlockedPlans.class);
+		relicListKey.add("War Paint");
+			relicListVal.add(UnlockedWarPaint.class);
+		relicListKey.add("Whetstone");
+			relicListVal.add(UnlockedWhetstone.class);
+		relicListKey.add("MawBank");
+			relicListVal.add(UnlockedMawBank.class);
+		relicListKey.add("Anchor");
+			relicListVal.add(UnlockedAnchor.class);
+		relicListKey.add("Astrolabe");
+			relicListVal.add(UnlockedAstrolabe.class);
+		relicListKey.add("Calling Bell");	
+			relicListVal.add(UnlockedBell.class);
+		relicListKey.add("Blue Candle");
+			relicListVal.add(UnlockedMedicine.class);
+		relicListKey.add("Bronze Scales");
+			relicListVal.add(UnlockedScales.class);
 
 		this.updateRelicDescription();
 	}
@@ -116,11 +139,11 @@ public class Facsimile extends MetricsCard {
 		if (AbstractDungeon.player == null) { return; }
 
 	    for (AbstractRelic relic : AbstractDungeon.player.relics) {
-			for (Pair<String, Class> replica : relicList) {
-				if (replica.getKey() == relic.relicId) {
-					if (replica.getKey() == "Metronome") {
+			for (String relicKey : relicListKey) {
+				if (relicKey == relic.relicId) {
+					if (relicKey == "Metronome") {
 						this.replicaStrings.add(EXTENDED_DESCRIPTION[5] + relic.name);
-					} else if (replica.getKey() == "Blue Candle") {
+					} else if (relicKey == "Blue Candle") {
 						this.replicaStrings.add(EXTENDED_DESCRIPTION[6] + relic.name);
 					} else {
 						this.replicaStrings.add(relic.name);
@@ -179,10 +202,10 @@ public class Facsimile extends MetricsCard {
 		ArrayList<String> replicaNames = new ArrayList<String>();
 
 	    for (AbstractRelic relic : AbstractDungeon.player.relics) {
-			for (Pair<String, Class> replica : relicList) {
-				if (replica.getKey() == relic.relicId) {
-					replicaClasses.add(replica.getValue());
-					replicaNames.add(replica.getKey());
+			for (int i = 0; i < relicListKey.size(); i++) {
+				if (relicListKey.get(i) == relic.relicId) {
+					replicaClasses.add(relicListVal.get(i));
+					replicaNames.add(relicListKey.get(i));
 				}
 			}
 		}

@@ -1,5 +1,10 @@
 Changelog:
 
+1.0
+
+	
+
+
 0.10.10
 
 	Card: Hands Up is now "Gain 4(6) Block, At the end of the round, deal damage equal to your remaining Block."

@@ -22,7 +22,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
-import javafx.util.Pair;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -37,8 +36,8 @@ public class EchoLatePower
   public static final String NAME = powerStrings.NAME;
   public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
   
-  private static Deque<Pair<AbstractCard, UseCardAction>> cardsPlayedThisTurn = new LinkedList();
-  private static Pair<AbstractCard, UseCardAction> playedCard;
+  private static Deque<AbstractCard> cardsPlayedThisTurn = new LinkedList();
+  private static Deque<UseCardAction> actionsPlayedThisTurn = new LinkedList();
 
   private static float x;
   private static float y;
@@ -76,15 +75,14 @@ public class EchoLatePower
       if (this.shouldStopTimeWarp() || this.shouldStopTimeMazePower() || this.shouldStopTimeMazeBlight()) { return; }
       ChronoMod.log("Echo Late: " + Integer.toString(cardsDoubledThisTurn));
 
-      AbstractCard card;
-      playedCard = this.cardsPlayedThisTurn.pollFirst();
+      AbstractCard playedCard = this.cardsPlayedThisTurn.pollFirst();
+      UseCardAction playedAction = this.actionsPlayedThisTurn.pollFirst();
       if (playedCard == null) { return; }
 
-      card = playedCard.getKey();
       // if (card.cardID == "Echonomics") { return; }
       
-      if (!card.purgeOnUse) {
-        AbstractDungeon.actionManager.addToBottom(new PlayEchoCardAction(card, playedCard.getValue().target));
+      if (!playedCard.purgeOnUse) {
+        AbstractDungeon.actionManager.addToBottom(new PlayEchoCardAction(playedCard, playedAction.target));
       }
     }
 
@@ -94,9 +92,11 @@ public class EchoLatePower
   public void onUseCard(AbstractCard card, UseCardAction action) {
     ChronoMod.log("Adding to list: " + card.cardID);
     if (card.cardID == "Tempo") {
-      this.cardsPlayedThisTurn.addFirst(new Pair(card.makeStatEquivalentCopy(), action));
+      this.cardsPlayedThisTurn.addFirst(card.makeStatEquivalentCopy());
+      this.actionsPlayedThisTurn.addFirst(action);
     } else {
-      this.cardsPlayedThisTurn.addFirst(new Pair(card, action));
+      this.cardsPlayedThisTurn.addFirst(card);
+      this.actionsPlayedThisTurn.addFirst(action);
     }
   }
 

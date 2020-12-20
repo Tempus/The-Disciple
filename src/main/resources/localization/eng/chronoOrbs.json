@@ -73,8 +73,8 @@
   "Medicine": {
     "NAME": "Medicine",
     "DESCRIPTION": [
-      "Whenever you draw a #yStatus card, #yExhaust it and draw a card.",
-      "Whenever you draw a #yStatus or #yCurse card, #yExhaust it and draw a card."
+      "Whenever you draw a #yStatus card, #yDiscard it and draw a card.",
+      "Whenever you draw a #yStatus or #yCurse card, #yDiscard it and draw a card."
     ]
   },
   "Mercury": {
