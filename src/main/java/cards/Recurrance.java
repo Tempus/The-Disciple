@@ -85,10 +85,13 @@ public class Recurrance extends MetricsCard {
 		if (AbstractDungeon.getCurrMapNode() == null) { return this.tips; }
 		if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) { return this.tips; }
 
-	    for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+		o : for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 			if (!mo.isDead && !mo.escaped) {
-				if (mo.hasPower("DelayedAttack")) {
-					this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
+				for (AbstractPower power : mo.powers) {
+					if (power.ID.contains("DelayedAttack")) {
+						this.tips.add(new TooltipInfo(EXTENDED_DESCRIPTION[0], EXTENDED_DESCRIPTION[1]));
+						break o;
+					}
 				}
 			}
 		}

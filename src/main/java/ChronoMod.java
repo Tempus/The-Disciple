@@ -509,9 +509,9 @@ public class ChronoMod implements
             // case KOR:
             //     language = "kor";
             //     break;
-            // case ZHS:
-            //     language = "zhs";
-            //     break;
+             case ZHS:
+                 language = "zhs";
+                 break;
             // case ZHT:
             //     language = "zht";
             //     break;
@@ -547,9 +547,9 @@ public class ChronoMod implements
             // case KOR:
             //     language = "kor";
             //     break;
-            // case ZHS:
-            //     language = "zhs";
-            //     break;
+             case ZHS:
+                 language = "zhs";
+                 break;
             // case ZHT:
             //     language = "zht";
             //     break;
@@ -615,31 +615,35 @@ public class ChronoMod implements
 
     public boolean receivePreMonsterTurn(AbstractMonster m) {
         if (m.id == "TimeEater" && AbstractDungeon.player.chosenClass == Enum.CHRONO_CLASS) {
-            switch (AbstractDungeon.actionManager.turn) {
-                case 2:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Whale brought you back did they?",3.5F,3.5F));
-                    break;
-                case 3:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Will you put that clock away for one minute?",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Time is very complicated I wouldn't expect you to understand.",3.5F,3.5F));
-                    break;
-                case 4:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"This throne is mine in due time.",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Only temporarily, at best.",3.5F,3.5F));
-                    break;
-                case 5:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"I'm going to enjoy tossing you over the railing again.",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Oh, I forgot about that! Champ said I made a big neeeowww on the way down..",3.5F,3.5F));
-                    break;
-                case 6:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"Your TIME... is up.",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"You used to hate my puns.",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"It's been a long time since then.",3.5F,3.5F));
-                    break;
-                case 7:
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Care to step aside peacefully this time?",3.5F,3.5F));
-                    AbstractDungeon.actionManager.addToBottom(new TalkAction(m,"You don't deserve an easy victory.",3.5F,3.5F));
-                    break;
+            EventStrings talkStrings = CardCrawlGame.languagePack.getEventString("TalkwithTimeEater");
+            if (talkStrings != null && talkStrings.DESCRIPTIONS != null && talkStrings.DESCRIPTIONS.length == 12) {
+                String[] desc = talkStrings.DESCRIPTIONS;
+                switch (AbstractDungeon.actionManager.turn) {
+                    case 2:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[0],3.5F,3.5F));
+                        break;
+                    case 3:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,desc[1],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[2],3.5F,3.5F));
+                        break;
+                    case 4:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,desc[3],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[4],3.5F,3.5F));
+                        break;
+                    case 5:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[5],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,desc[6],3.5F,3.5F));
+                        break;
+                    case 6:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[7],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,desc[8],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[9],3.5F,3.5F));
+                        break;
+                    case 7:
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,desc[10],3.5F,3.5F));
+                        AbstractDungeon.actionManager.addToBottom(new TalkAction(m,desc[11],3.5F,3.5F));
+                        break;
+                }
             }
         }
         return true;

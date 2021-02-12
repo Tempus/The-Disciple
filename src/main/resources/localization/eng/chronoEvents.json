@@ -57,5 +57,22 @@
       "[Craft] Turn #yLocked #yTwirtle into a #grelic. #rGain #ra #rGremlin #rMask.",
       "[Craft] Turn #yLocked #yScales into a #grelic. #rBecome #rCursed #r- #rPain."
     ]
-  }  
+  },
+  "TalkwithTimeEater": {
+    "NAME": "TalkStrings",
+    "DESCRIPTIONS": [
+      "Whale brought you back did they?",
+      "Will you put that clock away for one minute?",
+      "Time is very complicated I wouldn't expect you to understand.",
+      "This throne is mine in due time.",
+      "Only temporarily, at best.",
+      "I'm going to enjoy tossing you over the railing again.",
+      "Oh, I forgot about that! Champ said I made a big neeeowww on the way down..",
+      "Your TIME... is up.",
+      "You used to hate my puns.",
+      "It's been a long time since then.",
+      "Care to step aside peacefully this time?",
+      "You don't deserve an easy victory."
+    ]
+  }
 }
